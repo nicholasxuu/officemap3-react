@@ -1,15 +1,18 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import OfficeMapReducer from '../reducers/index';
+import MapReducer from '../reducers/index';
+import { loadDummy } from '../actions/dataSync';
 
 export default function configureStore(preloadedState) {
 	const store = createStore(
-		OfficeMapReducer,
+		MapReducer,
 		preloadedState,
 		applyMiddleware(
 			thunkMiddleware,
 		)
 	);
+
+	store.dispatch(loadDummy());
 
 	return store;
 };

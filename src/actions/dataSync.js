@@ -14,7 +14,7 @@ export const receiveJson = (mapId, json) => {
 	return {
 		type: RESPOND_GET,
 		mapId,
-		lists: Immutable.fromJS(json.data),
+		locations: Immutable.fromJS(json.locations),
 		token: json.token,
 	}
 };
@@ -24,15 +24,14 @@ export const respondSync  = (mapId, json, writeToken) => {
 	return {
 		type: RESPOND_POST,
 		mapId,
-		invalidToken: !!(json.data),
-		lists: Immutable.fromJS(json.data),
+		invalidToken: !!(json.locations),
+		locations: Immutable.fromJS(json.locations),
 		token: writeToken,
 	}
 };
 
 export const fetchJson = (doc_id) => {
 	return function (dispatch) {
-		dispatch(requestJson(doc_id));
 		return fetch("http://localhost:8000/api/json?doc_id="+doc_id)
 			.then(response => response.json())
 			.then(json =>
@@ -54,5 +53,23 @@ export const syncJson = (doc_id, lists, token) => {
 			.then(json =>
 				dispatch(respondSync(doc_id, json, json.token))
 			);
+	}
+};
+
+export const loadDummy = () => {
+	return function (dispatch) {
+		return dispatch(receiveJson(1, {
+			token: 'asdf',
+			locations: [
+				{
+					id: 1,
+					name: "name1",
+				},
+				{
+					id: 2,
+					name: "name2",
+				},
+			]
+		}));
 	}
 };

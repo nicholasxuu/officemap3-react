@@ -13,6 +13,7 @@
     "react-dom": "^15.4.2",
     "react-immutable-proptypes": "^2.1.0",
     "react-redux": "^5.0.2",
+    "react-svg-pan-zoom": "^2.4.5",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"
   },

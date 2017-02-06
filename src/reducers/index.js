@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 import mapDataReducer from './mapData';
 import writeTokenReducer from './writeToken';
 
-const OfficeMapReducer = combineReducers({
-	lists: mapDataReducer,
+const MapReducer = combineReducers({
+	locations: mapDataReducer,
 	token: writeTokenReducer,
 });
 
-export default OfficeMapReducer;
+export default MapReducer;

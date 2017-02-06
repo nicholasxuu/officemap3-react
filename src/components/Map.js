@@ -10,8 +10,13 @@ class Map extends React.Component {
 	render = () => {
 		return (
 			<div>
-				<MapSidebar />
-				<MapBox />
+				Map
+				<MapSidebar
+					locations={this.props.locations}
+				/>
+				<MapBox
+
+				/>
 				<MapHoverTip />
 				<MapLocationDetail />
 			</div>
@@ -19,14 +24,14 @@ class Map extends React.Component {
 	}
 }
 
-Map.propTypes = {
-	actions: PropTypes.shape({
-
-	}).isRequired,
-	locations: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
-		id: PropTypes.number.isRequired,
-	})).isRequired,
-};
+// Map.propTypes = {
+// 	actions: PropTypes.shape({
+//
+// 	}).isRequired,
+// 	locations: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
+// 		id: PropTypes.number.isRequired,
+// 	})).isRequired,
+// };
 
 export default Map;
 
