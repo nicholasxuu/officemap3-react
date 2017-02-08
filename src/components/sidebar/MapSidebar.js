@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
-import MapSearchBox from './MapSearchBox';
-import MapLocationList from './MapLocationList';
+import MapSearchBox from '../../containers/sidebar/MapSearchBox';
+import MapLocationList from '../../containers/sidebar/MapLocationList';
 
 class MapSidebar extends React.Component {
 
@@ -9,23 +9,15 @@ class MapSidebar extends React.Component {
 		return (
 			<div>
 				MapSidebar
-				<MapSearchBox
-					locations={this.props.locations}
-				/>
-				<MapLocationList
-					locations={this.props.locations}
-				/>
+				<MapSearchBox/>
+				<MapLocationList/>
 			</div>
 		);
 	}
 }
 
-// MapSidebar.propTypes = {
-// 	actions: PropTypes.shape({}).isRequired,
-// 	locations: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
-// 		name: PropTypes.string.isRequired,
-// 	})).isRequired,
-// };
+MapSidebar.propTypes = {
+};
 
 export default MapSidebar;
 

@@ -5,7 +5,6 @@ import Map from '../components/Map';
 
 const mapStateToProps = (state) => {
 	return {
-		locations: state.locations
 	};
 };
 

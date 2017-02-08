@@ -1,6 +1,6 @@
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {} from '../../actions/map';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { searchLocation } from '../../actions/map';
 import MapSearchBox from '../../components/sidebar/MapSearchBox';
 
 const mapStateToProps = (state) => {
@@ -9,7 +9,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		actions: bindActionCreators({}, dispatch),
+		actions: bindActionCreators({
+			searchLocation
+		}, dispatch),
 	}
 };
 

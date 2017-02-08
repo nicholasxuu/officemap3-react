@@ -1,6 +1,6 @@
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {} from '../../actions/map';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { selectLocation } from '../../actions/map';
 import MapLocationListItem from '../../components/sidebar/MapLocationListItem';
 
 const mapStateToProps = (state) => {
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		actions: bindActionCreators({}, dispatch),
+		actions: bindActionCreators({ selectLocation }, dispatch),
 	}
 };
 

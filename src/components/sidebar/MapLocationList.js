@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
-import MapLocationListItem from './MapLocationListItem';
+import MapLocationListItem from '../../containers/sidebar/MapLocationListItem';
 
 class MapLocationList extends React.Component {
 
@@ -11,8 +11,7 @@ class MapLocationList extends React.Component {
 				{this.props.locations.map(location =>
 					<MapLocationListItem
 						key={location.get('id')}
-						id={location.get('id')}
-						name={location.get('name')}
+					    location={location}
 					/>
 				)}
 			</div>
@@ -20,12 +19,8 @@ class MapLocationList extends React.Component {
 	}
 }
 
-// MapLocationList.propTypes = {
-// 	actions: PropTypes.shape({}).isRequired,
-// 	locations: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
-// 		name: PropTypes.string.isRequired,
-// 	})).isRequired,
-// };
+MapLocationList.propTypes = {
+};
 
 export default MapLocationList;
 

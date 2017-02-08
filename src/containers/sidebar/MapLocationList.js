@@ -1,12 +1,19 @@
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {} from '../../actions/map';
 import MapLocationList from '../../components/sidebar/MapLocationList';
 
 const mapStateToProps = (state) => {
-	return {
 
-	};
+	if (state.searchText !== '') {
+		return {
+			locations: state.locations.filter(location => {
+				return location.get('name').search(state.searchText) !== -1;
+			}),
+		};
+	}
+
+	return state;
 };
 
 const mapDispatchToProps = (dispatch) => {

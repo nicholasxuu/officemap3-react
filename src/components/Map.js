@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
-import MapBox from './MapBox';
-import MapSidebar from './sidebar/MapSidebar';
-import MapHoverTip from './MapHoverTip';
-import MapLocationDetail from './MapLocationDetail';
+import MapBox from '../containers/MapBox';
+import MapSidebar from '../containers/sidebar/MapSidebar';
+import MapHoverTip from '../containers/MapHoverTip';
+import MapLocationDetail from '../containers/MapLocationDetail';
 
 class Map extends React.Component {
 
