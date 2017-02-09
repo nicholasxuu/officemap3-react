@@ -4,7 +4,7 @@ import {} from '../actions/map';
 import MapBox from '../components/MapBox';
 
 const mapStateToProps = (state) => {
-	return {};
+	return state.locations;
 };
 
 const mapDispatchToProps = (dispatch) => {

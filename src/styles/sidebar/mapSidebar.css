@@ -1,0 +1,7 @@
+.map-sidebar {
+	display: flex;
+	flex-flow: column nowrap;
+	min-width: 200px;
+	width: 10%;
+	height: 100%;
+}

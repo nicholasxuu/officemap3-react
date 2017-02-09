@@ -4,7 +4,10 @@ import {} from '../actions/map';
 import MapHoverTip from '../components/MapHoverTip';
 
 const mapStateToProps = (state) => {
-	return {};
+	return {
+		show: !state.hoverLocation.isEmpty(),
+		location: state.hoverLocation,
+	};
 };
 
 const mapDispatchToProps = (dispatch) => {

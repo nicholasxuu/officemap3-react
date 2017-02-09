@@ -3,18 +3,8 @@ import * as ImmutablePropTypes from 'react-immutable-proptypes';
 
 class MapSearchBox extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			searchText: '',
-		}
-	};
-
 	onChange = (e) => {
 		let value = e.target.value.trim();
-		this.setState({
-			searchText: value,
-		});
 
 		this.props.actions.searchLocation(value)
 	};
@@ -22,12 +12,11 @@ class MapSearchBox extends React.Component {
 	render = () => {
 		return (
 			<div>
-				MapSearchBox -
 				<input
 					type="text"
+					placeholder="Search"
 					onChange={this.onChange.bind(this)}
 				/>
-				<div>{this.state.searchText}</div>
 			</div>
 		);
 	}

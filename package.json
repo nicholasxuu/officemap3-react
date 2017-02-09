@@ -10,9 +10,11 @@
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
     "react-immutable-proptypes": "^2.1.0",
     "react-redux": "^5.0.2",
+    "react-router": "^3.0.2",
     "react-svg-pan-zoom": "^2.4.5",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"

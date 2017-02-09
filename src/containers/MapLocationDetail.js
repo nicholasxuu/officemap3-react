@@ -4,7 +4,10 @@ import {} from '../actions/map';
 import MapLocationDetail from '../components/MapLocationDetail';
 
 const mapStateToProps = (state) => {
-	return {};
+	return {
+		show: !state.selectLocation.isEmpty(),
+		location: state.selectLocation,
+	};
 };
 
 const mapDispatchToProps = (dispatch) => {
