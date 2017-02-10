@@ -14,9 +14,7 @@ class Map extends React.Component {
 				<MapSidebar
 					locations={this.props.locations}
 				/>
-				<MapBox
-
-				/>
+				<MapBox />
 				<MapHoverTip />
 				<MapLocationDetail />
 			</div>

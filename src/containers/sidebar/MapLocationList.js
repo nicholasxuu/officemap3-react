@@ -8,7 +8,13 @@ const mapStateToProps = (state) => {
 	if (state.searchText !== '') {
 		return {
 			locations: state.locations.filter(location => {
-				return location.get('name').search(state.searchText) !== -1;
+				if (
+					location.get('name').search(state.searchText) !== -1 ||
+					location.get('info').search(state.searchText) !== -1
+				) {
+					return true;
+				}
+				return false;
 			}),
 		};
 	}

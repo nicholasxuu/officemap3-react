@@ -64,10 +64,14 @@ export const loadDummy = () => {
 				{
 					id: 1,
 					name: "name1",
+					info: "software engineer",
+					image: "http://localhost:3000/img/1.jpg",
 				},
 				{
 					id: 2,
 					name: "name2",
+					info: "1234567890123456",
+					image: "http://localhost:3000/img/1.jpg",
 				},
 			]
 		}));

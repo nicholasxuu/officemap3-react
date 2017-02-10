@@ -5,8 +5,10 @@ import MapLocationDetail from '../components/MapLocationDetail';
 
 const mapStateToProps = (state) => {
 	return {
-		show: !state.selectLocation.isEmpty(),
-		location: state.selectLocation,
+		show: !state.selectLocation.get('location').isEmpty(),
+		location: state.selectLocation.get('location'),
+		posX: state.selectLocation.get('posX'),
+		posY: state.selectLocation.get('posY'),
 	};
 };
 

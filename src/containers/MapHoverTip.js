@@ -5,8 +5,10 @@ import MapHoverTip from '../components/MapHoverTip';
 
 const mapStateToProps = (state) => {
 	return {
-		show: !state.hoverLocation.isEmpty(),
-		location: state.hoverLocation,
+		show: !state.hoverLocation.get('location').isEmpty(),
+		location: state.hoverLocation.get('location'),
+		posX: state.hoverLocation.get('posX'),
+		posY: state.hoverLocation.get('posY'),
 	};
 };
 

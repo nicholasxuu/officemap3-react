@@ -9,8 +9,8 @@ class MapHoverTip extends React.Component {
 				<div
 					style={{
 						position: 'absolute',
-						top: '50px',
-						left: '100px',
+						top: this.props.posY + 'px',
+						left: this.props.posX + 'px',
 						display: this.props.show ? 'block': 'none',
 					}}
 				>
