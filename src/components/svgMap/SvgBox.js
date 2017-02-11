@@ -1,4 +1,5 @@
 import React from 'react';
+import Immutable from 'immutable';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/svgMap/svgBox.css';
 
@@ -9,6 +10,7 @@ class SvgBox extends React.Component {
 		this.state = {
 			matrix: [1, 0, 0, 1, 0, 0],
 			dragging: false,
+			hovering: false,
 		};
 	}
 
@@ -16,7 +18,7 @@ class SvgBox extends React.Component {
 		// Find start position of drag based on touch/mouse coordinates.
 		const startX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
 		const startY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
-		const scaleMultiplier = e.currentTarget.getScreenCTM().a;
+		const scaleMultiplier = e.currentTarget.getCTM().a; // svg box's scale comparing to current viewport size
 
 		// Update state with above coordinates, and set dragging to true.
 		const state = {
@@ -66,6 +68,54 @@ class SvgBox extends React.Component {
 		}
 	};
 
+	getElementCenter = (DomElement) => {
+		let centerX = 0;
+		let centerY = 0;
+		switch (DomElement.getAttribute('type')) {
+			case 'path':
+				break;
+			case 'rect':
+				centerX = parseFloat(DomElement.getAttribute('x')) + (parseFloat(DomElement.getAttribute('width')) / 2);
+				centerY = parseFloat(DomElement.getAttribute('y')) + (parseFloat(DomElement.getAttribute('height')) / 2);
+				break;
+		}
+		return {
+			elementX: centerX,
+			elementY: centerY,
+		};
+	};
+
+	onElementHoverStart = (e) => {
+		const elementId = e.currentTarget.id;
+		const locationObj = this.props.locations.find((location) => {
+			return location.get('mapElementId') === elementId;
+		});
+		this.setState({
+			hovering: true,
+			locationObj: locationObj,
+		});
+	};
+
+	onElementHover = (e) => {
+		if (!this.state.hovering) {
+			return;
+		}
+		// const { elementX, elementY } = this.getElementCenter(e.currentTarget);
+		this.props.actions.hoverLocation(this.state.locationObj, e.clientX + 10, e.clientY + 10);
+	};
+
+	onElementHoverEnd = (e) => {
+		const locationObj = Immutable.Map({});
+		this.props.actions.hoverLocation(locationObj, e.clientX + 10, e.clientY + 10);
+		this.setState({
+			hovering: false,
+		});
+	};
+
+	onElementClickStart = (e) => {
+		
+	};
+
 	pan = (dx, dy) => {
 		const m = this.state.matrix;
 		m[4] += dx;
@@ -113,40 +163,15 @@ class SvgBox extends React.Component {
 							width={this.props.image.width}
 						/>
 
-						{this.props.image.elements.map(element => {
-							if (element.type === 'rect') {
-								return <rect
-									key={element.id}
-									id={element.id}
-									opacity={element.opacity}
-									height={element.height}
-									width={element.width}
-									x={element.x}
-									y={element.y}
-									fill={element.fillColor}
-									fillOpacity={element.fillOpacity}
-									stroke={element.strokeColor}
-									strokeOpacity={element.strokeOpacity}
-									strokeWidth={element.strokeWidth}
-									onMouseOver={(e) => {this.props.actions.hoverLocation(element.id, this.props.locations, e.clientX, e.clientY)}}
-									onMouseDown={(e) => {this.props.actions.selectLocation(element.id, this.props.locations, e.clientX, e.clientY)}}
-								/>
-							} else if (element.type === 'path') {
-								return <path
-									key={element.id}
-									id={element.id}
-									opacity={element.opacity}
-									d={element.d}
-									fill={element.fillColor}
-									fillOpacity={element.fillOpacity}
-									stroke={element.strokeColor}
-									strokeOpacity={element.strokeOpacity}
-									strokeWidth={element.strokeWidth}
-									onMouseOver={(e) => {this.props.actions.hoverLocation(element.id, this.props.locations, e.clientX, e.clientY)}}
-									onMouseDown={(e) => {this.props.actions.selectLocation(element.id, this.props.locations, e.clientX, e.clientY)}}
-								/>
-							}
-						})}
+						{this.props.image.elements.map(element =>
+							<element.type
+								key={element.id}
+								{...element}
+								onMouseEnter={this.onElementHoverStart}
+								onMouseMove={this.onElementHover}
+								onMouseLeave={this.onElementHoverEnd}
+							/>
+						)}
 
 					</g>
 

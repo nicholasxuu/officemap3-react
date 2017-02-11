@@ -20,10 +20,7 @@ export const selectLocation = (elementId, locations, posX = 0, posY = 0) => {
 };
 
 export const HOVER_LOCATION = 'HOVER_LOCATION';
-export const hoverLocation = (elementId, locations, posX = 0, posY = 0) => {
-	let locationObj = locations.find((location) => {
-		return location.get('mapElementId') === elementId;
-	});
+export const hoverLocation = (locationObj, posX = 0, posY = 0) => {
 	return {
 		type: HOVER_LOCATION,
 		locationObj,
