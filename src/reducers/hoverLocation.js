@@ -9,6 +9,7 @@ const hoverLocationReducer = (state = Immutable.fromJS({location: {}, posX: 0, p
 				posX: action.posX,
 				posY: action.posY,
 			});
+		default:
 	}
 	return state;
 };

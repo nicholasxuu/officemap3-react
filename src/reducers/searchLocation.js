@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+// import Immutable from 'immutable';
 import { SEARCH_LOCATION } from '../actions/map';
 
 const searchLocationReducer = (state = '', action) => {
@@ -6,6 +6,7 @@ const searchLocationReducer = (state = '', action) => {
 		case SEARCH_LOCATION:
 			state = action.searchText;
 			break;
+		default:
 	}
 	return state;
 };

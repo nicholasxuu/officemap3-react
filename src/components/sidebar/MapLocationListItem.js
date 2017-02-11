@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react';
-import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import React from 'react';
+// import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import { ListGroupItem } from 'react-bootstrap';
 import '../../styles/sidebar/mapLocationListItem.css';
 
@@ -13,7 +13,10 @@ class MapLocationListItem extends React.Component {
 				<span
 					className="item-image"
 				>
-					<img src={this.props.location.get('image')} />
+					<img
+						src={this.props.location.get('image')}
+					    alt={this.props.location.get('name')}
+					/>
 				</span>
 				<span
 					className="item-body"

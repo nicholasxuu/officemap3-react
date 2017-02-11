@@ -15,6 +15,7 @@ export const receiveJson = (mapId, json) => {
 		type: RESPOND_GET,
 		mapId,
 		locations: Immutable.fromJS(json.locations),
+		image: json.image,
 		token: json.token,
 	}
 };
@@ -66,14 +67,48 @@ export const loadDummy = () => {
 					name: "name1",
 					info: "software engineer",
 					image: "http://localhost:3000/img/1.jpg",
+					mapElementId: "svg_8",
 				},
 				{
 					id: 2,
 					name: "name2",
 					info: "1234567890123456",
 					image: "http://localhost:3000/img/1.jpg",
+					mapElementId: "svg_4",
 				},
-			]
+			],
+			image: {
+				width: 1402,
+				height: 1402,
+				url: "/img/weebly_ny.png",
+				elements: [
+					{
+						id: 'svg_8',
+						type: 'rect',
+						height: 60.931406,
+						width: 89.898795,
+						x: 262.704261,
+						y: 604.682895,
+						opacity: 0.34,
+						strokeColor: "#000",
+						strokeOpacity: null,
+						strokeWidth: 1.5,
+						fillColor: "#fff",
+						fillOpacity: null,
+					},
+					{
+						id: 'svg_4',
+						type: 'path',
+						opacity:0.56,
+						d: "m159.82008,340.61655l206.76723,-0.99887l0,244.7245l-155.82458,0l-50.94265,-243.72563z",
+						fillOpacity: null,
+						fillColor:"#fff",
+						strokeOpacity: null,
+						strokeWidth: 1.5,
+						strokeColor:"#000",
+					},
+				],
+			},
 		}));
 	}
 };

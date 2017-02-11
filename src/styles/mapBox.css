@@ -1,5 +1,6 @@
 .map-box {
 	height: 100%;
 	width: 100%;
-	background-color: #eeeeee;
+	background-color: #ffffff;
+	border: solid;
 }

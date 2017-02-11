@@ -9,6 +9,7 @@ const selectLocationReducer = (state = Immutable.fromJS({location: {}, posX: 0, 
 				posX: action.posX,
 				posY: action.posY,
 			});
+		default:
 	}
 	return state;
 };

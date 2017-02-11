@@ -4,6 +4,7 @@ import writeTokenReducer from './writeToken';
 import searchLocationReducer from './searchLocation';
 import hoverLocationReducer from './hoverLocation';
 import selectLocationReducer from './selectLocation';
+import svgImageReducer from './svgImage';
 
 const MapReducer = combineReducers({
 	locations: mapDataReducer,
@@ -11,6 +12,7 @@ const MapReducer = combineReducers({
 	searchText: searchLocationReducer,
 	hoverLocation: hoverLocationReducer,
 	selectLocation: selectLocationReducer,
+	image: svgImageReducer,
 });
 
 export default MapReducer;

@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import React from 'react';
+// import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import { ListGroup } from 'react-bootstrap';
 import '../../styles/sidebar/mapLocationList.css';
 import MapLocationListItem from '../../containers/sidebar/MapLocationListItem';
