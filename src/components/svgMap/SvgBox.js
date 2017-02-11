@@ -71,9 +71,17 @@ class SvgBox extends React.Component {
 		this.updateSelectedTip();
 	};
 
-	updateSelectedTip = () => {
+	updateSelectedTip = (selectedLocationDOM = null) => {
+		if (selectedLocationDOM !== null) {
+			this.setState({ selectedLocationDOM: selectedLocationDOM });
+		}
+
 		if (this.state.selectedLocationDOM !== null) {
-			const currentTarget = this.state.selectedLocationDOM;
+			selectedLocationDOM = this.state.selectedLocationDOM;
+		}
+
+		if (selectedLocationDOM !== null) {
+			const currentTarget = selectedLocationDOM;
 			const elementId = currentTarget.id;
 			const locationObj = this.props.locations.find((location) => {
 				return location.get('mapElementId') === elementId;
@@ -160,7 +168,7 @@ class SvgBox extends React.Component {
 	};
 
 	onElementClickStart = (e) => {
-		this.setState({ selectedLocationDOM: e.currentTarget });
+		this.updateSelectedTip(e.currentTarget);
 	};
 
 	pan = (dx, dy) => {
