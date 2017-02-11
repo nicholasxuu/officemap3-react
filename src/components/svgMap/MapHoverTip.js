@@ -1,5 +1,6 @@
 import React from 'react';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import '../../styles/svgMap/mapHoverTip.css';
 
 class MapHoverTip extends React.Component {
 
@@ -10,7 +11,7 @@ class MapHoverTip extends React.Component {
 			>
 				<div
 					style={{
-						position: 'absolute',
+						position: 'fixed', // hovertip follow mouse pointer and use screen coordinates
 						top: this.props.posY + 'px',
 						left: this.props.posX + 'px',
 						display: this.props.show ? 'block': 'none',

@@ -7,10 +7,7 @@ export const searchLocation = (searchText) => {
 };
 
 export const SELECT_LOCATION = 'SELECT_LOCATION';
-export const selectLocation = (elementId, locations, posX = 0, posY = 0) => {
-	let locationObj = locations.find((location) => {
-		return location.get('mapElementId') === elementId;
-	});
+export const selectLocation = (locationObj, posX = 0, posY = 0) => {
 	return {
 		type: SELECT_LOCATION,
 		locationObj,

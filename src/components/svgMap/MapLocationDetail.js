@@ -1,5 +1,6 @@
 import React from 'react';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import '../../styles/svgMap/mapLocationDetail.css';
 
 class MapLocationDetail extends React.Component {
 

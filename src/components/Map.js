@@ -3,8 +3,6 @@ import React from 'react';
 import '../styles/map.css';
 import MapBox from '../containers/MapBox';
 import MapSidebar from '../containers/MapSidebar';
-import MapHoverTip from '../containers/svgMap/MapHoverTip';
-import MapLocationDetail from '../containers/svgMap/MapLocationDetail';
 
 class Map extends React.Component {
 
@@ -15,8 +13,6 @@ class Map extends React.Component {
 					locations={this.props.locations}
 				/>
 				<MapBox />
-				<MapHoverTip />
-				<MapLocationDetail />
 			</div>
 		);
 	}
