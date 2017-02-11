@@ -1,8 +1,8 @@
 import { RESPOND_GET } from '../actions/dataSync';
 
 const svgImageReducer = (state = {
-	width: 1,
-	height: 1,
+	width: 0,
+	height: 0,
 	url: "",
 }, action) => {
 	switch (action.type) {

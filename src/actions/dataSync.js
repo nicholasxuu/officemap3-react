@@ -78,8 +78,8 @@ export const loadDummy = () => {
 				},
 			],
 			image: {
-				width: 1402,
-				height: 1402,
+				width: 1400,
+				height: 1400,
 				url: "/img/weebly_ny.png",
 				elements: [
 					{

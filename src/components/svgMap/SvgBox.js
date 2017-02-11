@@ -6,107 +6,112 @@ class SvgBox extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.selectedElement = 0;
-		this.currentX = 0;
-		this.currentY = 0;
-		this.focusedElement = 0;
-		this.currentMatrix = 0;
-
-		this.props.image.viewBox = [0, 0, this.props.image.width, this.props.image.height].join(' ');
+		this.state = {
+			matrix: [1, 0, 0, 1, 0, 0],
+			dragging: false,
+		};
 	}
 
-	_getCurrentMatrix = (element) => {
-		let matrix = element.getAttributeNS(null, "transform").slice(7,-1).split(' ');
+	onDragStart = (e) => {
+		// Find start position of drag based on touch/mouse coordinates.
+		const startX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
+		const startY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+		const scaleMultiplier = e.currentTarget.getScreenCTM().a;
 
-		for (let i=0; i < matrix.length; i++) {
-			matrix[i] = parseFloat(matrix[i]);
+		// Update state with above coordinates, and set dragging to true.
+		const state = {
+			dragging: true,
+			startX,
+			startY,
+			scaleMultiplier,
+		};
+
+		this.setState(state);
+	};
+
+	onDragMove = (e) => {
+		// First check if the state is dragging, if not we can just return
+		// so we do not move unless the user wants to move
+		if (!this.state.dragging) {
+			return;
 		}
-		return matrix;
+
+		// Get the new x coordinates
+		const x = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
+		const y = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+
+		// Take the delta where we are minus where we came from.
+		const dx = (x - this.state.startX) / this.state.scaleMultiplier;
+		const dy = (y - this.state.startY) / this.state.scaleMultiplier;
+
+		// Pan using the deltas
+		this.pan(dx, dy);
+
+		// Update the state
+		this.setState({
+			startX: x,
+			startY: y,
+		});
 	};
 
-	_selectElement = (e) => {
-		this.selectedElement = e.currentTarget;
-		this.currentX = e.clientX;
-		this.currentY = e.clientY;
-		this.currentMatrix = this._getCurrentMatrix(this.selectedElement);
-		this.multiplier = this.selectedElement.parentElement.getScreenCTM().a; // todo: need to make sure parent is <svg />
+	onDragEnd = (e) => {
+		this.setState({ dragging: false });
 	};
 
-	_deselectElement = (e) => {
-		if (this.selectedElement !== 0){
-			this.selectedElement = 0;
+	onWheel = (e) => {
+		if (e.deltaY < 0) {
+			this.zoom(1.05);
+		} else {
+			this.zoom(0.95);
 		}
 	};
 
-	_focusElement = (e) => {
-		this.focusedElement = e.currentTarget;
-		this.currentMatrix = this._getCurrentMatrix(this.focusedElement);
+	pan = (dx, dy) => {
+		const m = this.state.matrix;
+		m[4] += dx;
+		m[5] += dy;
+		this.setState({ matrix: m });
 	};
 
-	_unfocusElement = (e) => {
-		if (this.focusedElement !== 0) {
-			this.focusedElement = 0;
+	zoom = (scale) => {
+		const m = this.state.matrix;
+		const len = m.length;
+		for (let i = 0; i < len; i++) {
+			m[i] *= scale;
 		}
-	};
-
-	_leaveElement = (e) => {
-		this._unfocusElement(e);
-		this._deselectElement(e);
-	};
-
-	_moveElement = (e) => {
-		if (this.selectedElement !== 0) {
-			this.currentMatrix[4] += (e.clientX - this.currentX) / this.multiplier;
-			this.currentMatrix[5] += (e.clientY - this.currentY) / this.multiplier;
-
-			this.selectedElement.setAttributeNS(null, "transform", "matrix(" + this.currentMatrix.join(' ') + ")");
-
-			this.currentX = e.clientX;
-			this.currentY = e.clientY;
-		}
-	};
-
-	_resizeElement = (e) => {
-		if (this.focusedElement !== 0) {
-			e.preventDefault();
-
-			let scaleChange = e.deltaY / 200 * -1;
-
-			// change zoom
-			this.currentMatrix[0] += scaleChange;
-			this.currentMatrix[3] += scaleChange;
-
-			// make zoom from the center, not top left corner
-			this.currentMatrix[4] -= scaleChange * 100;
-			this.currentMatrix[5] -= scaleChange * 100;
-
-			this.focusedElement.setAttributeNS(null, "transform", "matrix(" + this.currentMatrix.join(' ') + ")");
-		}
+		m[4] += (1 - scale) * this.props.image.width / 2;
+		m[5] += (1 - scale) * this.props.image.height / 2;
+		this.setState({ matrix: m });
 	};
 
 	render = () => {
+		const viewBox = [0, 0, this.props.image.width, this.props.image.height].join(' ');
 		return (
 			<div className="svg-box">
 				<svg
-					viewBox={this.props.image.viewBox}
+					viewBox={viewBox}
 					preserveAspectRatio="xMidYMid slice"
 					xmlns="http://www.w3.org/2000/svg"
 					version="1.1"
-					onMouseLeave={this._leaveElement}
+
+					onMouseDown={this.onDragStart}
+					onTouchStart={this.onDragStart}
+					onMouseMove={this.onDragMove}
+					onTouchMove={this.onDragMove}
+					onMouseUp={this.onDragEnd}
+					onTouchEnd={this.onDragEnd}
+				    onWheel={this.onWheel}
 				>
 					<g
-						className="draggable"
-						onMouseUp={this._deselectElement}
-						onMouseDown={this._selectElement}
-						onMouseMove={this._moveElement}
-
-						onMouseEnter={this._focusElement}
-						onMouseLeave={this._unfocusElement}
-						onWheel={this._resizeElement}
-
-						transform="matrix(1 0 0 1 0 0)"
+						transform={`matrix(${this.state.matrix.join(' ')})`}
 					>
-						<image xlinkHref={this.props.image.url} x="0" y="0" height="1400" width="1400"/>
+						<image
+							xlinkHref={this.props.image.url}
+							x="0"
+							y="0"
+							height={this.props.image.height}
+							width={this.props.image.width}
+						/>
 
 						{this.props.image.elements.map(element => {
 							if (element.type === 'rect') {
