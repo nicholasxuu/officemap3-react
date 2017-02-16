@@ -1,19 +1,19 @@
-export const getShapeCenter = (shapeDOM) => {
+export const getShapeCenter = (shapeRef) => {
 	let centerPoint = {x:0, y:0};
-	switch (shapeDOM.getAttribute('type')) {
+	switch (shapeRef.getAttribute('type')) {
 		case 'path':
-			centerPoint = getPathShapeCenter(shapeDOM);
+			centerPoint = getPathShapeCenter(shapeRef);
 			break;
 		case 'rect':
-			centerPoint = getRectShapeCenter(shapeDOM);
+			centerPoint = getRectShapeCenter(shapeRef);
 			break;
 	}
 	return centerPoint;
 };
 
-export const getPathShapeCenter = (pathDOM) => {
+export const getPathShapeCenter = (pathRef) => {
 	// i.e. m159.82008,340.61655l206.76723,-0.99887l0,244.7245l-155.82458,0l-50.94265,-243.72563z
-	let svgD = pathDOM.getAttribute('d');
+	let svgD = pathRef.getAttribute('d');
 	svgD = svgD.substr(1, svgD.length-2);
 	const pathList = svgD.split('l').map(item => item.split(',').map(number => parseFloat(number)));
 
@@ -49,8 +49,8 @@ export const getPathShapeCenter = (pathDOM) => {
 	return { x, y };
 };
 
-export const getRectShapeCenter = (rectDOM) => {
-	const x = parseFloat(rectDOM.getAttribute('x')) + (parseFloat(rectDOM.getAttribute('width')) / 2);
-	const y = parseFloat(rectDOM.getAttribute('y')) + (parseFloat(rectDOM.getAttribute('height')) / 2);
+export const getRectShapeCenter = (rectRef) => {
+	const x = parseFloat(rectRef.getAttribute('x')) + (parseFloat(rectRef.getAttribute('width')) / 2);
+	const y = parseFloat(rectRef.getAttribute('y')) + (parseFloat(rectRef.getAttribute('height')) / 2);
 	return { x, y };
 };

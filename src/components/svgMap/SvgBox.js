@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Immutable from 'immutable';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/svgMap/svgBox.css';
+import { updateSelectedTip } from './utils/svgUtils';
 import { getShapeCenter } from './utils/svgShapeUtils';
 
 class SvgBox extends React.Component {
@@ -13,9 +15,13 @@ class SvgBox extends React.Component {
 			dragging: false,
 			hovering: false,
 			selectingLocation: false,
-			selectedLocationDOM: null,
+			selectedLocationId: null,
 		};
 	}
+
+	componentDidMount = () => {
+
+	};
 
 	onDragStart = (e) => {
 		// Find start position of drag based on touch/mouse coordinates.
@@ -35,6 +41,7 @@ class SvgBox extends React.Component {
 	};
 
 	onDragMove = (e) => {
+		e.preventDefault();
 		// First check if the state is dragging, if not we can just return
 		// so we do not move unless the user wants to move
 		if (this.state.dragging === true) {
@@ -55,8 +62,6 @@ class SvgBox extends React.Component {
 				startY: y,
 			});
 		}
-
-		this.updateSelectedTip(this.state.selectedLocationDOM);
 	};
 
 	onDragEnd = (e) => {
@@ -64,31 +69,22 @@ class SvgBox extends React.Component {
 	};
 
 	onWheel = (e) => {
+		e.preventDefault();
 		if (e.deltaY < 0) {
 			this.zoom(1.05);
 		} else {
 			this.zoom(0.95);
 		}
-
-		this.updateSelectedTip(this.state.selectedLocationDOM);
-	};
-
-	updateSelectedTip = (selectedLocationDOM = null) => {
-		if (selectedLocationDOM !== null) {
-			const currentTarget = selectedLocationDOM;
-			const elementId = currentTarget.id;
-			const locationObj = this.props.locations.find((location) => {
-				return location.get('mapElementId') === elementId;
-			});
-			const coordinates = currentTarget.getCTM();
-			const shapeCenterPoint = getShapeCenter(currentTarget);
-			const scaleMultiplier = coordinates.a; // svg box's scale comparing to current viewport size
-			this.props.actions.selectLocation(locationObj, coordinates.e + shapeCenterPoint.x * scaleMultiplier, coordinates.f + shapeCenterPoint.y * scaleMultiplier);
-		}
 	};
 
 	onElementHoverStart = (e) => {
 		const elementId = e.currentTarget.id;
+
+		// don't hover if selected same object
+		if (this.state.selectedLocationId && elementId === this.state.selectedLocationId.id) {
+			return;
+		}
+
 		const locationObj = this.props.locations.find((location) => {
 			return location.get('mapElementId') === elementId;
 		});
@@ -108,27 +104,56 @@ class SvgBox extends React.Component {
 		}
 	};
 
-	onElementHoverEnd = (e) => {
+	onElementHoverEnd = () => {
 		const locationObj = Immutable.Map({});
-		this.props.actions.hoverLocation(locationObj, e.clientX + 10, e.clientY + 10);
+		this.props.actions.hoverLocation(locationObj, 0, 0);
 		this.setState({
 			hovering: false,
 		});
 	};
 
 	onElementClickPrepare = (e) => {
-		this.setState({ selectingLocation: true });
+		if (this.state.selectingLocation === false) {
+			this.setState({ selectingLocation: true });
+		}
 	};
 
 	onElementClickCancel = (e) => {
-		this.setState({ selectingLocation: false });
+		if (this.state.selectingLocation === true) {
+			this.setState({ selectingLocation: false });
+		}
 	};
 
 	onElementClickStart = (e) => {
 		if (this.state.selectingLocation === true) {
-			this.setState({ selectedLocationDOM: e.currentTarget });
-			this.updateSelectedTip(e.currentTarget);
+			this.onElementHoverEnd(); // clear current hover state if there any.
+
+			this.setState({ selectedLocationId: e.currentTarget.id });
+
+			// note: set state doesn't work immediately, need to use raw object if run immediately.
+			updateSelectedTip(e.currentTarget, this.props.locations, this.props.actions.selectLocation);
 		}
+	};
+
+	panToCenterAtPoint = (cx, cy) => {
+		const m = this.state.matrix;
+
+		m[4] = this.props.image.width / 2 - cx;
+		m[5] = this.props.image.height / 2 - cy;
+
+		this.setState({ matrix: m });
+
+		this.onTransform();
+	};
+
+	centerElement = (elementId) => {
+		this.onElementHoverEnd(); // clear current hover state if there any.
+
+		this.setState({ selectedLocationId: elementId });
+
+		let centerPoint = this.getCenterPointById(elementId);
+
+		this.panToCenterAtPoint(centerPoint.x, centerPoint.y);
 	};
 
 	pan = (dx, dy) => {
@@ -136,6 +161,8 @@ class SvgBox extends React.Component {
 		m[4] += dx;
 		m[5] += dy;
 		this.setState({ matrix: m });
+
+		this.onTransform();
 	};
 
 	zoom = (scale) => {
@@ -147,12 +174,30 @@ class SvgBox extends React.Component {
 		m[4] += (1 - scale) * this.props.image.width / 2;
 		m[5] += (1 - scale) * this.props.image.height / 2;
 		this.setState({ matrix: m });
+
+		this.onTransform();
+	};
+
+	onTransform = () => {
+		const selectedDOM = ReactDOM.findDOMNode(this.refs[this.state.selectedLocationId]);
+		updateSelectedTip(selectedDOM, this.props.locations, this.props.actions.selectLocation);
+	};
+
+	getCenterPointById = (id) => {
+		const targetRef = this.refs[id];
+		if (!targetRef) {
+			return {
+				x: 0,
+				y: 0,
+			}
+		}
+		return getShapeCenter(targetRef);
 	};
 
 	render = () => {
 		const viewBox = [0, 0, this.props.image.width, this.props.image.height].join(' ');
 		return (
-			<div className="svg-box">
+			<div className="svg-box" ref="svgContainer">
 				<svg
 					viewBox={viewBox}
 					preserveAspectRatio="xMidYMid slice"
@@ -181,6 +226,7 @@ class SvgBox extends React.Component {
 						{this.props.image.elements.map(element =>
 							<element.type
 								key={element.id}
+								ref={element.id}
 								{...element}
 								onMouseEnter={this.onElementHoverStart}
 								onMouseMove={this.onElementHover}

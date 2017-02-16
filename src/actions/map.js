@@ -25,3 +25,11 @@ export const hoverLocation = (locationObj, posX = 0, posY = 0) => {
 		posY,
 	}
 };
+
+export const REACH_LOCATION = 'REACH_LOCATION';
+export const reachLocation = (locationObj) => {
+	return {
+		type: REACH_LOCATION,
+		locationObj,
+	}
+};
