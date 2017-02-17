@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {} from '../../actions/map';
-import MapHoverTip from '../../components/svgMap/MapHoverTip';
+import MapDetailWidget from '../../components/svgMap/MapDetailWidget';
 
 const mapStateToProps = (state) => {
 	return {
@@ -14,9 +14,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const MapHoverTipContainer = connect(
+const MapWidgetDetailReducer = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(MapHoverTip);
+)(MapDetailWidget);
 
-export default MapHoverTipContainer;
+export default MapWidgetDetailReducer;

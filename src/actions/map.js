@@ -1,35 +1,26 @@
-export const SEARCH_LOCATION = 'SEARCH_LOCATION';
-export const searchLocation = (searchText) => {
+export const MAP_CENTER_POSITION = 'MAP_CENTER_POSITION';
+export const centerLocation      = (svgPos) => {
 	return {
-		type: SEARCH_LOCATION,
-		searchText,
+		type: MAP_CENTER_POSITION,
+		svgPosX: svgPos.x,
+		svgPosY: svgPos.y,
 	}
 };
 
-export const SELECT_LOCATION = 'SELECT_LOCATION';
-export const selectLocation = (locationObj, posX = 0, posY = 0) => {
+export const MAP_SHOW_HOVERTIP = 'MAP_SHOW_HOVERTIP';
+export const showHoverData     = (locationId, clientPos) => {
 	return {
-		type: SELECT_LOCATION,
-		locationObj,
-		posX,
-		posY,
+		type: MAP_SHOW_HOVERTIP,
+		locationId,
+		clientPosX: clientPos.x,
+		clientPosY: clientPos.y,
 	}
 };
 
-export const HOVER_LOCATION = 'HOVER_LOCATION';
-export const hoverLocation = (locationObj, posX = 0, posY = 0) => {
+export const MAP_SHOW_WIDGET = 'MAP_SHOW_WIDGET';
+export const showWidgetData  = (locationId) => {
 	return {
-		type: HOVER_LOCATION,
-		locationObj,
-		posX,
-		posY,
-	}
-};
-
-export const REACH_LOCATION = 'REACH_LOCATION';
-export const reachLocation = (locationObj) => {
-	return {
-		type: REACH_LOCATION,
-		locationObj,
+		type: MAP_SHOW_WIDGET,
+		locationId,
 	}
 };

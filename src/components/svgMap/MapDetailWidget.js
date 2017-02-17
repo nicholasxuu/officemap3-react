@@ -2,7 +2,7 @@ import React from 'react';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/svgMap/mapLocationDetail.css';
 
-class MapLocationDetail extends React.Component {
+class MapDetailWidget extends React.Component {
 
 	render = () => {
 		return (
@@ -24,9 +24,9 @@ class MapLocationDetail extends React.Component {
 	}
 }
 
-MapLocationDetail.propTypes = {
+MapDetailWidget.propTypes = {
 // 	actions: PropTypes.shape({}).isRequired,
 };
 
-export default MapLocationDetail;
+export default MapDetailWidget;
 

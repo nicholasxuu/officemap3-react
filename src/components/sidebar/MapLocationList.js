@@ -1,5 +1,6 @@
 import React from 'react';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import Immutable from 'immutable';
 import { ListGroup } from 'react-bootstrap';
 import '../../styles/sidebar/mapLocationList.css';
 import MapLocationListItem from '../../containers/sidebar/MapLocationListItem';
@@ -21,6 +22,10 @@ class MapLocationList extends React.Component {
 		);
 	}
 }
+
+MapLocationList.defaultProps = {
+	locations: Immutable.List([]),
+};
 
 MapLocationList.propTypes = {
 };

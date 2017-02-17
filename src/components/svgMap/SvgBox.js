@@ -96,7 +96,7 @@ class SvgBox extends React.Component {
 
 	onElementHover = (e) => {
 		if (this.state.hovering === true) {
-			this.props.actions.hoverLocation(this.state.locationObj, e.clientX + 10, e.clientY + 10);
+			this.props.actions.hoverData(this.state.locationObj, e.clientX + 10, e.clientY + 10);
 		}
 
 		if (this.state.selectingLocation === true) {
@@ -106,7 +106,7 @@ class SvgBox extends React.Component {
 
 	onElementHoverEnd = () => {
 		const locationObj = Immutable.Map({});
-		this.props.actions.hoverLocation(locationObj, 0, 0);
+		this.props.actions.hoverData(locationObj, 0, 0);
 		this.setState({
 			hovering: false,
 		});
@@ -131,15 +131,15 @@ class SvgBox extends React.Component {
 			this.setState({ selectedLocationId: e.currentTarget.id });
 
 			// note: set state doesn't work immediately, need to use raw object if run immediately.
-			updateSelectedTip(e.currentTarget, this.props.locations, this.props.actions.selectLocation);
+			updateSelectedTip(e.currentTarget, this.props.locations, this.props.actions.widgetData);
 		}
 	};
 
 	panToCenterAtPoint = (cx, cy) => {
 		const m = this.state.matrix;
 
-		m[4] = this.props.image.width / 2 - cx;
-		m[5] = this.props.image.height / 2 - cy;
+		m[4] = this.props.imageData.width / 2 - cx;
+		m[5] = this.props.imageData.height / 2 - cy;
 
 		this.setState({ matrix: m });
 
@@ -171,8 +171,8 @@ class SvgBox extends React.Component {
 		for (let i = 0; i < len; i++) {
 			m[i] *= scale;
 		}
-		m[4] += (1 - scale) * this.props.image.width / 2;
-		m[5] += (1 - scale) * this.props.image.height / 2;
+		m[4] += (1 - scale) * this.props.imageData.width / 2;
+		m[5] += (1 - scale) * this.props.imageData.height / 2;
 		this.setState({ matrix: m });
 
 		this.onTransform();
@@ -180,7 +180,7 @@ class SvgBox extends React.Component {
 
 	onTransform = () => {
 		const selectedDOM = ReactDOM.findDOMNode(this.refs[this.state.selectedLocationId]);
-		updateSelectedTip(selectedDOM, this.props.locations, this.props.actions.selectLocation);
+		updateSelectedTip(selectedDOM, this.props.locations, this.props.actions.widgetData);
 	};
 
 	getCenterPointById = (id) => {
@@ -195,7 +195,7 @@ class SvgBox extends React.Component {
 	};
 
 	render = () => {
-		const viewBox = [0, 0, this.props.image.width, this.props.image.height].join(' ');
+		const viewBox = [0, 0, this.props.imageData.width, this.props.imageData.height].join(' ');
 		return (
 			<div className="svg-box" ref="svgContainer">
 				<svg
@@ -216,14 +216,14 @@ class SvgBox extends React.Component {
 						transform={`matrix(${this.state.matrix.join(' ')})`}
 					>
 						<image
-							xlinkHref={this.props.image.url}
+							xlinkHref={this.props.imageData.url}
 							x="0"
 							y="0"
-							height={this.props.image.height}
-							width={this.props.image.width}
+							height={this.props.imageData.height}
+							width={this.props.imageData.width}
 						/>
 
-						{this.props.image.elements.map(element =>
+						{this.props.imageData.elements.map(element =>
 							<element.type
 								key={element.id}
 								ref={element.id}

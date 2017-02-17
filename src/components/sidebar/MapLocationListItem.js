@@ -1,4 +1,6 @@
 import React from 'react';
+import { PropTypes } from 'react';
+import Immutable from 'immutable';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import { ListGroupItem } from 'react-bootstrap';
 import '../../styles/sidebar/mapLocationListItem.css';
@@ -8,7 +10,7 @@ class MapLocationListItem extends React.Component {
 		return (
 			<ListGroupItem
 				className="map-location-list-item"
-				onClick={() => this.props.actions.selectLocation(this.props.location)}
+				onClick={() => this.props.actions.showWidgetData(this.props.location.get('mapElementId'))}
 			>
 				<span
 					className="item-image"
@@ -38,7 +40,20 @@ class MapLocationListItem extends React.Component {
 	}
 }
 
+MapLocationListItem.defaultProps = {
+	location: Immutable.Map({
+		id: null,
+		image: '',
+		name: '',
+		info: '',
+		mapElementId: '',
+	}),
+};
+
 MapLocationListItem.propTypes = {
+	actions: PropTypes.shape({
+		showWidgetData: PropTypes.func.isRequired,
+	}),
 };
 
 export default MapLocationListItem;

@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { selectLocation, hoverLocation } from '../actions/map';
+import { showHoverData, showWidgetData } from '../actions/map';
 import MapBox from '../components/MapBox';
 
 const mapStateToProps = (state) => {
 	return {
-		locations: state.locations,
+		// locations: state.locations,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		actions: bindActionCreators({selectLocation, hoverLocation}, dispatch),
+		// actions: bindActionCreators({showHoverData, showWidgetData}, dispatch),
+		actions: bindActionCreators({}, dispatch),
 	}
 };
 

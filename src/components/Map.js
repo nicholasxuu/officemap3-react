@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'react';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../styles/map.css';
 import MapBox from '../containers/MapBox';
@@ -9,9 +10,7 @@ class Map extends React.Component {
 	render = () => {
 		return (
 			<div className="map">
-				<MapSidebar
-					locations={this.props.locations}
-				/>
+				<MapSidebar/>
 				<MapBox />
 			</div>
 		);
@@ -19,12 +18,9 @@ class Map extends React.Component {
 }
 
 Map.propTypes = {
-// 	actions: PropTypes.shape({
-//
-// 	}).isRequired,
-// 	locations: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
-// 		id: PropTypes.number.isRequired,
-// 	})).isRequired,
+	actions: PropTypes.shape({
+
+	}).isRequired,
 };
 
 export default Map;

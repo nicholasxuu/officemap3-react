@@ -1,6 +1,6 @@
 import { getShapeCenter } from './svgShapeUtils';
 
-export const updateSelectedTip = (selectedLocationDOM, locations, selectLocationAction) => {
+export const updateSelectedTip = (selectedLocationDOM, locations, widgetDataAction) => {
 	if (selectedLocationDOM !== null) {
 		const currentTarget = selectedLocationDOM;
 		const elementId = currentTarget.id;
@@ -10,7 +10,7 @@ export const updateSelectedTip = (selectedLocationDOM, locations, selectLocation
 		const coordinates = currentTarget.getCTM();
 		const shapeCenterPoint = getShapeCenter(currentTarget);
 		const scaleMultiplier = coordinates.a; // svg box's scale comparing to current viewport size
-		selectLocationAction(
+		widgetDataAction(
 			locationObj,
 			coordinates.e + shapeCenterPoint.x * scaleMultiplier,
 			coordinates.f + shapeCenterPoint.y * scaleMultiplier

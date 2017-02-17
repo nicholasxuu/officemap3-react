@@ -5,14 +5,14 @@ import { InputGroup, FormControl } from 'react-bootstrap';
 class MapSearchBox extends React.Component {
 
 	onChange = (e) => {
-		let value = e.target.value.trim();
+		const value = e.target.value.trim();
 
 		this.props.actions.searchLocation(value)
 	};
 
 	render = () => {
 		return (
-			<div>
+			<div className="map-search-box">
 				<InputGroup
 					bsSize="large"
 				>
@@ -26,6 +26,10 @@ class MapSearchBox extends React.Component {
 		);
 	}
 }
+
+MapSearchBox.defaultProps = {
+
+};
 
 MapSearchBox.propTypes = {
 	actions: PropTypes.shape({

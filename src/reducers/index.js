@@ -1,18 +1,18 @@
 import { combineReducers } from 'redux';
-import mapDataReducer from './mapData';
-import writeTokenReducer from './writeToken';
+import mapLocationDataReducer from './mapLocationData';
 import searchLocationReducer from './searchLocation';
-import hoverLocationReducer from './hoverLocation';
-import selectLocationReducer from './selectLocation';
+import mapHoverDataReducer from './mapHoverData';
+import mapWidgetDataReducer from './mapWidgetData';
 import svgImageReducer from './svgImage';
+import mapViewReducer from './mapView';
 
 const MapReducer = combineReducers({
-	locations: mapDataReducer,
-	token: writeTokenReducer,
+	locations: mapLocationDataReducer,
+	imageData: svgImageReducer,
+	mapView: mapViewReducer,
+	widgetData: mapWidgetDataReducer,
+	hoverData: mapHoverDataReducer,
 	searchText: searchLocationReducer,
-	hoverLocation: hoverLocationReducer,
-	selectLocation: selectLocationReducer,
-	image: svgImageReducer,
 });
 
 export default MapReducer;
