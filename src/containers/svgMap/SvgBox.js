@@ -5,10 +5,23 @@ import SvgBox from '../../components/svgMap/SvgBox';
 
 const mapStateToProps = (state) => {
 	const tMatrix = [1, 0, 0, 1, 0, 0];
+
+	// pan
+	tMatrix[4] = state.mapView.getIn(['panSvgDistance', 'x']);
+	tMatrix[5] = state.mapView.getIn(['panSvgDistance', 'y']);
+
+	// zoom
+	const zoomScale = state.mapView.getIn(['zoomScale']);
+	for (let i = 0; i < tMatrix.length; i++) {
+		tMatrix[i] *= zoomScale;
+	}
+	// zoom from center of viewbox (viewBox height/width === image height/width)
+	tMatrix[4] += (1 - zoomScale) * state.imageData.get('width') / 2;
+	tMatrix[5] += (1 - zoomScale) * state.imageData.get('height') / 2;
+
 	return {
-		// locations: state.locations,
 		imageData: state.imageData,
-		// transformMatrix: tMatrix,
+		transformMatrix: tMatrix,
 	};
 };
 

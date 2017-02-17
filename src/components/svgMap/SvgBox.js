@@ -20,66 +20,63 @@ class SvgBox extends React.Component {
 		};
 	}
 
-	componentDidMount = () => {
-
-	};
-
 	getScaleMultiplier = (e) => {
-		return e.currentTarget.getCTM().a; // svg box's scale comparing to current viewport size
+		return e.currentTarget.getCTM().a * this.props.transformMatrix[0]; // svg box's scale comparing to current viewport size
 	};
 
 	onDragStart = (e) => {
-		// // Find start position of drag based on touch/mouse coordinates.
-		// const panStartX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
-		// const panStartY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
-		// const scaleMultiplier = this.getScaleMultiplier(e);
-		//
-		// // Update state with above coordinates, and set dragging to true.
-		// const state = {
-		// 	dragging: true,
-		// 	panStartX,
-		// 	panStartY,
-		// 	scaleMultiplier,
-		// };
-		//
-		// this.setState(state);
+		// Find start position of drag based on touch/mouse coordinates.
+		const panStartX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
+		const panStartY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+		const scaleMultiplier = this.getScaleMultiplier(e);
+
+		// Update state with above coordinates, and set dragging to true.
+		const state = {
+			dragging: true,
+			panStartX,
+			panStartY,
+			scaleMultiplier,
+		};
+
+		this.setState(state);
 	};
 
 	onDragMove = (e) => {
-		// e.preventDefault();
-		// // First check if the state is dragging, if not we can just return
-		// // so we do not move unless the user wants to move
-		// if (this.state.dragging === true) {
-		// 	// Get the new x coordinates
-		// 	const x = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
-		// 	const y = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
-		//
-		// 	// Take the delta where we are minus where we came from.
-		// 	const svgDistanceX = (x - this.state.panStartX) / this.state.scaleMultiplier;
-		// 	const svgDistanceY = (y - this.state.panStartY) / this.state.scaleMultiplier;
-		//
-		// 	// Pan using the deltas
-		// 	this.props.actions.svgPan(svgDistanceX, svgDistanceY);
-		//
-		// 	// Update the state
-		// 	this.setState({
-		// 		panStartX: x,
-		// 		panStartY: y,
-		// 	});
-		// }
+		e.preventDefault();
+		// First check if the state is dragging, if not we can just return
+		// so we do not move unless the user wants to move
+		if (this.state.dragging === true) {
+			// Get the new x coordinates
+			const x = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
+			const y = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+
+			// Take the delta where we are minus where we came from.
+			const svgDistanceX = (x - this.state.panStartX) / this.state.scaleMultiplier;
+			const svgDistanceY = (y - this.state.panStartY) / this.state.scaleMultiplier;
+
+			// Pan using the deltas
+			this.props.actions.svgPan(svgDistanceX, svgDistanceY);
+
+			// Update the state
+			this.setState({
+				panStartX: x,
+				panStartY: y,
+			});
+		}
 	};
 
 	onDragEnd = (e) => {
-		// this.setState({ dragging: false });
+		this.setState({ dragging: false });
 	};
 
 	onWheel = (e) => {
-		// e.preventDefault();
-		// if (e.deltaY < 0) {
-		// 	this.props.actions.svgZoom(1.05);
-		// } else {
-		// 	this.props.actions.svgZoom(0.95);
-		// }
+		e.preventDefault();
+		const wheelDeadzone = 2;
+		if (e.deltaY < -wheelDeadzone) {
+			this.props.actions.svgZoom(0.05);
+		} else if (e.deltaY > wheelDeadzone) {
+			this.props.actions.svgZoom(-0.05);
+		}
 	};
 
 	onElementHoverStart = (e) => {
@@ -207,8 +204,8 @@ class SvgBox extends React.Component {
 			<div className="svg-box" ref="svgContainer">
 				<svg
 					viewBox={viewBox}
-					preserveAspectRatio="xMidYMid slice"
-					xmlns="http://www.w3.org/2000/svg"
+					preserveAspectRatio="xMidYMid meet"
+
 					version="1.1"
 
 					onMouseDown={this.onDragStart}
