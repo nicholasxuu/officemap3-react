@@ -11,11 +11,8 @@ class SvgBox extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			matrix: [1, 0, 0, 1, 0, 0],
 			dragging: false,
 			hovering: false,
-			selectingLocation: false,
-			selectedLocationId: null,
 		};
 	}
 
@@ -71,9 +68,9 @@ class SvgBox extends React.Component {
 	onWheel = (e) => {
 		e.preventDefault();
 		if (e.deltaY < 0) {
-			this.zoom(1.05);
+			this.props.actions.svgZoom(1.05);
 		} else {
-			this.zoom(0.95);
+			this.props.actions.svgZoom(0.95);
 		}
 	};
 
@@ -213,7 +210,7 @@ class SvgBox extends React.Component {
 				    onWheel={this.onWheel}
 				>
 					<g
-						transform={`matrix(${this.state.matrix.join(' ')})`}
+						transform={`matrix(${this.props.matrix.join(' ')})`}
 					>
 						<image
 							xlinkHref={this.props.imageData.url}
