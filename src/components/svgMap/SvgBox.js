@@ -231,9 +231,11 @@ class SvgBox extends React.Component {
 						/>
 
 						{this.props.imageData.get('elements').map(element => {
-							const elementObj = element.toJS(); // for spreading
-							delete elementObj.componentName;
 							const CurrentComponent = element.get('componentName');
+
+							const elementObj = element.toJS(); // for spreading svg element properties
+							delete elementObj.componentName; // prevent unknown propType warning
+
 							return (<CurrentComponent
 								key={element.get('id')}
 								ref={element.get('id')}
