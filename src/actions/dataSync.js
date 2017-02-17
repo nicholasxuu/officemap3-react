@@ -37,7 +37,7 @@ export const loadDummy = () => {
 				elements: [
 					{
 						id: 'svg_8',
-						type: 'rect',
+						componentName: 'rect',
 						height: 60.931406,
 						width: 89.898795,
 						x: 262.704261,
@@ -51,7 +51,7 @@ export const loadDummy = () => {
 					},
 					{
 						id: 'svg_4',
-						type: 'path',
+						componentName: 'path',
 						opacity:0.1,
 						d: "m159.82008,340.61655l206.76723,-0.99887l0,244.7245l-155.82458,0l-50.94265,-243.72563z",
 						fillOpacity: null,

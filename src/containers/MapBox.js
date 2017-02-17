@@ -5,14 +5,15 @@ import MapBox from '../components/MapBox';
 
 const mapStateToProps = (state) => {
 	return {
-		// locations: state.locations,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		// actions: bindActionCreators({showHoverData, showWidgetData}, dispatch),
-		actions: bindActionCreators({}, dispatch),
+		actions: bindActionCreators({
+			// showHoverData,
+			// showWidgetData
+		}, dispatch),
 	}
 };
 

@@ -1,7 +1,8 @@
 import React from 'react';
+import { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Immutable from 'immutable';
-// import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/svgMap/svgBox.css';
 import { updateSelectedTip } from './utils/svgUtils';
 import { getShapeCenter } from './utils/svgShapeUtils';
@@ -13,6 +14,9 @@ class SvgBox extends React.Component {
 		this.state = {
 			dragging: false,
 			hovering: false,
+			panStartX: 0, // for pan movement calculation
+			panStartY: 0, // for pan movement calculation
+			scaleMultiplier: 1, // current svg scale factor
 		};
 	}
 
@@ -20,179 +24,185 @@ class SvgBox extends React.Component {
 
 	};
 
+	getScaleMultiplier = (e) => {
+		return e.currentTarget.getCTM().a; // svg box's scale comparing to current viewport size
+	};
+
 	onDragStart = (e) => {
-		// Find start position of drag based on touch/mouse coordinates.
-		const startX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
-		const startY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
-		const scaleMultiplier = e.currentTarget.getCTM().a; // svg box's scale comparing to current viewport size
-
-		// Update state with above coordinates, and set dragging to true.
-		const state = {
-			dragging: true,
-			startX,
-			startY,
-			scaleMultiplier,
-		};
-
-		this.setState(state);
+		// // Find start position of drag based on touch/mouse coordinates.
+		// const panStartX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
+		// const panStartY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+		// const scaleMultiplier = this.getScaleMultiplier(e);
+		//
+		// // Update state with above coordinates, and set dragging to true.
+		// const state = {
+		// 	dragging: true,
+		// 	panStartX,
+		// 	panStartY,
+		// 	scaleMultiplier,
+		// };
+		//
+		// this.setState(state);
 	};
 
 	onDragMove = (e) => {
-		e.preventDefault();
-		// First check if the state is dragging, if not we can just return
-		// so we do not move unless the user wants to move
-		if (this.state.dragging === true) {
-			// Get the new x coordinates
-			const x = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
-			const y = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
-
-			// Take the delta where we are minus where we came from.
-			const dx = (x - this.state.startX) / this.state.scaleMultiplier;
-			const dy = (y - this.state.startY) / this.state.scaleMultiplier;
-
-			// Pan using the deltas
-			this.pan(dx, dy);
-
-			// Update the state
-			this.setState({
-				startX: x,
-				startY: y,
-			});
-		}
+		// e.preventDefault();
+		// // First check if the state is dragging, if not we can just return
+		// // so we do not move unless the user wants to move
+		// if (this.state.dragging === true) {
+		// 	// Get the new x coordinates
+		// 	const x = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
+		// 	const y = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+		//
+		// 	// Take the delta where we are minus where we came from.
+		// 	const svgDistanceX = (x - this.state.panStartX) / this.state.scaleMultiplier;
+		// 	const svgDistanceY = (y - this.state.panStartY) / this.state.scaleMultiplier;
+		//
+		// 	// Pan using the deltas
+		// 	this.props.actions.svgPan(svgDistanceX, svgDistanceY);
+		//
+		// 	// Update the state
+		// 	this.setState({
+		// 		panStartX: x,
+		// 		panStartY: y,
+		// 	});
+		// }
 	};
 
 	onDragEnd = (e) => {
-		this.setState({ dragging: false });
+		// this.setState({ dragging: false });
 	};
 
 	onWheel = (e) => {
-		e.preventDefault();
-		if (e.deltaY < 0) {
-			this.props.actions.svgZoom(1.05);
-		} else {
-			this.props.actions.svgZoom(0.95);
-		}
+		// e.preventDefault();
+		// if (e.deltaY < 0) {
+		// 	this.props.actions.svgZoom(1.05);
+		// } else {
+		// 	this.props.actions.svgZoom(0.95);
+		// }
 	};
 
 	onElementHoverStart = (e) => {
-		const elementId = e.currentTarget.id;
-
-		// don't hover if selected same object
-		if (this.state.selectedLocationId && elementId === this.state.selectedLocationId.id) {
-			return;
-		}
-
-		const locationObj = this.props.locations.find((location) => {
-			return location.get('mapElementId') === elementId;
-		});
-		this.setState({
-			hovering: true,
-			locationObj: locationObj,
-		});
+		// const elementId = e.currentTarget.id;
+		//
+		// // don't hover if selected same object
+		// if (this.state.selectedLocationId && elementId === this.state.selectedLocationId.id) {
+		// 	return;
+		// }
+		//
+		// const locationObj = this.props.locations.find((location) => {
+		// 	return location.get('mapElementId') === elementId;
+		// });
+		// this.setState({
+		// 	hovering: true,
+		// 	locationObj: locationObj,
+		// });
 	};
 
 	onElementHover = (e) => {
-		if (this.state.hovering === true) {
-			this.props.actions.hoverData(this.state.locationObj, e.clientX + 10, e.clientY + 10);
-		}
-
-		if (this.state.selectingLocation === true) {
-			this.onElementClickCancel(e);
-		}
+		// if (this.state.hovering === true) {
+		// 	this.props.actions.hoverData(this.state.locationObj, e.clientX + 10, e.clientY + 10);
+		// }
+		//
+		// if (this.state.selectingLocation === true) {
+		// 	this.onElementClickCancel(e);
+		// }
 	};
 
 	onElementHoverEnd = () => {
-		const locationObj = Immutable.Map({});
-		this.props.actions.hoverData(locationObj, 0, 0);
-		this.setState({
-			hovering: false,
-		});
+		// const locationObj = Immutable.Map({});
+		// this.props.actions.hoverData(locationObj, 0, 0);
+		// this.setState({
+		// 	hovering: false,
+		// });
 	};
 
 	onElementClickPrepare = (e) => {
-		if (this.state.selectingLocation === false) {
-			this.setState({ selectingLocation: true });
-		}
+		// if (this.state.selectingLocation === false) {
+		// 	this.setState({ selectingLocation: true });
+		// }
 	};
 
 	onElementClickCancel = (e) => {
-		if (this.state.selectingLocation === true) {
-			this.setState({ selectingLocation: false });
-		}
+		// if (this.state.selectingLocation === true) {
+		// 	this.setState({ selectingLocation: false });
+		// }
 	};
 
 	onElementClickStart = (e) => {
-		if (this.state.selectingLocation === true) {
-			this.onElementHoverEnd(); // clear current hover state if there any.
-
-			this.setState({ selectedLocationId: e.currentTarget.id });
-
-			// note: set state doesn't work immediately, need to use raw object if run immediately.
-			updateSelectedTip(e.currentTarget, this.props.locations, this.props.actions.widgetData);
-		}
+		// if (this.state.selectingLocation === true) {
+		// 	this.onElementHoverEnd(); // clear current hover state if there any.
+		//
+		// 	this.setState({ selectedLocationId: e.currentTarget.id });
+		//
+		// 	// note: set state doesn't work immediately, need to use raw object if run immediately.
+		// 	updateSelectedTip(e.currentTarget, this.props.locations, this.props.actions.widgetData);
+		// }
 	};
 
 	panToCenterAtPoint = (cx, cy) => {
-		const m = this.state.matrix;
-
-		m[4] = this.props.imageData.width / 2 - cx;
-		m[5] = this.props.imageData.height / 2 - cy;
-
-		this.setState({ matrix: m });
-
-		this.onTransform();
+		// const m = this.state.matrix;
+		//
+		// m[4] = this.props.imageData.width / 2 - cx;
+		// m[5] = this.props.imageData.height / 2 - cy;
+		//
+		// this.setState({ matrix: m });
+		//
+		// this.onTransform();
 	};
 
 	centerElement = (elementId) => {
-		this.onElementHoverEnd(); // clear current hover state if there any.
-
-		this.setState({ selectedLocationId: elementId });
-
-		let centerPoint = this.getCenterPointById(elementId);
-
-		this.panToCenterAtPoint(centerPoint.x, centerPoint.y);
+		// this.onElementHoverEnd(); // clear current hover state if there any.
+		//
+		// this.setState({ selectedLocationId: elementId });
+		//
+		// let centerPoint = this.getCenterPointById(elementId);
+		//
+		// this.panToCenterAtPoint(centerPoint.x, centerPoint.y);
 	};
 
 	pan = (dx, dy) => {
-		const m = this.state.matrix;
-		m[4] += dx;
-		m[5] += dy;
-		this.setState({ matrix: m });
-
-		this.onTransform();
+		// const m = this.state.matrix;
+		// m[4] += dx;
+		// m[5] += dy;
+		// this.setState({ matrix: m });
+		//
+		// this.onTransform();
 	};
 
 	zoom = (scale) => {
-		const m = this.state.matrix;
-		const len = m.length;
-		for (let i = 0; i < len; i++) {
-			m[i] *= scale;
-		}
-		m[4] += (1 - scale) * this.props.imageData.width / 2;
-		m[5] += (1 - scale) * this.props.imageData.height / 2;
-		this.setState({ matrix: m });
-
-		this.onTransform();
+		// const m = this.state.matrix;
+		// const len = m.length;
+		// for (let i = 0; i < len; i++) {
+		// 	m[i] *= scale;
+		// }
+		// m[4] += (1 - scale) * this.props.imageData.width / 2;
+		// m[5] += (1 - scale) * this.props.imageData.height / 2;
+		// this.setState({ matrix: m });
+		//
+		// this.onTransform();
 	};
 
 	onTransform = () => {
-		const selectedDOM = ReactDOM.findDOMNode(this.refs[this.state.selectedLocationId]);
-		updateSelectedTip(selectedDOM, this.props.locations, this.props.actions.widgetData);
+		// const selectedDOM = ReactDOM.findDOMNode(this.refs[this.state.selectedLocationId]);
+		// updateSelectedTip(selectedDOM, this.props.locations, this.props.actions.widgetData);
 	};
 
 	getCenterPointById = (id) => {
-		const targetRef = this.refs[id];
-		if (!targetRef) {
-			return {
-				x: 0,
-				y: 0,
-			}
-		}
-		return getShapeCenter(targetRef);
+		// const targetRef = this.refs[id];
+		// if (!targetRef) {
+		// 	return {
+		// 		x: 0,
+		// 		y: 0,
+		// 	}
+		// }
+		// return getShapeCenter(targetRef);
 	};
 
 	render = () => {
-		const viewBox = [0, 0, this.props.imageData.width, this.props.imageData.height].join(' ');
+		const imageWidth = this.props.imageData.get('width');
+		const imageHeight = this.props.imageData.get('height');
+		const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
 		return (
 			<div className="svg-box" ref="svgContainer">
 				<svg
@@ -210,31 +220,34 @@ class SvgBox extends React.Component {
 				    onWheel={this.onWheel}
 				>
 					<g
-						transform={`matrix(${this.props.matrix.join(' ')})`}
+						transform={`matrix(${this.props.transformMatrix.join(' ')})`}
 					>
 						<image
-							xlinkHref={this.props.imageData.url}
+							xlinkHref={this.props.imageData.get('url')}
 							x="0"
 							y="0"
-							height={this.props.imageData.height}
-							width={this.props.imageData.width}
+							height={imageWidth}
+							width={imageHeight}
 						/>
 
-						{this.props.imageData.elements.map(element =>
-							<element.type
-								key={element.id}
-								ref={element.id}
-								{...element}
+						{this.props.imageData.get('elements').map(element => {
+							const elementObj = element.toJS(); // for spreading
+							delete elementObj.componentName;
+							const CurrentComponent = element.get('componentName');
+							return (<CurrentComponent
+								key={element.get('id')}
+								ref={element.get('id')}
+								{...elementObj}
 								onMouseEnter={this.onElementHoverStart}
 								onMouseMove={this.onElementHover}
 								onMouseLeave={this.onElementHoverEnd}
 								onMouseDown={this.onElementClickPrepare}
 								onTouchStart={this.onElementClickPrepare}
 								onTouchMove={this.onElementClickCancel}
-							    onMouseUp={this.onElementClickStart}
-							    onTouchEnd={this.onElementClickStart}
-							/>
-						)}
+								onMouseUp={this.onElementClickStart}
+								onTouchEnd={this.onElementClickStart}
+							/>);
+						})}
 
 					</g>
 
@@ -253,7 +266,27 @@ class SvgBox extends React.Component {
 	}
 }
 
+SvgBox.defaultProps = {
+	imageData: {
+		width: 0,
+		height: 0,
+		url: '',
+		elements: [],
+	},
+	transformMatrix: [1, 0, 0, 1, 0, 0],
+};
+
 SvgBox.propTypes = {
+	imageData: ImmutablePropTypes.contains({
+		width: PropTypes.number.isRequired,
+		height: PropTypes.number.isRequired,
+		url: PropTypes.string.isRequired,
+		elements: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
+			id: PropTypes.string.isRequired,
+			componentName: PropTypes.string.isRequired,
+		})),
+	}).isRequired,
+	transformMatrix: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default SvgBox;

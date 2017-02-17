@@ -1,19 +1,26 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { showWidgetData, showHoverData } from '../../actions/map';
+import { showWidgetData, showHoverData, svgPan, svgZoom, centerAtPoint } from '../../actions/map';
 import SvgBox from '../../components/svgMap/SvgBox';
 
 const mapStateToProps = (state) => {
+	const tMatrix = [1, 0, 0, 1, 0, 0];
 	return {
 		// locations: state.locations,
-		// imageData: state.imageData,
+		imageData: state.imageData,
+		// transformMatrix: tMatrix,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		// actions: bindActionCreators({ showWidgetData, showHoverData }, dispatch),
-		actions: bindActionCreators({}, dispatch),
+		actions: bindActionCreators({
+			// showWidgetData,
+			// showHoverData,
+			svgPan,
+			svgZoom,
+			centerAtPoint
+		}, dispatch),
 	}
 };
 
