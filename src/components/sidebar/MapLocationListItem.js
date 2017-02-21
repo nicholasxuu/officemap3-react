@@ -7,10 +7,16 @@ import '../../styles/sidebar/mapLocationListItem.css';
 
 class MapLocationListItem extends React.Component {
 	render = () => {
+		if (this.props.location.has('hide') &&
+			this.props.location.get('hide') === true
+		) {
+			return null;
+		}
+
 		return (
 			<ListGroupItem
 				className="map-location-list-item"
-				onClick={() => this.props.actions.showWidgetData(this.props.location.get('mapElementId'))}
+				onClick={() => this.props.actions.goToLocation(this.props.location.get('mapElementId'))}
 			>
 				<span
 					className="item-image"
@@ -42,6 +48,7 @@ class MapLocationListItem extends React.Component {
 
 MapLocationListItem.defaultProps = {
 	location: Immutable.Map({
+		hide: true,
 		id: null,
 		image: '',
 		name: '',
@@ -52,7 +59,7 @@ MapLocationListItem.defaultProps = {
 
 MapLocationListItem.propTypes = {
 	actions: PropTypes.shape({
-		showWidgetData: PropTypes.func.isRequired,
+		goToLocation: PropTypes.func.isRequired,
 	}),
 };
 

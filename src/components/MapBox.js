@@ -20,6 +20,7 @@ class MapBox extends React.Component {
 		return (
 			<div className="map-box">
 				<SvgBox />
+				<MapHoverTip />
 			</div>
 		);
 	}

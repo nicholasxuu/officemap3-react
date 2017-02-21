@@ -1,2 +1,7 @@
 .map-hover-tip {
+	position: fixed;
+	z-index: 2;
+
+	/* prevent causing mouseLeave when mouse touch it */
+	pointer-events: none;
 }

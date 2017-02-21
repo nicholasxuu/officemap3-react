@@ -12,125 +12,115 @@ class SvgBox extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			dragging: false,
-			hovering: false,
+			dragging: false, // is dragging
+			hovering: false, // is hovering
+			selectPending: false, // is going to select, but no drag between mouseDown and mouseUp
 			panStartX: 0, // for pan movement calculation
 			panStartY: 0, // for pan movement calculation
 			scaleMultiplier: 1, // current svg scale factor
 		};
 	}
 
-	componentDidMount = () => {
-
-	};
-
 	getScaleMultiplier = (e) => {
-		return e.currentTarget.getCTM().a; // svg box's scale comparing to current viewport size
+		return e.currentTarget.getCTM().a * this.props.transformMatrix[0]; // svg box's scale comparing to current viewport size
 	};
 
 	onDragStart = (e) => {
-		// // Find start position of drag based on touch/mouse coordinates.
-		// const panStartX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
-		// const panStartY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
-		// const scaleMultiplier = this.getScaleMultiplier(e);
-		//
-		// // Update state with above coordinates, and set dragging to true.
-		// const state = {
-		// 	dragging: true,
-		// 	panStartX,
-		// 	panStartY,
-		// 	scaleMultiplier,
-		// };
-		//
-		// this.setState(state);
+		// Find start position of drag based on touch/mouse coordinates.
+		const panStartX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
+		const panStartY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+		const scaleMultiplier = this.getScaleMultiplier(e);
+
+		// Update state with above coordinates, and set dragging to true.
+		const state = {
+			dragging: true,
+			panStartX,
+			panStartY,
+			scaleMultiplier,
+		};
+
+		this.setState(state);
 	};
 
 	onDragMove = (e) => {
-		// e.preventDefault();
-		// // First check if the state is dragging, if not we can just return
-		// // so we do not move unless the user wants to move
-		// if (this.state.dragging === true) {
-		// 	// Get the new x coordinates
-		// 	const x = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
-		// 	const y = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
-		//
-		// 	// Take the delta where we are minus where we came from.
-		// 	const svgDistanceX = (x - this.state.panStartX) / this.state.scaleMultiplier;
-		// 	const svgDistanceY = (y - this.state.panStartY) / this.state.scaleMultiplier;
-		//
-		// 	// Pan using the deltas
-		// 	this.props.actions.svgPan(svgDistanceX, svgDistanceY);
-		//
-		// 	// Update the state
-		// 	this.setState({
-		// 		panStartX: x,
-		// 		panStartY: y,
-		// 	});
-		// }
+		if (this.state.dragging === true) {
+			e.preventDefault();
+			// Get the new x coordinates
+			const x = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
+			const y = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+
+			// Take the delta where we are minus where we came from.
+			const svgDistanceX = (x - this.state.panStartX) / this.state.scaleMultiplier;
+			const svgDistanceY = (y - this.state.panStartY) / this.state.scaleMultiplier;
+
+			// Pan using the deltas
+			this.props.actions.svgPan(svgDistanceX, svgDistanceY);
+
+			// Update the state
+			this.setState({
+				panStartX: x,
+				panStartY: y,
+			});
+		}
 	};
 
 	onDragEnd = (e) => {
-		// this.setState({ dragging: false });
+		this.setState({ dragging: false });
 	};
 
 	onWheel = (e) => {
-		// e.preventDefault();
-		// if (e.deltaY < 0) {
-		// 	this.props.actions.svgZoom(1.05);
-		// } else {
-		// 	this.props.actions.svgZoom(0.95);
-		// }
+		e.preventDefault();
+		const wheelDeadZone = 2;
+		if (e.deltaY < -wheelDeadZone) {
+			this.props.actions.svgZoom(0.05);
+		} else if (e.deltaY > wheelDeadZone) {
+			this.props.actions.svgZoom(-0.05);
+		}
 	};
 
 	onElementHoverStart = (e) => {
-		// const elementId = e.currentTarget.id;
-		//
-		// // don't hover if selected same object
-		// if (this.state.selectedLocationId && elementId === this.state.selectedLocationId.id) {
-		// 	return;
-		// }
-		//
-		// const locationObj = this.props.locations.find((location) => {
-		// 	return location.get('mapElementId') === elementId;
-		// });
-		// this.setState({
-		// 	hovering: true,
-		// 	locationObj: locationObj,
-		// });
+		if (this.props.hoverTipEnabled === true) {
+			this.setState({ hovering: true });
+		}
 	};
 
 	onElementHover = (e) => {
-		// if (this.state.hovering === true) {
-		// 	this.props.actions.hoverData(this.state.locationObj, e.clientX + 10, e.clientY + 10);
-		// }
-		//
-		// if (this.state.selectingLocation === true) {
-		// 	this.onElementClickCancel(e);
-		// }
+		if (this.state.hovering === true) {
+			e.preventDefault();
+			const mapElementId = e.currentTarget.id;
+
+			const hoverClientX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
+			const hoverClientY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+			const clientPos = {
+				x: hoverClientX,
+				y: hoverClientY,
+			};
+
+			this.props.actions.showHoverData(mapElementId, clientPos);
+		}
 	};
 
-	onElementHoverEnd = () => {
-		// const locationObj = Immutable.Map({});
-		// this.props.actions.hoverData(locationObj, 0, 0);
-		// this.setState({
-		// 	hovering: false,
-		// });
+	onElementHoverEnd = (e) => {
+		if (this.state.hovering === true) {
+			this.props.actions.hideHoverData();
+			this.setState({ hovering: false });
+		}
 	};
 
 	onElementClickPrepare = (e) => {
-		// if (this.state.selectingLocation === false) {
-		// 	this.setState({ selectingLocation: true });
+		// if (this.state.selectPending === false) {
+		// 	this.setState({ selectPending: true });
 		// }
 	};
 
 	onElementClickCancel = (e) => {
-		// if (this.state.selectingLocation === true) {
-		// 	this.setState({ selectingLocation: false });
+		// if (this.state.selectPending === true) {
+		// 	this.setState({ selectPending: false });
 		// }
 	};
 
 	onElementClickStart = (e) => {
-		// if (this.state.selectingLocation === true) {
+		// if (this.state.selectPending === true) {
 		// 	this.onElementHoverEnd(); // clear current hover state if there any.
 		//
 		// 	this.setState({ selectedLocationId: e.currentTarget.id });
@@ -207,8 +197,8 @@ class SvgBox extends React.Component {
 			<div className="svg-box" ref="svgContainer">
 				<svg
 					viewBox={viewBox}
-					preserveAspectRatio="xMidYMid slice"
-					xmlns="http://www.w3.org/2000/svg"
+					preserveAspectRatio="xMidYMid meet"
+
 					version="1.1"
 
 					onMouseDown={this.onDragStart}
@@ -219,9 +209,11 @@ class SvgBox extends React.Component {
 					onTouchEnd={this.onDragEnd}
 				    onWheel={this.onWheel}
 				>
+
 					<g
 						transform={`matrix(${this.props.transformMatrix.join(' ')})`}
 					>
+
 						<image
 							xlinkHref={this.props.imageData.get('url')}
 							x="0"
@@ -240,9 +232,11 @@ class SvgBox extends React.Component {
 								key={element.get('id')}
 								ref={element.get('id')}
 								{...elementObj}
+
 								onMouseEnter={this.onElementHoverStart}
 								onMouseMove={this.onElementHover}
 								onMouseLeave={this.onElementHoverEnd}
+
 								onMouseDown={this.onElementClickPrepare}
 								onTouchStart={this.onElementClickPrepare}
 								onTouchMove={this.onElementClickCancel}
@@ -254,10 +248,10 @@ class SvgBox extends React.Component {
 					</g>
 
 					{/*<!-- viewport transform -->*/}
+
 					<g transform="translate(150, 90)">
 						<g transform="matrix(0.707 0.409 -0.707 0.409 0 -0.816)">
 							<g transform="translate(-150, -80)">
-
 							</g>
 						</g>
 					</g>
@@ -276,6 +270,7 @@ SvgBox.defaultProps = {
 		elements: [],
 	},
 	transformMatrix: [1, 0, 0, 1, 0, 0],
+	hoverTipEnabled: false, // todo: set to true
 };
 
 SvgBox.propTypes = {
@@ -289,6 +284,7 @@ SvgBox.propTypes = {
 		})),
 	}).isRequired,
 	transformMatrix: PropTypes.arrayOf(PropTypes.number).isRequired,
+	hoverTipEnabled: PropTypes.bool,
 };
 
 export default SvgBox;

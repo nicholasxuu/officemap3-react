@@ -4,7 +4,16 @@ import {} from '../../actions/map';
 import MapHoverTip from '../../components/svgMap/MapHoverTip';
 
 const mapStateToProps = (state) => {
+	let show = false;
+	if (!state.hoverData.get('location').isEmpty()) {
+		show = true;
+	}
+
 	return {
+		show: show,
+		clientPosX: state.hoverData.get('clientPosX'),
+		clientPosY: state.hoverData.get('clientPosY'),
+		location: state.hoverData.get('location'),
 	};
 };
 
@@ -14,9 +23,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const MapHoverTipContainer = connect(
+const MapHoverTipReducer = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(MapHoverTip);
 
-export default MapHoverTipContainer;
+export default MapHoverTipReducer;

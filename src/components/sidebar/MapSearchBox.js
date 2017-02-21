@@ -7,7 +7,7 @@ class MapSearchBox extends React.Component {
 	onChange = (e) => {
 		const value = e.target.value.trim();
 
-		this.props.actions.searchLocation(value)
+		this.props.actions.filterLocation(value)
 	};
 
 	render = () => {
@@ -33,7 +33,7 @@ MapSearchBox.defaultProps = {
 
 MapSearchBox.propTypes = {
 	actions: PropTypes.shape({
-		searchLocation: PropTypes.func.isRequired,
+		filterLocation: PropTypes.func.isRequired,
     }).isRequired,
 };
 

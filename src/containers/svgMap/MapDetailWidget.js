@@ -4,7 +4,16 @@ import {} from '../../actions/map';
 import MapDetailWidget from '../../components/svgMap/MapDetailWidget';
 
 const mapStateToProps = (state) => {
+	let show = false;
+	if (!state.widgetData.get('location').isEmpty()) {
+		show = true;
+	}
+
 	return {
+		show: show,
+		pagePosX: state.widgetData.get('pagePosX'),
+		pagePosY: state.widgetData.get('pagePosY'),
+		location: state.widgetData.get('location'),
 	};
 };
 
@@ -14,9 +23,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const MapWidgetDetailReducer = connect(
+const MapDetailWidgetContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(MapDetailWidget);
 
-export default MapWidgetDetailReducer;
+export default MapDetailWidgetContainer;

@@ -1,5 +1,6 @@
 import React from 'react';
-// import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import { PropTypes } from 'react';
+import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 import { ListGroup } from 'react-bootstrap';
 import '../../styles/sidebar/mapLocationList.css';
@@ -28,6 +29,9 @@ MapLocationList.defaultProps = {
 };
 
 MapLocationList.propTypes = {
+	locations: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
+		id: PropTypes.number.isRequired,
+	})).isRequired,
 };
 
 export default MapLocationList;

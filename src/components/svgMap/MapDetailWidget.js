@@ -1,20 +1,24 @@
 import React from 'react';
-// import * as ImmutablePropTypes from 'react-immutable-proptypes';
-import '../../styles/svgMap/mapLocationDetail.css';
+import { PropTypes } from 'react';
+import Immutable from 'immutable';
+import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import '../../styles/svgMap/mapDetailWidget.css';
 
 class MapDetailWidget extends React.Component {
 
 	render = () => {
+		if (this.props.show === false) {
+			return null;
+		}
+
 		return (
 			<div
-				className="map-location-detail"
+				className="map-detail-widget"
 			>
 				<div
 					style={{
-						position: 'absolute',
-						top: this.props.posY + 'px',
-						left: this.props.posX + 'px',
-						display: this.props.show ? 'block': 'none',
+						left: this.props.pagePosX + 'px',
+						top: this.props.pagePosY + 'px',
 					}}
 				>
 					{this.props.location.get('id')} - {this.props.location.get('name')}
@@ -24,8 +28,24 @@ class MapDetailWidget extends React.Component {
 	}
 }
 
+MapDetailWidget.defaultProps = {
+	show: false,
+	pagePosX: 0,
+	pagePosY: 0,
+	location: Immutable.Map({
+		id: 0,
+		name: 'dummy',
+	}),
+};
+
 MapDetailWidget.propTypes = {
-// 	actions: PropTypes.shape({}).isRequired,
+	show: PropTypes.bool.isRequired,
+	pagePosX: PropTypes.number.isRequired,
+	pagePosY: PropTypes.number.isRequired,
+	location: ImmutablePropTypes.contains({
+		id: PropTypes.number,
+		name: PropTypes.string,
+	}).isRequired,
 };
 
 export default MapDetailWidget;
