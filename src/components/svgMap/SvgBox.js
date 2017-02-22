@@ -66,6 +66,7 @@ class SvgBox extends React.Component {
 
 	onTouchMove = (e) => {
 		if (this.state.touchType === 'pinch') {
+			e.preventDefault();
 			const newTouchDistanceSq = getTouchDistanceSquare(e.targetTouches);
 
 			const touchDelta = newTouchDistanceSq - this.state.touchDistanceSq;
