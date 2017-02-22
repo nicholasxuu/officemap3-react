@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { showHoverData, showWidgetData } from '../actions/map';
 import MapBox from '../components/MapBox';
 
 const mapStateToProps = (state) => {
@@ -10,10 +9,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		actions: bindActionCreators({
-			// showHoverData,
-			// showWidgetData
-		}, dispatch),
+		actions: bindActionCreators({}, dispatch),
 	}
 };
 

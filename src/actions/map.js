@@ -23,27 +23,23 @@ export const setViewportMatrix = (viewportMatrix) => {
  * Pan 2D image by certain svg distance
  * @param {int} svgDistanceX - svg distance on x axis
  * @param {int} svgDistanceY - svg distance on y axis
- * @param {SVGMatrix} viewportMatrix
  */
-export const svgPan = (svgDistanceX, svgDistanceY, viewportMatrix) => {
+export const svgPan = (svgDistanceX, svgDistanceY) => {
 	return {
 		type: MAP_SVG_PAN,
 		svgDistanceX,
 		svgDistanceY,
-		viewportMatrix,
 	}
 };
 
 /**
  * Zoom image by certain percent
  * @param {float} zoomScaleDelta - zoom scale change, between -1 and 1.
- * @param {SVGMatrix} viewportMatrix
  */
-export const svgZoom = (zoomScaleDelta, viewportMatrix) => {
+export const svgZoom = (zoomScaleDelta) => {
 	return {
 		type: MAP_SVG_ZOOM,
 		zoomScaleDelta,
-		viewportMatrix,
 	}
 };
 
@@ -119,35 +115,33 @@ export const hideDetailWidget = () => {
 	}
 };
 
-export const moveSvgCenter = (svgPos, imageDimension, viewportMatrix) => {
+export const moveSvgCenter = (svgPos, imageDimension) => {
 	return {
 		type: MAP_CENTER_POSITION,
 		svgPosX: svgPos.x,
 		svgPosY: svgPos.y,
 		imageHeight: imageDimension.height,
 		imageWidth: imageDimension.width,
-		viewportMatrix,
 	}
 };
 
-export const centerAtPoint = (svgPos, viewportMatrix) => {
+export const centerAtPoint = (svgPos) => {
 	return (dispatch, getState) => {
 		const currState = getState();
 
 		const imageWidth = currState.imageData.get('width');
 		const imageHeight = currState.imageData.get('height');
 		const imageDimension = {width: imageWidth, height: imageHeight};
-		dispatch(moveSvgCenter(svgPos, imageDimension, viewportMatrix));
-		dispatch(hideHoverData());
-		dispatch(hideDetailWidget());
+		dispatch(moveSvgCenter(svgPos, imageDimension));
 	}
 };
 
 /**
- *
- * @param mapElementId
+ * Show detail widget of a location, and center the map at it if needed
+ * @param {string} mapElementId
+ * @param {bool} centerAtLocation
  */
-export const goToLocation = (mapElementId) => {
+export const goToLocation = (mapElementId, centerAtLocation = false) => {
 	return (dispatch, getState) => {
 		const currState = getState();
 
@@ -170,5 +164,9 @@ export const goToLocation = (mapElementId) => {
 		dispatch(moveDetailWidget(elementCenter));
 
 		dispatch(hideHoverData());
+
+		if (centerAtLocation === true) {
+			dispatch(centerAtPoint(elementCenter));
+		}
 	}
 };

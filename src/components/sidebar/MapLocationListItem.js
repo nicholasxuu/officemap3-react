@@ -6,6 +6,7 @@ import { ListGroupItem } from 'react-bootstrap';
 import '../../styles/sidebar/mapLocationListItem.css';
 
 class MapLocationListItem extends React.Component {
+
 	render = () => {
 		if (this.props.location.has('hide') &&
 			this.props.location.get('hide') === true
@@ -16,7 +17,7 @@ class MapLocationListItem extends React.Component {
 		return (
 			<ListGroupItem
 				className="map-location-list-item"
-				onClick={() => this.props.actions.goToLocation(this.props.location.get('mapElementId'))}
+				onClick={() => this.props.actions.goToLocation(this.props.location.get('mapElementId'), true)}
 			>
 				<span
 					className="item-image"

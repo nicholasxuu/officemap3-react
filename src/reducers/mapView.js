@@ -37,19 +37,16 @@ const mapViewReducer = (state = Immutable.fromJS({
 			const currSvgDistanceY = state.getIn(['svgOffset', 'y']) + action.svgDistanceY;
 			state = state.setIn(['svgOffset', 'x'], currSvgDistanceX);
 			state = state.setIn(['svgOffset', 'y'], currSvgDistanceY);
-			state = setViewportMatrix(state, action.viewportMatrix);
 			break;
 		case MAP_SVG_ZOOM:
 			const currZoomScale = state.getIn(['zoomScale']) + action.zoomScaleDelta;
 			state = state.setIn(['zoomScale'], currZoomScale);
-			state = setViewportMatrix(state, action.viewportMatrix);
 			break;
 		case MAP_CENTER_POSITION:
 			// make svgPosX, svgPosY to be center of svg
 			// make svgPosX, svgPosY go to width/2, height/2
 			state = state.setIn(['svgOffset', 'x'], action.imageWidth / 2 - action.svgPosX);
 			state = state.setIn(['svgOffset', 'y'], action.imageHeight / 2 - action.svgPosY);
-			state = setViewportMatrix(state, action.viewportMatrix);
 			break;
 		default:
 	}

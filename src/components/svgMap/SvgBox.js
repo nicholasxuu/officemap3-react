@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'react';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import ReactResizeDetector from 'react-resize-detector';
 import '../../styles/svgMap/svgBox.css';
 
 export const SVG_BODY = 'svg_body';
@@ -21,6 +22,12 @@ class SvgBox extends React.Component {
 	}
 
 	componentDidMount = () => {
+		// initialize viewport matrix into state
+		this.props.actions.setViewportMatrix(this.getViewportMatrix());
+	};
+
+	_onResize = () => {
+		// when map is resized, update viewport Matrix in state
 		this.props.actions.setViewportMatrix(this.getViewportMatrix());
 	};
 
@@ -67,14 +74,13 @@ class SvgBox extends React.Component {
 			// Get the new x coordinates
 			const x = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
 			const y = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
-			const viewportMatrix = this.getViewportMatrix();
 
 			// Take the delta where we are minus where we came from.
 			const svgDistanceX = (x - this.state.panStartX) / this.state.scaleMultiplier;
 			const svgDistanceY = (y - this.state.panStartY) / this.state.scaleMultiplier;
 
 			// Pan using the deltas
-			this.props.actions.svgPan(svgDistanceX, svgDistanceY, viewportMatrix);
+			this.props.actions.svgPan(svgDistanceX, svgDistanceY);
 
 			// Update the state
 			this.setState({
@@ -91,11 +97,10 @@ class SvgBox extends React.Component {
 	onWheel = (e) => {
 		e.preventDefault();
 		const wheelDeadZone = 2;
-		const viewportMatrix = this.getViewportMatrix();
 		if (e.deltaY < -wheelDeadZone) {
-			this.props.actions.svgZoom(0.05, viewportMatrix);
+			this.props.actions.svgZoom(0.05);
 		} else if (e.deltaY > wheelDeadZone) {
-			this.props.actions.svgZoom(-0.05, viewportMatrix);
+			this.props.actions.svgZoom(-0.05);
 		}
 	};
 
@@ -141,7 +146,7 @@ class SvgBox extends React.Component {
 	};
 
 	onElementClickStart = (e) => {
-		this.props.actions.goToLocation(e.currentTarget.id);
+		this.props.actions.goToLocation(e.currentTarget.id, false);
 		// if (this.state.selectPending === true) {
 		// 	this.onElementHoverEnd(); // clear current hover state if there any.
 		//
@@ -215,6 +220,7 @@ class SvgBox extends React.Component {
 		const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
 		return (
 			<div className="svg-box" ref="svg_container">
+				<ReactResizeDetector handleWidth handleHeight onResize={this._onResize.bind(this)} />
 				<svg
 					viewBox={viewBox}
 					preserveAspectRatio="xMidYMid meet"
