@@ -21,7 +21,14 @@ class MapDetailWidget extends React.Component {
 				positionTop={this.props.pagePosY - 150 - 10}
 				title={this.props.location.get('name')}
 			>
-				And here's some <strong>amazing</strong> content. It's very engaging. right?
+				<div className="widget-container">
+					<div className="widget-image-container">
+						<img  className="widget-image" src={this.props.location.get('image')} />
+					</div>
+					<div className="widget-detail">
+						{this.props.location.get('info')}
+					</div>
+				</div>
 			</Popover>
 		);
 	}
