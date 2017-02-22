@@ -1,23 +1,3 @@
-import Immutable from 'immutable';
-
-/**
- *
- * @param {Immutable.Map} shapeObj
- * @returns {{x: number, y: number}}
- */
-export const getShapeCenter = (shapeObj) => {
-	let centerPoint = {x:0, y:0};
-	switch (shapeObj.get('componentName')) {
-		case 'path':
-			centerPoint = getPathShapeCenter(shapeObj);
-			break;
-		case 'rect':
-			centerPoint = getRectShapeCenter(shapeObj);
-			break;
-	}
-	return centerPoint;
-};
-
 /**
  *
  * @param {Immutable.Map} pathObj
@@ -44,8 +24,8 @@ export const getPathShapeCenter = (pathObj) => {
 			edgeMaxY = currPoint[1];
 			edgeMinY = currPoint[1];
 		} else {
-			currPoint[0] = currPoint[0] + vector[0];
-			currPoint[1] = currPoint[1] + vector[1];
+			currPoint[0] += vector[0];
+			currPoint[1] += vector[1];
 
 			edgeMaxX = Math.max(currPoint[0], edgeMaxX);
 			edgeMinX = Math.min(currPoint[0], edgeMinX);
@@ -70,4 +50,23 @@ export const getRectShapeCenter = (rectObj) => {
 	const x = parseFloat(rectObj.get('x')) + (parseFloat(rectObj.get('width')) / 2);
 	const y = parseFloat(rectObj.get('y')) + (parseFloat(rectObj.get('height')) / 2);
 	return { x, y };
+};
+
+/**
+ *
+ * @param {Immutable.Map} shapeObj
+ * @returns {{x: number, y: number}}
+ */
+export const getShapeCenter = (shapeObj) => {
+	let centerPoint = {x:0, y:0};
+	switch (shapeObj.get('componentName')) {
+		case 'path':
+			centerPoint = getPathShapeCenter(shapeObj);
+			break;
+		case 'rect':
+			centerPoint = getRectShapeCenter(shapeObj);
+			break;
+		default:
+	}
+	return centerPoint;
 };

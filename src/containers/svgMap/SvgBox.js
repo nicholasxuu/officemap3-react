@@ -13,9 +13,15 @@ const mapStateToProps = (state) => {
 
 	const transformMatrix = getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
 
+	let widgetLocationElementId = null;
+	if (!state.widgetData.get('location').isEmpty()) {
+		 widgetLocationElementId = state.widgetData.get('location').get('mapElementId');
+	}
+
 	return {
 		imageData: state.imageData,
-		transformMatrix
+		transformMatrix,
+		selectedMapElementId: widgetLocationElementId,
 	};
 };
 

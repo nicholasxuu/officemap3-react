@@ -104,8 +104,16 @@ class SvgBox extends React.Component {
 		}
 	};
 
+	onElementPointerMove = (e) => {
+		this.onElementHover(e);
+		this.onElementClickCancel(e);
+	};
+
 	onElementHoverStart = (e) => {
-		if (this.props.hoverTipEnabled === true) {
+		// only show hover if, hovertip is enabled, and element not selected already.
+		if (this.props.hoverTipEnabled === true &&
+			e.currentTarget.id !== this.props.selectedMapElementId
+		) {
 			this.setState({ hovering: true });
 		}
 	};
@@ -134,84 +142,21 @@ class SvgBox extends React.Component {
 	};
 
 	onElementClickPrepare = (e) => {
-		// if (this.state.selectPending === false) {
-		// 	this.setState({ selectPending: true });
-		// }
+		if (this.state.selectPending === false) {
+			this.setState({ selectPending: true });
+		}
 	};
 
 	onElementClickCancel = (e) => {
-		// if (this.state.selectPending === true) {
-		// 	this.setState({ selectPending: false });
-		// }
+		if (this.state.selectPending === true) {
+			this.setState({ selectPending: false });
+		}
 	};
 
 	onElementClickStart = (e) => {
-		this.props.actions.goToLocation(e.currentTarget.id, false);
-		// if (this.state.selectPending === true) {
-		// 	this.onElementHoverEnd(); // clear current hover state if there any.
-		//
-		// 	this.setState({ selectedLocationId: e.currentTarget.id });
-		//
-		// 	// note: set state doesn't work immediately, need to use raw object if run immediately.
-		// 	updateSelectedTip(e.currentTarget, this.props.locations, this.props.actions.widgetData);
-		// }
-	};
-
-	panToCenterAtPoint = (cx, cy) => {
-		// const m = this.state.matrix;
-		//
-		// m[4] = this.props.imageData.width / 2 - cx;
-		// m[5] = this.props.imageData.height / 2 - cy;
-		//
-		// this.setState({ matrix: m });
-		//
-		// this.onTransform();
-	};
-
-	centerElement = (elementId) => {
-		// this.onElementHoverEnd(); // clear current hover state if there any.
-		//
-		// this.setState({ selectedLocationId: elementId });
-		//
-		// let centerPoint = this.getCenterPointById(elementId);
-		//
-		// this.panToCenterAtPoint(centerPoint.x, centerPoint.y);
-	};
-
-	pan = (dx, dy) => {
-		// const m = this.state.matrix;
-		// m[4] += dx;
-		// m[5] += dy;
-		// this.setState({ matrix: m });
-		//
-		// this.onTransform();
-	};
-
-	zoom = (scale) => {
-		// const m = this.state.matrix;
-		// const len = m.length;
-		// for (let i = 0; i < len; i++) {
-		// 	m[i] *= scale;
-		// }
-		// m[4] += (1 - scale) * this.props.imageData.width / 2;
-		// m[5] += (1 - scale) * this.props.imageData.height / 2;
-		// this.setState({ matrix: m });
-		//
-		// this.onTransform();
-	};
-
-	onTransform = () => {
-	};
-
-	getCenterPointById = (id) => {
-		// const targetRef = this.refs[id];
-		// if (!targetRef) {
-		// 	return {
-		// 		x: 0,
-		// 		y: 0,
-		// 	}
-		// }
-		// return getShapeCenter(targetRef);
+		if (this.state.selectPending === true) {
+			this.props.actions.goToLocation(e.currentTarget.id, false);
+		}
 	};
 
 	render = () => {
@@ -262,7 +207,7 @@ class SvgBox extends React.Component {
 								{...elementObj}
 
 								onMouseEnter={this.onElementHoverStart}
-								onMouseMove={this.onElementHover}
+								onMouseMove={this.onElementPointerMove}
 								onMouseLeave={this.onElementHoverEnd}
 
 								onMouseDown={this.onElementClickPrepare}
@@ -298,7 +243,7 @@ SvgBox.defaultProps = {
 		elements: [],
 	},
 	transformMatrix: [1, 0, 0, 1, 0, 0],
-	hoverTipEnabled: false, // todo: set to true
+	hoverTipEnabled: true, // todo: set to true
 };
 
 SvgBox.propTypes = {

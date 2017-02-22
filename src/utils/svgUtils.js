@@ -1,10 +1,8 @@
-import { getShapeCenter } from './svgShapeUtils';
-
 /**
  *
  * @param {{x: int, y: int}} svgPos
  * @param {SVGMatrix} svgTransformMatrix
- * @returns {{x: *, y: *}}
+ * @returns {{x: int, y: int}}
  */
 export const svgPosToPagePos = (svgPos = {x: 0, y: 0}, svgTransformMatrix = [1, 0, 0, 1, 0, 0]) => {
 	const pageX = svgPos.x * svgTransformMatrix[0] + svgTransformMatrix[4];
