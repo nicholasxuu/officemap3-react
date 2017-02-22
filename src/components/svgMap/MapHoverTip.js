@@ -3,23 +3,32 @@ import { PropTypes } from 'react';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 import '../../styles/svgMap/mapHoverTip.css';
+import { Tooltip } from 'react-bootstrap';
+
+const HOVERTIP_WIDTH = 150;
+const HOVERTIP_HEIGHT = 33;
 
 class MapHoverTip extends React.Component {
-
 
 	render = () => {
 		if (this.props.show === false) {
 			return null;
 		}
 		return (
-			<div className="map-hover-tip"
-			     style={{
-					left: this.props.clientPosX + 'px',
-					top: this.props.clientPosY + 'px',
-				}}
+			<Tooltip
+				id="map-hover-tooltip"
+				className="in map-hover-tip"
+				placement="top"
+			    style={{
+			    	left: this.props.clientPosX - HOVERTIP_WIDTH / 2,
+				    top: this.props.clientPosY - HOVERTIP_HEIGHT,
+				    height: HOVERTIP_HEIGHT,
+				    width: HOVERTIP_WIDTH,
+				    maxWidth: HOVERTIP_WIDTH,
+			    }}
 			>
-				{this.props.location.get('id')} - {this.props.location.get('name')}
-			</div>
+					{this.props.location.get('name')}
+			</Tooltip>
 		);
 	}
 }

@@ -38,7 +38,7 @@ class MapLocationListItem extends React.Component {
 					<div
 						className="item-detail"
 					>
-						{this.props.location.get('info')}
+						{this.props.location.get('description')}
 					</div>
 				</span>
 

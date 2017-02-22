@@ -5,6 +5,10 @@ import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/svgMap/mapDetailWidget.css';
 import { Popover } from 'react-bootstrap';
 
+const WIDGET_HEIGHT = 150;
+const WIDGET_WIDTH = 300;
+const WIDGET_TITLE_HEIGHT = 36;
+
 class MapDetailWidget extends React.Component {
 
 	render = () => {
@@ -17,16 +21,28 @@ class MapDetailWidget extends React.Component {
 				id="map-detail-widget"
 				className="map-detail-widget"
 				placement="top"
-				positionLeft={this.props.pagePosX - 150}
-				positionTop={this.props.pagePosY - 150 - 10}
+				positionLeft={this.props.pagePosX - (WIDGET_WIDTH / 2)}
+				positionTop={this.props.pagePosY - WIDGET_HEIGHT}
 				title={this.props.location.get('name')}
+			    style={{
+				    width: WIDGET_WIDTH,
+				    maxWidth: WIDGET_WIDTH,
+				    height: WIDGET_HEIGHT,
+				    maxHeight: WIDGET_HEIGHT,
+			    }}
 			>
-				<div className="widget-container">
+				<div className="widget-container" style={{
+					maxHeight: WIDGET_HEIGHT - WIDGET_TITLE_HEIGHT,
+				}}>
 					<div className="widget-image-container">
-						<img  className="widget-image" src={this.props.location.get('image')} />
+						<img
+							className="widget-image"
+							src={this.props.location.get('image')}
+						    alt={this.props.location.get('name')}
+						/>
 					</div>
 					<div className="widget-detail">
-						{this.props.location.get('info')}
+						{this.props.location.get('description')}
 					</div>
 				</div>
 			</Popover>

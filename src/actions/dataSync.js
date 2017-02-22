@@ -17,15 +17,15 @@ export const loadDummy = () => {
 			locations: [
 				{
 					id: 1,
-					name: "name1",
-					info: "software engineer",
+					name: "Theeba Soundararajan",
+					description: "software engineer",
 					image: "/img/1.jpg",
 					mapElementId: "svg_8",
 				},
 				{
 					id: 2,
 					name: "name2",
-					info: "1234567890123456",
+					description: "1234567890123456",
 					image: "/img/1.jpg",
 					mapElementId: "svg_4",
 				},

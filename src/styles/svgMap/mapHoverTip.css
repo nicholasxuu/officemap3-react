@@ -4,4 +4,6 @@
 
 	/* prevent causing mouseLeave when mouse touch it */
 	pointer-events: none;
+
+	text-align: center;
 }

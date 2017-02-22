@@ -15,6 +15,9 @@ class MapSearchBox extends React.Component {
 			<div className="map-search-box">
 				<InputGroup
 					bsSize="large"
+					style={{
+						width: '100%',
+					}}
 				>
 					<FormControl
 						placeholder="Search"

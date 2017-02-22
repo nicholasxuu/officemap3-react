@@ -3,8 +3,18 @@ import { RECEIVE_MAP_DATA } from '../actions/dataSync';
 import { FILTER_LOCATION } from '../actions/sidebar';
 
 const searchLocationMatch = (searchText, location) => {
-	return location.get('name').search(searchText) !== -1 ||
-		location.get('info').search(searchText) !== -1
+	let sourceText = location.get('name') + " " + location.get('description') + " " + location.get('tags');
+	sourceText = sourceText.toLowerCase();
+
+	const tokens = searchText.split(" ");
+	let searchScore = 0;
+	for (let token of tokens) {
+		if (sourceText.search(token) !== -1) {
+			searchScore++;
+		}
+	}
+	return searchScore > tokens.length / 2;
+
 };
 
 const mapLocationDataReducer = (state = Immutable.fromJS([]), action) => {

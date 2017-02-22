@@ -247,8 +247,9 @@ class SvgBox extends React.Component {
 
 				>
 
-					<g id={SVG_TRANSFORM_LAYER}
-					   ref={SVG_TRANSFORM_LAYER}
+					<g
+						id={SVG_TRANSFORM_LAYER}
+						ref={SVG_TRANSFORM_LAYER}
 						transform={`matrix(${this.props.transformMatrix.join(' ')})`}
 					>
 
