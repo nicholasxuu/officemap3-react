@@ -53,20 +53,18 @@ class SvgBox extends React.Component {
 	};
 
 	onTouchStart = (e) => {
-		let state = {touchType: false};
 		if (e.targetTouches.length === 2) {
-			state = {
+			const state = {
 				touchType: 'pinch',
 				touchDistanceSq: getTouchDistanceSquare(e.targetTouches),
-			}
+			};
+			this.setState(state);
 		}
-		this.setState(state);
 
 		this.onDragStart(e);
 	};
 
 	onTouchMove = (e) => {
-		e.preventDefault();
 		if (this.state.touchType === 'pinch') {
 			const newTouchDistanceSq = getTouchDistanceSquare(e.targetTouches);
 
@@ -84,23 +82,20 @@ class SvgBox extends React.Component {
 
 	onTouchEnd = (e) => {
 		this.setState({touchType: false});
+
+		this.onDragEnd(e);
 	};
 
 	onDragStart = (e) => {
-		// Find start position of drag based on touch/mouse coordinates.
-
-
 		// Update state with above coordinates, and set dragging to true.
 		const state = {
 			dragging: true,
 		};
-
 		this.setState(state);
 	};
 
 	onDragMove = (e) => {
 		if (this.state.dragging === true) {
-			e.preventDefault();
 			// Get the new coordinates
 			const touchCenter = getMultiTouchCenter(e);
 
