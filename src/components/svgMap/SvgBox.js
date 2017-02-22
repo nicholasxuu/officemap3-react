@@ -1,11 +1,10 @@
 import React from 'react';
 import { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
-import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/svgMap/svgBox.css';
-import { updateSelectedTip } from './utils/svgUtils';
-import { getShapeCenter } from './utils/svgShapeUtils';
+
+export const SVG_BODY = 'svg_body';
+export const SVG_TRANSFORM_LAYER = 'svg_transform_layer';
 
 class SvgBox extends React.Component {
 
@@ -21,15 +20,35 @@ class SvgBox extends React.Component {
 		};
 	}
 
-	getScaleMultiplier = (e) => {
-		return e.currentTarget.getCTM().a * this.props.transformMatrix[0]; // svg box's scale comparing to current viewport size
+	componentDidMount = () => {
+		this.props.actions.setViewportMatrix(this.getViewportMatrix());
+	};
+
+	/**
+	 * Get matrix for svg element vs viewport
+	 * @returns {SVGMatrix}
+	 */
+	getFinalMatrix = () => {
+		return this.refs[SVG_TRANSFORM_LAYER].getCTM();
+	};
+
+	getFinalScaleMultiplier = () => {
+		return this.getFinalMatrix().a; // svg box's scale comparing to current viewport size
+	};
+
+	/**
+	 * Get matrix for svg vs viewport.
+	 * @return {SVGMatrix}
+	 */
+	getViewportMatrix = () => {
+		return this.refs[SVG_BODY].getCTM();
 	};
 
 	onDragStart = (e) => {
 		// Find start position of drag based on touch/mouse coordinates.
 		const panStartX = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
 		const panStartY = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
-		const scaleMultiplier = this.getScaleMultiplier(e);
+		const scaleMultiplier = this.getFinalScaleMultiplier();
 
 		// Update state with above coordinates, and set dragging to true.
 		const state = {
@@ -48,13 +67,14 @@ class SvgBox extends React.Component {
 			// Get the new x coordinates
 			const x = typeof e.clientX === 'undefined' ? e.changedTouches[0].clientX : e.clientX;
 			const y = typeof e.clientY === 'undefined' ? e.changedTouches[0].clientY : e.clientY;
+			const viewportMatrix = this.getViewportMatrix();
 
 			// Take the delta where we are minus where we came from.
 			const svgDistanceX = (x - this.state.panStartX) / this.state.scaleMultiplier;
 			const svgDistanceY = (y - this.state.panStartY) / this.state.scaleMultiplier;
 
 			// Pan using the deltas
-			this.props.actions.svgPan(svgDistanceX, svgDistanceY);
+			this.props.actions.svgPan(svgDistanceX, svgDistanceY, viewportMatrix);
 
 			// Update the state
 			this.setState({
@@ -71,10 +91,11 @@ class SvgBox extends React.Component {
 	onWheel = (e) => {
 		e.preventDefault();
 		const wheelDeadZone = 2;
+		const viewportMatrix = this.getViewportMatrix();
 		if (e.deltaY < -wheelDeadZone) {
-			this.props.actions.svgZoom(0.05);
+			this.props.actions.svgZoom(0.05, viewportMatrix);
 		} else if (e.deltaY > wheelDeadZone) {
-			this.props.actions.svgZoom(-0.05);
+			this.props.actions.svgZoom(-0.05, viewportMatrix);
 		}
 	};
 
@@ -120,6 +141,7 @@ class SvgBox extends React.Component {
 	};
 
 	onElementClickStart = (e) => {
+		this.props.actions.goToLocation(e.currentTarget.id);
 		// if (this.state.selectPending === true) {
 		// 	this.onElementHoverEnd(); // clear current hover state if there any.
 		//
@@ -174,8 +196,6 @@ class SvgBox extends React.Component {
 	};
 
 	onTransform = () => {
-		// const selectedDOM = ReactDOM.findDOMNode(this.refs[this.state.selectedLocationId]);
-		// updateSelectedTip(selectedDOM, this.props.locations, this.props.actions.widgetData);
 	};
 
 	getCenterPointById = (id) => {
@@ -194,12 +214,13 @@ class SvgBox extends React.Component {
 		const imageHeight = this.props.imageData.get('height');
 		const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
 		return (
-			<div className="svg-box" ref="svgContainer">
+			<div className="svg-box" ref="svg_container">
 				<svg
 					viewBox={viewBox}
 					preserveAspectRatio="xMidYMid meet"
 
 					version="1.1"
+					ref={SVG_BODY}
 
 					onMouseDown={this.onDragStart}
 					onTouchStart={this.onDragStart}
@@ -207,10 +228,11 @@ class SvgBox extends React.Component {
 					onTouchMove={this.onDragMove}
 					onMouseUp={this.onDragEnd}
 					onTouchEnd={this.onDragEnd}
-				    onWheel={this.onWheel}
+					onWheel={this.onWheel}
 				>
 
-					<g
+					<g id={SVG_TRANSFORM_LAYER}
+					   ref={SVG_TRANSFORM_LAYER}
 						transform={`matrix(${this.props.transformMatrix.join(' ')})`}
 					>
 

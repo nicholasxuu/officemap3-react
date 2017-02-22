@@ -1,39 +1,34 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { showWidgetData, showHoverData, hideHoverData, svgPan, svgZoom, centerAtPoint } from '../../actions/map';
+import { showHoverData, hideHoverData, svgPan, svgZoom, centerAtPoint, goToLocation, setViewportMatrix } from '../../actions/map';
 import SvgBox from '../../components/svgMap/SvgBox';
+import { getTransformMatrix } from '../../utils/svgUtils';
 
 const mapStateToProps = (state) => {
-	const tMatrix = [1, 0, 0, 1, 0, 0];
+	const svgOffsetX = state.mapView.getIn(['svgOffset', 'x']);
+	const svgOffsetY = state.mapView.getIn(['svgOffset', 'y']);
+	const svgZoomScale = state.mapView.getIn(['zoomScale']);
+	const imageWidth = state.imageData.get('width');
+	const imageHeight = state.imageData.get('height');
 
-	// pan
-	tMatrix[4] = state.mapView.getIn(['svgOffset', 'x']);
-	tMatrix[5] = state.mapView.getIn(['svgOffset', 'y']);
-
-	// zoom
-	const zoomScale = state.mapView.getIn(['zoomScale']);
-	for (let i = 0; i < tMatrix.length; i++) {
-		tMatrix[i] *= zoomScale;
-	}
-	// zoom from center of viewbox (viewBox height/width === image height/width)
-	tMatrix[4] += (1 - zoomScale) * state.imageData.get('width') / 2;
-	tMatrix[5] += (1 - zoomScale) * state.imageData.get('height') / 2;
+	const transformMatrix = getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
 
 	return {
 		imageData: state.imageData,
-		transformMatrix: tMatrix,
+		transformMatrix
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		actions: bindActionCreators({
-			// showWidgetData,
 			showHoverData,
 			hideHoverData,
 			svgPan,
 			svgZoom,
-			centerAtPoint
+			centerAtPoint,
+			goToLocation,
+			setViewportMatrix
 		}, dispatch),
 	}
 };

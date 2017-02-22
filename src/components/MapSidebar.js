@@ -40,6 +40,7 @@ class MapSidebar extends React.Component {
 			case 'search':
 				return this.renderSearch();
 			case 'full':
+			default:
 				return this.renderFull();
 		}
 	};

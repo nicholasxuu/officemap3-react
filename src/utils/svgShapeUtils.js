@@ -1,19 +1,31 @@
-export const getShapeCenter = (shapeRef) => {
+import Immutable from 'immutable';
+
+/**
+ *
+ * @param {Immutable.Map} shapeObj
+ * @returns {{x: number, y: number}}
+ */
+export const getShapeCenter = (shapeObj) => {
 	let centerPoint = {x:0, y:0};
-	switch (shapeRef.getAttribute('type')) {
+	switch (shapeObj.get('componentName')) {
 		case 'path':
-			centerPoint = getPathShapeCenter(shapeRef);
+			centerPoint = getPathShapeCenter(shapeObj);
 			break;
 		case 'rect':
-			centerPoint = getRectShapeCenter(shapeRef);
+			centerPoint = getRectShapeCenter(shapeObj);
 			break;
 	}
 	return centerPoint;
 };
 
-export const getPathShapeCenter = (pathRef) => {
+/**
+ *
+ * @param {Immutable.Map} pathObj
+ * @returns {{x: number, y: number}}
+ */
+export const getPathShapeCenter = (pathObj) => {
 	// i.e. m159.82008,340.61655l206.76723,-0.99887l0,244.7245l-155.82458,0l-50.94265,-243.72563z
-	let svgD = pathRef.getAttribute('d');
+	let svgD = pathObj.get('d');
 	svgD = svgD.substr(1, svgD.length-2);
 	const pathList = svgD.split('l').map(item => item.split(',').map(number => parseFloat(number)));
 
@@ -49,8 +61,13 @@ export const getPathShapeCenter = (pathRef) => {
 	return { x, y };
 };
 
-export const getRectShapeCenter = (rectRef) => {
-	const x = parseFloat(rectRef.getAttribute('x')) + (parseFloat(rectRef.getAttribute('width')) / 2);
-	const y = parseFloat(rectRef.getAttribute('y')) + (parseFloat(rectRef.getAttribute('height')) / 2);
+/**
+ *
+ * @param {Immutable.Map} rectObj
+ * @returns {{x: number, y: number}}
+ */
+export const getRectShapeCenter = (rectObj) => {
+	const x = parseFloat(rectObj.get('x')) + (parseFloat(rectObj.get('width')) / 2);
+	const y = parseFloat(rectObj.get('y')) + (parseFloat(rectObj.get('height')) / 2);
 	return { x, y };
 };

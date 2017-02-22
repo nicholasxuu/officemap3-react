@@ -31,6 +31,7 @@ export const loadDummy = () => {
 				},
 			],
 			image: {
+				id: 'svg_image_1',
 				width: 1400,
 				height: 1400,
 				url: "/img/weebly_ny.png",

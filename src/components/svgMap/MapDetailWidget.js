@@ -14,12 +14,13 @@ class MapDetailWidget extends React.Component {
 		return (
 			<div
 				className="map-detail-widget"
+				style={{
+					left: this.props.pagePosX + 'px',
+					top: this.props.pagePosY + 'px',
+				}}
 			>
 				<div
-					style={{
-						left: this.props.pagePosX + 'px',
-						top: this.props.pagePosY + 'px',
-					}}
+
 				>
 					{this.props.location.get('id')} - {this.props.location.get('name')}
 				</div>
