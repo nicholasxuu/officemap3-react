@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { showHoverData, hideHoverData, svgPan, svgZoom, centerAtPoint, goToLocation, setViewportMatrix } from '../../actions/map';
+import { showHoverData, hideHoverData, svgPan, svgZoom, centerAtPoint, goToLocation, setViewportMatrix, hideDetailWidget } from '../../actions/map';
 import SvgBox from '../../components/svgMap/SvgBox';
 import { getTransformMatrix } from '../../utils/svgUtils';
 
@@ -34,7 +34,8 @@ const mapDispatchToProps = (dispatch) => {
 			svgZoom,
 			centerAtPoint,
 			goToLocation,
-			setViewportMatrix
+			setViewportMatrix,
+			hideDetailWidget,
 		}, dispatch),
 	}
 };

@@ -15,6 +15,7 @@ class SvgBox extends React.Component {
 		this.state = {
 			dragging: false, // is dragging
 			hovering: false, // is hovering
+			panning: false,
 			selectPending: false, // is going to select, but no drag between mouseDown and mouseUp
 			panX: 0, // for pan movement calculation
 			panY: 0, // for pan movement calculation
@@ -52,6 +53,56 @@ class SvgBox extends React.Component {
 		return this.refs[SVG_BODY].getCTM();
 	};
 
+	onDragStart = (e) => {
+		// Update state with above coordinates, and set dragging to true.
+		const state = {
+			dragging: true,
+		};
+		this.setState(state);
+	};
+
+	onDragMove = (e) => {
+		if (this.state.dragging === true) {
+			// Get the new coordinates
+			const touchCenter = getMultiTouchCenter(e);
+
+			// Take the delta where we are minus where we came from.
+			if (this.state.panX > 0 && this.state.panY > 0) {
+				const scaleMultiplier = this.getFinalScaleMultiplier();
+
+				const svgDistanceX = (touchCenter.x - this.state.panX) / scaleMultiplier;
+				const svgDistanceY = (touchCenter.y - this.state.panY) / scaleMultiplier;
+
+				// Pan using the deltas
+				this.props.actions.svgPan(svgDistanceX, svgDistanceY);
+			}
+
+			// Update the state
+			this.setState({
+				panning: true,
+				panX: touchCenter.x,
+				panY: touchCenter.y,
+			});
+		}
+	};
+
+	onDragEnd = (e) => {
+		if (this.state.dragging === true) {
+			this.setState({
+				dragging: false,
+				panning: false,
+				panX: 0, // unset value
+				panY: 0, // unset value
+			});
+
+			if (this.state.panning === false &&
+				this.state.selectPending === false
+			) {
+				this.props.actions.hideDetailWidget();
+			}
+		}
+	};
+
 	onTouchStart = (e) => {
 		if (e.targetTouches.length === 2) {
 			const state = {
@@ -87,44 +138,16 @@ class SvgBox extends React.Component {
 		this.onDragEnd(e);
 	};
 
-	onDragStart = (e) => {
-		// Update state with above coordinates, and set dragging to true.
-		const state = {
-			dragging: true,
-		};
-		this.setState(state);
+	onMapClickStart = (e) => {
+		this.onDragStart(e);
 	};
 
-	onDragMove = (e) => {
-		if (this.state.dragging === true) {
-			// Get the new coordinates
-			const touchCenter = getMultiTouchCenter(e);
-
-			// Take the delta where we are minus where we came from.
-			if (this.state.panX > 0 && this.state.panY > 0) {
-				const scaleMultiplier = this.getFinalScaleMultiplier();
-
-				const svgDistanceX = (touchCenter.x - this.state.panX) / scaleMultiplier;
-				const svgDistanceY = (touchCenter.y - this.state.panY) / scaleMultiplier;
-
-				// Pan using the deltas
-				this.props.actions.svgPan(svgDistanceX, svgDistanceY);
-			}
-
-			// Update the state
-			this.setState({
-				panX: touchCenter.x,
-				panY: touchCenter.y,
-			});
-		}
+	onMapClickMove = (e) => {
+		this.onDragMove(e);
 	};
 
-	onDragEnd = (e) => {
-		this.setState({
-			dragging: false,
-			panX: 0, // unset value
-			panY: 0, // unset value
-		});
+	onMapClickEnd = (e) => {
+		this.onDragEnd(e);
 	};
 
 	onWheel = (e) => {
@@ -193,6 +216,7 @@ class SvgBox extends React.Component {
 
 	onElementClickStart = (e) => {
 		if (this.state.selectPending === true) {
+			this.setState({ selectPending: false });
 			this.props.actions.goToLocation(e.currentTarget.id, false);
 		}
 	};
@@ -202,18 +226,19 @@ class SvgBox extends React.Component {
 		const imageHeight = this.props.imageData.get('height');
 		const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
 		return (
-			<div className="svg-box" ref="svg_container">
+			<div className="svg-box svg-non-element" ref="svg_container">
 				<ReactResizeDetector handleWidth handleHeight onResize={this._onResize.bind(this)} />
 				<svg
 					viewBox={viewBox}
 					preserveAspectRatio="xMidYMid meet"
+					className="svg-non-element"
 
 					version="1.1"
 					ref={SVG_BODY}
 
-					onMouseDown={this.onDragStart}
-					onMouseMove={this.onDragMove}
-					onMouseUp={this.onDragEnd}
+					onMouseDown={this.onMapClickStart}
+					onMouseMove={this.onMapClickMove}
+					onMouseUp={this.onMapClickEnd}
 					onWheel={this.onWheel}
 
 					onTouchStart={this.onTouchStart}
@@ -251,9 +276,10 @@ class SvgBox extends React.Component {
 								onMouseLeave={this.onElementHoverEnd}
 
 								onMouseDown={this.onElementClickPrepare}
+								onMouseUp={this.onElementClickStart}
+
 								onTouchStart={this.onElementClickPrepare}
 								onTouchMove={this.onElementClickCancel}
-								onMouseUp={this.onElementClickStart}
 								onTouchEnd={this.onElementClickStart}
 							/>);
 						})}

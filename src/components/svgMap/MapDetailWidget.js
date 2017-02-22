@@ -3,6 +3,7 @@ import { PropTypes } from 'react';
 import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/svgMap/mapDetailWidget.css';
+import { Popover } from 'react-bootstrap';
 
 class MapDetailWidget extends React.Component {
 
@@ -12,19 +13,16 @@ class MapDetailWidget extends React.Component {
 		}
 
 		return (
-			<div
+			<Popover
+				id="map-detail-widget"
 				className="map-detail-widget"
-				style={{
-					left: this.props.pagePosX + 'px',
-					top: this.props.pagePosY + 'px',
-				}}
+				placement="top"
+				positionLeft={this.props.pagePosX - 150}
+				positionTop={this.props.pagePosY - 150 - 10}
+				title={this.props.location.get('name')}
 			>
-				<div
-
-				>
-					{this.props.location.get('id')} - {this.props.location.get('name')}
-				</div>
-			</div>
+				And here's some <strong>amazing</strong> content. It's very engaging. right?
+			</Popover>
 		);
 	}
 }
