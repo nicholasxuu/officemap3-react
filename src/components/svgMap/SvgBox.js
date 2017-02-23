@@ -53,6 +53,19 @@ class SvgBox extends React.Component {
 		return this.refs[SVG_BODY].getCTM();
 	};
 
+	/**
+	 * Action level handlers
+	 *
+	 * onDragStart
+	 * onDragMove
+	 * onDragEnd
+	 * onElementHover
+	 */
+
+	/**
+	 * Set dragging state when drag start
+	 * @param {Event} e
+	 */
 	onDragStart = (e) => {
 		// Update state with above coordinates, and set dragging to true.
 		const state = {
@@ -61,6 +74,10 @@ class SvgBox extends React.Component {
 		this.setState(state);
 	};
 
+	/**
+	 * Update pan when drag move.
+	 * @param {Event} e
+	 */
 	onDragMove = (e) => {
 		if (this.state.dragging === true) {
 			// Get the new coordinates
@@ -86,6 +103,10 @@ class SvgBox extends React.Component {
 		}
 	};
 
+	/**
+	 * Unset state when drag end.
+	 * @param {Event} e
+	 */
 	onDragEnd = (e) => {
 		if (this.state.dragging === true) {
 			this.setState({
@@ -103,77 +124,10 @@ class SvgBox extends React.Component {
 		}
 	};
 
-	onTouchStart = (e) => {
-		if (e.targetTouches.length === 2) {
-			const state = {
-				touchType: 'pinch',
-				touchDistanceSq: getTouchDistanceSquare(e.targetTouches),
-			};
-			this.setState(state);
-		}
-
-		this.onDragStart(e);
-	};
-
-	onTouchMove = (e) => {
-		if (this.state.touchType === 'pinch') {
-			e.preventDefault();
-			const newTouchDistanceSq = getTouchDistanceSquare(e.targetTouches);
-
-			const touchDelta = newTouchDistanceSq - this.state.touchDistanceSq;
-			this.props.actions.svgZoom(touchDelta / 50000);
-
-			const state = {
-				touchDistanceSq: newTouchDistanceSq,
-			};
-			this.setState(state);
-		}
-
-		this.onDragMove(e);
-	};
-
-	onTouchEnd = (e) => {
-		this.setState({touchType: false});
-
-		this.onDragEnd(e);
-	};
-
-	onMapClickStart = (e) => {
-		this.onDragStart(e);
-	};
-
-	onMapClickMove = (e) => {
-		this.onDragMove(e);
-	};
-
-	onMapClickEnd = (e) => {
-		this.onDragEnd(e);
-	};
-
-	onWheel = (e) => {
-		e.preventDefault();
-		const wheelDeadZone = 2;
-		if (e.deltaY < -wheelDeadZone) {
-			this.props.actions.svgZoom(0.05);
-		} else if (e.deltaY > wheelDeadZone) {
-			this.props.actions.svgZoom(-0.05);
-		}
-	};
-
-	onElementPointerMove = (e) => {
-		this.onElementHover(e);
-		this.onElementClickCancel(e);
-	};
-
-	onElementHoverStart = (e) => {
-		// only show hover if, hovertip is enabled, and element not selected already.
-		if (this.props.hoverTipEnabled === true &&
-			e.currentTarget.id !== this.props.selectedMapElementId
-		) {
-			this.setState({ hovering: true });
-		}
-	};
-
+	/**
+	 * Show and move hovertip above mouse pointer.
+	 * @param {Event} e
+	 */
 	onElementHover = (e) => {
 		if (this.state.hovering === true) {
 			e.preventDefault();
@@ -195,6 +149,147 @@ class SvgBox extends React.Component {
 		}
 	};
 
+	/**
+	 * Touch handlers
+	 * mainly for pinch zoom and prevent fk up when multi-touch pan
+	 *
+	 * onTouchStart
+	 * onTouchMove
+	 * onTouchEnd
+	 */
+
+	/**
+	 *
+	 * @param {Event} e
+	 */
+	onTouchStart = (e) => {
+		if (e.targetTouches.length === 2) {
+			const state = {
+				touchType: 'pinch',
+				touchDistanceSq: getTouchDistanceSquare(e.targetTouches),
+			};
+			this.setState(state);
+		}
+
+		this.onDragStart(e);
+	};
+
+	/**
+	 *
+	 * @param {Event} e
+	 */
+	onTouchMove = (e) => {
+		if (this.state.touchType === 'pinch') {
+			e.preventDefault();
+			const newTouchDistanceSq = getTouchDistanceSquare(e.targetTouches);
+
+			const touchDelta = newTouchDistanceSq - this.state.touchDistanceSq;
+			this.props.actions.svgZoom(touchDelta / 50000);
+
+			const state = {
+				touchDistanceSq: newTouchDistanceSq,
+			};
+			this.setState(state);
+		}
+
+		this.onDragMove(e);
+	};
+
+	/**
+	 *
+	 * @param {Event} e
+	 */
+	onTouchEnd = (e) => {
+		this.setState({touchType: false});
+
+		this.onDragEnd(e);
+	};
+
+	/**
+	 * Mouse handlers for general map
+	 * hover, click, drag, wheel zoom
+	 *
+	 * onMapClickStart
+	 * onMapClickMove
+	 * onMapClickEnd
+	 * onWheel
+	 */
+
+	/**
+	 *
+	 * @param {Event} e
+	 */
+	onMapClickStart = (e) => {
+		this.onDragStart(e);
+	};
+
+	/**
+	 *
+	 * @param {Event} e
+	 */
+	onMapClickMove = (e) => {
+		this.onDragMove(e);
+	};
+
+	/**
+	 *
+	 * @param {Event} e
+	 */
+	onMapClickEnd = (e) => {
+		this.onDragEnd(e);
+	};
+
+	/**
+	 *
+	 * @param {Event} e
+	 */
+	onWheel = (e) => {
+		e.preventDefault();
+		const wheelDeadZone = 2;
+		if (e.deltaY < -wheelDeadZone) {
+			this.props.actions.svgZoom(0.05);
+		} else if (e.deltaY > wheelDeadZone) {
+			this.props.actions.svgZoom(-0.05);
+		}
+	};
+
+	/**
+	 * Mouse handler for svg elements
+	 *
+	 * onElementPointerMove
+	 * onElementHoverStart
+	 * onElementHoverEnd
+	 * onElementClickPrepare
+	 * onElementClickCancel
+	 * onElementClickStart
+	 */
+
+	/**
+	 * Cancel element click if mouse down. and update hover position.
+	 * @param {Event} e
+	 */
+	onElementPointerMove = (e) => {
+		this.onElementHover(e);
+		this.onElementClickCancel(e);
+	};
+
+	/**
+	 * Check if we want to show hover tip, if so, setup state so it will show when mouse moves.
+	 * @param {Event} e
+	 */
+	onElementHoverStart = (e) => {
+		// only show hover if, hovertip is enabled, and element not selected already.
+		if (this.props.hoverTipEnabled === true &&
+			e.currentTarget.id !== this.props.selectedMapElementId
+		) {
+			this.setState({ hovering: true });
+		}
+	};
+
+	/**
+	 * Stop hovering
+	 * @param {Event} e
+	 */
 	onElementHoverEnd = (e) => {
 		if (this.state.hovering === true) {
 			this.props.actions.hideHoverData();
@@ -202,18 +297,31 @@ class SvgBox extends React.Component {
 		}
 	};
 
+	/**
+	 * When mouse down, don't show widget yet, listen for drag action before mouse up
+	 * @param {Event} e
+	 */
 	onElementClickPrepare = (e) => {
 		if (this.state.selectPending === false) {
 			this.setState({ selectPending: true });
 		}
 	};
 
+	/**
+	 * If there's any drag action between mouse down and mouse up,
+	 *     when preparing to trigger widget, disable widget trigger.
+	 * @param {Event} e
+	 */
 	onElementClickCancel = (e) => {
 		if (this.state.selectPending === true) {
 			this.setState({ selectPending: false });
 		}
 	};
 
+	/**
+	 * Trigger widget if good.
+	 * @param {Event} e
+	 */
 	onElementClickStart = (e) => {
 		if (this.state.selectPending === true) {
 			this.setState({ selectPending: false });
@@ -221,6 +329,9 @@ class SvgBox extends React.Component {
 		}
 	};
 
+	/**
+	 * Render! mf
+	 */
 	render = () => {
 		const imageWidth = this.props.imageData.get('width');
 		const imageHeight = this.props.imageData.get('height');
@@ -303,14 +414,16 @@ class SvgBox extends React.Component {
 }
 
 SvgBox.defaultProps = {
-	imageData: {
-		width: 0,
-		height: 0,
-		url: '',
-		elements: [],
-	},
+	imageData: [
+		{
+			width: 0,
+			height: 0,
+			url: '',
+			elements: [],
+		},
+	],
 	transformMatrix: [1, 0, 0, 1, 0, 0],
-	hoverTipEnabled: true, // todo: set to true
+	hoverTipEnabled: true,
 };
 
 SvgBox.propTypes = {
@@ -321,7 +434,7 @@ SvgBox.propTypes = {
 		elements: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
 			id: PropTypes.string.isRequired,
 			componentName: PropTypes.string.isRequired,
-		})),
+		}))
 	}).isRequired,
 	transformMatrix: PropTypes.arrayOf(PropTypes.number).isRequired,
 	hoverTipEnabled: PropTypes.bool,

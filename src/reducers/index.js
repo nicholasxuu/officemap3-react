@@ -8,7 +8,7 @@ import mapViewReducer from './mapView';
 
 const MapReducer = combineReducers({
 	locations: mapLocationDataReducer,
-	imageData: svgImageReducer,
+	imageDataList: svgImageReducer,
 	mapView: mapViewReducer,
 	widgetData: mapWidgetDataReducer,
 	hoverData: mapHoverDataReducer,

@@ -4,7 +4,7 @@ import { RECEIVE_MAP_DATA } from '../actions/dataSync';
 const svgImageReducer = (state = Immutable.fromJS({}), action) => {
 	switch (action.type) {
 		case RECEIVE_MAP_DATA:
-			state = action.imageData;
+			state = action.imageDataList;
 			break;
 		default:
 	}

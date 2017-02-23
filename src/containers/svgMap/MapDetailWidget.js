@@ -18,8 +18,8 @@ const mapStateToProps = (state) => {
 		const svgOffsetX = state.mapView.getIn(['svgOffset', 'x']);
 		const svgOffsetY = state.mapView.getIn(['svgOffset', 'y']);
 		const svgZoomScale = state.mapView.getIn(['zoomScale']);
-		const imageWidth = state.imageData.get('width');
-		const imageHeight = state.imageData.get('height');
+		const imageWidth = state.imageDataList.get(0).get('width');
+		const imageHeight = state.imageDataList.get(0).get('height');
 
 		const transformMatrix = getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
 

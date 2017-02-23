@@ -1,8 +1,9 @@
 import { getShapeCenter } from '../utils/svgShapeUtils';
+import { findLocationByMapElementId } from '../utils/locationUtils';
+import { findElementByMapElementId } from '../utils/imageDataUtils';
 
 export const SET_VIEWPORT_MATRIX = 'SET_VIEWPORT_MATRIX';
 export const MAP_CENTER_POSITION = 'MAP_CENTER_POSITION';
-export const PAN_TO_LOCATION = 'PAN_TO_LOCATION';
 export const MAP_SVG_PAN = 'MAP_SVG_PAN';
 export const MAP_SVG_ZOOM = 'MAP_SVG_ZOOM';
 export const MAP_SHOW_HOVERTIP = 'MAP_SHOW_HOVERTIP';
@@ -11,6 +12,7 @@ export const MAP_HIDE_HOVERTIP = 'MAP_HIDE_HOVERTIP';
 export const MAP_SHOW_WIDGET = 'MAP_SHOW_WIDGET';
 export const MAP_MOVE_WIDGET = 'MAP_MOVE_WIDGET';
 export const MAP_HIDE_WIDGET = 'MAP_HIDE_WIDGET';
+export const MAP_SWITCH_IMAGE = 'MAP_SWITCH_IMAGE';
 
 export const setViewportMatrix = (viewportMatrix) => {
 	return {
@@ -76,9 +78,7 @@ export const showHoverData = (mapElementId, clientPos) => {
 		if (hoverData.get('location').isEmpty() ||
 			hoverData.getIn(['location', 'mapElementId']) !== mapElementId
 		) {
-			const location = locations.find(location => {
-				return location.get('mapElementId') === mapElementId;
-			});
+			const location = findLocationByMapElementId(locations, mapElementId);
 
 			dispatch(showHoverTip(location));
 		}
@@ -129,8 +129,8 @@ export const centerAtPoint = (svgPos) => {
 	return (dispatch, getState) => {
 		const currState = getState();
 
-		const imageWidth = currState.imageData.get('width');
-		const imageHeight = currState.imageData.get('height');
+		const imageWidth = currState.imageDataList.get(0).get('width');
+		const imageHeight = currState.imageDataList.get(0).get('height');
 		const imageDimension = {width: imageWidth, height: imageHeight};
 		dispatch(moveSvgCenter(svgPos, imageDimension));
 	}
@@ -148,17 +148,16 @@ export const goToLocation = (mapElementId, centerAtLocation = false) => {
 		if (currState.widgetData.get('location').isEmpty() ||
 			currState.widgetData.getIn(['location', 'mapElementId']) !== mapElementId
 		) {
-			const location = currState.locations.find(location => {
-				return location.get('mapElementId') === mapElementId;
-			});
+			const location = findLocationByMapElementId(currState.locations, mapElementId);
 
 			dispatch(showDetailWidget(location));
 		}
 
 		// get element center svg pos
-		const element = currState.imageData.get('elements').find(element => {
-			return element.get('id') === mapElementId;
-		});
+		const element = findElementByMapElementId(currState.imageDataList, mapElementId);
+		if (element === null) {
+			return;
+		}
 		const elementCenter = getShapeCenter(element);
 
 		dispatch(moveDetailWidget(elementCenter));
