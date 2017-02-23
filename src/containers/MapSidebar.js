@@ -5,6 +5,7 @@ import MapSidebar from '../components/MapSidebar';
 
 const mapStateToProps = (state) => {
 	return {
+		searchText: state.searchText,
 	};
 };
 

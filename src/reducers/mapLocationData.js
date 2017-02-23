@@ -6,7 +6,8 @@ const searchLocationMatch = (searchText, location) => {
 	let sourceText = location.get('name') + " " + location.get('description') + " " + location.get('tags');
 	sourceText = sourceText.toLowerCase();
 
-	const tokens = searchText.split(" ");
+	const tokens = searchText.toLowerCase().split(" ");
+
 	let searchScore = 0;
 	for (let token of tokens) {
 		if (sourceText.search(token) !== -1) {

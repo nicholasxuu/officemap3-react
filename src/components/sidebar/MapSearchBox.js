@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import { InputGroup, FormControl } from 'react-bootstrap';
+import '../../styles/sidebar/mapSearchBox.css';
 
 class MapSearchBox extends React.Component {
 

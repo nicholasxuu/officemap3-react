@@ -8,41 +8,38 @@ import { Button, Glyphicon } from 'react-bootstrap';
 
 class MapSidebar extends React.Component {
 
-	renderMinimal = () => {
-		return (
-			<div className="map-sidebar">
-				<Button><Glyphicon glyph="align-justify" /></Button>
-			</div>
-		)
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			showLocationList: this.props.sidebarType === 'full',
+		};
+	}
 
-	renderSearch = () => {
-		return (
-			<div className="map-sidebar">
-				<MapSearchBox/>
-			</div>
-		)
-	};
-
-	renderFull = () => {
-		return (
-			<div className="map-sidebar">
-				<MapSearchBox/>
-				<MapLocationList/>
-			</div>
-		);
+	toggleLocationList = () => {
+		if (this.state.showLocationList === true) {
+			this.setState({showLocationList: false});
+		} else {
+			this.setState({showLocationList: true});
+		}
 	};
 
 	render = () => {
-		switch (this.props.sidebarType) {
-			case 'minimal':
-				return this.renderMinimal();
-			case 'search':
-				return this.renderSearch();
-			case 'full':
-			default:
-				return this.renderFull();
+		let locationList = null;
+		if (this.state.showLocationList === true || this.props.searchText !== '') {
+			locationList = <MapLocationList />;
 		}
+
+		return (
+			<div className="map-sidebar">
+				<div className="map-sidebar-top">
+					<Button bsSize="large" onClick={this.toggleLocationList}>
+						<Glyphicon glyph="menu-hamburger" />
+					</Button>
+					<MapSearchBox/>
+				</div>
+				{locationList}
+			</div>
+		);
 	};
 }
 
