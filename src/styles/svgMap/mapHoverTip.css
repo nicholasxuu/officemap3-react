@@ -6,4 +6,7 @@
 	pointer-events: none;
 
 	text-align: center;
+
+	/* make widget top and center */
+	transform: translateX(-50%) translateY(-100%);
 }

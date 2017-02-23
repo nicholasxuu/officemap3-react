@@ -1,5 +1,8 @@
 .map-detail-widget {
 	z-index: 3;
+
+	/* make widget top and center */
+	transform: translateX(-50%) translateY(-100%);
 }
 
 .map-detail-widget .popover-content {
@@ -17,7 +20,13 @@
 .widget-image {
 	display: block;
 	overflow: hidden;
-	max-width: 100px;
+	width: 100px;
 	max-height: 100%;
 	object-fit: cover;
+}
+
+.widget-detail {
+	display: block;
+	overflow: hidden;
+	width: 200px;
 }

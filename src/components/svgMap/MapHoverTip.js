@@ -5,9 +5,6 @@ import Immutable from 'immutable';
 import '../../styles/svgMap/mapHoverTip.css';
 import { Tooltip } from 'react-bootstrap';
 
-const HOVERTIP_WIDTH = 150;
-const HOVERTIP_HEIGHT = 33;
-
 class MapHoverTip extends React.Component {
 
 	render = () => {
@@ -20,11 +17,8 @@ class MapHoverTip extends React.Component {
 				className="in map-hover-tip"
 				placement="top"
 			    style={{
-			    	left: this.props.clientPosX - HOVERTIP_WIDTH / 2,
-				    top: this.props.clientPosY - HOVERTIP_HEIGHT,
-				    height: HOVERTIP_HEIGHT,
-				    width: HOVERTIP_WIDTH,
-				    maxWidth: HOVERTIP_WIDTH,
+			    	left: this.props.clientPosX,
+				    top: this.props.clientPosY,
 			    }}
 			>
 					{this.props.location.get('name')}

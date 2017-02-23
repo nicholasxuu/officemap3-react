@@ -25,7 +25,9 @@ export const loadDummy = () => {
 				{
 					id: 2,
 					name: "name2",
-					description: "1234567890123456",
+					description
+
+						: "1234567890123456",
 					image: "/img/1.jpg",
 					mapElementId: "svg_4",
 				},
