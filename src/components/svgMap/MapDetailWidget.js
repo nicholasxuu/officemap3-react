@@ -21,17 +21,43 @@ class MapDetailWidget extends React.Component {
 				positionTop={this.props.pagePosY}
 				title={this.props.location.get('name')}
 			    style={{
+				    zIndex: 3,
+				    /* make widget top and center */
+				    transform: 'translateX(-50%) translateY(-100%)',
 			    }}
 			>
-				<div className="widget-container">
+				<div
+					className="widget-container"
+				    style={{
+					    display: 'flex',
+					    flexFlow: 'row nowrap',
+					    overflow: 'hidden',
+					    width: '100%',
+					    height: '100%',
+				    }}
+				>
 					<div className="widget-image-container">
 						<img
 							className="widget-image"
 							src={this.props.location.get('image')}
 						    alt={this.props.location.get('name')}
+						    style={{
+							    display: 'block',
+							    overflow: 'hidden',
+							    width: '100px',
+							    maxHeight: '100%',
+							    objectFit: 'cover',
+						    }}
 						/>
 					</div>
-					<div className="widget-detail">
+					<div
+						className="widget-detail"
+					    style={{
+						    display: 'block',
+						    overflow: 'hidden',
+						    width: '200px',
+					    }}
+					>
 						{this.props.location.get('description')}
 					</div>
 				</div>

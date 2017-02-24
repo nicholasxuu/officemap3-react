@@ -1,32 +1,20 @@
 .map-detail-widget {
-	z-index: 3;
 
-	/* make widget top and center */
-	transform: translateX(-50%) translateY(-100%);
 }
 
+/* react bootstrap stuff, cannot do it inline */
 .map-detail-widget .popover-content {
 	padding: 0;
 }
 
 .widget-container {
-	display: flex;
-	flex-flow: row nowrap;
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
+
 }
 
 .widget-image {
-	display: block;
-	overflow: hidden;
-	width: 100px;
-	max-height: 100%;
-	object-fit: cover;
+
 }
 
 .widget-detail {
-	display: block;
-	overflow: hidden;
-	width: 200px;
+
 }

@@ -19,6 +19,13 @@ class MapHoverTip extends React.Component {
 			    style={{
 			    	left: this.props.clientPosX,
 				    top: this.props.clientPosY,
+				    position: 'fixed',
+				    zIndex: 2,
+				    /* prevent causing mouseLeave when mouse touch it */
+				    pointerEvents: 'none',
+				    textAlign: 'center',
+				    /* make widget top and center */
+				    transform: 'translateX(-50%) translateY(-100%)',
 			    }}
 			>
 					{this.props.location.get('name')}

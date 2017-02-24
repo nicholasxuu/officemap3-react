@@ -13,7 +13,12 @@ class MapSearchBox extends React.Component {
 
 	render = () => {
 		return (
-			<div className="map-search-box">
+			<div
+				className="map-search-box"
+			    style={{
+				    width: '100%',
+			    }}
+			>
 				<InputGroup
 					bsSize="large"
 					style={{

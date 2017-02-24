@@ -64,6 +64,13 @@ export const moveHoverTip = (clientPos) => {
 	}
 };
 
+export const switchImage = (imageId) => {
+	return {
+		type: MAP_SWITCH_IMAGE,
+		imageId,
+	}
+};
+
 /**
  * Redux-thunk function, to help find element.
  * @param mapElementId
@@ -129,8 +136,9 @@ export const centerAtPoint = (svgPos) => {
 	return (dispatch, getState) => {
 		const currState = getState();
 
-		const imageWidth = currState.imageDataList.get(0).get('width');
-		const imageHeight = currState.imageDataList.get(0).get('height');
+		const activeImageId = currState.mapView.get('activeImageId');
+		const imageWidth = currState.imageDataCollection.get(activeImageId).get('width');
+		const imageHeight = currState.imageDataCollection.get(activeImageId).get('height');
 		const imageDimension = {width: imageWidth, height: imageHeight};
 		dispatch(moveSvgCenter(svgPos, imageDimension));
 	}
@@ -154,11 +162,13 @@ export const goToLocation = (mapElementId, centerAtLocation = false) => {
 		}
 
 		// get element center svg pos
-		const element = findElementByMapElementId(currState.imageDataList, mapElementId);
+		let { imageId, element } = findElementByMapElementId(currState.imageDataCollection, mapElementId);
 		if (element === null) {
 			return;
 		}
 		const elementCenter = getShapeCenter(element);
+
+		dispatch(switchImage(imageId));
 
 		dispatch(moveDetailWidget(elementCenter));
 

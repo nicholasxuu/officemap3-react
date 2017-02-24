@@ -12,6 +12,12 @@ class MapLocationList extends React.Component {
 		return (
 			<ListGroup
 				className="map-location-list"
+			    style={{
+				    display: 'flex',
+				    flexFlow: 'column nowrap',
+				    width: '100%',
+				    height: '100%',
+			    }}
 			>
 				{this.props.locations.map(location =>
 					<MapLocationListItem

@@ -5,11 +5,13 @@ import SvgBox from '../../components/svgMap/SvgBox';
 import { getTransformMatrix } from '../../utils/svgUtils';
 
 const mapStateToProps = (state) => {
+	const activeImageId = state.mapView.get('activeImageId');
+
 	const svgOffsetX = state.mapView.getIn(['svgOffset', 'x']);
 	const svgOffsetY = state.mapView.getIn(['svgOffset', 'y']);
 	const svgZoomScale = state.mapView.getIn(['zoomScale']);
-	const imageWidth = state.imageDataList.get(0).get('width');
-	const imageHeight = state.imageDataList.get(0).get('height');
+	const imageWidth = state.imageDataCollection.get(activeImageId).get('width');
+	const imageHeight = state.imageDataCollection.get(activeImageId).get('height');
 
 	const transformMatrix = getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
 
@@ -19,7 +21,7 @@ const mapStateToProps = (state) => {
 	}
 
 	return {
-		imageData: state.imageDataList.get(0),
+		imageData: state.imageDataCollection.get(activeImageId),
 		transformMatrix,
 		selectedMapElementId: widgetLocationElementId,
 	};

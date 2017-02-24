@@ -17,6 +17,14 @@ class MapLocationListItem extends React.Component {
 		return (
 			<ListGroupItem
 				className="map-location-list-item"
+				style={{
+					display: 'flex',
+					flexFlow: 'row nowrap',
+					width: '100%',
+					padding: 0,
+					height: '53px', /* 51px inside border */
+					minHeight: '53px',
+				}}
 				onClick={() => this.props.actions.goToLocation(this.props.location.get('mapElementId'), true)}
 			>
 				<span
@@ -25,13 +33,32 @@ class MapLocationListItem extends React.Component {
 					<img
 						src={this.props.location.get('image')}
 					    alt={this.props.location.get('name')}
+					    style={{
+						    height: '51px',
+						    width: '51px',
+					    }}
 					/>
 				</span>
 				<span
 					className="item-body"
+				    style={{
+					    display: 'flex',
+					    flexFlow: 'column nowrap',
+					    justifyContent: 'space-between',
+					    padding: '7px 7px',
+					    height: '51px',
+					    width: '100%',
+				    }}
 				>
 					<div
 						className="item-name"
+					    style={{
+						    fontSize: '16px',
+						    fontFamily: 'inherit',
+						    fontWeight: 500,
+						    lineHeight: 1.1,
+						    color: 'inherit',
+					    }}
 					>
 						{this.props.location.get('name')}
 					</div>

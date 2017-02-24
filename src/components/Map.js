@@ -4,14 +4,24 @@ import { PropTypes } from 'react';
 import '../styles/map.css';
 import MapBox from '../containers/MapBox';
 import MapSidebar from '../containers/MapSidebar';
+import ImageSelector from '../containers/controls/ImageSelector';
 
 class Map extends React.Component {
 
 	render = () => {
 		return (
-			<div className="map">
+			<div
+				className="map"
+			    style={{
+				    display: 'flex',
+				    flexFlow: 'row nowrap',
+				    height: '100%',
+				    width: '100%',
+			    }}
+			>
 				<MapSidebar/>
 				<MapBox />
+				<ImageSelector />
 			</div>
 		);
 	}

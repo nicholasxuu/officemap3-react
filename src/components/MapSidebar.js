@@ -30,11 +30,36 @@ class MapSidebar extends React.Component {
 		}
 
 		return (
-			<div className="map-sidebar">
-				<div className="map-sidebar-top">
-					<Button bsSize="large" onClick={this.toggleLocationList}>
+			<div
+				className="map-sidebar"
+				style={{
+					display: 'flex',
+					flexFlow: 'column nowrap',
+					overflow: 'scroll',
+					maxHeight: '100%',
+					position: 'fixed',
+					top: 0,
+					left: 0,
+					zIndex: 1,
+				}}
+			>
+				<div
+					className="map-sidebar-top"
+					style={{
+						display: 'flex',
+						flexFlow: 'row nowrap',
+						minHeight: '46px',
+						width: '100%',
+						position: 'relative',
+					}}
+				>
+					<Button
+						bsSize="large"
+				        onClick={this.toggleLocationList}
+					>
 						<Glyphicon glyph="menu-hamburger" />
 					</Button>
+
 					<MapSearchBox/>
 				</div>
 				{locationList}

@@ -11,7 +11,16 @@ class MapBox extends React.Component {
 	render = () => {
 
 		return (
-			<div className="map-box">
+			<div
+				className="map-box"
+			    style={{
+				    height: '100%',
+				    width: '100%',
+				    backgroundColor: '#ffffff',
+				    overflow: 'hidden',
+				    position: 'relative',
+			    }}
+			>
 				<SvgBox />
 				<MapHoverTip />
 				<MapDetailWidget />

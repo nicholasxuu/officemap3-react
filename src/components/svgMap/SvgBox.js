@@ -337,7 +337,17 @@ class SvgBox extends React.Component {
 		const imageHeight = this.props.imageData.get('height');
 		const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
 		return (
-			<div className="svg-box svg-non-element" ref="svg_container">
+			<div
+				className="svg-box svg-non-element"
+				ref="svg_container"
+			    style={{
+				    touchAction: 'none',
+				    position: 'relative',
+				    width: '100%',
+				    height: '100%',
+				    zIndex: '0',
+			    }}
+			>
 				<ReactResizeDetector handleWidth handleHeight onResize={this._onResize.bind(this)} />
 				<svg
 					viewBox={viewBox}
@@ -346,6 +356,10 @@ class SvgBox extends React.Component {
 
 					version="1.1"
 					ref={SVG_BODY}
+					style={{
+						width: '100%',
+						height: '100%',
+					}}
 
 					onMouseDown={this.onMapClickStart}
 					onMouseMove={this.onMapClickMove}

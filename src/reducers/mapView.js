@@ -1,5 +1,6 @@
 import Immutable from 'immutable';
-import { MAP_SVG_PAN, MAP_SVG_ZOOM, MAP_CENTER_POSITION, SET_VIEWPORT_MATRIX } from '../actions/map';
+import { MAP_SVG_PAN, MAP_SVG_ZOOM, MAP_CENTER_POSITION, SET_VIEWPORT_MATRIX, MAP_SWITCH_IMAGE } from '../actions/map';
+import { RECEIVE_MAP_DATA } from '../actions/dataSync';
 
 /**
  *
@@ -26,9 +27,13 @@ const mapViewReducer = (state = Immutable.fromJS({
 	},
 	zoomScale: 1,
 	viewportMatrix: {a: 1, b: 0, c:0, d:1, e:0, f:0},
+	activeImageId: null, // todo: let user decide, and probably want a string value instead
 }), action) => {
 
 	switch (action.type) {
+		case RECEIVE_MAP_DATA:
+			state = state.set('activeImageId', action.settings.get('defaultImage'));
+			break;
 		case SET_VIEWPORT_MATRIX:
 			state = setViewportMatrix(state, action.viewportMatrix);
 			break;
@@ -49,6 +54,14 @@ const mapViewReducer = (state = Immutable.fromJS({
 			// make svgPosX, svgPosY go to width/2, height/2
 			state = state.setIn(['svgOffset', 'x'], action.imageWidth / 2 - action.svgPosX);
 			state = state.setIn(['svgOffset', 'y'], action.imageHeight / 2 - action.svgPosY);
+			break;
+		case MAP_SWITCH_IMAGE:
+			if (state.get('activeImageId') !== action.imageId) {
+				state = state.setIn(['activeImageId'], action.imageId);
+				state = state.setIn(['zoomScale'], 1); // reset scale
+				state = state.setIn(['svgOffset', 'x'], 0); // reset pan x
+				state = state.setIn(['svgOffset', 'y'], 0); // reset pan y
+			}
 			break;
 		default:
 	}
