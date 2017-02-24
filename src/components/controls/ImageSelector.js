@@ -21,7 +21,7 @@ class ImageSelector extends React.Component {
 				    top: '5px',
 			    }}
 			>
-				<FormControl componentClass="select" defaultValue={this.props.activeImageId} onChange={this.onChange.bind(this)}>
+				<FormControl componentClass="select" value={this.props.activeImageId} onChange={this.onChange.bind(this)}>
 					{this.props.imageList.map(image => {
 						const imageName = image.imageName;
 						const imageId = image.imageId;

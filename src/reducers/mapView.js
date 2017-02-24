@@ -27,7 +27,7 @@ const mapViewReducer = (state = Immutable.fromJS({
 	},
 	zoomScale: 1,
 	viewportMatrix: {a: 1, b: 0, c:0, d:1, e:0, f:0},
-	activeImageId: null, // todo: let user decide, and probably want a string value instead
+	activeImageId: null,
 }), action) => {
 
 	switch (action.type) {
