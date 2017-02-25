@@ -25,8 +25,8 @@ export const getMultiTouchScreenCenter = (e) => {
 		}
 	}
 
-	x = x / xCount;
-	y = y / yCount;
+	x /= xCount;
+	y /= yCount;
 
 	return {x, y}
 };
