@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'react';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import ReactResizeDetector from 'react-resize-detector';
-import { getTouchDistanceSquare, getMultiTouchCenter } from '../../utils/touchUtils';
+import { getTouchDistanceSquare, getMultiTouchScreenCenter, getCursorScreenPoint } from '../../utils/touchUtils';
 import '../../styles/svgMap/svgBox.css';
 
 export const SVG_BODY = 'svg_body';
@@ -17,8 +17,9 @@ class SvgBox extends React.Component {
 			hovering: false, // is hovering
 			panning: false,
 			selectPending: false, // is going to select, but no drag between mouseDown and mouseUp
-			panX: 0, // for pan movement calculation
-			panY: 0, // for pan movement calculation
+			panX: null, // for pan movement calculation
+			panY: null, // for pan movement calculation
+			isTouch: false,
 			touchType: false,
 		};
 	}
@@ -81,14 +82,19 @@ class SvgBox extends React.Component {
 	onDragMove = (e) => {
 		if (this.state.dragging === true) {
 			// Get the new coordinates
-			const touchCenter = getMultiTouchCenter(e);
+			let currPointer;
+			if (this.state.isTouch === true) {
+				currPointer = getMultiTouchScreenCenter(e);
+			} else {
+				currPointer = getCursorScreenPoint(e);
+			}
 
 			// Take the delta where we are minus where we came from.
-			if (this.state.panX > 0 && this.state.panY > 0) {
+			if (this.state.panX !== null && this.state.panY !== null) {
 				const scaleMultiplier = this.getFinalScaleMultiplier();
 
-				const svgDistanceX = (touchCenter.x - this.state.panX) / scaleMultiplier;
-				const svgDistanceY = (touchCenter.y - this.state.panY) / scaleMultiplier;
+				const svgDistanceX = (currPointer.x - this.state.panX) / scaleMultiplier;
+				const svgDistanceY = (currPointer.y - this.state.panY) / scaleMultiplier;
 
 				// Pan using the deltas
 				this.props.actions.svgPan(svgDistanceX, svgDistanceY);
@@ -97,8 +103,8 @@ class SvgBox extends React.Component {
 			// Update the state
 			this.setState({
 				panning: true,
-				panX: touchCenter.x,
-				panY: touchCenter.y,
+				panX: currPointer.x,
+				panY: currPointer.y,
 			});
 		}
 	};
@@ -112,8 +118,8 @@ class SvgBox extends React.Component {
 			this.setState({
 				dragging: false,
 				panning: false,
-				panX: 0, // unset value
-				panY: 0, // unset value
+				panX: null, // unset value
+				panY: null, // unset value
 			});
 
 			if (this.state.panning === false &&
@@ -171,6 +177,8 @@ class SvgBox extends React.Component {
 			this.setState(state);
 		}
 
+		this.setState({isTouch: true});
+
 		this.onDragStart(e);
 	};
 
@@ -200,7 +208,10 @@ class SvgBox extends React.Component {
 	 * @param {Event} e
 	 */
 	onTouchEnd = (e) => {
-		this.setState({touchType: false});
+		this.setState({
+			touchType: false,
+			isTouch: false,
+		});
 
 		this.onDragEnd(e);
 	};
