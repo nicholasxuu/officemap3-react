@@ -278,17 +278,23 @@ class SvgBox extends React.Component {
 	/**
 	 * Cancel element click if mouse down. and update hover position.
 	 * @param {Event} e
+	 * @param {Function} callback
 	 */
-	onElementPointerMove = (e) => {
+	onElementPointerMove = (e, callback) => {
 		this.onElementHover(e);
 		this.onElementClickCancel(e);
+
+		if (callback) {
+			callback(e);
+		}
 	};
 
 	/**
 	 * Check if we want to show hover tip, if so, setup state so it will show when mouse moves.
 	 * @param {Event} e
+	 * @param {Function} callback
 	 */
-	onElementHoverStart = (e, customOnMouseEnter) => {
+	onElementHoverStart = (e, callback) => {
 		// only show hover if, hovertip is enabled, and element not selected already.
 		if (this.props.hoverTipEnabled === true &&
 			e.currentTarget.id !== this.props.selectedMapElementId
@@ -296,33 +302,39 @@ class SvgBox extends React.Component {
 			this.setState({ hovering: true });
 		}
 
-		if (customOnMouseEnter) {
-			customOnMouseEnter(e);
+		if (callback) {
+			callback(e);
 		}
 	};
 
 	/**
 	 * Stop hovering
 	 * @param {Event} e
+	 * @param {Function} callback
 	 */
-	onElementHoverEnd = (e, customOnMouseLeave) => {
+	onElementHoverEnd = (e, callback) => {
 		if (this.state.hovering === true) {
 			this.props.actions.hideHoverData();
 			this.setState({ hovering: false });
 		}
 
-		if (customOnMouseLeave) {
-			customOnMouseLeave(e);
+		if (callback) {
+			callback(e);
 		}
 	};
 
 	/**
 	 * When mouse down, don't show widget yet, listen for drag action before mouse up
 	 * @param {Event} e
+	 * @param {Function} callback
 	 */
-	onElementClickPrepare = (e) => {
+	onElementClickPrepare = (e, callback) => {
 		if (this.state.selectPending === false) {
 			this.setState({ selectPending: true });
+		}
+
+		if (callback) {
+			callback(e);
 		}
 	};
 
@@ -330,21 +342,41 @@ class SvgBox extends React.Component {
 	 * If there's any drag action between mouse down and mouse up,
 	 *     when preparing to trigger widget, disable widget trigger.
 	 * @param {Event} e
+	 * @param {Function} callback
 	 */
-	onElementClickCancel = (e) => {
+	onElementClickCancel = (e, callback) => {
 		if (this.state.selectPending === true) {
 			this.setState({ selectPending: false });
+		}
+
+		if (callback) {
+			callback(e);
 		}
 	};
 
 	/**
 	 * Trigger widget if good.
 	 * @param {Event} e
+	 * @param {Function} callback
 	 */
-	onElementClickStart = (e) => {
+	onElementClickStart = (e, callback) => {
 		if (this.state.selectPending === true) {
 			this.setState({ selectPending: false });
 			this.props.actions.goToLocation(e.currentTarget.id, false);
+		}
+
+		if (callback) {
+			callback(e);
+		}
+	};
+
+	/**
+	 * @param {Event} e
+	 * @param {Function} callback
+	 */
+	onElementMouseOver = (e, callback) => {
+		if (callback) {
+			callback(e);
 		}
 	};
 
@@ -416,15 +448,16 @@ class SvgBox extends React.Component {
 								{...elementObj}
 
 								onMouseEnter={(e) => this.onElementHoverStart(e, elementObj['data-onmouseenter'])}
-								onMouseMove={this.onElementPointerMove}
+								onMouseMove={(e) => this.onElementPointerMove(e, elementObj['data-onmousemove'])}
 								onMouseLeave={(e) => this.onElementHoverEnd(e, elementObj['data-onmouseleave'])}
+								onMouseOver={(e) => this.onElementMouseOver(e, elementObj['data-onmouseover'])}
 
-								onMouseDown={this.onElementClickPrepare}
-								onMouseUp={this.onElementClickStart}
+								onMouseDown={(e) => this.onElementClickPrepare(e, elementObj['data-onmousedown'])}
+								onMouseUp={(e) => this.onElementClickStart(e, elementObj['data-onmouseup'])}
 
-								onTouchStart={this.onElementClickPrepare}
-								onTouchMove={this.onElementClickCancel}
-								onTouchEnd={this.onElementClickStart}
+								onTouchStart={(e) => this.onElementClickPrepare(e, elementObj['data-ontouchstart'])}
+								onTouchMove={(e) => this.onElementClickCancel(e, elementObj['data-ontouchmove'])}
+								onTouchEnd={(e) => this.onElementClickStart(e, elementObj['data-ontouchend'])}
 							/>);
 						})}
 
