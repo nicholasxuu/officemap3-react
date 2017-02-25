@@ -14,7 +14,7 @@ export const receiveMapData = (mapId, json) => {
 
 export const loadDummy = () => {
 	return function (dispatch) {
-		return dispatch(receiveMapData(1, {
+		dispatch(receiveMapData(1, {
 			settings: {
 				defaultImage: 'map_image_1',
 				sidebarType: 'search',
@@ -26,6 +26,14 @@ export const loadDummy = () => {
 					description: "software engineer",
 					image: "/img/1.jpg",
 					mapElementId: "svg_8",
+					svgAttributes: {
+						'data-onmouseenter': (e) => {
+							e.currentTarget.setAttribute('opacity', 0.5);
+						},
+						'data-onmouseleave': (e) => {
+							e.currentTarget.setAttribute('opacity', 0.1);
+						},
+					},
 				},
 				{
 					id: 2,
@@ -47,76 +55,9 @@ export const loadDummy = () => {
 					description: "another human",
 					image: "/img/1.jpg",
 					mapElementId: "svg_40",
-				},
-				{
-					id: 5,
-					name: "lv2 name 1",
-					description: "software engineer",
-					image: "/img/1.jpg",
-					mapElementId: "svg_80",
-				},
-				{
-					id: 6,
-					name: "lv2 name 2",
-					description: "another human",
-					image: "/img/1.jpg",
-					mapElementId: "svg_40",
-				},
-				{
-					id: 7,
-					name: "lv2 name 1",
-					description: "software engineer",
-					image: "/img/1.jpg",
-					mapElementId: "svg_80",
-				},
-				{
-					id: 8,
-					name: "lv2 name 2",
-					description: "another human",
-					image: "/img/1.jpg",
-					mapElementId: "svg_40",
-				},
-				{
-					id: 9,
-					name: "lv2 name 1",
-					description: "software engineer",
-					image: "/img/1.jpg",
-					mapElementId: "svg_80",
-				},
-				{
-					id: 10,
-					name: "lv2 name 2",
-					description: "another human",
-					image: "/img/1.jpg",
-					mapElementId: "svg_40",
-				},
-				{
-					id: 11,
-					name: "lv2 name 1",
-					description: "software engineer",
-					image: "/img/1.jpg",
-					mapElementId: "svg_80",
-				},
-				{
-					id: 12,
-					name: "lv2 name 2",
-					description: "another human",
-					image: "/img/1.jpg",
-					mapElementId: "svg_40",
-				},
-				{
-					id: 13,
-					name: "lv2 name 1",
-					description: "software engineer",
-					image: "/img/1.jpg",
-					mapElementId: "svg_80",
-				},
-				{
-					id: 14,
-					name: "lv2 name 2",
-					description: "another human",
-					image: "/img/1.jpg",
-					mapElementId: "svg_40",
+					svgAttributes: {
+						opacity: 0.9,
+					},
 				},
 			],
 			images: {
@@ -128,7 +69,7 @@ export const loadDummy = () => {
 					elements: [
 						{
 							id: 'svg_80',
-							componentName: 'rect',
+							'data-component-name': 'rect',
 							height: 60.931406,
 							width: 89.898795,
 							x: 262.704261,
@@ -142,7 +83,7 @@ export const loadDummy = () => {
 						},
 						{
 							id: 'svg_40',
-							componentName: 'path',
+							'data-component-name': 'path',
 							opacity: 0.1,
 							d: "m159.82008,340.61655l206.76723,-0.99887l0,244.7245l-155.82458,0l-50.94265,-243.72563z",
 							fillOpacity: null,
@@ -161,7 +102,7 @@ export const loadDummy = () => {
 					elements: [
 						{
 							id: 'svg_8',
-							componentName: 'rect',
+							'data-component-name': 'rect',
 							height: 60.931406,
 							width: 89.898795,
 							x: 262.704261,
@@ -175,7 +116,7 @@ export const loadDummy = () => {
 						},
 						{
 							id: 'svg_4',
-							componentName: 'path',
+							'data-component-name': 'path',
 							opacity: 0.1,
 							d: "m159.82008,340.61655l206.76723,-0.99887l0,244.7245l-155.82458,0l-50.94265,-243.72563z",
 							fillOpacity: null,

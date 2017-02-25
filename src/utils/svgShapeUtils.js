@@ -59,7 +59,7 @@ export const getRectShapeCenter = (rectObj) => {
  */
 export const getShapeCenter = (shapeObj) => {
 	let centerPoint = {x:0, y:0};
-	switch (shapeObj.get('componentName')) {
+	switch (shapeObj.get('data-component-name')) {
 		case 'path':
 			centerPoint = getPathShapeCenter(shapeObj);
 			break;

@@ -18,7 +18,8 @@ export const getTransformMatrix = (svgOffsetX, svgOffsetY, svgZoomScale, imageWi
 	matrix[5] = svgOffsetY;
 
 	// zoom
-	for (let i = 0; i < matrix.length; i++) {
+	const matrixLength = matrix.length;
+	for (let i = 0; i < matrixLength; i++) {
 		matrix[i] *= svgZoomScale;
 	}
 	// zoom from center of viewbox (viewBox height/width === image height/width)

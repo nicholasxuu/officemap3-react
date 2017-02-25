@@ -288,12 +288,16 @@ class SvgBox extends React.Component {
 	 * Check if we want to show hover tip, if so, setup state so it will show when mouse moves.
 	 * @param {Event} e
 	 */
-	onElementHoverStart = (e) => {
+	onElementHoverStart = (e, customOnMouseEnter) => {
 		// only show hover if, hovertip is enabled, and element not selected already.
 		if (this.props.hoverTipEnabled === true &&
 			e.currentTarget.id !== this.props.selectedMapElementId
 		) {
 			this.setState({ hovering: true });
+		}
+
+		if (customOnMouseEnter) {
+			customOnMouseEnter(e);
 		}
 	};
 
@@ -301,10 +305,14 @@ class SvgBox extends React.Component {
 	 * Stop hovering
 	 * @param {Event} e
 	 */
-	onElementHoverEnd = (e) => {
+	onElementHoverEnd = (e, customOnMouseLeave) => {
 		if (this.state.hovering === true) {
 			this.props.actions.hideHoverData();
 			this.setState({ hovering: false });
+		}
+
+		if (customOnMouseLeave) {
+			customOnMouseLeave(e);
 		}
 	};
 
@@ -398,19 +406,18 @@ class SvgBox extends React.Component {
 						/>
 
 						{this.props.imageData.get('elements').map(element => {
-							const CurrentComponent = element.get('componentName');
+							const CurrentComponent = element.get('data-component-name');
 
 							const elementObj = element.toJS(); // for spreading svg element properties
-							delete elementObj.componentName; // prevent unknown propType warning
 
 							return (<CurrentComponent
 								key={element.get('id')}
 								ref={element.get('id')}
 								{...elementObj}
 
-								onMouseEnter={this.onElementHoverStart}
+								onMouseEnter={(e) => this.onElementHoverStart(e, elementObj['data-onmouseenter'])}
 								onMouseMove={this.onElementPointerMove}
-								onMouseLeave={this.onElementHoverEnd}
+								onMouseLeave={(e) => this.onElementHoverEnd(e, elementObj['data-onmouseleave'])}
 
 								onMouseDown={this.onElementClickPrepare}
 								onMouseUp={this.onElementClickStart}
@@ -458,7 +465,7 @@ SvgBox.propTypes = {
 		url: PropTypes.string.isRequired,
 		elements: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
 			id: PropTypes.string.isRequired,
-			componentName: PropTypes.string.isRequired,
+			'data-component-name': PropTypes.string.isRequired,
 		}))
 	}).isRequired,
 	transformMatrix: PropTypes.arrayOf(PropTypes.number).isRequired,
