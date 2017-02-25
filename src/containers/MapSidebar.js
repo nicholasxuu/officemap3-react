@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {} from '../actions/map';
+import { clearSearchText } from '../actions/sidebar';
 import MapSidebar from '../components/MapSidebar';
 
 const mapStateToProps = (state) => {
@@ -12,7 +12,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		actions: bindActionCreators({}, dispatch),
+		actions: bindActionCreators({
+			clearSearchText
+		}, dispatch),
 	}
 };
 

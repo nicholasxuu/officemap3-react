@@ -16,10 +16,16 @@ class MapSidebar extends React.Component {
 	}
 
 	toggleLocationList = () => {
-		if (this.state.showLocationList === true) {
-			this.setState({showLocationList: false});
+		if (this.props.searchText.length > 0) {
+			// if has search text, work as clear search button.
+			this.props.actions.clearSearchText();
 		} else {
-			this.setState({showLocationList: true});
+			// if no search text inside, work as list toggle button
+			if (this.state.showLocationList === true) {
+				this.setState({showLocationList: false});
+			} else {
+				this.setState({showLocationList: true});
+			}
 		}
 	};
 

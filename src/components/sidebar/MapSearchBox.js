@@ -29,6 +29,7 @@ class MapSearchBox extends React.Component {
 						placeholder="Search"
 						onChange={this.onChange.bind(this)}
 						type="text"
+					    value={this.props.searchText}
 					/>
 				</InputGroup>
 			</div>

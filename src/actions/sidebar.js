@@ -5,3 +5,11 @@ export const filterLocation = (searchText) => {
 		searchText,
 	}
 };
+
+export const CLEAR_SEARCH_TEXT = 'CLEAR_SEARCH_TEXT';
+export const clearSearchText = () => {
+	return {
+		type: FILTER_LOCATION,
+		searchText: '',
+	}
+};

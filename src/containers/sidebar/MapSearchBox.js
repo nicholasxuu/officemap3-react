@@ -4,7 +4,9 @@ import { filterLocation } from '../../actions/sidebar';
 import MapSearchBox from '../../components/sidebar/MapSearchBox';
 
 const mapStateToProps = (state) => {
-	return {};
+	return {
+		searchText: state.searchText,
+	};
 };
 
 const mapDispatchToProps = (dispatch) => {
