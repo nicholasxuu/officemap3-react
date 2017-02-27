@@ -27,11 +27,11 @@ export const loadDummy = () => {
 					image: "/img/1.jpg",
 					mapElementId: "svg_8",
 					svgAttributes: {
-						'data-onmouseenter': (e) => {
-							e.currentTarget.setAttribute('opacity', 0.5);
+						'data-onmouseenter': {
+							opacity: 0.5,
 						},
-						'data-onmouseleave': (e) => {
-							e.currentTarget.setAttribute('opacity', 0.1);
+						'data-onmouseleave': {
+							opacity: 0.1,
 						},
 					},
 				},

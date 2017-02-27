@@ -3,6 +3,7 @@ import { PropTypes } from 'react';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import ReactResizeDetector from 'react-resize-detector';
 import { getTouchDistanceSquare, getMultiTouchScreenCenter, getCursorScreenPoint } from '../../utils/touchUtils';
+import { setAttributes } from '../../utils/domUtils';
 import '../../styles/svgMap/svgBox.css';
 
 export const SVG_BODY = 'svg_body';
@@ -278,11 +279,14 @@ class SvgBox extends React.Component {
 	/**
 	 * Cancel element click if mouse down. and update hover position.
 	 * @param {Event} e
+	 * @param {Object} attributes
 	 * @param {Function} callback
 	 */
-	onElementPointerMove = (e, callback) => {
+	onElementPointerMove = (e, attributes, callback) => {
 		this.onElementHover(e);
 		this.onElementClickCancel(e);
+
+		setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -292,15 +296,18 @@ class SvgBox extends React.Component {
 	/**
 	 * Check if we want to show hover tip, if so, setup state so it will show when mouse moves.
 	 * @param {Event} e
+	 * @param {Object} attributes
 	 * @param {Function} callback
 	 */
-	onElementHoverStart = (e, callback) => {
+	onElementHoverStart = (e, attributes, callback) => {
 		// only show hover if, hovertip is enabled, and element not selected already.
 		if (this.props.hoverTipEnabled === true &&
 			e.currentTarget.id !== this.props.selectedMapElementId
 		) {
 			this.setState({ hovering: true });
 		}
+
+		setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -310,13 +317,16 @@ class SvgBox extends React.Component {
 	/**
 	 * Stop hovering
 	 * @param {Event} e
+	 * @param {Object} attributes
 	 * @param {Function} callback
 	 */
-	onElementHoverEnd = (e, callback) => {
+	onElementHoverEnd = (e, attributes, callback) => {
 		if (this.state.hovering === true) {
 			this.props.actions.hideHoverData();
 			this.setState({ hovering: false });
 		}
+
+		setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -326,12 +336,15 @@ class SvgBox extends React.Component {
 	/**
 	 * When mouse down, don't show widget yet, listen for drag action before mouse up
 	 * @param {Event} e
+	 * @param {Object} attributes
 	 * @param {Function} callback
 	 */
-	onElementClickPrepare = (e, callback) => {
+	onElementClickPrepare = (e, attributes, callback) => {
 		if (this.state.selectPending === false) {
 			this.setState({ selectPending: true });
 		}
+
+		setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -342,12 +355,15 @@ class SvgBox extends React.Component {
 	 * If there's any drag action between mouse down and mouse up,
 	 *     when preparing to trigger widget, disable widget trigger.
 	 * @param {Event} e
+	 * @param {Object} attributes
 	 * @param {Function} callback
 	 */
-	onElementClickCancel = (e, callback) => {
+	onElementClickCancel = (e, attributes, callback) => {
 		if (this.state.selectPending === true) {
 			this.setState({ selectPending: false });
 		}
+
+		setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -357,13 +373,16 @@ class SvgBox extends React.Component {
 	/**
 	 * Trigger widget if good.
 	 * @param {Event} e
+	 * @param {Object} attributes
 	 * @param {Function} callback
 	 */
-	onElementClickStart = (e, callback) => {
+	onElementClickStart = (e, attributes, callback) => {
 		if (this.state.selectPending === true) {
 			this.setState({ selectPending: false });
 			this.props.actions.goToLocation(e.currentTarget.id, false);
 		}
+
+		setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -372,9 +391,13 @@ class SvgBox extends React.Component {
 
 	/**
 	 * @param {Event} e
+	 * @param {Object} attributes
 	 * @param {Function} callback
 	 */
-	onElementMouseOver = (e, callback) => {
+	onElementMouseOver = (e, attributes, callback) => {
+
+		setAttributes(e.currentTarget, attributes);
+
 		if (callback) {
 			callback(e);
 		}
