@@ -37,8 +37,8 @@ export const loadDummy = () => {
 			images: {
 				'1': {
 					name: 'nill',
-					width: 2128,
-					height: 2128,
+					width: 100,
+					height: 100,
 					url: "",
 					elements: [
 					],

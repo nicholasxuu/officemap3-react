@@ -22,16 +22,40 @@ class SvgBox extends React.Component {
 			panY: null, // for pan movement calculation
 			isTouch: false,
 			touchType: false,
+			imageWidth: 0,
+			imageHeight: 0,
 		};
 	}
 
 	componentDidMount = () => {
 		// initialize viewport matrix into state
-		this.props.actions.setViewportMatrix(this.getViewportMatrix());
+		this.updateViewportMatrix();
+	};
+
+	componentDidUpdate = () => {
+		const imageWidth = this.props.imageData.get('width');
+		const imageHeight = this.props.imageData.get('height');
+
+		// update viewport matrix if image size changed
+		if (imageWidth !== this.state.imageWidth ||
+			imageHeight !== this.state.imageHeight
+		) {
+			const state = {
+				imageWidth,
+				imageHeight,
+			};
+			this.setState(state);
+
+			this.updateViewportMatrix();
+		}
 	};
 
 	_onResize = () => {
 		// when map is resized, update viewport Matrix in state
+		this.updateViewportMatrix();
+	};
+
+	updateViewportMatrix = () => {
 		this.props.actions.setViewportMatrix(this.getViewportMatrix());
 	};
 
@@ -409,6 +433,7 @@ class SvgBox extends React.Component {
 	render = () => {
 		const imageWidth = this.props.imageData.get('width');
 		const imageHeight = this.props.imageData.get('height');
+
 		const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
 		return (
 			<div
