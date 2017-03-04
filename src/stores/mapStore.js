@@ -16,7 +16,7 @@ export default function configureStore(preloadedState) {
 		)
 	);
 
-	store.dispatch(loadDummy());
+	store.dispatch(loadDummy()); // load dummy first
 	store.dispatch(loadFromApi());
 
 	return store;

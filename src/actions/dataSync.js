@@ -3,7 +3,6 @@ import Immutable from 'immutable';
 
 export const RECEIVE_MAP_DATA = 'RECEIVE_MAP_DATA';
 export const receiveMapData = (mapId, json) => {
-	console.log(json);
 	return {
 		type: RECEIVE_MAP_DATA,
 		mapId,
@@ -37,7 +36,7 @@ export const loadDummy = () => {
 			],
 			images: {
 				'1': {
-					name: 'null',
+					name: 'nill',
 					width: 2128,
 					height: 2128,
 					url: "",

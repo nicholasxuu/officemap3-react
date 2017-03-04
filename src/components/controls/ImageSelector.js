@@ -29,7 +29,8 @@ class ImageSelector extends React.Component {
 							<option
 								key={imageId}
 								value={imageId}
-							>{imageName}
+							>
+								{imageName}
 							</option>
 						);
 					})}
