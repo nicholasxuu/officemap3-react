@@ -43,6 +43,7 @@ class MapSidebar extends React.Component {
 					flexFlow: 'column nowrap',
 					overflow: 'scroll',
 					maxHeight: '100%',
+					maxWidth: '300px',
 					position: 'fixed',
 					top: 0,
 					left: 0,

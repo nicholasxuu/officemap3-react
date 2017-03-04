@@ -5,7 +5,30 @@ import Immutable from 'immutable';
 import { ListGroupItem } from 'react-bootstrap';
 import '../../styles/sidebar/mapLocationListItem.css';
 
+const imageWidth = 51;
+const innerHeight = 51;
+const outerHeight = innerHeight + 2; // add border
+
 class MapLocationListItem extends React.Component {
+
+
+
+	renderImage = () => {
+		if (!this.props.location.get('image')) {
+			return null;
+		}
+
+		return (<img
+			src={this.props.location.get('image')}
+			alt={this.props.location.get('name')}
+			style={{
+				height: innerHeight,
+				width: imageWidth,
+				objectFit: 'cover',
+				objectPosition: 'center',
+			}}
+		/>);
+	};
 
 	render = () => {
 		if (this.props.location.has('hide') &&
@@ -13,6 +36,12 @@ class MapLocationListItem extends React.Component {
 		) {
 			return null;
 		}
+
+		if (!this.props.location.get('name')) {
+			return null;
+		}
+
+		const imageDom = this.renderImage();
 
 		return (
 			<ListGroupItem
@@ -22,22 +51,19 @@ class MapLocationListItem extends React.Component {
 					flexFlow: 'row nowrap',
 					width: '100%',
 					padding: 0,
-					height: '53px', /* 51px inside border */
-					minHeight: '53px',
+					height: outerHeight,
+					minHeight: outerHeight,
 				}}
 				onClick={() => this.props.actions.goToLocation(this.props.location.get('mapElementId'), true)}
 			>
 				<span
 					className="item-image"
+				    style={{
+				    	width: imageWidth,
+					    height: innerHeight,
+				    }}
 				>
-					<img
-						src={this.props.location.get('image')}
-					    alt={this.props.location.get('name')}
-					    style={{
-						    height: '51px',
-						    width: '51px',
-					    }}
-					/>
+					{imageDom}
 				</span>
 				<span
 					className="item-body"
@@ -46,7 +72,7 @@ class MapLocationListItem extends React.Component {
 					    flexFlow: 'column nowrap',
 					    justifyContent: 'space-between',
 					    padding: '7px 7px',
-					    height: '51px',
+					    height: innerHeight,
 					    width: '100%',
 				    }}
 				>
@@ -65,7 +91,7 @@ class MapLocationListItem extends React.Component {
 					<div
 						className="item-detail"
 					>
-						{this.props.location.get('description')}
+						{this.props.location.get('brief')}
 					</div>
 				</span>
 

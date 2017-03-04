@@ -7,10 +7,35 @@ import { Popover } from 'react-bootstrap';
 
 class MapDetailWidget extends React.Component {
 
+	renderImage = () => {
+		if (!this.props.location.get('image')) {
+			return null;
+		}
+
+		return (
+			<div className="widget-image-container">
+				<img
+					className="widget-image"
+					src={this.props.location.get('image')}
+					alt={this.props.location.get('name')}
+					style={{
+						display: 'block',
+						overflow: 'hidden',
+						width: '100px',
+						maxHeight: '100%',
+						objectFit: 'cover',
+					}}
+				/>
+			</div>
+		);
+	};
+
 	render = () => {
 		if (this.props.show === false) {
 			return null;
 		}
+
+		const imageDom = this.renderImage();
 
 		return (
 			<Popover
@@ -36,20 +61,7 @@ class MapDetailWidget extends React.Component {
 					    height: '100%',
 				    }}
 				>
-					<div className="widget-image-container">
-						<img
-							className="widget-image"
-							src={this.props.location.get('image')}
-						    alt={this.props.location.get('name')}
-						    style={{
-							    display: 'block',
-							    overflow: 'hidden',
-							    width: '100px',
-							    maxHeight: '100%',
-							    objectFit: 'cover',
-						    }}
-						/>
-					</div>
+					{imageDom}
 					<div
 						className="widget-detail"
 					    style={{
