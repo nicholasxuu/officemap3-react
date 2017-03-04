@@ -60,7 +60,9 @@ class MapLocationListItem extends React.Component {
 					className="item-image"
 				    style={{
 				    	width: imageWidth,
+					    minWidth: imageWidth,
 					    height: innerHeight,
+					    minHeight: innerHeight,
 				    }}
 				>
 					{imageDom}
