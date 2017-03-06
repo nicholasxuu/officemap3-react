@@ -161,7 +161,6 @@ class SvgBox extends React.Component {
 	 */
 	onElementHover = (e) => {
 		if (this.state.hovering === true) {
-			e.preventDefault();
 
 			if (e.clientX === 'undefined' || e.clientY === 'undefined') {
 				return;
@@ -194,6 +193,7 @@ class SvgBox extends React.Component {
 	 * @param {Event} e
 	 */
 	onTouchStart = (e) => {
+		e.preventDefault();
 		if (e.targetTouches.length === 2) {
 			const state = {
 				touchType: 'pinch',
@@ -212,8 +212,8 @@ class SvgBox extends React.Component {
 	 * @param {Event} e
 	 */
 	onTouchMove = (e) => {
+		e.preventDefault();
 		if (this.state.touchType === 'pinch') {
-			e.preventDefault();
 			const newTouchDistanceSq = getTouchDistanceSquare(e.targetTouches);
 
 			const touchDelta = newTouchDistanceSq - this.state.touchDistanceSq;
@@ -256,6 +256,7 @@ class SvgBox extends React.Component {
 	 * @param {Event} e
 	 */
 	onMapClickStart = (e) => {
+		e.preventDefault();
 		this.onDragStart(e);
 	};
 
@@ -264,6 +265,7 @@ class SvgBox extends React.Component {
 	 * @param {Event} e
 	 */
 	onMapClickMove = (e) => {
+		e.preventDefault();
 		this.onDragMove(e);
 	};
 
@@ -272,6 +274,7 @@ class SvgBox extends React.Component {
 	 * @param {Event} e
 	 */
 	onMapClickEnd = (e) => {
+		e.preventDefault();
 		this.onDragEnd(e);
 	};
 
@@ -307,6 +310,8 @@ class SvgBox extends React.Component {
 	 * @param {Function} callback
 	 */
 	onElementPointerMove = (e, attributes, callback) => {
+		e.preventDefault();
+
 		this.onElementHover(e);
 		this.onElementClickCancel(e);
 
@@ -324,6 +329,8 @@ class SvgBox extends React.Component {
 	 * @param {Function} callback
 	 */
 	onElementHoverStart = (e, attributes, callback) => {
+		e.preventDefault();
+
 		// only show hover if, hovertip is enabled, and element not selected already.
 		if (this.props.hoverTipEnabled === true &&
 			e.currentTarget.id !== this.props.selectedMapElementId
@@ -345,6 +352,8 @@ class SvgBox extends React.Component {
 	 * @param {Function} callback
 	 */
 	onElementHoverEnd = (e, attributes, callback) => {
+		e.preventDefault();
+
 		if (this.state.hovering === true) {
 			this.props.actions.hideHoverData();
 			this.setState({ hovering: false });
@@ -364,6 +373,8 @@ class SvgBox extends React.Component {
 	 * @param {Function} callback
 	 */
 	onElementClickPrepare = (e, attributes, callback) => {
+		e.preventDefault();
+
 		if (this.state.selectPending === false) {
 			this.setState({ selectPending: true });
 		}
@@ -383,6 +394,7 @@ class SvgBox extends React.Component {
 	 * @param {Function} callback
 	 */
 	onElementClickCancel = (e, attributes, callback) => {
+		e.preventDefault();
 		if (this.state.selectPending === true) {
 			this.setState({ selectPending: false });
 		}
@@ -401,6 +413,7 @@ class SvgBox extends React.Component {
 	 * @param {Function} callback
 	 */
 	onElementClickStart = (e, attributes, callback) => {
+		e.preventDefault();
 		if (this.state.selectPending === true) {
 			this.setState({ selectPending: false });
 			this.props.actions.goToLocation(e.currentTarget.id, false);
