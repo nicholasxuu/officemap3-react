@@ -15,8 +15,11 @@ class MapLocationList extends React.Component {
 			    style={{
 				    display: 'flex',
 				    flexFlow: 'column nowrap',
+				    maxWidth: '100%',
 				    width: '100%',
+				    maxHeight: '100%',
 				    height: 'auto',
+				    overflow: 'scroll',
 			    }}
 			>
 				{this.props.locations.map(location =>
