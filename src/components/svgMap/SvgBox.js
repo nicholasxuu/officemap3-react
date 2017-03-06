@@ -194,10 +194,10 @@ class SvgBox extends React.Component {
 	 */
 	onTouchStart = (e) => {
 		e.preventDefault();
-		if (e.targetTouches.length === 2) {
+		if (e.touches.length === 2) {
 			const state = {
 				touchType: 'pinch',
-				touchDistanceSq: getTouchDistanceSquare(e.targetTouches),
+				touchDistanceSq: getTouchDistanceSquare(e.touches),
 			};
 			this.setState(state);
 		}
@@ -214,7 +214,7 @@ class SvgBox extends React.Component {
 	onTouchMove = (e) => {
 		e.preventDefault();
 		if (this.state.touchType === 'pinch') {
-			const newTouchDistanceSq = getTouchDistanceSquare(e.targetTouches);
+			const newTouchDistanceSq = getTouchDistanceSquare(e.touches);
 
 			const touchDelta = newTouchDistanceSq - this.state.touchDistanceSq;
 			this.props.actions.svgZoom(touchDelta / 50000);

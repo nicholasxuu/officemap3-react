@@ -1,5 +1,5 @@
-export const getTouchDistanceSquare = (targetTouches) => {
-	return (targetTouches[0].screenX - targetTouches[1].screenX) ** 2 + (targetTouches[0].screenY - targetTouches[1].screenY) ** 2;
+export const getTouchDistanceSquare = (touches) => {
+	return (touches[0].screenX - touches[1].screenX) ** 2 + (touches[0].screenY - touches[1].screenY) ** 2;
 };
 
 
@@ -12,15 +12,15 @@ export const getMultiTouchScreenCenter = (e) => {
 	let xCount = 0;
 	let yCount = 0;
 
-	const touchFingerCount = e.targetTouches.length;
+	const touchFingerCount = e.touches.length;
 	for (let i = 0; i < touchFingerCount; i++) {
-		if (typeof e.targetTouches[i].screenX !== 'undefined') {
-			x += e.targetTouches[i].screenX;
+		if (typeof e.touches[i].screenX !== 'undefined') {
+			x += e.touches[i].screenX;
 			xCount++;
 		}
 
-		if (typeof e.targetTouches[i].screenY !== 'undefined') {
-			y += e.targetTouches[i].screenY;
+		if (typeof e.touches[i].screenY !== 'undefined') {
+			y += e.touches[i].screenY;
 			yCount++;
 		}
 	}

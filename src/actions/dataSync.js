@@ -15,7 +15,7 @@ export const receiveMapData = (mapId, json) => {
 const _configId = "1";
 export const loadFromApi = () => {
 	return function (dispatch) {
-		const localhost = location.protocol+'//'+location.hostname;
+		const localhost = 'http://officemap.460b.intern.weebly.net';
 		return fetch(localhost + "/api/v3/config/"+_configId)
 			.then(response => response.json())
 			.then(json =>
