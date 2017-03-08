@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'react';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
-import '../../styles/svgMap/mapHoverTip.css';
+import '../../styles/widgets/mapHoverTip.css';
 import { Tooltip } from 'react-bootstrap';
 
 class MapHoverTip extends React.Component {

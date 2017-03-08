@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {} from '../../actions/map';
-import MapDetailWidget from '../../components/svgMap/MapDetailWidget';
+import MapDetailWidget from '../../components/widgets/MapDetailWidget';
 import { getTransformMatrix, matrixMultiply, svgPosToPagePos } from '../../utils/svgUtils';
 
 const mapStateToProps = (state) => {

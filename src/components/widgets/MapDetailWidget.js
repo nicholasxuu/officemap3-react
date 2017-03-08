@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'react';
 import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
-import '../../styles/svgMap/mapDetailWidget.css';
+import '../../styles/widgets/mapDetailWidget.css';
 import { Popover } from 'react-bootstrap';
 
 class MapDetailWidget extends React.Component {

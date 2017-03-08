@@ -3,8 +3,8 @@ import { PropTypes } from 'react';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../styles/mapBox.css';
 import SvgBox from '../containers/svgMap/SvgBox';
-import MapHoverTip from '../containers/svgMap/MapHoverTip';
-import MapDetailWidget from '../containers/svgMap/MapDetailWidget';
+import MapHoverTip from '../containers/widgets/MapHoverTip';
+import MapDetailWidget from '../containers/widgets/MapDetailWidget';
 
 class MapBox extends React.Component {
 
