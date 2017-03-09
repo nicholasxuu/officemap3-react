@@ -106,6 +106,8 @@ class SvgBox extends React.Component {
 	 */
 	onDragMove = (e) => {
 		if (this.state.dragging === true) {
+			this.onElementHoverEnd(e);
+
 			// Get the new coordinates
 			let currPointer;
 			if (this.state.isTouch === true) {
@@ -471,6 +473,7 @@ class SvgBox extends React.Component {
 		const imageHeight = this.props.imageData.get('height');
 
 		const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
+		const highPerformanceMode = this.props.settings.get('highPerformanceMode');
 
 		return (
 			<div
@@ -523,7 +526,9 @@ class SvgBox extends React.Component {
 						/>
 
 						{this.props.imageData.get('elements').map(element => {
-							if (this.state.panning === true) {
+							if (highPerformanceMode === true &&
+								this.state.panning === true
+							) {
 								// render a dummy so onTouchMove doesn't fail.
 								// Even dummy perform significantly better
 								return <rect key={element.get('id')} />;

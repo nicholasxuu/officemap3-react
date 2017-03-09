@@ -24,6 +24,7 @@ const mapStateToProps = (state) => {
 		imageData: state.imageDataCollection.get(activeImageId),
 		transformMatrix,
 		selectedMapElementId: widgetLocationElementId,
+		settings: state.settings,
 	};
 };
 

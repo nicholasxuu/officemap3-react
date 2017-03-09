@@ -1,10 +1,16 @@
 import Immutable from 'immutable';
 import { RECEIVE_MAP_DATA } from '../actions/dataSync';
 
-const settingsReducer = (state = Immutable.fromJS({}), action) => {
+const defaultSettings = Immutable.fromJS({
+	defaultImage: null,
+	sidebarType: 'search',
+	highPerformanceMode: true,
+});
+
+const settingsReducer = (state = {}, action) => {
 	switch (action.type) {
 		case RECEIVE_MAP_DATA:
-			state = action.settings;
+			state = defaultSettings.merge(action.settings);
 			break;
 		default:
 	}
