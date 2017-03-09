@@ -79,6 +79,10 @@ class SvgBox extends React.Component {
 		return this.refs[SVG_BODY].getCTM();
 	};
 
+	getViewportScaleMultiplier = () => {
+		return this.getViewportMatrix().a; // svg box's scale comparing to current viewport size
+	};
+
 	/**
 	 * Action level handlers
 	 *
@@ -219,7 +223,9 @@ class SvgBox extends React.Component {
 			const newTouchDistanceSq = getTouchDistanceSquare(e.touches);
 
 			const touchDelta = newTouchDistanceSq - this.state.touchDistanceSq;
-			this.props.actions.svgZoom(touchDelta / 50000);
+			const scaleMultiplier = this.getViewportScaleMultiplier();
+
+			this.props.actions.svgZoom(touchDelta / 30000 * scaleMultiplier);
 
 			const state = {
 				touchDistanceSq: newTouchDistanceSq,
@@ -286,6 +292,7 @@ class SvgBox extends React.Component {
 	 */
 	onWheel = (e) => {
 		e.preventDefault();
+		this.onElementHoverEnd(e);
 		const wheelDeadZone = 2;
 		if (e.deltaY < -wheelDeadZone) {
 			this.props.actions.svgZoom(0.05);

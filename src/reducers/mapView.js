@@ -45,7 +45,7 @@ const mapViewReducer = (state = Immutable.fromJS({
 			break;
 		case MAP_SVG_ZOOM:
 			const currZoomScale = state.getIn(['zoomScale']) * (1 + action.zoomScaleDelta);
-			if (currZoomScale > 0.1 && currZoomScale < 100) {
+			if (currZoomScale > 0.1 && currZoomScale < 10) {
 				state = state.setIn(['zoomScale'], currZoomScale);
 			}
 			break;

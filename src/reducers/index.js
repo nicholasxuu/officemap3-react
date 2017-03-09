@@ -8,13 +8,13 @@ import mapViewReducer from './mapView';
 import settingsReducer from './settings';
 
 const MapReducer = combineReducers({
-	locations: locationDataReducer,
-	imageDataCollection: svgImageReducer,
-	mapView: mapViewReducer,
-	widgetData: mapWidgetDataReducer,
-	hoverData: mapHoverDataReducer,
-	searchText: searchLocationReducer,
-	settings: settingsReducer,
+	locations: locationDataReducer,         // location data
+	imageDataCollection: svgImageReducer,   // map image data
+	mapView: mapViewReducer,                // map view (pan/zoom) data
+	widgetData: mapWidgetDataReducer,       // detail widget
+	hoverData: mapHoverDataReducer,         // hover tip
+	searchText: searchLocationReducer,      // search text
+	settings: settingsReducer,              // basic settings
 });
 
 export default MapReducer;
