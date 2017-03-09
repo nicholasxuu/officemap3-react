@@ -24,7 +24,6 @@ class SvgBox extends React.Component {
 			touchType: false,
 			imageWidth: 0,
 			imageHeight: 0,
-			currentTargetId: null,
 		};
 	}
 
@@ -336,7 +335,7 @@ class SvgBox extends React.Component {
 			callback(e);
 		}
 	};
-	
+
 	onElementHoverEnd = (e, attributes, callback) => {
 		e.preventDefault();
 
@@ -396,7 +395,6 @@ class SvgBox extends React.Component {
 		if (this.state.selectPending === false) {
 			this.setState({
 				selectPending: true,
-				currentTargetId: e.currentTarget.id,
 			});
 		}
 
@@ -419,7 +417,6 @@ class SvgBox extends React.Component {
 		if (this.state.selectPending === true) {
 			this.setState({
 				selectPending: false,
-				currentTargetId: null,
 			});
 		}
 
