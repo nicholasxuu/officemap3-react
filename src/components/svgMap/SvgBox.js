@@ -24,6 +24,7 @@ class SvgBox extends React.Component {
 			touchType: false,
 			imageWidth: 0,
 			imageHeight: 0,
+			currentTargetId: null,
 		};
 	}
 
@@ -293,6 +294,66 @@ class SvgBox extends React.Component {
 	};
 
 	/**
+	 * First level handler for svg elements
+	 */
+	onElementTouchStart = (e, attributes, callback) => {
+		this.onElementClickPrepare(e, attributes, callback);
+	};
+
+	onElementTouchMove = (e, attributes, callback) => {
+		this.onElementClickCancel(e, attributes, callback);
+	};
+
+	onElementTouchEnd = (e, attributes, callback) => {
+		this.onElementClickStart(e, attributes, callback);
+	};
+
+	onElementMouseDown = (e, attributes, callback) => {
+		this.onElementClickPrepare(e, attributes, callback);
+	};
+
+	onElementMouseUp = (e, attributes, callback) => {
+		this.onElementClickStart(e, attributes, callback);
+	};
+
+	onElementMouseMove = (e, attributes, callback) => {
+		this.onElementPointerMove(e, attributes, callback);
+	};
+
+	onElementHoverStart = (e, attributes, callback) => {
+		e.preventDefault();
+
+		// only show hover if, hovertip is enabled, and element not selected already.
+		if (this.props.hoverTipEnabled === true &&
+			e.currentTarget.id !== this.props.selectedMapElementId
+		) {
+			this.setState({ hovering: true });
+		}
+
+		setAttributes(e.currentTarget, attributes);
+
+		if (callback) {
+			callback(e);
+		}
+	};
+	
+	onElementHoverEnd = (e, attributes, callback) => {
+		e.preventDefault();
+
+		if (this.state.hovering === true) {
+			this.props.actions.hideHoverData();
+			this.setState({ hovering: false });
+		}
+
+		setAttributes(e.currentTarget, attributes);
+
+		if (callback) {
+			callback(e);
+		}
+	};
+
+
+	/**
 	 * Mouse handler for svg elements
 	 *
 	 * onElementPointerMove
@@ -322,49 +383,6 @@ class SvgBox extends React.Component {
 		}
 	};
 
-	/**
-	 * Check if we want to show hover tip, if so, setup state so it will show when mouse moves.
-	 * @param {Event} e
-	 * @param {Object} attributes
-	 * @param {Function} callback
-	 */
-	onElementHoverStart = (e, attributes, callback) => {
-		e.preventDefault();
-
-		// only show hover if, hovertip is enabled, and element not selected already.
-		if (this.props.hoverTipEnabled === true &&
-			e.currentTarget.id !== this.props.selectedMapElementId
-		) {
-			this.setState({ hovering: true });
-		}
-
-		setAttributes(e.currentTarget, attributes);
-
-		if (callback) {
-			callback(e);
-		}
-	};
-
-	/**
-	 * Stop hovering
-	 * @param {Event} e
-	 * @param {Object} attributes
-	 * @param {Function} callback
-	 */
-	onElementHoverEnd = (e, attributes, callback) => {
-		e.preventDefault();
-
-		if (this.state.hovering === true) {
-			this.props.actions.hideHoverData();
-			this.setState({ hovering: false });
-		}
-
-		setAttributes(e.currentTarget, attributes);
-
-		if (callback) {
-			callback(e);
-		}
-	};
 
 	/**
 	 * When mouse down, don't show widget yet, listen for drag action before mouse up
@@ -376,7 +394,10 @@ class SvgBox extends React.Component {
 		e.preventDefault();
 
 		if (this.state.selectPending === false) {
-			this.setState({ selectPending: true });
+			this.setState({
+				selectPending: true,
+				currentTargetId: e.currentTarget.id,
+			});
 		}
 
 		setAttributes(e.currentTarget, attributes);
@@ -396,7 +417,10 @@ class SvgBox extends React.Component {
 	onElementClickCancel = (e, attributes, callback) => {
 		e.preventDefault();
 		if (this.state.selectPending === true) {
-			this.setState({ selectPending: false });
+			this.setState({
+				selectPending: false,
+				currentTargetId: null,
+			});
 		}
 
 		setAttributes(e.currentTarget, attributes);
@@ -415,7 +439,9 @@ class SvgBox extends React.Component {
 	onElementClickStart = (e, attributes, callback) => {
 		e.preventDefault();
 		if (this.state.selectPending === true) {
-			this.setState({ selectPending: false });
+			this.setState({
+				selectPending: false,
+			});
 			this.props.actions.goToLocation(e.currentTarget.id, false);
 		}
 
@@ -448,6 +474,7 @@ class SvgBox extends React.Component {
 		const imageHeight = this.props.imageData.get('height');
 
 		const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
+
 		return (
 			<div
 				className="svg-box svg-non-element"
@@ -499,27 +526,33 @@ class SvgBox extends React.Component {
 						/>
 
 						{this.props.imageData.get('elements').map(element => {
-							const CurrentComponent = element.get('data-component-name');
+							if (this.state.panning === true) {
+								// render a dummy so onTouchMove doesn't fail.
+								// Even dummy perform significantly better
+								return <rect key={element.get('id')} />;
+							} else {
+								const CurrentComponent = element.get('data-component-name');
 
-							const elementObj = element.toJS(); // for spreading svg element properties
+								const elementObj = element.toJS(); // for spreading svg element properties
 
-							return (<CurrentComponent
-								key={element.get('id')}
-								ref={element.get('id')}
-								{...elementObj}
+								return (<CurrentComponent
+									key={elementObj.id}
+									ref={elementObj.id}
+									{...elementObj}
 
-								onMouseEnter={(e) => this.onElementHoverStart(e, elementObj['data-onmouseenter'])}
-								onMouseMove={(e) => this.onElementPointerMove(e, elementObj['data-onmousemove'])}
-								onMouseLeave={(e) => this.onElementHoverEnd(e, elementObj['data-onmouseleave'])}
-								onMouseOver={(e) => this.onElementMouseOver(e, elementObj['data-onmouseover'])}
+									onMouseEnter={(e) => this.onElementHoverStart(e, elementObj['data-onmouseenter'])}
+									onMouseMove={(e) => this.onElementMouseMove(e, elementObj['data-onmousemove'])}
+									onMouseLeave={(e) => this.onElementHoverEnd(e, elementObj['data-onmouseleave'])}
+									onMouseOver={(e) => this.onElementMouseOver(e, elementObj['data-onmouseover'])}
 
-								onMouseDown={(e) => this.onElementClickPrepare(e, elementObj['data-onmousedown'])}
-								onMouseUp={(e) => this.onElementClickStart(e, elementObj['data-onmouseup'])}
+									onMouseDown={(e) => this.onElementMouseDown(e, elementObj['data-onmousedown'])}
+									onMouseUp={(e) => this.onElementMouseUp(e, elementObj['data-onmouseup'])}
 
-								onTouchStart={(e) => this.onElementClickPrepare(e, elementObj['data-ontouchstart'])}
-								onTouchMove={(e) => this.onElementClickCancel(e, elementObj['data-ontouchmove'])}
-								onTouchEnd={(e) => this.onElementClickStart(e, elementObj['data-ontouchend'])}
-							/>);
+									onTouchStart={(e) => this.onElementTouchStart(e, elementObj['data-ontouchstart'])}
+									onTouchMove={(e) => this.onElementTouchMove(e, elementObj['data-ontouchmove'])}
+									onTouchEnd={(e) => this.onElementTouchEnd(e, elementObj['data-ontouchend'])}
+								/>);
+							}
 						})}
 
 					</g>

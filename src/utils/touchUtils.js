@@ -12,6 +12,10 @@ export const getMultiTouchScreenCenter = (e) => {
 	let xCount = 0;
 	let yCount = 0;
 
+	if (!e.touches) {
+		return {x, y};
+	}
+
 	const touchFingerCount = e.touches.length;
 	for (let i = 0; i < touchFingerCount; i++) {
 		if (typeof e.touches[i].screenX !== 'undefined') {
