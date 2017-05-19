@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import { PropTypes } from 'prop-types';
 import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/widgets/mapDetailWidget.css';
