@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import { PropTypes } from 'prop-types';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import ReactResizeDetector from 'react-resize-detector';
 import { getTouchDistanceSquare, getMultiTouchScreenCenter, getCursorScreenPoint } from '../../utils/touchUtils';
