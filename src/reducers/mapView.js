@@ -29,7 +29,6 @@ const defaultMapView = Immutable.fromJS({
 	activeImageId: '',
 });
 
-
 const mapViewReducer = (state = defaultMapView, action) => {
 
 	switch (action.type) {

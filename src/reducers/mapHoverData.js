@@ -1,11 +1,13 @@
 import Immutable from 'immutable';
 import { MAP_SHOW_HOVERTIP, MAP_HIDE_HOVERTIP, MAP_MOVE_HOVERTIP } from '../actions/map';
 
-const mapHoverDataReducer = (state = Immutable.fromJS({
+const defaultHoverData = Immutable.fromJS({
 	location: {},
 	clientPosX: 0,
 	clientPosY: 0
-}), action) => {
+});
+
+const mapHoverDataReducer = (state = defaultHoverData, action) => {
 	switch (action.type) {
 		case MAP_SHOW_HOVERTIP:
 			state = state.set('location', action.location);

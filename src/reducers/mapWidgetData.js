@@ -1,17 +1,19 @@
 import Immutable from 'immutable';
 import { MAP_SHOW_WIDGET, MAP_MOVE_WIDGET, MAP_HIDE_WIDGET } from '../actions/map';
 
-// Note: using svg pos so component can calculate its position when rendering
-//    By doing this, detail widget position need to be calculated every time component is re-rendered.
-//    related states: mapView, mapWidgetData
-//    i.e. pan, zoom, widget show/hide/move
-const mapWidgetDataReducer = (state = Immutable.fromJS({
+const defaultWidgetData = Immutable.fromJS({
 	location: {},
 	svgPos: {
 		x: 0,
 		y: 0,
 	}
-}), action) => {
+});
+
+// Note: using svg pos so component can calculate its position when rendering
+//    By doing this, detail widget position need to be calculated every time component is re-rendered.
+//    related states: mapView, mapWidgetData
+//    i.e. pan, zoom, widget show/hide/move
+const mapWidgetDataReducer = (state = defaultWidgetData, action) => {
 	switch (action.type) {
 		case MAP_SHOW_WIDGET:
 			state = state.set('location', action.location);
