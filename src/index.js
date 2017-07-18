@@ -25,7 +25,7 @@ const middlewares = [
 	// loggerMiddleware,
 ];
 
-const store = configureStore({}, middlewares);
+const store = configureStore(middlewares);
 
 ReactDOM.render(
 	<Provider store={store}>
