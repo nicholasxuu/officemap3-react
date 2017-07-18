@@ -22,7 +22,7 @@ const historyMiddleware = routerMiddleware(history);
 const middlewares = [
 	thunkMiddleware,
 	historyMiddleware,
-	loggerMiddleware,
+	// loggerMiddleware,
 ];
 
 const store = configureStore(middlewares);

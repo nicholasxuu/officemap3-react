@@ -534,8 +534,10 @@ class SvgBox extends React.Component {
 						/>
 
 						{this.props.imageData.get('elements').map(element => {
+							const opacity = element.get('opacity');
 							if (highPerformanceMode === true &&
-								this.state.panning === true
+								this.state.panning === true &&
+								(opacity === '0' || opacity === 0)
 							) {
 								// render a dummy so onTouchMove doesn't fail.
 								// Even dummy perform significantly better
