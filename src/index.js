@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './index.css';
-import Map from './containers/Map';
+import Map from './components/MapContainer';
 import configureStore from './stores/mapStore';
 
 // middlewares

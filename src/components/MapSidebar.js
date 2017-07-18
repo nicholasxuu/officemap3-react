@@ -2,8 +2,8 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../styles/mapSidebar.css';
-import MapSearchBox from '../containers/sidebar/MapSearchBox';
-import MapLocationList from '../containers/sidebar/MapLocationList';
+import MapSearchBox from './sidebar/MapSearchBoxContainer';
+import MapLocationList from './sidebar/MapLocationListContainer';
 import { Button, Glyphicon } from 'react-bootstrap';
 
 class MapSidebar extends React.Component {

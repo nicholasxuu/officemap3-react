@@ -4,7 +4,7 @@ import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 import { ListGroup } from 'react-bootstrap';
 import '../../styles/sidebar/mapLocationList.css';
-import MapLocationListItem from '../../containers/sidebar/MapLocationListItem';
+import MapLocationListItem from './MapLocationListItemContainer';
 
 class MapLocationList extends React.Component {
 

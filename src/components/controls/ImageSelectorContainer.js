@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import ImageSelector from '../../components/controls/ImageSelector';
+import ImageSelector from './ImageSelector';
 import { switchImage } from '../../actions/map';
 
 const mapStateToProps = (state) => {
