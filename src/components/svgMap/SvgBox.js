@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import ReactResizeDetector from 'react-resize-detector';
 import { getTouchDistanceSquare, getMultiTouchScreenCenter, getCursorScreenPoint } from '../../utils/touchUtils';
@@ -582,14 +583,12 @@ class SvgBox extends React.Component {
 }
 
 SvgBox.defaultProps = {
-	imageData: [
-		{
-			width: 0,
-			height: 0,
-			url: '',
-			elements: [],
-		},
-	],
+	imageData: Immutable.fromJS({
+		width: 0,
+		height: 0,
+		url: '',
+		elements: [],
+	}),
 	transformMatrix: [1, 0, 0, 1, 0, 0],
 	hoverTipEnabled: true,
 };

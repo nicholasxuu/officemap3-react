@@ -27,6 +27,10 @@ class Map extends React.Component {
 	}
 }
 
+Map.defaultProps = {
+
+};
+
 Map.propTypes = {
 	actions: PropTypes.shape({
 

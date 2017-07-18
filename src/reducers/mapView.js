@@ -19,16 +19,18 @@ const setViewportMatrix = (state, viewportMatrix) => {
 };
 
 
-
-const mapViewReducer = (state = Immutable.fromJS({
+const defaultMapView = Immutable.fromJS({
 	svgOffset: {
 		x: 0,
 		y: 0,
 	},
 	zoomScale: 1,
 	viewportMatrix: {a: 1, b: 0, c:0, d:1, e:0, f:0},
-	activeImageId: null,
-}), action) => {
+	activeImageId: '',
+});
+
+
+const mapViewReducer = (state = defaultMapView, action) => {
 
 	switch (action.type) {
 		case RECEIVE_MAP_DATA:

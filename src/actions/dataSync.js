@@ -25,25 +25,3 @@ export const loadFromApi = () => {
 	}
 };
 
-export const loadDummy = () => {
-	return function (dispatch) {
-		dispatch(receiveMapData(1, {
-			settings: {
-				defaultImage: '1',
-				sidebarType: 'search',
-			},
-			locations: [
-			],
-			images: {
-				'1': {
-					name: 'nill',
-					width: 100,
-					height: 100,
-					url: "",
-					elements: [
-					],
-				},
-			}
-		}));
-	}
-};

@@ -77,10 +77,12 @@ class MapSidebar extends React.Component {
 }
 
 MapSidebar.defaultProps = {
+	searchText: '',
 	sidebarType: 'full',
 };
 
 MapSidebar.propTypes = {
+	searchText: PropTypes.string.isRequired,
 	sidebarType: PropTypes.string.isRequired,
 };
 

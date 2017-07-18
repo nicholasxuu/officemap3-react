@@ -10,7 +10,7 @@ class ImageSelector extends React.Component {
 	};
 
 	render = () => {
-		if (this.props.imageList.size <= 1) {
+		if (this.props.imageList.size <= 1 || this.props.activeImageId === '') {
 			return null;
 		}
 		return (
@@ -44,7 +44,7 @@ class ImageSelector extends React.Component {
 
 ImageSelector.defaultProps = {
 	imageList: [],
-	activeImageId: null,
+	activeImageId: '',
 };
 
 ImageSelector.propTypes = {

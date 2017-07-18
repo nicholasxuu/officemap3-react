@@ -7,7 +7,7 @@ const defaultSettings = Immutable.fromJS({
 	highPerformanceMode: true,
 });
 
-const settingsReducer = (state = {}, action) => {
+const settingsReducer = (state = defaultSettings, action) => {
 	switch (action.type) {
 		case RECEIVE_MAP_DATA:
 			state = defaultSettings.merge(action.settings);

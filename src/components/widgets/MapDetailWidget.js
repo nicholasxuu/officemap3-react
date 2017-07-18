@@ -70,7 +70,7 @@ class MapDetailWidget extends React.Component {
 						    width: '200px',
 					    }}
 					>
-						{this.props.location.get('description')}
+						<div dangerouslySetInnerHTML={{__html: this.props.location.get('description')}} />
 					</div>
 				</div>
 			</Popover>
