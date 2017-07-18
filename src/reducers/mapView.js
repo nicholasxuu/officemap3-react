@@ -33,7 +33,9 @@ const mapViewReducer = (state = defaultMapView, action) => {
 
 	switch (action.type) {
 		case RECEIVE_MAP_DATA:
-			state = state.set('activeImageId', action.settings.get('defaultImage'));
+			if (!state.get('activeImageId')) {
+				state = state.set('activeImageId', action.settings.get('defaultImage'));
+			}
 			break;
 		case SET_VIEWPORT_MATRIX:
 			state = setViewportMatrix(state, action.viewportMatrix);
