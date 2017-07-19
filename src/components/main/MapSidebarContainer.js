@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { clearSearchText, deactivateSidebar, activateSidebar } from '../../actions/sidebar';
-import { hideDetailWidget } from "../../actions/map";
+import { clearMap } from "../../actions/map";
 import MapSidebar from './MapSidebar';
 
 const mapStateToProps = (state) => {
@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
 			clearSearchText,
 			activateSidebar,
 			deactivateSidebar,
-			hideDetailWidget,
+			clearMap,
 		}, dispatch),
 	}
 };

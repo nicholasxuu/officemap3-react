@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ImageSelector from './ImageSelector';
-import {hideDetailWidget, switchImage} from '../../actions/map';
+import {resetMap, switchImage} from '../../actions/map';
 
 const mapStateToProps = (state) => {
 	let imageList = [];
@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		actions: bindActionCreators({
 			switchImage,
-			hideDetailWidget,
+			resetMap,
 		}, dispatch),
 	}
 };

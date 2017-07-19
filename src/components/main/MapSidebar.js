@@ -48,7 +48,7 @@ class MapSidebar extends React.Component {
 						width: '100%',
 						position: 'relative',
 					}}
-					onClick={this.props.actions.hideDetailWidget}
+					onClick={this.props.actions.clearMap}
 				>
 					<Button
 						bsSize="large"

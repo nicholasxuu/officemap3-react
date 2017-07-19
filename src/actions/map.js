@@ -14,6 +14,7 @@ export const MAP_SHOW_WIDGET = 'MAP_SHOW_WIDGET';
 export const MAP_MOVE_WIDGET = 'MAP_MOVE_WIDGET';
 export const MAP_HIDE_WIDGET = 'MAP_HIDE_WIDGET';
 export const MAP_SWITCH_IMAGE = 'MAP_SWITCH_IMAGE';
+export const RESET_PAN_ZOOM = 'RESET_PAN_ZOOM';
 
 export const setViewportMatrix = (viewportMatrix) => {
 	return {
@@ -72,6 +73,12 @@ export const switchImage = (imageId) => {
 	}
 };
 
+export const resetPanZoom = () => {
+	return {
+		type: RESET_PAN_ZOOM,
+	}
+};
+
 /**
  * Redux-thunk function, to help find element.
  * @param mapElementId
@@ -120,6 +127,22 @@ export const moveDetailWidget = (svgPos) => {
 export const hideDetailWidget = () => {
 	return {
 		type: MAP_HIDE_WIDGET,
+	}
+};
+
+// clear widgets on map
+export const clearMap = () => {
+	return (dispatch, getState) => {
+		dispatch(hideDetailWidget());
+	}
+};
+
+// clear widgets and center map
+export const resetMap = () => {
+	return (dispatch, getState) => {
+		dispatch(clearMap());
+
+		dispatch(resetPanZoom());
 	}
 };
 

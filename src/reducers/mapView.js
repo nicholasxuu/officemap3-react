@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { MAP_SVG_PAN, MAP_SVG_ZOOM, MAP_CENTER_POSITION, SET_VIEWPORT_MATRIX, MAP_SWITCH_IMAGE } from '../actions/map';
+import { MAP_SVG_PAN, MAP_SVG_ZOOM, MAP_CENTER_POSITION, SET_VIEWPORT_MATRIX, MAP_SWITCH_IMAGE, RESET_PAN_ZOOM } from '../actions/map';
 import { RECEIVE_MAP_DATA } from '../actions/dataSync';
 
 /**
@@ -61,10 +61,12 @@ const mapViewReducer = (state = defaultMapView, action) => {
 		case MAP_SWITCH_IMAGE:
 			if (state.get('activeImageId') !== action.imageId) {
 				state = state.setIn(['activeImageId'], action.imageId);
-				state = state.setIn(['zoomScale'], 1); // reset scale
-				state = state.setIn(['svgOffset', 'x'], 0); // reset pan x
-				state = state.setIn(['svgOffset', 'y'], 0); // reset pan y
 			}
+			break;
+		case RESET_PAN_ZOOM:
+			state = state.setIn(['zoomScale'], 1); // reset scale
+			state = state.setIn(['svgOffset', 'x'], 0); // reset pan x
+			state = state.setIn(['svgOffset', 'y'], 0); // reset pan y
 			break;
 		default:
 	}
