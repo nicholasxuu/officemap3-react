@@ -12,10 +12,10 @@ const svgImageReducer = (state = Immutable.fromJS({}), action) => {
 			let elementLocationAttributeMap = {};
 			const locationCount = action.locations.size;
 			for (let i = 0; i < locationCount; i++) {
-				const location = action.locations.get(i);
-				const mapElementId = location.get('mapElementId');
-				if (location.has(LOCATION_SVG_ATTRIBUTES_KEY)) {
-					elementLocationAttributeMap[mapElementId] = location.get(LOCATION_SVG_ATTRIBUTES_KEY);
+				const locationObj = action.locations.get(i);
+				const mapElementId = locationObj.get('mapElementId');
+				if (locationObj.has(LOCATION_SVG_ATTRIBUTES_KEY)) {
+					elementLocationAttributeMap[mapElementId] = locationObj.get(LOCATION_SVG_ATTRIBUTES_KEY);
 				}
 			}
 

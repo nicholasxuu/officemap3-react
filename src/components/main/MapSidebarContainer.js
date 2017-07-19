@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import { clearSearchText, deactivateSidebar, activateSidebar } from '../../actions/sidebar';
 import { clearMap } from "../../actions/map";
 import MapSidebar from './MapSidebar';
@@ -26,9 +27,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const MapSidebarContainer = connect(
+const MapSidebarContainer = withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(MapSidebar);
+)(MapSidebar));
 
 export default MapSidebarContainer;

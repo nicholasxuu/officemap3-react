@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import Immutable from 'immutable';
 import { showHoverData, hideHoverData, svgPan, svgZoom, centerAtPoint, goToLocation, setViewportMatrix, hideDetailWidget } from '../../actions/map';
 import SvgBox from './SvgBox';
@@ -29,8 +30,8 @@ const mapStateToProps = (state) => {
 	const transformMatrix = getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
 
 	let widgetLocationElementId = null;
-	if (!state.widgetData.get('location').isEmpty()) {
-		 widgetLocationElementId = state.widgetData.get('location').get('mapElementId');
+	if (!state.widgetData.get('locationObj').isEmpty()) {
+		 widgetLocationElementId = state.widgetData.get('locationObj').get('mapElementId');
 	}
 
 	return {
@@ -56,9 +57,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const SvgBoxContainer = connect(
+const SvgBoxContainer = withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(SvgBox);
+)(SvgBox));
 
 export default SvgBoxContainer;

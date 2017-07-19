@@ -22,10 +22,10 @@ class MapLocationList extends React.Component {
 				    overflow: 'scroll',
 			    }}
 			>
-				{this.props.locations.map(location =>
+				{this.props.locations.map(locationObj =>
 					<MapLocationListItem
-						key={location.get('id')}
-					    location={location}
+						key={locationObj.get('id')}
+					    locationObj={locationObj}
 					/>
 				)}
 			</ListGroup>

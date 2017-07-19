@@ -2,8 +2,8 @@ import Immutable from 'immutable';
 import { RECEIVE_MAP_DATA } from '../actions/dataSync';
 import { FILTER_LOCATION } from '../actions/sidebar';
 
-const searchLocationMatch = (searchText, location) => {
-	let sourceText = location.get('name') + " " + location.get('description') + " " + location.get('tags');
+const searchLocationMatch = (searchText, locationObj) => {
+	let sourceText = locationObj.get('name') + " " + locationObj.get('description') + " " + locationObj.get('tags');
 	sourceText = sourceText.toLowerCase();
 
 	const tokens = searchText.toLowerCase().split(" ");
@@ -21,18 +21,18 @@ const searchLocationMatch = (searchText, location) => {
 const locationDataReducer = (state = Immutable.fromJS([]), action) => {
 	switch (action.type) {
 		case RECEIVE_MAP_DATA:
-			state = action.locations;
+			state = state.mergeDeep(action.locations);
 			break;
 		case FILTER_LOCATION:
-			state = state.map(location => {
-				if (action.searchText.length === 0 ||
-					searchLocationMatch(action.searchText, location) === true
-				) {
-					location = location.set('hide', false);
+			state = state.map(locationObj => {
+				if (action.searchText.length === 0) {
+					locationObj = locationObj.remove('filterHide');
+				} else if (searchLocationMatch(action.searchText, locationObj) === true) {
+					locationObj = locationObj.set('filterHide', false);
 				} else {
-					location = location.set('hide', true);
+					locationObj = locationObj.set('filterHide', true);
 				}
-				return location;
+				return locationObj;
 			});
 			break;
 		default:

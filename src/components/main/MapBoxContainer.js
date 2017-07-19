@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import MapBox from './MapBox';
 
 const mapStateToProps = (state) => {
@@ -13,9 +14,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const MapBoxContainer = connect(
+const MapBoxContainer = withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(MapBox);
+)(MapBox));
 
 export default MapBoxContainer;

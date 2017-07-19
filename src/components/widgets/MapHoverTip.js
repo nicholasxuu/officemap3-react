@@ -28,7 +28,7 @@ class MapHoverTip extends React.Component {
 				    transform: 'translateX(-50%) translateY(-100%)',
 			    }}
 			>
-					{this.props.location.get('name')}
+					{this.props.locationObj.get('name')}
 			</Tooltip>
 		);
 	}
@@ -38,7 +38,7 @@ MapHoverTip.defaultProps = {
 	show: false,
 	clientPosX: 0,
 	clientPosY: 0,
-	location: Immutable.Map({
+	locationObj: Immutable.Map({
 		id: 0,
 		name: 'dummy',
 	}),
@@ -48,7 +48,7 @@ MapHoverTip.propTypes = {
 	show: PropTypes.bool.isRequired,
 	clientPosX: PropTypes.number.isRequired,
 	clientPosY: PropTypes.number.isRequired,
-	location: ImmutablePropTypes.contains({
+	locationObj: ImmutablePropTypes.contains({
 		id: PropTypes.number,
 		name: PropTypes.string,
 	}).isRequired,

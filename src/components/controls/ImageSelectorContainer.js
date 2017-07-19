@@ -1,7 +1,8 @@
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import ImageSelector from './ImageSelector';
-import {resetMap, switchImage} from '../../actions/map';
+import { resetMap, switchImage } from '../../actions/map';
 
 const mapStateToProps = (state) => {
 	let imageList = [];
@@ -26,9 +27,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const ImageSelectorContainer = connect(
+const ImageSelectorContainer = withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(ImageSelector);
+)(ImageSelector));
 
 export default ImageSelectorContainer;

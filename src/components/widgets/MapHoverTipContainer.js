@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import {} from '../../actions/map';
 import MapHoverTip from './MapHoverTip';
 
 const mapStateToProps = (state) => {
 	let show = false;
-	if (!state.hoverData.get('location').isEmpty()) {
+	if (!state.hoverData.get('locationObj').isEmpty()) {
 		show = true;
 	}
 
@@ -13,7 +14,7 @@ const mapStateToProps = (state) => {
 		show: show,
 		clientPosX: state.hoverData.get('clientPosX'),
 		clientPosY: state.hoverData.get('clientPosY'),
-		location: state.hoverData.get('location'),
+		locationObj: state.hoverData.get('locationObj'),
 	};
 };
 
@@ -23,9 +24,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const MapHoverTipReducer = connect(
+const MapHoverTipReducer = withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(MapHoverTip);
+)(MapHoverTip));
 
 export default MapHoverTipReducer;

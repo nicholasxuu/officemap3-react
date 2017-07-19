@@ -50,10 +50,10 @@ export const svgZoom = (zoomScaleDelta) => {
 /**
  * Show hover tip with location data
  */
-export const showHoverTip = (location) => {
+export const showHoverTip = (locationObj) => {
 	return {
 		type: MAP_SHOW_HOVERTIP,
-		location: location,
+		locationObj,
 	}
 };
 
@@ -87,10 +87,10 @@ export const hideHoverData = () => {
 };
 
 
-export const showDetailWidget = (location) => {
+export const showDetailWidget = (locationObj) => {
 	return {
 		type: MAP_SHOW_WIDGET,
-		location,
+		locationObj,
 	}
 };
 
@@ -129,12 +129,12 @@ export const showHoverData = (mapElementId, clientPos) => {
 		const currState = getState();
 		const locations = currState.locations;
 		const hoverData = currState.hoverData;
-		if (hoverData.get('location').isEmpty() ||
-			hoverData.getIn(['location', 'mapElementId']) !== mapElementId
+		if (hoverData.get('locationObj').isEmpty() ||
+			hoverData.getIn(['locationObj', 'mapElementId']) !== mapElementId
 		) {
-			const location = findLocationByMapElementId(locations, mapElementId);
+			const locationObj = findLocationByMapElementId(locations, mapElementId);
 
-			dispatch(showHoverTip(location));
+			dispatch(showHoverTip(locationObj));
 		}
 		dispatch(moveHoverTip(clientPos));
 	}
@@ -177,12 +177,12 @@ export const goToLocation = (mapElementId, centerAtLocation = false) => {
 	return (dispatch, getState) => {
 		const currState = getState();
 
-		if (currState.widgetData.get('location').isEmpty() ||
-			currState.widgetData.getIn(['location', 'mapElementId']) !== mapElementId
+		if (currState.widgetData.get('locationObj').isEmpty() ||
+			currState.widgetData.getIn(['locationObj', 'mapElementId']) !== mapElementId
 		) {
-			const location = findLocationByMapElementId(currState.locations, mapElementId);
+			const locationObj = findLocationByMapElementId(currState.locations, mapElementId);
 
-			dispatch(showDetailWidget(location));
+			dispatch(showDetailWidget(locationObj));
 		}
 
 		// get element center svg pos

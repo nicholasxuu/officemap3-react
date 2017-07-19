@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import { goToLocation } from '../../actions/map';
 import MapLocationListItem from './MapLocationListItem';
 
@@ -9,13 +10,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		actions: bindActionCreators({ goToLocation }, dispatch),
+		actions: bindActionCreators({
+			goToLocation
+		}, dispatch),
 	}
 };
 
-const MapLocationListItemContainer = connect(
+const MapLocationListItemContainer = withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(MapLocationListItem);
+)(MapLocationListItem));
 
 export default MapLocationListItemContainer;

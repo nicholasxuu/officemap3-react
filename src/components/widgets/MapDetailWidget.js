@@ -8,7 +8,7 @@ import { Popover } from 'react-bootstrap';
 class MapDetailWidget extends React.Component {
 
 	renderImage = () => {
-		if (!this.props.location.get('image')) {
+		if (!this.props.locationObj.get('image')) {
 			return null;
 		}
 
@@ -16,8 +16,8 @@ class MapDetailWidget extends React.Component {
 			<div className="widget-image-container">
 				<img
 					className="widget-image"
-					src={this.props.location.get('image')}
-					alt={this.props.location.get('name')}
+					src={this.props.locationObj.get('image')}
+					alt={this.props.locationObj.get('name')}
 					style={{
 						display: 'block',
 						overflow: 'hidden',
@@ -44,7 +44,7 @@ class MapDetailWidget extends React.Component {
 				placement="top"
 				positionLeft={this.props.pagePosX}
 				positionTop={this.props.pagePosY}
-				title={this.props.location.get('name')}
+				title={this.props.locationObj.get('name')}
 			    style={{
 				    zIndex: 3,
 				    /* make widget top and center */
@@ -70,7 +70,7 @@ class MapDetailWidget extends React.Component {
 						    width: '200px',
 					    }}
 					>
-						<div dangerouslySetInnerHTML={{__html: this.props.location.get('description')}} />
+						<div dangerouslySetInnerHTML={{__html: this.props.locationObj.get('description')}} />
 					</div>
 				</div>
 			</Popover>
@@ -82,7 +82,7 @@ MapDetailWidget.defaultProps = {
 	show: false,
 	pagePosX: 0,
 	pagePosY: 0,
-	location: Immutable.Map({
+	locationObj: Immutable.Map({
 		id: 0,
 		name: 'dummy',
 	}),
@@ -92,7 +92,7 @@ MapDetailWidget.propTypes = {
 	show: PropTypes.bool.isRequired,
 	pagePosX: PropTypes.number.isRequired,
 	pagePosY: PropTypes.number.isRequired,
-	location: ImmutablePropTypes.contains({
+	locationObj: ImmutablePropTypes.contains({
 		id: PropTypes.number,
 		name: PropTypes.string,
 	}).isRequired,

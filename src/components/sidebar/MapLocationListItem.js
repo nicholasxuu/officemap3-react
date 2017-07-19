@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import Immutable from 'immutable';
-// import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { ListGroupItem } from 'react-bootstrap';
 import '../../styles/sidebar/mapLocationListItem.css';
 
@@ -14,13 +14,13 @@ class MapLocationListItem extends React.Component {
 
 
 	renderImage = () => {
-		if (!this.props.location.get('image')) {
+		if (!this.props.locationObj.get('image')) {
 			return null;
 		}
 
 		return (<img
-			src={this.props.location.get('image')}
-			alt={this.props.location.get('name')}
+			src={this.props.locationObj.get('image')}
+			alt={this.props.locationObj.get('name')}
 			style={{
 				height: innerHeight,
 				width: imageWidth,
@@ -31,13 +31,17 @@ class MapLocationListItem extends React.Component {
 	};
 
 	render = () => {
-		if (this.props.location.has('hide') &&
-			this.props.location.get('hide') === true
+		if (this.props.locationObj.has('filterHide')) {
+			if (this.props.locationObj.get('filterHide') === true) {
+				return null;
+			}
+		} else if (this.props.locationObj.has('hide') &&
+			this.props.locationObj.get('hide') === true
 		) {
 			return null;
 		}
 
-		if (!this.props.location.get('name')) {
+		if (!this.props.locationObj.get('name')) {
 			return null;
 		}
 
@@ -54,7 +58,7 @@ class MapLocationListItem extends React.Component {
 					height: outerHeight,
 					minHeight: outerHeight,
 				}}
-				onClick={() => this.props.actions.goToLocation(this.props.location.get('mapElementId'), true)}
+				onClick={() => this.props.actions.goToLocation(this.props.locationObj.get('mapElementId'), true)}
 			>
 				<span
 					className="item-image"
@@ -88,12 +92,12 @@ class MapLocationListItem extends React.Component {
 						    color: 'inherit',
 					    }}
 					>
-						{this.props.location.get('name')}
+						{this.props.locationObj.get('name')}
 					</div>
 					<div
 						className="item-detail"
 					>
-						{this.props.location.get('brief')}
+						{this.props.locationObj.get('brief')}
 					</div>
 				</span>
 
@@ -103,8 +107,8 @@ class MapLocationListItem extends React.Component {
 }
 
 MapLocationListItem.defaultProps = {
-	location: Immutable.Map({
-		hide: true,
+	locationObj: Immutable.Map({
+		hide: false,
 		id: null,
 		image: '',
 		name: '',
@@ -114,6 +118,15 @@ MapLocationListItem.defaultProps = {
 };
 
 MapLocationListItem.propTypes = {
+	locationObj: ImmutablePropTypes.contains({
+		hide: PropTypes.bool.isRequired,
+		filterHide: PropTypes.bool,
+		id: PropTypes.number.isRequired,
+		image: PropTypes.string.isRequired,
+		name: PropTypes.string.isRequired,
+		info: PropTypes.string,
+		mapElementId: PropTypes.string.isRequired,
+	}).isRequired,
 	actions: PropTypes.shape({
 		goToLocation: PropTypes.func.isRequired,
 	}),

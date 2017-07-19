@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import {} from '../../actions/map';
 import MapDetailWidget from './MapDetailWidget';
 import { getTransformMatrix, matrixMultiply, svgPosToPagePos } from '../../utils/svgUtils';
@@ -7,7 +8,7 @@ import { getTransformMatrix, matrixMultiply, svgPosToPagePos } from '../../utils
 const mapStateToProps = (state) => {
 	// check if we should show the object or not.
 	let show = false;
-	if (!state.widgetData.get('location').isEmpty()) {
+	if (!state.widgetData.get('locationObj').isEmpty()) {
 		show = true;
 	}
 
@@ -40,7 +41,7 @@ const mapStateToProps = (state) => {
 		show: show,
 		pagePosX: pagePos.x,
 		pagePosY: pagePos.y,
-		location: state.widgetData.get('location'),
+		locationObj: state.widgetData.get('locationObj'),
 	};
 };
 
@@ -50,9 +51,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const MapDetailWidgetContainer = connect(
+const MapDetailWidgetContainer = withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(MapDetailWidget);
+)(MapDetailWidget));
 
 export default MapDetailWidgetContainer;

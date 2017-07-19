@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import { filterLocation } from '../../actions/sidebar';
 import MapSearchBox from './MapSearchBox';
 
@@ -16,9 +17,9 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-const MapSearchBoxContainer = connect(
+const MapSearchBoxContainer = withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(MapSearchBox);
+)(MapSearchBox));
 
 export default MapSearchBoxContainer;
