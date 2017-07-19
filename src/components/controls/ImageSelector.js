@@ -18,7 +18,7 @@ class ImageSelector extends React.Component {
 			<div
 				className="image-selector"
 			    style={{
-			    	position: 'fixed',
+			    	position: 'relative',
 				    right: '5px',
 				    top: '5px',
 			    }}

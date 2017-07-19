@@ -2,8 +2,6 @@
 import { FILTER_LOCATION } from '../actions/sidebar';
 import { MAP_SHOW_WIDGET, MAP_HIDE_WIDGET } from "../actions/map";
 
-import Immutable from 'immutable';
-
 const setQuery = (queryParameter, queryValue) => {
 	let newLocation = window.location.origin + window.location.pathname + '?' + queryParameter + '=' + queryValue;
 	window.history.replaceState('', '', newLocation);
