@@ -10,7 +10,7 @@ export default function configureStore(middlewares) {
 	const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {};
 	let preloadState = {};
 	for (let stateKey in persistedState) {
-		if (!['widgetData', 'hoverData', 'searchText'].includes(stateKey)) {
+		if (!['widgetData', 'hoverData', 'searchText', 'sidebar'].includes(stateKey)) {
 			preloadState[stateKey] = Immutable.fromJS(persistedState[stateKey]);
 		}
 	}

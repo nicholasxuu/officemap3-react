@@ -6,6 +6,7 @@ class ImageSelector extends React.Component {
 
 	onChange = (e) => {
 		const imageId = e.target.value;
+		this.props.actions.hideDetailWidget();
 		this.props.actions.switchImage(imageId);
 	};
 
