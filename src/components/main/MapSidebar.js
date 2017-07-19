@@ -1,19 +1,12 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
-import '../styles/mapSidebar.css';
-import MapSearchBox from './sidebar/MapSearchBoxContainer';
-import MapLocationList from './sidebar/MapLocationListContainer';
+import '../../styles/mapSidebar.css';
+import MapSearchBox from '../sidebar/MapSearchBoxContainer';
+import MapLocationList from '../sidebar/MapLocationListContainer';
 import { Button, Glyphicon } from 'react-bootstrap';
 
 class MapSidebar extends React.Component {
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			showLocationList: this.props.sidebarType === 'full',
-		};
-	}
 
 	toggleLocationList = () => {
 		if (this.props.searchText.length > 0) {
@@ -21,20 +14,15 @@ class MapSidebar extends React.Component {
 			this.props.actions.clearSearchText();
 		} else {
 			// if no search text inside, work as list toggle button
-			if (this.state.showLocationList === true) {
-				this.setState({showLocationList: false});
+			if (this.props.isLocationListHidden === true) {
+				this.props.actions.activateSidebar();
 			} else {
-				this.setState({showLocationList: true});
+				this.props.actions.deactivateSidebar();
 			}
 		}
 	};
 
 	render = () => {
-		let locationList = null;
-		if (this.state.showLocationList === true || this.props.searchText !== '') {
-			locationList = <MapLocationList />;
-		}
-
 		return (
 			<div
 				className="map-sidebar"
@@ -60,6 +48,7 @@ class MapSidebar extends React.Component {
 						width: '100%',
 						position: 'relative',
 					}}
+					onClick={this.props.actions.hideDetailWidget}
 				>
 					<Button
 						bsSize="large"
@@ -70,7 +59,7 @@ class MapSidebar extends React.Component {
 
 					<MapSearchBox/>
 				</div>
-				{locationList}
+				{(this.props.isLocationListHidden) ? '' : <MapLocationList />}
 			</div>
 		);
 	};
@@ -78,12 +67,12 @@ class MapSidebar extends React.Component {
 
 MapSidebar.defaultProps = {
 	searchText: '',
-	sidebarType: 'full',
+	isLocationListHidden: true,
 };
 
 MapSidebar.propTypes = {
 	searchText: PropTypes.string.isRequired,
-	sidebarType: PropTypes.string.isRequired,
+	isLocationListHidden: PropTypes.bool.isRequired,
 };
 
 export default MapSidebar;

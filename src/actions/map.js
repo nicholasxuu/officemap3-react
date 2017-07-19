@@ -1,6 +1,7 @@
 import { getShapeCenter } from '../utils/svgShapeUtils';
 import { findLocationByMapElementId } from '../utils/locationUtils';
 import { findElementByMapElementId } from '../utils/imageDataUtils';
+import { deactivateSidebar } from "./sidebar";
 
 export const SET_VIEWPORT_MATRIX = 'SET_VIEWPORT_MATRIX';
 export const MAP_CENTER_POSITION = 'MAP_CENTER_POSITION';
@@ -173,6 +174,8 @@ export const goToLocation = (mapElementId, centerAtLocation = false) => {
 		dispatch(moveDetailWidget(elementCenter));
 
 		dispatch(hideHoverData());
+
+		dispatch(deactivateSidebar());
 
 		if (centerAtLocation === true) {
 			dispatch(centerAtPoint(elementCenter));

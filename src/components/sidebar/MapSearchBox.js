@@ -12,6 +12,13 @@ class MapSearchBox extends React.Component {
 		this.props.actions.filterLocation(value)
 	};
 
+	onClick = (e) => {
+		if (this.props.isLocationListHidden) {
+			const value = e.target.value.trim();
+			this.props.actions.filterLocation(value)
+		}
+	};
+
 	render = () => {
 		return (
 			<div
@@ -29,6 +36,7 @@ class MapSearchBox extends React.Component {
 					<FormControl
 						placeholder="Search"
 						onChange={this.onChange.bind(this)}
+						onClick={this.onClick.bind(this)}
 						type="text"
 					    value={this.props.searchText}
 					/>
@@ -39,10 +47,13 @@ class MapSearchBox extends React.Component {
 }
 
 MapSearchBox.defaultProps = {
-
+	searchText: '',
+	isLocationListHidden: false,
 };
 
 MapSearchBox.propTypes = {
+	searchText: PropTypes.string.isRequired,
+	isLocationListHidden: PropTypes.bool.isRequired,
 	actions: PropTypes.shape({
 		filterLocation: PropTypes.func.isRequired,
     }).isRequired,

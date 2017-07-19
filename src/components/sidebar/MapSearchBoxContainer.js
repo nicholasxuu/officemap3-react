@@ -5,7 +5,8 @@ import MapSearchBox from './MapSearchBox';
 
 const mapStateToProps = (state) => {
 	return {
-		searchText: state.searchText,
+		searchText: state.sidebar.get('searchText'),
+		isLocationListHidden: !state.sidebar.get('show'),
 	};
 };
 

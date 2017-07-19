@@ -3,7 +3,6 @@ import { RECEIVE_MAP_DATA } from '../actions/dataSync';
 
 const defaultSettings = Immutable.fromJS({
 	defaultImage: null,
-	sidebarType: 'search',
 	highPerformanceMode: true,
 });
 

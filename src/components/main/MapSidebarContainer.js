@@ -1,19 +1,27 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { clearSearchText } from '../actions/sidebar';
+import { clearSearchText, deactivateSidebar, activateSidebar } from '../../actions/sidebar';
+import { hideDetailWidget } from "../../actions/map";
 import MapSidebar from './MapSidebar';
 
 const mapStateToProps = (state) => {
+	const searchText = state.sidebar.get('searchText');
+
+	const isLocationListHidden = !state.sidebar.get('show');
+
 	return {
-		searchText: state.searchText,
-		sidebarType: state.settings.get('sidebarType'),
+		searchText,
+		isLocationListHidden,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		actions: bindActionCreators({
-			clearSearchText
+			clearSearchText,
+			activateSidebar,
+			deactivateSidebar,
+			hideDetailWidget,
 		}, dispatch),
 	}
 };
