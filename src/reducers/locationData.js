@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import { RECEIVE_MAP_DATA } from '../actions/dataSync';
-import { FILTER_LOCATION, DEACTIVATE_SIDEBAR } from '../actions/sidebar';
+import { FILTER_LOCATION } from '../actions/sidebar';
 
 const searchLocationMatch = (searchText, location) => {
 	let sourceText = location.get('name') + " " + location.get('description') + " " + location.get('tags');
