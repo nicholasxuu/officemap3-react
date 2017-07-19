@@ -1,4 +1,8 @@
 export const FILTER_LOCATION = 'FILTER_LOCATION';
+export const CLEAR_SEARCH_TEXT = 'CLEAR_SEARCH_TEXT';
+export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR';
+export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR';
+
 export const filterLocation = (searchText) => {
 	return {
 		type: FILTER_LOCATION,
@@ -6,7 +10,6 @@ export const filterLocation = (searchText) => {
 	}
 };
 
-export const CLEAR_SEARCH_TEXT = 'CLEAR_SEARCH_TEXT';
 export const clearSearchText = () => {
 	return {
 		type: FILTER_LOCATION,
@@ -15,7 +18,6 @@ export const clearSearchText = () => {
 };
 
 // search text unchanged, but deactivate sidebar
-export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR';
 export const deactivateSidebar = () => {
 	return {
 		type: DEACTIVATE_SIDEBAR,
@@ -23,7 +25,6 @@ export const deactivateSidebar = () => {
 };
 
 // search text unchanged, but activate sidebar
-export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR';
 export const activateSidebar = () => {
 	return {
 		type: ACTIVATE_SIDEBAR,

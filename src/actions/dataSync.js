@@ -2,6 +2,7 @@
 import Immutable from 'immutable';
 
 export const RECEIVE_MAP_DATA = 'RECEIVE_MAP_DATA';
+
 export const receiveMapData = (mapId, json) => {
 	return {
 		type: RECEIVE_MAP_DATA,
@@ -12,7 +13,7 @@ export const receiveMapData = (mapId, json) => {
 	}
 };
 
-const _configId = "1";
+const _configId = "1"; // default value for API
 export const loadFromApi = () => {
 	return function (dispatch) {
 		const localhost = 'http://officemap.460b.intern.weebly.net/';

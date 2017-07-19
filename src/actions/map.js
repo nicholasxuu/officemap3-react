@@ -79,28 +79,6 @@ export const resetPanZoom = () => {
 	}
 };
 
-/**
- * Redux-thunk function, to help find element.
- * @param mapElementId
- * @param clientPos
- * @returns {function(*, *)}
- */
-export const showHoverData = (mapElementId, clientPos) => {
-	return (dispatch, getState) => {
-		const currState = getState();
-		const locations = currState.locations;
-		const hoverData = currState.hoverData;
-		if (hoverData.get('location').isEmpty() ||
-			hoverData.getIn(['location', 'mapElementId']) !== mapElementId
-		) {
-			const location = findLocationByMapElementId(locations, mapElementId);
-
-			dispatch(showHoverTip(location));
-		}
-		dispatch(moveHoverTip(clientPos));
-	}
-};
-
 
 export const hideHoverData = () => {
 	return {
@@ -130,6 +108,50 @@ export const hideDetailWidget = () => {
 	}
 };
 
+export const moveSvgCenter = (svgPos, imageDimension) => {
+	return {
+		type: MAP_CENTER_POSITION,
+		svgPosX: svgPos.x,
+		svgPosY: svgPos.y,
+		imageHeight: imageDimension.height,
+		imageWidth: imageDimension.width,
+	}
+};
+
+/**
+ * Redux-thunk function, to help find element.
+ * @param mapElementId
+ * @param clientPos
+ * @returns {function(*, *)}
+ */
+export const showHoverData = (mapElementId, clientPos) => {
+	return (dispatch, getState) => {
+		const currState = getState();
+		const locations = currState.locations;
+		const hoverData = currState.hoverData;
+		if (hoverData.get('location').isEmpty() ||
+			hoverData.getIn(['location', 'mapElementId']) !== mapElementId
+		) {
+			const location = findLocationByMapElementId(locations, mapElementId);
+
+			dispatch(showHoverTip(location));
+		}
+		dispatch(moveHoverTip(clientPos));
+	}
+};
+
+export const centerAtPoint = (svgPos) => {
+	return (dispatch, getState) => {
+		const currState = getState();
+
+		const activeImageId = currState.mapView.get('activeImageId');
+		const imageWidth = currState.imageDataCollection.get(activeImageId).get('width');
+		const imageHeight = currState.imageDataCollection.get(activeImageId).get('height');
+		const imageDimension = {width: imageWidth, height: imageHeight};
+		dispatch(moveSvgCenter(svgPos, imageDimension));
+	}
+};
+
 // clear widgets on map
 export const clearMap = () => {
 	return (dispatch, getState) => {
@@ -143,28 +165,6 @@ export const resetMap = () => {
 		dispatch(clearMap());
 
 		dispatch(resetPanZoom());
-	}
-};
-
-export const moveSvgCenter = (svgPos, imageDimension) => {
-	return {
-		type: MAP_CENTER_POSITION,
-		svgPosX: svgPos.x,
-		svgPosY: svgPos.y,
-		imageHeight: imageDimension.height,
-		imageWidth: imageDimension.width,
-	}
-};
-
-export const centerAtPoint = (svgPos) => {
-	return (dispatch, getState) => {
-		const currState = getState();
-
-		const activeImageId = currState.mapView.get('activeImageId');
-		const imageWidth = currState.imageDataCollection.get(activeImageId).get('width');
-		const imageHeight = currState.imageDataCollection.get(activeImageId).get('height');
-		const imageDimension = {width: imageWidth, height: imageHeight};
-		dispatch(moveSvgCenter(svgPos, imageDimension));
 	}
 };
 

@@ -14,8 +14,13 @@ import createHistory from 'history/createBrowserHistory';
 import { Route } from 'react-router';
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
 
+// logger middleware for debugging.
 const loggerMiddleware = createLogger();
+
+// Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
+
+// Build the middleware for intercepting and dispatching navigation actions
 const historyMiddleware = routerMiddleware(history);
 
 
