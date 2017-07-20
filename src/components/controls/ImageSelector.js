@@ -5,7 +5,6 @@ import { FormControl, Button } from 'react-bootstrap';
 import Immutable from 'immutable';
 
 class ImageSelector extends React.Component {
-
 	onChange = (e) => {
 		const imageId = e.target.value;
 		this.goToMap(imageId)
@@ -60,7 +59,7 @@ class ImageSelector extends React.Component {
 			    style={{
 			    	position: 'fixed',
 				    right: '5px',
-				    bottom: '35px',
+				    bottom: '5px',
 				    width: '30%',
 				    maxWidth: '150px',
 				    minWidth: '100px,'
@@ -68,7 +67,6 @@ class ImageSelector extends React.Component {
 			>
 				<Button
 					componentClass="Button"
-					bsSize="xsmall"
 					onClick={() => this.goToMap(nextImageId)}
 					style={{
 						width: '100%',
@@ -99,7 +97,6 @@ class ImageSelector extends React.Component {
 
 				<Button
 					componentClass="Button"
-					bsSize="xsmall"
 					onClick={() => this.goToMap(prevImageId)}
 					style={{
 						width: '100%',
