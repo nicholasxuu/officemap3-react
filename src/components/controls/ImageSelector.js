@@ -21,7 +21,7 @@ class ImageSelector extends React.Component {
 			return null;
 		}
 
-		let activeImageIdIndex;
+		let activeImageIdIndex = null;
 
 		// process image list here.
 		// note: must parse immutable map to mutable list here. JSX doesn't like immutable map.
@@ -38,6 +38,11 @@ class ImageSelector extends React.Component {
 				imageName: imageData.get('name'),
 			});
 		});
+
+		if (activeImageIdIndex === null) {
+			console.warn('Warning: active image Id is not found in the list');
+			return null;
+		}
 
 		let nextImageId = '';
 		if (activeImageIdIndex + 1 < imageList.length) {
