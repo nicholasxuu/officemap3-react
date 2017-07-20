@@ -11,6 +11,16 @@ class MapHoverTip extends React.Component {
 		if (this.props.show === false) {
 			return null;
 		}
+
+		// if id or name empty, don't display
+		if (!this.props.locationObj.has('id') ||
+			this.props.locationObj.get('id') === 0 ||
+			!this.props.locationObj.has('name') ||
+			this.props.locationObj.get('name') === ''
+		) {
+			return null;
+		}
+
 		return (
 			<Tooltip
 				id="map-hover-tooltip"
@@ -40,7 +50,7 @@ MapHoverTip.defaultProps = {
 	clientPosY: 0,
 	locationObj: Immutable.Map({
 		id: 0,
-		name: 'dummy',
+		name: '',
 	}),
 };
 

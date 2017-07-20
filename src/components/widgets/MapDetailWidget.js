@@ -30,12 +30,28 @@ class MapDetailWidget extends React.Component {
 		);
 	};
 
+	renderWidgetBody = () => {
+
+	};
+
 	render = () => {
+		// if don't show, don't display
 		if (this.props.show === false) {
 			return null;
 		}
 
+		// if id or name empty, don't display
+		if (!this.props.locationObj.has('id') ||
+			this.props.locationObj.get('id') === 0 ||
+			!this.props.locationObj.has('name') ||
+			this.props.locationObj.get('name') === ''
+		) {
+			return null;
+		}
+
 		const imageDom = this.renderImage();
+
+		console.log(this.props.locationObj.toJS());
 
 		return (
 			<Popover
@@ -84,7 +100,6 @@ MapDetailWidget.defaultProps = {
 	pagePosY: 0,
 	locationObj: Immutable.Map({
 		id: 0,
-		name: 'dummy',
 	}),
 };
 
@@ -95,6 +110,7 @@ MapDetailWidget.propTypes = {
 	locationObj: ImmutablePropTypes.contains({
 		id: PropTypes.number,
 		name: PropTypes.string,
+		image: PropTypes.string,
 	}).isRequired,
 };
 

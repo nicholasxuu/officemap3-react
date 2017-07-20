@@ -21,6 +21,9 @@ class ImageSelector extends React.Component {
 			    	position: 'fixed',
 				    right: '5px',
 				    top: '5px',
+				    width: '30%',
+				    maxWidth: '150px',
+				    minWidth: '100px,'
 			    }}
 			>
 				<FormControl componentClass="select" value={this.props.activeImageId} onChange={this.onChange.bind(this)}>
