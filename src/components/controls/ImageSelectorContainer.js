@@ -5,15 +5,8 @@ import ImageSelector from './ImageSelector';
 import { resetMap, switchImage } from '../../actions/map';
 
 const mapStateToProps = (state) => {
-	let imageList = [];
-	state.imageDataCollection.forEach((imageData, imageId) => {
-		imageList.push({
-			imageId,
-			imageName: imageData.get('name'),
-		});
-	});
 	return {
-		imageList: imageList,
+		imageList: state.imageDataCollection,
 		activeImageId: state.mapView.get('activeImageId'),
 	};
 };
