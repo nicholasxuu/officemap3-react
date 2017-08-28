@@ -16,7 +16,7 @@ export const receiveMapData = (mapId, json) => {
 const _configId = "1"; // default value for API
 export const loadFromApi = () => {
 	return function (dispatch) {
-		const localhost = 'http://localhost:3000/';
+		const localhost = '';
 		return fetch(localhost + "/mockApi/config.json")
 			.then(response => response.json())
 			.then(json =>
