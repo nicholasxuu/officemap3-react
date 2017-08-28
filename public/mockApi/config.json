@@ -4587,7 +4587,7 @@ images: {
 img_3: {
 config_id: 1,
 name: "Ground Floor",
-url: "http://localhost/img/weebly0.png",
+url: "/img/weebly0.png",
 width: 2128,
 height: 2128,
 elements: [
@@ -4990,7 +4990,7 @@ opacity: "0"
 img_1: {
 config_id: 1,
 name: "First Floor",
-url: "http://localhost/img/weebly1_v5.png",
+url: "/img/weebly1_v5.png",
 width: 2128,
 height: 2128,
 elements: [
@@ -7392,7 +7392,7 @@ stroke: "#000"
 img_2: {
 config_id: 1,
 name: "Mezzanine",
-url: "http://localhost/img/weebly2_v2.png",
+url: "/img/weebly2_v2.png",
 width: 2128,
 height: 2128,
 elements: [
