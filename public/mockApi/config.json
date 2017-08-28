@@ -1,0 +1,8058 @@
+{
+settings: {
+defaultImage: "img_1",
+sidebarType: "search"
+},
+locations: [
+{
+id: 1,
+category: "/public_space",
+name: "Parking",
+description: " car parking",
+image: "",
+mapElementId: "svg_2",
+svgAttributes: [ ],
+hide: true,
+brief: "car parking"
+},
+{
+id: 2,
+category: "/public_space",
+name: "Men's washroom",
+description: " ",
+image: "",
+mapElementId: "svg_4",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 3,
+category: "/public_space",
+name: "Women's washroom",
+description: " ",
+image: "",
+mapElementId: "svg_5",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 4,
+category: "/public_space",
+name: "Kitchen / Facilities Storage",
+description: " ",
+image: "",
+mapElementId: "svg_6",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 5,
+category: "/public_space",
+name: "Massage",
+description: " ",
+image: "",
+mapElementId: "svg_7",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 6,
+category: "/public_space",
+name: "Women's Luxury Washroom",
+description: " ",
+image: "",
+mapElementId: "svg_8",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 7,
+category: "/public_space",
+name: "Men's Luxury Washroom",
+description: " ",
+image: "",
+mapElementId: "svg_9",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 8,
+category: "/public_space",
+name: "Gym",
+description: " workout space",
+image: "",
+mapElementId: "svg_10",
+svgAttributes: [ ],
+hide: true,
+brief: "workout space"
+},
+{
+id: 9,
+category: "/public_space",
+name: "Mother's room",
+description: " ",
+image: "",
+mapElementId: "svg_11",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 10,
+category: "/public_space",
+name: "Laundry",
+description: " ",
+image: "",
+mapElementId: "svg_12",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 11,
+category: "/public_space",
+name: "Jam",
+description: " ",
+image: "",
+mapElementId: "svg_13",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 12,
+category: "/public_space",
+name: "Men's Clean Washroom",
+description: " washroom",
+image: "",
+mapElementId: "svg_17",
+svgAttributes: [ ],
+hide: true,
+brief: "washroom"
+},
+{
+id: 13,
+category: "/public_space",
+name: "Women's Washroom",
+description: " washroom",
+image: "",
+mapElementId: "svg_18",
+svgAttributes: [ ],
+hide: true,
+brief: "washroom"
+},
+{
+id: 14,
+category: "/workspace",
+name: "Michael Francis",
+description: " Executive Chef",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/5729466_orig.jpg",
+mapElementId: "svg_19",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Executive Chef"
+},
+{
+id: 15,
+category: "/hidden",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_20",
+svgAttributes: [ ],
+hide: false,
+brief: ""
+},
+{
+id: 16,
+category: "/hidden",
+name: "Server Room",
+description: " in-house server room",
+image: "",
+mapElementId: "svg_21",
+svgAttributes: [ ],
+hide: false,
+brief: "in-house server room"
+},
+{
+id: 17,
+category: "/public_space",
+name: "Kitchen",
+description: " Weebly Kitchen",
+image: "",
+mapElementId: "svg_22",
+svgAttributes: [ ],
+hide: true,
+brief: "Weebly Kitchen"
+},
+{
+id: 18,
+category: "/public_space",
+name: "Table Tennis",
+description: " Table tennis table",
+image: "",
+mapElementId: "svg_23",
+svgAttributes: [ ],
+hide: true,
+brief: "Table tennis table"
+},
+{
+id: 19,
+category: "/public_space",
+name: "Foosball",
+description: " ",
+image: "",
+mapElementId: "svg_24",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 20,
+category: "/public_space",
+name: "Pool Table",
+description: " ",
+image: "",
+mapElementId: "svg_25",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 21,
+category: "/public_space",
+name: "Game Room",
+description: " computer/console game room",
+image: "",
+mapElementId: "svg_26",
+svgAttributes: [ ],
+hide: true,
+brief: "computer/console game room"
+},
+{
+id: 22,
+category: "/public_space",
+name: "Shuffleboard",
+description: " ",
+image: "",
+mapElementId: "svg_27",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 23,
+category: "/public_space",
+name: "Bar",
+description: " a bar",
+image: "",
+mapElementId: "svg_28",
+svgAttributes: [ ],
+hide: true,
+brief: "a bar"
+},
+{
+id: 24,
+category: "/public_space",
+name: "DJ Booth",
+description: " ",
+image: "",
+mapElementId: "svg_29",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 25,
+category: "/meeting_room",
+name: "Training Room",
+description: "Good - all clear group training space",
+image: "",
+mapElementId: "svg_30",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "group training space"
+},
+{
+id: 26,
+category: "/public_space",
+name: "Ice Cream",
+description: " ",
+image: "",
+mapElementId: "svg_31",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 27,
+category: "/public_space",
+name: "Bike Parking",
+description: " Bike Parking",
+image: "",
+mapElementId: "svg_32",
+svgAttributes: [ ],
+hide: true,
+brief: "Bike Parking"
+},
+{
+id: 28,
+category: "/public_space",
+name: "Bike Parking",
+description: " ",
+image: "",
+mapElementId: "svg_33",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 29,
+category: "/public_space",
+name: "Food Court",
+description: " ",
+image: "",
+mapElementId: "svg_35",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 30,
+category: "/public_space",
+name: "Food Court",
+description: " place to get food",
+image: "",
+mapElementId: "svg_36",
+svgAttributes: [ ],
+hide: true,
+brief: "place to get food"
+},
+{
+id: 31,
+category: "/workspace",
+name: "Morgan Engel",
+description: "Will be occupied in 1h8m Software Engineer",
+image: "http://team.weebly.net/uploads/4/5/0/0/4500922/2028563_orig.jpg",
+mapElementId: "svg_237",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 32,
+category: "/workspace",
+name: "Dan Lasker",
+description: " Rock Paper Scissors Legend",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/360667.jpg",
+mapElementId: "svg_252",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Rock Paper Scissors Legend"
+},
+{
+id: 33,
+category: "/workspace",
+name: "Josiah Greene",
+description: "Will be occupied in 1h8m Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1381897317.png",
+mapElementId: "svg_77",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 34,
+category: "/workspace",
+name: "Zain Mehdi",
+description: "Vacation Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/7151089.jpg",
+mapElementId: "svg_83",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 35,
+category: "/workspace",
+name: "Hosun Yoo",
+description: "Will be occupied in 1h8m Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/9101212.jpg",
+mapElementId: "svg_251",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 36,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 2h53m ",
+image: "",
+mapElementId: "svg_58",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 37,
+category: "/workspace",
+name: "Mohamed Isoukrane",
+description: " Software Engineer",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/7006472.jpg",
+mapElementId: "svg_78",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 38,
+category: "/workspace",
+name: "Wyatt McGuire",
+description: "Will be occupied in 0h23m Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/236091_orig.jpg",
+mapElementId: "svg_263",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 39,
+category: "/workspace",
+name: "Steven Roussey",
+description: "Vacation - Will be available in 0h23m - Infrastructure Team Daily Intern",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/1396563173.png",
+mapElementId: "svg_64",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Intern"
+},
+{
+id: 40,
+category: "/workspace",
+name: "Patrick Khensovan",
+description: " Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3315607_orig.jpg",
+mapElementId: "svg_62",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 41,
+category: "/workspace",
+name: "Lisa Fong",
+description: " Product Manager",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/8522780.jpg",
+mapElementId: "svg_254",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Product Manager"
+},
+{
+id: 42,
+category: "/workspace",
+name: "Brandon Nelson",
+description: " DevOps Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/9466150_orig.jpg",
+mapElementId: "svg_65",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "DevOps Engineer"
+},
+{
+id: 43,
+category: "/workspace",
+name: "Aaron McElroy",
+description: "Will be occupied in 0h23m Director of Customer Success",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3866550.jpg",
+mapElementId: "svg_179",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Director of Customer Success"
+},
+{
+id: 44,
+category: "/workspace",
+name: "Elisabeth Butler",
+description: " Advanced Tech & QR Manager",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3308263_orig.jpeg",
+mapElementId: "svg_190",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Advanced Tech & QR Manager"
+},
+{
+id: 45,
+category: "/workspace",
+name: "Raina Wang",
+description: "WFH Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/964582.jpg",
+mapElementId: "svg_79",
+svgAttributes: {
+fill: "#FFFF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 46,
+category: "/workspace",
+name: "Nicholas Xu",
+description: " Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/9161233.jpg",
+mapElementId: "svg_294",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 47,
+category: "/public_space",
+name: "",
+description: "Will be available in 0h23m - Infrastructure Team Daily ",
+image: "",
+mapElementId: "svg_68",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 48,
+category: "/workspace",
+name: "Matt DeClaire",
+description: "Will be occupied in 3h53m Manager of Engineering",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/2724813_orig.jpg",
+mapElementId: "svg_253",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Manager of Engineering"
+},
+{
+id: 49,
+category: "/workspace",
+name: "James King",
+description: " Computer Systems Analyst",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/2414592.jpg",
+mapElementId: "svg_61",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Computer Systems Analyst"
+},
+{
+id: 50,
+category: "/workspace",
+name: "Muhammad Usman",
+description: "Vacation Engineer",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/8955037.jpg",
+mapElementId: "svg_89",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 51,
+category: "/workspace",
+name: "Ethan Kalm",
+description: "Will be occupied in 0h38m Senior Product Manager",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/screen-shot-2016-11-07-at-8-29-29-am.png",
+mapElementId: "svg_81",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Senior Product Manager"
+},
+{
+id: 52,
+category: "/public_space",
+name: "",
+description: "Vacation - Will be occupied in 1h53m ",
+image: "",
+mapElementId: "svg_293",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 53,
+category: "/workspace",
+name: "Chris Bradfield",
+description: " Engineer",
+image: "http://www.weebly.com/uploads/4/5/0/0/4500922/5481561.jpg",
+mapElementId: "svg_241",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 54,
+category: "/workspace",
+name: "David Pearson",
+description: " Software Engineer",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/5676621.jpg",
+mapElementId: "svg_245",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 55,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_60",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 56,
+category: "/workspace",
+name: "Andrew Wen",
+description: " Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/6907556.jpg",
+mapElementId: "svg_88",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 57,
+category: "/workspace",
+name: "Alan Chambless",
+description: "Will be available in 0h23m - Alan and George 1:1 VP of Customer Success",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/1729888_orig.jpg",
+mapElementId: "svg_189",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "VP of Customer Success"
+},
+{
+id: 58,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_271",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 59,
+category: "/workspace",
+name: "Bryan Ashley",
+description: " Software Engineer",
+image: "http://team.weebly.net/uploads/4/5/0/0/4500922/4156556_orig.jpg",
+mapElementId: "svg_239",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 60,
+category: "/workspace",
+name: "Mike Trpcic",
+description: "Will be occupied in 0h38m Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/231971705.png",
+mapElementId: "svg_90",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 61,
+category: "/workspace",
+name: "Justin Scott",
+description: "Will be occupied in 0h23m Senior Product Manager",
+image: "http://officemap.460b.intern.weebly.net/img/justinscott.png",
+mapElementId: "svg_94",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Senior Product Manager"
+},
+{
+id: 62,
+category: "/workspace",
+name: "Ye Tian",
+description: " Software Engineer",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/9425697.jpg",
+mapElementId: "svg_73",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 63,
+category: "/workspace",
+name: "Matt Kerle",
+description: " Borrowed Scrolling Marquee Engineer",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/3845046.jpg",
+mapElementId: "svg_238",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Borrowed Scrolling Marquee Engineer"
+},
+{
+id: 64,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_150",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 65,
+category: "/workspace",
+name: "Staffan Hellman",
+description: "Vacation - Will be occupied in 2h53m programming casual",
+image: "http://www.weebly.com/uploads/4/5/0/0/4500922/1100453.png",
+mapElementId: "svg_93",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "programming casual"
+},
+{
+id: 66,
+category: "/workspace",
+name: "Troy Malone",
+description: " VP of International",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/9862593.png",
+mapElementId: "svg_131",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "VP of International"
+},
+{
+id: 67,
+category: "/workspace",
+name: "Tim Snyder",
+description: "Will be available in 0h23m - Infrastructure Team Daily Mobile HTML5",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1339525053.png",
+mapElementId: "svg_57",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Mobile HTML5"
+},
+{
+id: 68,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_69",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 69,
+category: "/workspace",
+name: "Karim Maguid",
+description: "WFH - Will be occupied in 1h8m Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/8101168.jpg",
+mapElementId: "svg_82",
+svgAttributes: {
+fill: "#FFFF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 70,
+category: "/workspace",
+name: "Raymond Chen",
+description: "Will be occupied in 2h53m Software Engineer",
+image: "http://team.weebly.net/uploads/4/5/0/0/4500922/7893689.jpg",
+mapElementId: "svg_92",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 71,
+category: "/workspace",
+name: "Lyssette Chavez",
+description: " User Experience Researcher",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/9106242.png",
+mapElementId: "svg_96",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "User Experience Researcher"
+},
+{
+id: 72,
+category: "/workspace",
+name: "Erica Brick",
+description: "Will be available in 0h23m - Call w/ Kathy User Research Lead",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/1533975.jpg",
+mapElementId: "svg_97",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "User Research Lead"
+},
+{
+id: 73,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_98",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 74,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_162",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 75,
+category: "/workspace",
+name: "Darian Shimy",
+description: "Will be occupied in 3h53m VP of Engineering",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/4436749.jpg",
+mapElementId: "svg_100",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "VP of Engineering"
+},
+{
+id: 76,
+category: "/workspace",
+name: "David Rusenko",
+description: "Will be occupied in 0h23m CEO",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/4894776_orig.png",
+mapElementId: "svg_101",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "CEO"
+},
+{
+id: 77,
+category: "/workspace",
+name: "Vitaly Odemchuk",
+description: "Will be occupied in 4h53m Designer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/2379990.jpg",
+mapElementId: "svg_102",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Designer"
+},
+{
+id: 78,
+category: "/workspace",
+name: "Jaclyn Konzelmann",
+description: " Product Manager",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/7166976_orig.jpg",
+mapElementId: "svg_103",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Product Manager"
+},
+{
+id: 79,
+category: "/workspace",
+name: "Dan Veltri",
+description: "Will be occupied in 0h23m CPO",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/6181539_orig.png",
+mapElementId: "svg_104",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "CPO"
+},
+{
+id: 80,
+category: "/workspace",
+name: "Holly Wesselhoft",
+description: "Will be occupied in 4h23m Executive Assistant",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/9417327.jpg",
+mapElementId: "svg_105",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Executive Assistant"
+},
+{
+id: 81,
+category: "/workspace",
+name: "Christine Loh",
+description: "Will be occupied in 0h23m VP of Product Management",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/6299945.jpg",
+mapElementId: "svg_106",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "VP of Product Management"
+},
+{
+id: 82,
+category: "/workspace",
+name: "Michelle Sastri",
+description: "Will be occupied in 4h53m analyst",
+image: "",
+mapElementId: "svg_326",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "analyst"
+},
+{
+id: 83,
+category: "/workspace",
+name: "Lin Dai",
+description: "WFH - Will be occupied in 1h8m UI/UX Designer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/2539344_orig.jpg",
+mapElementId: "svg_108",
+svgAttributes: {
+fill: "#FFFF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "UI/UX Designer"
+},
+{
+id: 84,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_153",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 85,
+category: "/workspace",
+name: "Salvador Perez",
+description: " Product Designer",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed-1_1.jpg",
+mapElementId: "svg_99",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Product Designer"
+},
+{
+id: 86,
+category: "/workspace",
+name: "Jenny Emick",
+description: "Will be occupied in 0h38m Brand Design Lead",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/2728045_orig.jpg",
+mapElementId: "svg_111",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Brand Design Lead"
+},
+{
+id: 87,
+category: "/workspace",
+name: "Danny Dhilion",
+description: " Lifecycle Marketing Manager",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/screen-shot-2016-07-08-at-12-26-26-pm_1.png",
+mapElementId: "svg_112",
+svgAttributes: {
+fill: "",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Lifecycle Marketing Manager"
+},
+{
+id: 88,
+category: "/public_space",
+name: "",
+description: "Will be available in 0h36m - F2F Interview w/ Kim Pham (Senior Product Manager - Growth) ",
+image: "",
+mapElementId: "svg_113",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 89,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_163",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 90,
+category: "/workspace",
+name: "Justin Uyemura",
+description: " Product Design Lead",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/1391731458.png",
+mapElementId: "svg_110",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Product Design Lead"
+},
+{
+id: 91,
+category: "/workspace",
+name: "Georgina Hill",
+description: "Will be occupied in 0h23m Head of Growth",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed_6.jpg",
+mapElementId: "svg_116",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Head of Growth"
+},
+{
+id: 92,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_250",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 93,
+category: "/workspace",
+name: "Linnea Watson",
+description: "Will be occupied in 0h23m Software Engineer",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed_9.jpg",
+mapElementId: "svg_118",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 94,
+category: "/workspace",
+name: "Lokesh Dhakar",
+description: "Will be occupied in 0h23m Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/297515.jpg",
+mapElementId: "svg_119",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 95,
+category: "/workspace",
+name: "Ryan DePaola",
+description: "Will be occupied in 0h38m Product Marketing Designer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/4108306.jpg",
+mapElementId: "svg_120",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Product Marketing Designer"
+},
+{
+id: 96,
+category: "/workspace",
+name: "Tulio Jarocki",
+description: "Will be occupied in 0h38m Brand Designer",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/screen-shot-2016-07-07-at-12-20-31-pm_1.png",
+mapElementId: "svg_121",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Brand Designer"
+},
+{
+id: 97,
+category: "/workspace",
+name: "Laura Beggs",
+description: " Product Designer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3405851_orig.jpg",
+mapElementId: "svg_109",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Product Designer"
+},
+{
+id: 98,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_268",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 99,
+category: "/workspace",
+name: "Blaze Kuklinski",
+description: " UI Designer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3275989_orig.jpg",
+mapElementId: "svg_124",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "UI Designer"
+},
+{
+id: 100,
+category: "/workspace",
+name: "Liz Leong",
+description: " Front-end Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/7540036.jpg",
+mapElementId: "svg_125",
+svgAttributes: {
+fill: "",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Front-end Engineer"
+},
+{
+id: 101,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_155",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 102,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 0h23m ",
+image: "",
+mapElementId: "svg_127",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 103,
+category: "/workspace",
+name: "Jacob Rex",
+description: "Will be occupied in 0h23m Design Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1956286.jpg",
+mapElementId: "svg_128",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Design Engineer"
+},
+{
+id: 104,
+category: "/workspace",
+name: "Landon Durnan",
+description: "Vacation - Will be occupied in 0h23m Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/9401766.jpeg",
+mapElementId: "svg_129",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 105,
+category: "/workspace",
+name: "Joel Shapiro",
+description: "Will be occupied in 0h38m Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3453838_orig.jpg",
+mapElementId: "svg_91",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 106,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_72",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 107,
+category: "/workspace",
+name: "Kim Chappell",
+description: "Vacation Manager PR & Community Dev.",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/8007103.jpg",
+mapElementId: "svg_140",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Manager PR & Community Dev."
+},
+{
+id: 108,
+category: "/workspace",
+name: "Margret Schulz",
+description: "Will be occupied in 0h38m Customer Acquisition Manager",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed-1_12.jpg",
+mapElementId: "svg_141",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Customer Acquisition Manager"
+},
+{
+id: 109,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_142",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 110,
+category: "/workspace",
+name: "Helen Chang",
+description: "Will be occupied in 0h38m Director of Customer Acquisition",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/9274420.jpg",
+mapElementId: "svg_143",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Director of Customer Acquisition"
+},
+{
+id: 111,
+category: "/workspace",
+name: "Kim Hoang",
+description: "Will be available in 0h23m - Unbounce Walk Through Customer Acquisition Manager",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed-1_6.jpg",
+mapElementId: "svg_144",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Customer Acquisition Manager"
+},
+{
+id: 112,
+category: "/workspace",
+name: "Niki Grambo",
+description: "Will be available in 1h23m - Kenshoo Training SEM Manager",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed-1_1.png",
+mapElementId: "svg_145",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "SEM Manager"
+},
+{
+id: 113,
+category: "/workspace",
+name: "Alena Courtney",
+description: "Will be available in 0h23m - Unbounce Walk Through Marketing Coordinator",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/8990798.jpg",
+mapElementId: "svg_146",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Marketing Coordinator"
+},
+{
+id: 114,
+category: "/workspace",
+name: "Adam Tanguay",
+description: "Will be available in 0h23m - Unbounce Walk Through Simple Farmer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/8083872.jpg",
+mapElementId: "svg_147",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Simple Farmer"
+},
+{
+id: 115,
+category: "/workspace",
+name: "Chris Fanini",
+description: "Will be available in 1h23m - Infrastructure Team Daily CTO",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/8424349.jpeg",
+mapElementId: "svg_52",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "CTO"
+},
+{
+id: 116,
+category: "/workspace",
+name: "Ryan Bellows",
+description: " Ops Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1374097980.png",
+mapElementId: "svg_53",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Ops Engineer"
+},
+{
+id: 117,
+category: "/workspace",
+name: "Richard Hesse",
+description: " Packet Monkey",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1331106717.png",
+mapElementId: "svg_55",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Packet Monkey"
+},
+{
+id: 118,
+category: "/workspace",
+name: "Michael White",
+description: "Vacation Operations Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/1364355640.png",
+mapElementId: "svg_56",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Operations Engineer"
+},
+{
+id: 119,
+category: "/workspace",
+name: "Raaid Ahmad",
+description: "Vacation - Will be occupied in 0h23m VP of Analytics",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/2338742_orig.png",
+mapElementId: "svg_258",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "VP of Analytics"
+},
+{
+id: 120,
+category: "/workspace",
+name: "Lisa Macnew",
+description: "Will be occupied in 0h23m Director, People Ops",
+image: "http://team.weebly.net/uploads/4/5/0/0/4500922/3152248_orig.jpg",
+mapElementId: "svg_154",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Director, People Ops"
+},
+{
+id: 121,
+category: "/workspace",
+name: "Kenzan Tenabe",
+description: "Will be occupied in 0h38m Business Analyst",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/6217218.jpg",
+mapElementId: "svg_257",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Business Analyst"
+},
+{
+id: 122,
+category: "/workspace",
+name: "Brian Fukuji",
+description: "Will be occupied in 0h53m Senior Corporate Counsel",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/7587274.jpg",
+mapElementId: "svg_156",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Senior Corporate Counsel"
+},
+{
+id: 123,
+category: "/workspace",
+name: "Kim Jabal",
+description: "Vacation CFO",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/5307544.jpg",
+mapElementId: "svg_157",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "CFO"
+},
+{
+id: 124,
+category: "/workspace",
+name: "Jennifer Hamm",
+description: "Vacation VP Finance",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1342757425.png",
+mapElementId: "svg_158",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "VP Finance"
+},
+{
+id: 125,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_159",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 126,
+category: "/workspace",
+name: "Ericka Castle",
+description: " People Ops Coordinator",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3196390.jpg",
+mapElementId: "svg_160",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "People Ops Coordinator"
+},
+{
+id: 127,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_161",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 128,
+category: "/workspace",
+name: "Jeff Walter",
+description: "WFH Senior Operations Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1790228.jpg",
+mapElementId: "svg_59",
+svgAttributes: {
+fill: "#FFFF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Senior Operations Engineer"
+},
+{
+id: 129,
+category: "/workspace",
+name: "Elias Majic",
+description: "Will be available in 0h23m - Infrastructure Team Daily Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/5445297.jpg",
+mapElementId: "svg_66",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 130,
+category: "/workspace",
+name: "David Rivera",
+description: "Will be available in 0h23m - Infrastructure Team Daily Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3692498_orig.jpg",
+mapElementId: "svg_67",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 131,
+category: "/workspace",
+name: "Julianne Harper",
+description: " ",
+image: "",
+mapElementId: "svg_165",
+svgAttributes: {
+fill: "",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: ""
+},
+{
+id: 132,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_166",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 133,
+category: "/workspace",
+name: "Alexandra Westbrook",
+description: "Will be occupied in 3h23m Senior Accountant",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/9650820_orig.jpg",
+mapElementId: "svg_167",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Senior Accountant"
+},
+{
+id: 134,
+category: "/workspace",
+name: "Lilian Diep",
+description: " Staff Accountant",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/8333819.jpg",
+mapElementId: "svg_168",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Staff Accountant"
+},
+{
+id: 135,
+category: "/workspace",
+name: "Jen Ziswasser",
+description: " Payroll Specialist",
+image: "http://team.weebly.net/uploads/4/5/0/0/4500922/7429823_orig.png",
+mapElementId: "svg_169",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Payroll Specialist"
+},
+{
+id: 136,
+category: "/workspace",
+name: "Kelly Fitch",
+description: "Will be occupied in 4h23m Office Coordinator",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/1434479474.png",
+mapElementId: "svg_170",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Office Coordinator"
+},
+{
+id: 137,
+category: "/workspace",
+name: "Eric Lee",
+description: " Staff Accountant",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/screen-shot-2016-10-06-at-11-20-16-am_1.png",
+mapElementId: "svg_171",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Staff Accountant"
+},
+{
+id: 138,
+category: "/workspace",
+name: "Chelsea Hung",
+description: " Staff Accountant",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1436563137.png",
+mapElementId: "svg_172",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Staff Accountant"
+},
+{
+id: 139,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_173",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 140,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_174",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 141,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_175",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 142,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 3h53m ",
+image: "",
+mapElementId: "svg_176",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 143,
+category: "/workspace",
+name: "Stephanie Wiguna",
+description: " FP&A Manager",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/9875534.jpg",
+mapElementId: "svg_177",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "FP&A Manager"
+},
+{
+id: 144,
+category: "/workspace",
+name: "Sabrina Thong",
+description: " Director of Financial Plannning",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/4934447_orig.jpg",
+mapElementId: "svg_178",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Director of Financial Plannning"
+},
+{
+id: 145,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 0h19m ",
+image: "",
+mapElementId: "svg_256",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 146,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 4h53m ",
+image: "",
+mapElementId: "svg_80",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 147,
+category: "/workspace",
+name: "Scott Huang",
+description: " Senior Financial Analyst",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/1700534.jpg",
+mapElementId: "svg_181",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Senior Financial Analyst"
+},
+{
+id: 148,
+category: "/workspace",
+name: "Viji Nadarajan",
+description: " Controller",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/2863175_orig.jpg",
+mapElementId: "svg_182",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Controller"
+},
+{
+id: 149,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 4h53m ",
+image: "",
+mapElementId: "svg_151",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 150,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 0h38m ",
+image: "",
+mapElementId: "svg_184",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 151,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_185",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 152,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_186",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 153,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_187",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 154,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_188",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 155,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 0h23m ",
+image: "",
+mapElementId: "svg_76",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 156,
+category: "/workspace",
+name: "Audrey Carstensen",
+description: "Vacation - Will be occupied in 4h53m Product Analytics Lead",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/9618888.jpg",
+mapElementId: "svg_264",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Product Analytics Lead"
+},
+{
+id: 157,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_149",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 158,
+category: "/workspace",
+name: "Jon Battista",
+description: "Vacation IT Desktop Support Engineer",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/4131926_1.jpg",
+mapElementId: "svg_192",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "IT Desktop Support Engineer"
+},
+{
+id: 159,
+category: "/public_space",
+name: "",
+description: "WFH - Will be occupied in 0h38m ",
+image: "",
+mapElementId: "svg_54",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 160,
+category: "/public_space",
+name: "Adam Butler",
+description: " ",
+image: "",
+mapElementId: "svg_194",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 161,
+category: "/workspace",
+name: "Lanae Lovrien",
+description: " Front Desk Coordinator",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/8541816.png",
+mapElementId: "svg_214",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Front Desk Coordinator"
+},
+{
+id: 162,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 0h51m ",
+image: "",
+mapElementId: "svg_195",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 163,
+category: "/public_space",
+name: "space",
+description: " ",
+image: "",
+mapElementId: "svg_197",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 164,
+category: "/meeting_room",
+name: "Maui",
+description: "No - Will be available in 0h23m Meeting room Number: 415-767-5401 Direct Extension: 6134 Conference ID: 7134 Admin PIN: 6134 Attendee PIN: 5234",
+image: "",
+mapElementId: "svg_198",
+svgAttributes: {
+opacity: 0.5,
+fill: "#FF0000",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 165,
+category: "/meeting_room",
+name: "Jackson Square",
+description: "No - Will be available in 1h23m Meeting room Number: 415-767-5401 Direct Extension: 6133 Conference ID: 7133 Admin PIN: 6133 Attendee PIN: 2035",
+image: "",
+mapElementId: "svg_199",
+svgAttributes: {
+opacity: 0.5,
+fill: "#FF0000",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 166,
+category: "/meeting_room",
+name: "Forty Two",
+description: "No - Will be available in 1h23m Meeting room Number: 415-767-5401 Direct Extension: 6132 Conference ID: 7132 Admin PIN: 6132 Attendee PIN: 3748",
+image: "",
+mapElementId: "svg_201",
+svgAttributes: {
+opacity: 0.5,
+fill: "#FF0000",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 167,
+category: "/meeting_room",
+name: "Flatiron",
+description: " Meeting room",
+image: "",
+mapElementId: "svg_202",
+svgAttributes: {
+fillOpacity: 0
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 168,
+category: "/public_space",
+name: "ColorQube/Supply Room",
+description: " ",
+image: "",
+mapElementId: "svg_203",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 169,
+category: "/meeting_room",
+name: "Darcs",
+description: "Good - Will be occupied in 1h53m Meeting room Number: 415-767-5401 Direct Extension: 6121 Conference ID: 7121 Admin PIN: 6121 Attendee PIN: 6378",
+image: "",
+mapElementId: "svg_204",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 170,
+category: "/meeting_room",
+name: "Crystal Towers",
+description: "No - Will be available in 0h53m Meeting room Number: 415-767-5401 Direct Extension: 6120 Conference ID: 7120 Admin PIN: 6120 Attendee PIN: 1763",
+image: "",
+mapElementId: "svg_205",
+svgAttributes: {
+opacity: 0.5,
+fill: "#FF0000",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 171,
+category: "/meeting_room",
+name: "Bob Vila",
+description: "Good - Will be occupied in 0h23m Meeting room Number: 415-767-5401 Direct Extension: 6119 Conference ID: 7119 Admin PIN: 6119 Attendee PIN: 4087",
+image: "",
+mapElementId: "svg_206",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 172,
+category: "/meeting_room",
+name: "Battery Street",
+description: "Good - Will be occupied in 0h38m Meeting room Number: 415-767-5401 Direct Extension: 6118 Conference ID: 7118 Admin PIN: 6118 Attendee PIN: 2863",
+image: "",
+mapElementId: "svg_207",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 173,
+category: "/meeting_room",
+name: "116 Beaver Hill",
+description: "Good - Will be occupied in 0h23m Meeting room Number: 415-767-5401 Direct Extension: 6117 Conference ID: 7117 Admin PIN: 6117 Attendee PIN: 4762",
+image: "",
+mapElementId: "svg_208",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 174,
+category: "/meeting_room",
+name: "North Star",
+description: "Good - Will be occupied in 3h53m Meeting room Number: 415-767-5401 Direct Extension: 6126 Conference ID: 7126 Admin PIN: 6126 Attendee PIN: 7356",
+image: "",
+mapElementId: "svg_209",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 175,
+category: "/meeting_room",
+name: "Mezzanine",
+description: "No - Will be available in 0h53m Meeting room Number: 415-767-5401 Direct Extension: 6127 Conference ID: 7127 Admin PIN: 6127 Attendee PIN: 9786",
+image: "",
+mapElementId: "svg_210",
+svgAttributes: {
+opacity: 0.5,
+fill: "#FF0000",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 176,
+category: "/public_space",
+name: "Coffee room",
+description: " ",
+image: "",
+mapElementId: "svg_211",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 177,
+category: "/public_space",
+name: "Mail Room",
+description: " ",
+image: "",
+mapElementId: "svg_213",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 178,
+category: "/workspace",
+name: "Scott Takushi",
+description: " IT Engineer",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed-1_9.jpg",
+mapElementId: "svg_196",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "IT Engineer"
+},
+{
+id: 179,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_215",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 180,
+category: "/public_space",
+name: "Rest Area",
+description: " ",
+image: "",
+mapElementId: "svg_216",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 181,
+category: "/public_space",
+name: "Space",
+description: " ",
+image: "",
+mapElementId: "svg_217",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 182,
+category: "/meeting_room",
+name: "Wreck Room",
+description: "Good - Will be occupied in 4h53m Meeting Room Number: 415-767-5401 Direct Extension: 6148 Conference ID: 7148 Admin PIN: 6148 Attendee PIN: 9456",
+image: "",
+mapElementId: "svg_218",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting Room"
+},
+{
+id: 183,
+category: "/meeting_room",
+name: "Terrific Street",
+description: "No - Will be available in 0h23m Meeting room",
+image: "",
+mapElementId: "svg_219",
+svgAttributes: {
+opacity: 0.5,
+fill: "#FF0000",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 184,
+category: "/meeting_room",
+name: "Rudy",
+description: "No - Will be available in 0h53m Meeting room Number: 415-767-5401 Direct Extension: 6146 Conference ID: 7146 Admin PIN: 6146 Attendee PIN: 5475",
+image: "",
+mapElementId: "svg_220",
+svgAttributes: {
+opacity: 0.5,
+fill: "#FF0000",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 185,
+category: "/meeting_room",
+name: "Pacific Ave",
+description: " Design Lab",
+image: "",
+mapElementId: "svg_221",
+svgAttributes: {
+fillOpacity: 0
+},
+hide: false,
+brief: "Design Lab"
+},
+{
+id: 186,
+category: "/meeting_room",
+name: "Old Town",
+description: "Good - Will be occupied in 0h23m Meeting room Number: 415-767-5401 Direct Extension: 6144 Conference ID: 7144 Admin PIN: 6144 Attendee PIN: 2342",
+image: "",
+mapElementId: "svg_222",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: "Meeting room"
+},
+{
+id: 187,
+category: "/meeting_room",
+name: "406 ",
+description: " Not Acceptable",
+image: "",
+mapElementId: "svg_223",
+svgAttributes: {
+fillOpacity: 0
+},
+hide: false,
+brief: "Not Acceptable"
+},
+{
+id: 188,
+category: "/public_space",
+name: "Chairigami",
+description: " ",
+image: "",
+mapElementId: "svg_224",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 189,
+category: "/public_space",
+name: "Space",
+description: " ",
+image: "",
+mapElementId: "svg_225",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 190,
+category: "/public_space",
+name: "Snack Area",
+description: " Food and drinks",
+image: "",
+mapElementId: "svg_226",
+svgAttributes: [ ],
+hide: true,
+brief: "Food and drinks"
+},
+{
+id: 191,
+category: "/public_space",
+name: "Men's Washroom",
+description: " washroom",
+image: "",
+mapElementId: "svg_227",
+svgAttributes: [ ],
+hide: true,
+brief: "washroom"
+},
+{
+id: 192,
+category: "/public_space",
+name: "Men's Washroom",
+description: " washroom",
+image: "",
+mapElementId: "svg_228",
+svgAttributes: [ ],
+hide: true,
+brief: "washroom"
+},
+{
+id: 193,
+category: "/public_space",
+name: "Women's Washroom",
+description: " washroom",
+image: "",
+mapElementId: "svg_229",
+svgAttributes: [ ],
+hide: true,
+brief: "washroom"
+},
+{
+id: 194,
+category: "/public_space",
+name: "Women's Washroom",
+description: " washroom",
+image: "",
+mapElementId: "svg_230",
+svgAttributes: [ ],
+hide: true,
+brief: "washroom"
+},
+{
+id: 195,
+category: "/public_space",
+name: "Elevator",
+description: " ",
+image: "",
+mapElementId: "svg_231",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 196,
+category: "/public_space",
+name: "Elevator",
+description: " ",
+image: "",
+mapElementId: "svg_232",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 197,
+category: "/public_space",
+name: "Washroom",
+description: " general washroom",
+image: "",
+mapElementId: "svg_233",
+svgAttributes: [ ],
+hide: true,
+brief: "general washroom"
+},
+{
+id: 198,
+category: "/public_space",
+name: "Long sofa",
+description: " ",
+image: "",
+mapElementId: "svg_234",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 199,
+category: "/public_space",
+name: "Space",
+description: " ",
+image: "",
+mapElementId: "svg_235",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 200,
+category: "/public_space",
+name: "Space",
+description: " ",
+image: "",
+mapElementId: "svg_236",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 201,
+category: "/workspace",
+name: "George Sukara",
+description: "Will be available in 0h23m - Alan and George 1:1 Support Team Lead",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/5620369_orig.jpg",
+mapElementId: "svg_193",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Support Team Lead"
+},
+{
+id: 202,
+category: "/workspace",
+name: "Robin Whitmore",
+description: "Will be occupied in 5h23m Senior Technical Writer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/7050945_orig.png",
+mapElementId: "svg_95",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Senior Technical Writer"
+},
+{
+id: 203,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_126",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 204,
+category: "/workspace",
+name: "Hiroki Osame",
+description: "Will be occupied in 0h23m Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3430664.png",
+mapElementId: "svg_115",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 205,
+category: "/workspace",
+name: "Sam DeMello",
+description: " Customer Success Manager",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3436247_orig.jpg",
+mapElementId: "svg_183",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Customer Success Manager"
+},
+{
+id: 206,
+category: "/workspace",
+name: "Erin Moore",
+description: " Community Manager",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/5024088_orig.png",
+mapElementId: "svg_180",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Community Manager"
+},
+{
+id: 207,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 3h53m ",
+image: "",
+mapElementId: "svg_243",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 208,
+category: "/workspace",
+name: "James Detmer",
+description: " Sr Product Manager",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/8814052.jpg",
+mapElementId: "svg_244",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Sr Product Manager"
+},
+{
+id: 209,
+category: "/workspace",
+name: "Kate Wright",
+description: "Will be available in 0h53m - Phone Screen w/ Nick French (Senior Product Manager - Customer Success (AZ)) - 415-722-5148 Recruiter",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/8434576_orig.jpg",
+mapElementId: "svg_123",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Recruiter"
+},
+{
+id: 210,
+category: "/workspace",
+name: "Nathan Spady",
+description: "Vacation - Will be occupied in 1h53m Engineering Manager",
+image: "https://scontent.cdninstagram.com/t51.2885-19/s150x150/13686926_1647163845612587_1770634903_a.jpg",
+mapElementId: "svg_246",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineering Manager"
+},
+{
+id: 211,
+category: "/workspace",
+name: "Eli Jaffe",
+description: "Will be available in 0h53m - Phone Screen w/ Nick French (Senior Product Manager - Customer Success (AZ)) - 415-722-5148 Recruiting Coordinator & Sourcer",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed-4.jpg",
+mapElementId: "svg_248",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Recruiting Coordinator & Sourcer"
+},
+{
+id: 212,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 5h53m ",
+image: "",
+mapElementId: "svg_312",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 213,
+category: "/public_space",
+name: "",
+description: "Will be available in 0h36m - F2F Interview w/ Kim Pham (Senior Product Manager - Growth) ",
+image: "",
+mapElementId: "svg_249",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 214,
+category: "/workspace",
+name: "Loren Elia",
+description: " Product Marketing Manager",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/6469818.jpg",
+mapElementId: "svg_117",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Product Marketing Manager"
+},
+{
+id: 215,
+category: "/workspace",
+name: "Feek McDermott",
+description: "Will be occupied in 1h8m Software Engineer",
+image: "https://4500922-628764960822649987-preview-sections.beta.weebly.com/uploads/4/5/0/0/4500922/screen-shot-2016-08-16-at-11-21-49-am_1.png",
+mapElementId: "svg_242",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 216,
+category: "/workspace",
+name: "Wael Al-Sallami",
+description: " Software Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/6723779.png",
+mapElementId: "svg_288",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 217,
+category: "/workspace",
+name: "Andrew Yee",
+description: " Software Engineer",
+image: "http://team.weebly.net/uploads/4/5/0/0/4500922/5542606_orig.jpg",
+mapElementId: "svg_289",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 218,
+category: "/workspace",
+name: "Colby Schrauth",
+description: " Senior Business Analyst",
+image: "https://4500922-628764960822649987-preview-sections.beta.weebly.com/uploads/4/5/0/0/4500922/screen-shot-2016-08-16-at-11-23-58-am_1.png",
+mapElementId: "svg_261",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Senior Business Analyst"
+},
+{
+id: 219,
+category: "/workspace",
+name: "Josh Freeman",
+description: " Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3779992_orig.jpg",
+mapElementId: "svg_287",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 220,
+category: "/workspace",
+name: "Jason May",
+description: " Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/1432940408.png",
+mapElementId: "svg_267",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 221,
+category: "/workspace",
+name: "Kirill Fedorov",
+description: "Will be occupied in 1h8m Software Engineer",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/9715391.jpg",
+mapElementId: "svg_295",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 222,
+category: "/workspace",
+name: "Louis Kim",
+description: " Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1164549.png",
+mapElementId: "svg_290",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 223,
+category: "/workspace",
+name: "Robert (Bo) Han",
+description: "Will be occupied in 3h53m Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/7735550_orig.jpg",
+mapElementId: "svg_265",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 224,
+category: "/workspace",
+name: "Theeba Soundararajan",
+description: "Vacation Automation Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/324252.jpg",
+mapElementId: "svg_277",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Automation Engineer"
+},
+{
+id: 225,
+category: "/workspace",
+name: "Gabriel Preston",
+description: " Automation Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/9573161.jpg",
+mapElementId: "svg_270",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Automation Engineer"
+},
+{
+id: 226,
+category: "/workspace",
+name: "Neil Eads",
+description: " QA Lead Test Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1030729.png",
+mapElementId: "svg_272",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "QA Lead Test Engineer"
+},
+{
+id: 227,
+category: "/workspace",
+name: "Wesley Hsiao",
+description: "Will be occupied in 1h8m Automation Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/4922347.jpg",
+mapElementId: "svg_276",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Automation Engineer"
+},
+{
+id: 228,
+category: "/workspace",
+name: "Margarita Rojas",
+description: " LATAM Regional Manager",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/9290057.png",
+mapElementId: "svg_130",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "LATAM Regional Manager"
+},
+{
+id: 229,
+category: "/workspace",
+name: "Jenny Turner",
+description: " QA Lead Test Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/3601689.jpg",
+mapElementId: "svg_274",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "QA Lead Test Engineer"
+},
+{
+id: 230,
+category: "/workspace",
+name: "Joe McWilliams",
+description: " ",
+image: "",
+mapElementId: "svg_275",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: ""
+},
+{
+id: 231,
+category: "/workspace",
+name: "Kevin Chung",
+description: " Front-end Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1339519587.png",
+mapElementId: "svg_291",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Front-end Engineer"
+},
+{
+id: 232,
+category: "/workspace",
+name: "Jon Costello",
+description: " Automation Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/239713.jpg",
+mapElementId: "svg_273",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Automation Engineer"
+},
+{
+id: 233,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_269",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 234,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 0h38m ",
+image: "",
+mapElementId: "svg_266",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 235,
+category: "/workspace",
+name: "Jim Rottinger",
+description: " Software Engineer",
+image: "http://team.weebly.net/uploads/4/5/0/0/4500922/7873882_orig.png",
+mapElementId: "svg_63",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 236,
+category: "/public_space",
+name: "",
+description: "Vacation - Will be occupied in 0h23m ",
+image: "",
+mapElementId: "svg_152",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 237,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 0h48m ",
+image: "",
+mapElementId: "svg_164",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 238,
+category: "/workspace",
+name: "Deva Santiago",
+description: "Will be occupied in 0h38m VP of Recruiting",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/7779799_orig.jpg",
+mapElementId: "svg_122",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "VP of Recruiting"
+},
+{
+id: 239,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_191",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 240,
+category: "/workspace",
+name: "Rob Faraj",
+description: " Director of Cloud Platform & Partner Relations",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/1359061446.png",
+mapElementId: "svg_279",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Director of Cloud Platform & Partner Relations"
+},
+{
+id: 241,
+category: "/workspace",
+name: "Will Ranish",
+description: "Will be available in 0h53m - discuss DP long tail plan Business Development Mgr, Weebly Ecosystem",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/4156734.jpg",
+mapElementId: "svg_280",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Business Development Mgr, Weebly Ecosystem"
+},
+{
+id: 242,
+category: "/workspace",
+name: "Grace Yuan",
+description: "Will be occupied in 4h53m Business Analyst",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed-1.png",
+mapElementId: "svg_260",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Business Analyst"
+},
+{
+id: 243,
+category: "/workspace",
+name: "Aaron Christensen",
+description: "Will be occupied in 4h53m Business Analyst",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/2140281.jpg",
+mapElementId: "svg_262",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Business Analyst"
+},
+{
+id: 244,
+category: "/workspace",
+name: "Daniel Lewis",
+description: " Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/3596112.jpg",
+mapElementId: "svg_74",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 245,
+category: "/workspace",
+name: "Noah Gallup",
+description: "WFH - Will be occupied in 0h38m Marketing Analytics Lead",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed-2_1.jpg",
+mapElementId: "svg_325",
+svgAttributes: {
+fill: "#FFFF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Marketing Analytics Lead"
+},
+{
+id: 246,
+category: "/workspace",
+name: "Ben Bloch",
+description: "Will be occupied in 3h53m Director of Mobile Engineering",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/6064237_orig.jpg",
+mapElementId: "svg_303",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Director of Mobile Engineering"
+},
+{
+id: 247,
+category: "/workspace",
+name: "Walter Michelin",
+description: " Software Engineer",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/2896839.jpg",
+mapElementId: "svg_75",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 248,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_296",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 249,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_297",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 250,
+category: "/workspace",
+name: "Bavya Badrinath",
+description: " Android Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/6101666.jpg",
+mapElementId: "svg_298",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Android Engineer"
+},
+{
+id: 251,
+category: "/hidden",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_299",
+svgAttributes: [ ],
+hide: false,
+brief: ""
+},
+{
+id: 252,
+category: "/workspace",
+name: "Melisa Marquez",
+description: " Lead Android Engineer",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/9971542.png",
+mapElementId: "svg_300",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Lead Android Engineer"
+},
+{
+id: 253,
+category: "/workspace",
+name: "Joe Fox",
+description: "WFH Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/1374465551.png",
+mapElementId: "svg_301",
+svgAttributes: {
+fill: "#FFFF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Engineer"
+},
+{
+id: 254,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_302",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 255,
+category: "/public_space",
+name: "",
+description: "Will be occupied in 3h53m ",
+image: "",
+mapElementId: "svg_292",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 256,
+category: "/workspace",
+name: "Sammy Lee",
+description: " Sr. Product Manager",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed_7.jpg",
+mapElementId: "svg_304",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Sr. Product Manager"
+},
+{
+id: 257,
+category: "/workspace",
+name: "Eddie Kaiger",
+description: "Vacation iOS Engineering Intern",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/5640724.png",
+mapElementId: "svg_307",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "iOS Engineering Intern"
+},
+{
+id: 258,
+category: "/workspace",
+name: "James Richard",
+description: "Vacation iOS Engineering Lead",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/4139544.jpeg",
+mapElementId: "svg_306",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "iOS Engineering Lead"
+},
+{
+id: 259,
+category: "/workspace",
+name: "Jacob Berkman",
+description: " iOS Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/6238897_orig.jpeg",
+mapElementId: "svg_310",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "iOS Engineer"
+},
+{
+id: 260,
+category: "/hidden",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_308",
+svgAttributes: [ ],
+hide: false,
+brief: ""
+},
+{
+id: 261,
+category: "/workspace",
+name: "Paul Silvis",
+description: " iOS Engineer",
+image: "http://team.weebly.net//uploads/4/5/0/0/4500922/4545860.jpg",
+mapElementId: "svg_309",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "iOS Engineer"
+},
+{
+id: 262,
+category: "/hidden",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_305",
+svgAttributes: [ ],
+hide: false,
+brief: ""
+},
+{
+id: 263,
+category: "/public_space",
+name: "Space",
+description: " ",
+image: "",
+mapElementId: "svg_311",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 264,
+category: "/meeting_room",
+name: "Aventine",
+description: "Good - all clear Number: 415-767-5401 Direct Extension: 6152 Conference ID: 7152 Admin PIN: 6152 Attendee PIN: 5839",
+image: "",
+mapElementId: "svg_322",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: ""
+},
+{
+id: 265,
+category: "/meeting_room",
+name: "Fillmore",
+description: "Good - all clear Number: 415-767-5401 Direct Extension: 6151 Conference ID: 7151 Admin PIN: 6151 Attendee PIN: 1253",
+image: "",
+mapElementId: "svg_323",
+svgAttributes: {
+opacity: 0.5,
+fill: "#00FF00",
+fillOpacity: 0.9
+},
+hide: false,
+brief: ""
+},
+{
+id: 266,
+category: "/public_space",
+name: "Coffee supply",
+description: " ",
+image: "",
+mapElementId: "svg_324",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 267,
+category: "/workspace",
+name: "Brian Benitez",
+description: " Product Designer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/6640441.jpg",
+mapElementId: "svg_114",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Product Designer"
+},
+{
+id: 268,
+category: "/public_space",
+name: "",
+description: " ",
+image: "",
+mapElementId: "svg_278",
+svgAttributes: [ ],
+hide: true,
+brief: ""
+},
+{
+id: 269,
+category: "/workspace",
+name: "Jef Holloman",
+description: "Will be available in 0h23m - Infrastructure Team Daily Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/1376446705.png",
+mapElementId: "svg_70",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 270,
+category: "/workspace",
+name: "Rohan Sahai",
+description: " Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/8900923_orig.png",
+mapElementId: "svg_240",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 271,
+category: "/workspace",
+name: "Yin Li",
+description: "Will be occupied in 0h23m Head of Program Management",
+image: "https://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/unnamed_1.jpg",
+mapElementId: "svg_107",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Head of Program Management"
+},
+{
+id: 272,
+category: "/workspace",
+name: "Elliot Fehr",
+description: "Will be available in 0h23m - Infrastructure Team Daily Software Engineer",
+image: "http://4500922-628764960822649987.preview.editmysite.com/uploads/4/5/0/0/4500922/3795474.jpg",
+mapElementId: "svg_71",
+svgAttributes: {
+fill: "#FF0000",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+},
+{
+id: 273,
+category: "/workspace",
+name: "Michele Mickelson",
+description: "Will be occupied in 0h38m Recruiter",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/9905924_orig.jpg",
+mapElementId: "svg_247",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Recruiter"
+},
+{
+id: 274,
+category: "/workspace",
+name: "Joel Shapiro",
+description: "Will be occupied in 0h38m Software Engineer",
+image: "http://faces.weebly.net/uploads/4/5/0/0/4500922/3453838_orig.jpg",
+mapElementId: "svg_313",
+svgAttributes: {
+fill: "#00FF00",
+fillOpacity: 0.5,
+opacity: 0,
+data-onmouseenter: {
+opacity: 0.5
+},
+data-onmouseleave: {
+opacity: 0
+}
+},
+hide: false,
+brief: "Software Engineer"
+}
+],
+images: {
+img_3: {
+config_id: 1,
+name: "Ground Floor",
+url: "http://localhost/img/weebly0.png",
+width: 2128,
+height: 2128,
+elements: [
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+x: "139.999538",
+y: "669.919577",
+width: "788.803692",
+height: "1331.668841",
+id: "svg_2",
+opacity: "0"
+},
+{
+data-component-name: "path",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+d: "m137.793808,121.603462l256.826889,0l0,270.184776l-66.204742,1l1,-67.694214l-190.291473,0l0,-200.898323l0,0z",
+id: "svg_4",
+opacity: "0"
+},
+{
+data-component-name: "path",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+d: "m138.793808,330.400177l180.945786,0l0,67.628174l74.738525,0l0,145.464447l-183.568222,0l0,39.55603l-70.804932,0l0,-248.82074l0,0z",
+id: "svg_5",
+opacity: "0"
+},
+{
+data-component-name: "path",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+d: "m1062.162231,123.288307l279.479858,0l0,195.468925l-280.792114,0l0,-192.978882l0,0z",
+id: "svg_6",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1349.606607",
+y: "123.288308",
+width: "115.574156",
+height: "195.826025",
+id: "svg_7",
+opacity: "0"
+},
+{
+data-component-name: "path",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+d: "m1489.64563,121.288307l0,197.790398l318.471436,0l0,-112.665421l-17.178955,0l0,-83.873131l-298.649414,0l0,0z",
+id: "svg_8",
+opacity: "0"
+},
+{
+data-component-name: "path",
+d: "m1797.660034,122.610001l196.75,0l0,277.435013l-248.330078,0l0,-63.212006l69.869995,0l0,-136.305008l-19,0l0,-73.348999l0,0z",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+id: "svg_9",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1464.537848",
+y: "406.044746",
+width: "530.190589",
+height: "259.613116",
+id: "svg_10",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1320.820365",
+y: "406.723285",
+width: "138.753112",
+height: "105.002492",
+id: "svg_11",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1320.498906",
+y: "516.690153",
+width: "139.074576",
+height: "148.646244",
+id: "svg_12",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1320.498906",
+y: "671.979307",
+width: "270.220395",
+height: "134.110197",
+id: "svg_13",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1062.814552",
+y: "591.405977",
+width: "158.539368",
+height: "201.43332",
+id: "svg_17",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1061.171632",
+y: "801.160755",
+width: "160.50374",
+height: "161.146653",
+id: "svg_18",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1321.820363",
+y: "884.091165",
+width: "166.789572",
+height: "79.573328",
+id: "svg_19",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1597.998953",
+y: "671.300766",
+width: "397.723312",
+height: "134.788739",
+id: "svg_20",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1645.256169",
+y: "812.053879",
+width: "349.115189",
+height: "141.36041",
+id: "svg_21",
+opacity: "0"
+},
+{
+data-component-name: "path",
+d: "m1321.819946,1015.559998l242.070068,0l0,-56.180969l431.52002,0l0,414.260986l-256.48999,0l0,-175.079956l-93.460083,0l0,-55.5l-323.640015,0l0,-126.860046l0,0z",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+id: "svg_22",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1265.003836",
+y: "1788.290052",
+width: "80.216238",
+height: "127.824364",
+id: "svg_23",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1465.859307",
+y: "1831.54109",
+width: "58.108535",
+height: "85.894785",
+id: "svg_24",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1564.981039",
+y: "1815.391577",
+width: "124.824363",
+height: "69.001666",
+id: "svg_25",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1740.722623",
+y: "1814.362134",
+width: "254.327268",
+height: "186.611439",
+id: "svg_26",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1330.106182",
+y: "1953.472333",
+width: "357.758091",
+height: "47.215414",
+id: "svg_27",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1062.814551",
+y: "1677.966096",
+width: "171.78957",
+height: "174.64707",
+id: "svg_28",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1061.850178",
+y: "1896.363794",
+width: "102.966877",
+height: "105.288319",
+id: "svg_29",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1740.407325",
+y: "1380.280923",
+width: "254.648746",
+height: "426.795389",
+id: "svg_30",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "1182.388706",
+y: "1382.280919",
+width: "45.251038",
+height: "97.752283",
+id: "svg_31",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "676.799695",
+y: "376.454283",
+width: "236.015672",
+height: "276.018328",
+id: "svg_32",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "936.354851",
+y: "1322.327187",
+width: "119.487398",
+height: "189.852199",
+id: "svg_33",
+opacity: "0"
+},
+{
+data-component-name: "path",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+d: "m1291.799927,1425.882935l362.806885,0l0,231.008911l-182.757324,0l0,108.866333l-171.927124,0l0,-339.875244",
+id: "svg_35",
+opacity: "0"
+},
+{
+data-component-name: "path",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+d: "m1323.995117,1145.751343l312.425659,0l0,58.416016l36.755859,0l0,167.282349l-351.806885,0l0,-223.043091l0,0z",
+id: "svg_36",
+opacity: "0"
+}
+]
+},
+img_1: {
+config_id: 1,
+name: "First Floor",
+url: "http://localhost/img/weebly1_v5.png",
+width: 2128,
+height: 2128,
+elements: [
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_52",
+height: "60",
+width: "53",
+y: "142.816047",
+x: "485.533082",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_53",
+height: "60",
+width: "53",
+y: "143.149368",
+x: "543.372917",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_54",
+height: "60",
+width: "53",
+y: "143.149368",
+x: "601.16715",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_55",
+height: "60",
+width: "53",
+y: "205.987688",
+x: "485.533082",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_56",
+height: "60",
+width: "53",
+y: "205.987688",
+x: "543.372917",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_57",
+height: "60",
+width: "53",
+y: "205.987688",
+x: "601.16715",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_58",
+height: "60",
+width: "53",
+y: "304.232432",
+x: "485.199761",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_59",
+height: "60",
+width: "53",
+y: "302.232871",
+x: "542.87299",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_60",
+height: "60",
+width: "53",
+y: "304.232432",
+x: "601.16715",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_61",
+height: "60",
+width: "53",
+y: "367.904038",
+x: "485.199761",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_62",
+height: "60",
+width: "53",
+y: "367.904038",
+x: "542.87299",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_63",
+height: "60",
+width: "53",
+y: "367.904038",
+x: "601.16715",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_64",
+height: "60",
+width: "53",
+y: "143.149368",
+x: "671.564597",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_65",
+height: "60",
+width: "53",
+y: "143.149368",
+x: "729.737861",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_66",
+height: "60",
+width: "53",
+y: "143.149368",
+x: "788.532127",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_67",
+height: "60",
+width: "53",
+y: "205.987688",
+x: "671.564597",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_68",
+height: "60",
+width: "53",
+y: "205.987688",
+x: "729.737861",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_69",
+height: "60",
+width: "53",
+y: "205.987688",
+x: "788.532127",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_70",
+height: "60",
+width: "53",
+y: "304.232432",
+x: "671.560561",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_71",
+height: "60",
+width: "53",
+y: "304.232432",
+x: "729.733825",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_72",
+height: "60",
+width: "53",
+y: "304.232432",
+x: "788.528091",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_73",
+height: "60",
+width: "53",
+y: "367.904038",
+x: "671.560561",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_74",
+height: "60",
+width: "53",
+y: "367.904038",
+x: "729.733825",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_75",
+height: "60",
+width: "53",
+y: "367.904038",
+x: "788.528091",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_76",
+height: "60",
+width: "53",
+y: "585.314352",
+x: "671.742579",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_77",
+height: "60",
+width: "53",
+y: "585.314352",
+x: "729.036951",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_78",
+height: "60",
+width: "53",
+y: "647.652708",
+x: "671.742579",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_79",
+height: "60",
+width: "53",
+y: "647.652708",
+x: "729.036951",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_80",
+height: "60",
+width: "53",
+y: "584.981031",
+x: "544.861884",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_81",
+height: "60",
+width: "53",
+y: "584.981031",
+x: "603.156184",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_82",
+height: "60",
+width: "53",
+y: "647.652708",
+x: "544.861884",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_83",
+height: "60",
+width: "53",
+y: "647.986029",
+x: "603.156184",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_88",
+height: "60",
+width: "53",
+y: "742.841224",
+x: "670.909261",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_89",
+height: "60",
+width: "53",
+y: "742.841224",
+x: "729.036885",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_90",
+height: "60",
+width: "53",
+y: "808.179468",
+x: "670.909261",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_91",
+height: "60",
+width: "53",
+y: "808.179468",
+x: "729.036885",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_92",
+height: "60",
+width: "53",
+y: "742.841224",
+x: "544.861884",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_93",
+height: "60",
+width: "53",
+y: "742.841224",
+x: "602.656219",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_94",
+height: "60",
+width: "53",
+y: "808.179468",
+x: "544.861884",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_95",
+height: "60",
+width: "53",
+y: "808.179468",
+x: "602.656219",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_96",
+height: "60",
+width: "53",
+y: "1247.183043",
+x: "538.507169",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_97",
+height: "60",
+width: "53",
+y: "1247.183043",
+x: "596.634793",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_98",
+height: "60",
+width: "53",
+y: "1311.188003",
+x: "538.507169",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_99",
+height: "60",
+width: "53",
+y: "1311.188003",
+x: "596.634793",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_100",
+height: "60",
+width: "53",
+y: "1247.183043",
+x: "660.552227",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_101",
+height: "60",
+width: "53",
+y: "1246.849722",
+x: "719.013245",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_102",
+height: "60",
+width: "53",
+y: "1311.188003",
+x: "660.552227",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_103",
+height: "60",
+width: "53",
+y: "1311.188003",
+x: "718.679997",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_104",
+height: "60",
+width: "53",
+y: "1246.516474",
+x: "776.537216",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_105",
+height: "60",
+width: "53",
+y: "1246.516474",
+x: "835.331482",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_106",
+height: "60",
+width: "53",
+y: "1311.188003",
+x: "776.870464",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_107",
+height: "60",
+width: "53",
+y: "1310.521434",
+x: "835.331409",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_108",
+height: "60",
+width: "53",
+y: "1409.313616",
+x: "538.507315",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_109",
+height: "60",
+width: "53",
+y: "1409.313616",
+x: "596.634939",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_110",
+height: "60",
+width: "53",
+y: "1472.985256",
+x: "538.507315",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_111",
+height: "60",
+width: "53",
+y: "1472.985256",
+x: "596.634939",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_112",
+height: "60",
+width: "53",
+y: "1409.313616",
+x: "660.885694",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_113",
+height: "60",
+width: "53",
+y: "1409.313616",
+x: "718.679997",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_114",
+height: "60",
+width: "53",
+y: "1472.985256",
+x: "660.885694",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_115",
+height: "60",
+width: "53",
+y: "1472.985256",
+x: "718.679997",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_116",
+height: "60",
+width: "53",
+y: "1408.980295",
+x: "777.203858",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_117",
+height: "60",
+width: "53",
+y: "1408.646974",
+x: "835.331482",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_118",
+height: "60",
+width: "53",
+y: "1472.985256",
+x: "777.203785",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_119",
+height: "60",
+width: "53",
+y: "1472.651935",
+x: "835.331409",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_120",
+height: "60",
+width: "53",
+y: "1570.568088",
+x: "538.840636",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_121",
+height: "60",
+width: "53",
+y: "1570.568088",
+x: "596.634939",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_122",
+height: "60",
+width: "53",
+y: "1633.573085",
+x: "538.840636",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_123",
+height: "60",
+width: "53",
+y: "1633.573085",
+x: "596.634939",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_124",
+height: "60",
+width: "53",
+y: "1570.901409",
+x: "660.552373",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_125",
+height: "60",
+width: "53",
+y: "1570.901409",
+x: "718.679997",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_126",
+height: "60",
+width: "53",
+y: "1633.573085",
+x: "660.552373",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_127",
+height: "60",
+width: "53",
+y: "1633.573085",
+x: "718.679997",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_128",
+height: "60",
+width: "53",
+y: "1570.901409",
+x: "777.203858",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_129",
+height: "60",
+width: "53",
+y: "1570.901409",
+x: "835.331482",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_130",
+height: "60",
+width: "53",
+y: "1633.573085",
+x: "777.203785",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_131",
+height: "60",
+width: "53",
+y: "1633.573085",
+x: "835.331409",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_140",
+height: "60",
+width: "53",
+y: "1858.864252",
+x: "537.884401",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_141",
+height: "60",
+width: "53",
+y: "1858.864252",
+x: "595.678667",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_142",
+height: "60",
+width: "53",
+y: "1923.535929",
+x: "537.884401",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_143",
+height: "60",
+width: "53",
+y: "1923.535929",
+x: "595.678667",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_144",
+height: "60",
+width: "53",
+y: "1858.864252",
+x: "653.535886",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_145",
+height: "60",
+width: "53",
+y: "1858.864252",
+x: "711.330152",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_146",
+height: "60",
+width: "53",
+y: "1923.535929",
+x: "653.202456",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_147",
+height: "60",
+width: "53",
+y: "1923.535929",
+x: "710.996721",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_149",
+height: "60",
+width: "53",
+y: "186.005209",
+x: "1346.389603",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_150",
+height: "60",
+width: "53",
+y: "186.005209",
+x: "1405.183869",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_151",
+height: "60",
+width: "53",
+y: "248.676885",
+x: "1346.389603",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_152",
+height: "60",
+width: "53",
+y: "248.676885",
+x: "1405.183869",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_153",
+height: "60",
+width: "53",
+y: "186.005209",
+x: "1476.100646",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_154",
+height: "60",
+width: "53",
+y: "186.005209",
+x: "1534.228342",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_155",
+height: "60",
+width: "53",
+y: "248.676885",
+x: "1476.100646",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_156",
+height: "60",
+width: "53",
+y: "248.676885",
+x: "1533.561773",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_157",
+height: "60",
+width: "53",
+y: "185.33864",
+x: "1592.08554",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_158",
+height: "60",
+width: "53",
+y: "185.33864",
+x: "1650.213258",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_159",
+height: "60",
+width: "53",
+y: "248.676885",
+x: "1591.752288",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_160",
+height: "60",
+width: "53",
+y: "248.676864",
+x: "1649.880005",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_161",
+height: "60",
+width: "53",
+y: "346.506801",
+x: "1346.389603",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_162",
+height: "60",
+width: "53",
+y: "346.840122",
+x: "1405.183869",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_163",
+height: "60",
+width: "53",
+y: "409.511799",
+x: "1346.389603",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_164",
+height: "60",
+width: "53",
+y: "409.511799",
+x: "1405.183869",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_165",
+height: "60",
+width: "53",
+y: "347.173443",
+x: "1476.101163",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_166",
+height: "60",
+width: "53",
+y: "347.173443",
+x: "1533.562217",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_167",
+height: "60",
+width: "53",
+y: "409.511799",
+x: "1476.101163",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_168",
+height: "60",
+width: "53",
+y: "409.511799",
+x: "1533.89561",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_169",
+height: "60",
+width: "53",
+y: "346.506874",
+x: "1592.086151",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_170",
+height: "60",
+width: "53",
+y: "346.506874",
+x: "1649.880454",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_171",
+height: "60",
+width: "53",
+y: "409.84512",
+x: "1592.086079",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_172",
+height: "60",
+width: "53",
+y: "409.845193",
+x: "1650.213702",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_173",
+height: "60",
+width: "53",
+y: "546.875683",
+x: "1347.056245",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_174",
+height: "60",
+width: "53",
+y: "546.875683",
+x: "1405.183869",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_175",
+height: "60",
+width: "53",
+y: "609.547359",
+x: "1347.056245",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_176",
+height: "60",
+width: "53",
+y: "609.547359",
+x: "1405.183869",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_177",
+height: "60",
+width: "53",
+y: "546.209041",
+x: "1476.101163",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_178",
+height: "60",
+width: "53",
+y: "546.209041",
+x: "1534.228859",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_179",
+height: "60",
+width: "53",
+y: "609.547359",
+x: "1476.101163",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_180",
+height: "60",
+width: "53",
+y: "609.547359",
+x: "1533.56229",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_181",
+height: "60",
+width: "53",
+y: "546.209114",
+x: "1591.41951",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_182",
+height: "60",
+width: "53",
+y: "546.209114",
+x: "1650.213775",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_183",
+height: "60",
+width: "53",
+y: "609.547359",
+x: "1592.086079",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_184",
+height: "60",
+width: "53",
+y: "609.547431",
+x: "1650.213702",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_185",
+height: "60",
+width: "53",
+y: "707.028219",
+x: "1347.056245",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_186",
+height: "60",
+width: "53",
+y: "707.028219",
+x: "1405.183869",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_187",
+height: "60",
+width: "53",
+y: "769.699896",
+x: "1347.056245",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_188",
+height: "60",
+width: "53",
+y: "769.699896",
+x: "1405.183869",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_189",
+height: "60",
+width: "53",
+y: "707.028219",
+x: "1475.767842",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_190",
+height: "60",
+width: "53",
+y: "707.028219",
+x: "1533.895538",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_191",
+height: "60",
+width: "53",
+y: "769.699896",
+x: "1475.767842",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_192",
+height: "60",
+width: "53",
+y: "769.699896",
+x: "1533.89561",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_193",
+height: "60",
+width: "53",
+y: "706.36165",
+x: "1592.086151",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_194",
+height: "60",
+width: "53",
+y: "706.36165",
+x: "1650.213775",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_195",
+height: "60",
+width: "53",
+y: "769.366575",
+x: "1592.086079",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_196",
+height: "60",
+width: "53",
+y: "769.699969",
+x: "1650.213702",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_197",
+height: "98.984779",
+width: "182.6373",
+y: "129.980952",
+x: "1808.653563",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_198",
+height: "121.314661",
+width: "202.63613",
+y: "274.627068",
+x: "1794.320453",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_199",
+height: "117.315578",
+width: "203.636124",
+y: "402.003853",
+x: "1793.320494",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_201",
+height: "117.315578",
+width: "204.636134",
+y: "526.49916",
+x: "1792.653853",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_202",
+height: "280.625344",
+width: "203.636124",
+y: "651.234898",
+x: "1793.653856",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_203",
+height: "131.980392",
+width: "277.626184",
+y: "939.529262",
+x: "1718.6641",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_204",
+height: "135.646665",
+width: "248.963405",
+y: "1077.508773",
+x: "1747.993286",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_205",
+height: "137.313233",
+width: "210.969275",
+y: "1220.48799",
+x: "1786.320828",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_206",
+height: "98.652226",
+width: "209.968972",
+y: "1363.800345",
+x: "1786.321004",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_207",
+height: "96.652519",
+width: "209.969264",
+y: "1469.118262",
+x: "1786.320707",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_208",
+height: "427.270518",
+width: "269.627227",
+y: "1573.103041",
+x: "1727.662754",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_209",
+height: "139.979223",
+width: "74.988878",
+y: "931.19729",
+x: "1467.700981",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_210",
+height: "139.97922",
+width: "79.987657",
+y: "931.197293",
+x: "1550.022411",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_211",
+height: "104.984196",
+width: "161.642863",
+y: "1077.509062",
+x: "1468.034194",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_213",
+height: "106.317626",
+width: "162.309128",
+y: "1190.492381",
+x: "1468.034482",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "path",
+stroke: "#000",
+d: "m1322.06006,1076.17322l135.97998,0l-0.67004,203.63684l-85.32447,-0.32617l-49.98547,-203.31067z",
+opacity: "0",
+id: "svg_214",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_215",
+height: "134.645962",
+width: "127.647139",
+y: "934.863616",
+x: "1332.387858",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_216",
+height: "192.302115",
+width: "260.960776",
+y: "1378.133187",
+x: "1334.053733",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_217",
+height: "97.319088",
+width: "187.972485",
+y: "1877.725117",
+x: "162.891834",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+stroke: "#000",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_218",
+height: "108.650176",
+width: "98.985362",
+y: "1725.747656",
+x: "285.873758",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_219",
+height: "107.983901",
+width: "157.976289",
+y: "1726.080794",
+x: "120.56521",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_220",
+height: "137.979507",
+width: "264",
+y: "1581.435304",
+x: "120.898176",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_221",
+height: "154.310596",
+width: "264",
+y: "1420.458718",
+x: "120.56478",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_222",
+height: "152.644035",
+width: "264",
+y: "1261.148993",
+x: "120.564917",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_223",
+height: "260.961351",
+width: "201.636885",
+y: "992.854797",
+x: "120.231328",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_224",
+height: "98.64988",
+width: "116.648128",
+y: "134.980954",
+x: "927.447756",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_225",
+height: "119.647242",
+width: "121.645779",
+y: "146.313216",
+x: "1082.424625",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_226",
+height: "194.971026",
+width: "147.644906",
+y: "350.282471",
+x: "904.116667",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_227",
+height: "186.972514",
+width: "149.311182",
+y: "613.910248",
+x: "904.117036",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_228",
+height: "187.305327",
+width: "148.97805",
+y: "614.24384",
+x: "1062.093761",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_229",
+height: "159.642863",
+width: "149.644615",
+y: "809.215148",
+x: "903.450465",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_230",
+height: "160.30943",
+width: "148.977752",
+y: "808.881721",
+x: "1062.094053",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_231",
+height: "95.65284",
+width: "140.645756",
+y: "977.52367",
+x: "1062.093866",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_232",
+height: "99.3185",
+width: "138.979665",
+y: "1209.823177",
+x: "1063.093541",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+opacity: "0",
+id: "svg_233",
+height: "117.315801",
+width: "146.978303",
+y: "1545.107499",
+x: "1063.093579",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_234",
+height: "47.659252",
+width: "189.304743",
+y: "939.195834",
+x: "611.482828",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_235",
+height: "67.322894",
+width: "75.654276",
+y: "1052.512578",
+x: "563.823287",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_236",
+height: "67.322894",
+width: "76.654281",
+y: "1052.512578",
+x: "704.823284",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_237",
+height: "60",
+width: "53",
+y: "585.314352",
+x: "786.036951",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_238",
+height: "60",
+width: "53",
+y: "647.652708",
+x: "786.036951",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_239",
+height: "60",
+width: "53",
+y: "447.314352",
+x: "671.742579",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_240",
+height: "60",
+width: "53",
+y: "447.314352",
+x: "729.036951",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_241",
+height: "60",
+width: "53",
+y: "509.652708",
+x: "671.742579",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_242",
+height: "60",
+width: "53",
+y: "509.652708",
+x: "729.036951",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_243",
+height: "60",
+width: "53",
+y: "446.981031",
+x: "603.156184",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_244",
+height: "60",
+width: "53",
+y: "509.986029",
+x: "603.156184",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_245",
+height: "60",
+width: "53",
+y: "447.314352",
+x: "786.036951",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_246",
+height: "60",
+width: "53",
+y: "509.652708",
+x: "786.036951",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_247",
+height: "60",
+width: "53",
+y: "1714.567041",
+x: "538.840636",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_248",
+height: "60",
+width: "53",
+y: "1714.567041",
+x: "596.634939",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_249",
+height: "60",
+width: "53",
+y: "1777.572038",
+x: "538.840636",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_250",
+height: "60",
+width: "53",
+y: "1777.572038",
+x: "596.634939",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_251",
+height: "60",
+width: "53",
+y: "448.200829",
+x: "485.199761",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_252",
+height: "60",
+width: "53",
+y: "446.201268",
+x: "542.87299",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_253",
+height: "60",
+width: "53",
+y: "511.872435",
+x: "485.199761",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_254",
+height: "60",
+width: "53",
+y: "511.872435",
+x: "542.87299",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_312",
+height: "60",
+width: "53",
+y: "1714.567041",
+x: "660.634939",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+},
+{
+data-component-name: "rect",
+opacity: "0",
+id: "svg_313",
+height: "60",
+width: "53",
+y: "1777.572038",
+x: "660.634939",
+fillOpacity: "null",
+strokeOpacity: "null",
+strokeWidth: "1.5",
+fill: "#fff",
+stroke: "#000"
+}
+]
+},
+img_2: {
+config_id: 1,
+name: "Mezzanine",
+url: "http://localhost/img/weebly2_v2.png",
+width: 2128,
+height: 2128,
+elements: [
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "297.331568",
+width: "53",
+height: "55",
+id: "svg_256",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257.499988",
+y: "297.331568",
+width: "53",
+height: "55",
+id: "svg_257",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "316.499988",
+y: "297.331568",
+width: "53",
+height: "55",
+id: "svg_325",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "297.331568",
+width: "53",
+height: "55",
+id: "svg_258",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "358.05646",
+width: "53",
+height: "55",
+id: "svg_260",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257.499988",
+y: "358.05646",
+width: "53",
+height: "55",
+id: "svg_261",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "316.499988",
+y: "358.05646",
+width: "53",
+height: "55",
+id: "svg_326",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "358.05646",
+width: "53",
+height: "55",
+id: "svg_262",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "460.783201",
+width: "53",
+height: "55",
+id: "svg_263",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257.499988",
+y: "460.783201",
+width: "53",
+height: "55",
+id: "svg_264",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "460.783201",
+width: "53",
+height: "55",
+id: "svg_265",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "521.508092",
+width: "53",
+height: "55",
+id: "svg_266",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257.499988",
+y: "521.508092",
+width: "53",
+height: "55",
+id: "svg_267",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "521.508092",
+width: "53",
+height: "55",
+id: "svg_268",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "610.930402",
+width: "53",
+height: "55",
+id: "svg_269",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257.499988",
+y: "610.930402",
+width: "53",
+height: "55",
+id: "svg_270",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "610.930402",
+width: "53",
+height: "55",
+id: "svg_271",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "671.655294",
+width: "53",
+height: "55",
+id: "svg_272",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257.499988",
+y: "671.655294",
+width: "53",
+height: "55",
+id: "svg_273",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "671.655294",
+width: "53",
+height: "55",
+id: "svg_274",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "774.45857",
+width: "53",
+height: "55",
+id: "svg_275",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257.499988",
+y: "774.45857",
+width: "53",
+height: "55",
+id: "svg_276",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "774.45857",
+width: "53",
+height: "55",
+id: "svg_277",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "835.183462",
+width: "53",
+height: "55",
+id: "svg_278",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257.499988",
+y: "835.183462",
+width: "53",
+height: "55",
+id: "svg_279",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "835.183462",
+width: "53",
+height: "55",
+id: "svg_280",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "1189.244108",
+width: "53",
+height: "55",
+id: "svg_287",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257",
+y: "1189.244108",
+width: "53",
+height: "55",
+id: "svg_288",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "1189.244108",
+width: "53",
+height: "55",
+id: "svg_289",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "1249.968999",
+width: "53",
+height: "55",
+id: "svg_290",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257",
+y: "1249.968999",
+width: "53",
+height: "55",
+id: "svg_291",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "1249.968999",
+width: "53",
+height: "55",
+id: "svg_292",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "1352.140531",
+width: "53",
+height: "55",
+id: "svg_293",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257",
+y: "1352.140531",
+width: "53",
+height: "55",
+id: "svg_294",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "1352.140531",
+width: "53",
+height: "55",
+id: "svg_295",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "1412.865423",
+width: "53",
+height: "55",
+id: "svg_296",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257",
+y: "1412.865423",
+width: "53",
+height: "55",
+id: "svg_297",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "1412.865423",
+width: "53",
+height: "55",
+id: "svg_298",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "1503.472974",
+width: "53",
+height: "55",
+id: "svg_299",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257",
+y: "1503.472974",
+width: "53",
+height: "55",
+id: "svg_300",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "1503.472974",
+width: "53",
+height: "55",
+id: "svg_301",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "1564.197866",
+width: "53",
+height: "55",
+id: "svg_302",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257",
+y: "1564.197866",
+width: "53",
+height: "55",
+id: "svg_303",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "1564.197866",
+width: "53",
+height: "55",
+id: "svg_304",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "1664.817762",
+width: "53",
+height: "55",
+id: "svg_305",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257",
+y: "1664.817762",
+width: "53",
+height: "55",
+id: "svg_306",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "1664.817762",
+width: "53",
+height: "55",
+id: "svg_307",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "198.499965",
+y: "1725.542654",
+width: "53",
+height: "55",
+id: "svg_308",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "257",
+y: "1725.542654",
+width: "53",
+height: "55",
+id: "svg_309",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+x: "140.499942",
+y: "1725.542654",
+width: "53",
+height: "55",
+id: "svg_310",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+fill: "#fff",
+stroke: "#000",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "133.495834",
+y: "1853.322439",
+width: "197.998838",
+height: "135.999202",
+id: "svg_311",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "126.660032",
+y: "929.661136",
+width: "94.166191",
+height: "119.332708",
+id: "svg_322",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "230.796087",
+y: "929.661139",
+width: "93.666204",
+height: "119.332698",
+id: "svg_323",
+opacity: "0"
+},
+{
+data-component-name: "rect",
+stroke: "#000",
+fill: "#fff",
+strokeWidth: "1.5",
+strokeOpacity: "null",
+fillOpacity: "null",
+x: "126.16001",
+y: "1055.993784",
+width: "198.165613",
+height: "93.332823",
+id: "svg_324",
+opacity: "0"
+}
+]
+}
+}
+}
