@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { RECEIVE_MAP_DATA } from '../actions/dataSync';
+import { RECEIVE_MAP_DATA } from '../actions/api';
 import { FILTER_LOCATION } from '../actions/sidebar';
 
 const searchLocationMatch = (searchText, locationObj) => {

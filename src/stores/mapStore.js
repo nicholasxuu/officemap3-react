@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import MapReducer from '../reducers/index';
-import { loadFromApi } from '../actions/dataSync';
+import { loadFromApi } from '../actions/api';
 import { goToLocation } from "../actions/map";
 import { filterLocation } from "../actions/sidebar";
 import Immutable from 'immutable';

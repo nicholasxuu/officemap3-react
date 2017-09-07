@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { RECEIVE_MAP_DATA } from '../actions/dataSync';
+import { RECEIVE_MAP_DATA } from '../actions/api';
 
 export const LOCATION_SVG_ATTRIBUTES_KEY = 'svgAttributes';
 
