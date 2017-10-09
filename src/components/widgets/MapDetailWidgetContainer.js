@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import {} from '../../actions/map';
 import MapDetailWidget from './MapDetailWidget';
-import { getTransformMatrix, matrixMultiply, svgPosToPagePos } from '../../utils/svgUtils';
+import SvgUtils from '../../utils/SvgUtils';
 
 const mapStateToProps = (state) => {
 	// check if we should show the object or not.
@@ -23,18 +23,18 @@ const mapStateToProps = (state) => {
 		const imageWidth = state.imageDataCollection.get(activeImageId).get('width');
 		const imageHeight = state.imageDataCollection.get(activeImageId).get('height');
 
-		const transformMatrix = getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
+		const transformMatrix = SvgUtils.getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
 
 		// i.e. user resized window, but never pan/zoom yet.
 		const viewportMatrix = state.mapView.get('viewportMatrix');
 
-		const finalMatrix = matrixMultiply(viewportMatrix, transformMatrix);
+		const finalMatrix = SvgUtils.matrixMultiply(viewportMatrix, transformMatrix);
 
 		const svgPos = {
 			x: state.widgetData.getIn(['svgPos', 'x']),
 			y: state.widgetData.getIn(['svgPos', 'y']),
 		};
-		pagePos = svgPosToPagePos(svgPos, finalMatrix);
+		pagePos = SvgUtils.svgPosToPagePos(svgPos, finalMatrix);
 	}
 
 	return {

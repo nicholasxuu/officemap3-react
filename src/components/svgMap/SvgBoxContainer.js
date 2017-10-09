@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import Immutable from 'immutable';
 import { showHoverData, hideHoverData, svgPan, svgZoom, centerAtPoint, goToLocation, setViewportMatrix, hideDetailWidget } from '../../actions/map';
 import SvgBox from './SvgBox';
-import { getTransformMatrix } from '../../utils/svgUtils';
+import SvgUtils from '../../utils/SvgUtils';
 
 const mapStateToProps = (state) => {
 	const activeImageId = state.mapView.get('activeImageId');
@@ -27,7 +27,7 @@ const mapStateToProps = (state) => {
 		imageData = state.imageDataCollection.get(activeImageId);
 	}
 
-	const transformMatrix = getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
+	const transformMatrix = SvgUtils.getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
 
 	let widgetLocationElementId = null;
 	if (!state.widgetData.get('locationObj').isEmpty()) {

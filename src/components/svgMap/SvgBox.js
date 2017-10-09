@@ -3,8 +3,8 @@ import { PropTypes } from 'prop-types';
 import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import ReactResizeDetector from 'react-resize-detector';
-import { getTouchDistanceSquare, getMultiTouchScreenCenter, getCursorScreenPoint } from '../../utils/touchUtils';
-import { setAttributes } from '../../utils/domUtils';
+import TouchUtils from '../../utils/TouchUtils';
+import DOMUtils  from '../../utils/DOMUtils';
 import '../../styles/svgMap/svgBox.css';
 
 export const SVG_BODY = 'svg_body';
@@ -116,9 +116,9 @@ class SvgBox extends React.Component {
 			// Get the new coordinates
 			let currPointer;
 			if (this.state.isTouch === true) {
-				currPointer = getMultiTouchScreenCenter(e);
+				currPointer = TouchUtils.getMultiTouchScreenCenter(e);
 			} else {
-				currPointer = getCursorScreenPoint(e);
+				currPointer = TouchUtils.getCursorScreenPoint(e);
 			}
 
 			// Take the delta where we are minus where we came from.
@@ -204,7 +204,7 @@ class SvgBox extends React.Component {
 		if (e.touches.length === 2) {
 			const state = {
 				touchType: 'pinch',
-				touchDistanceSq: getTouchDistanceSquare(e.touches),
+				touchDistanceSq: TouchUtils.getTouchDistanceSquare(e.touches),
 			};
 			this.setState(state);
 		}
@@ -221,7 +221,7 @@ class SvgBox extends React.Component {
 	onTouchMove = (e) => {
 		e.preventDefault();
 		if (this.state.touchType === 'pinch') {
-			const newTouchDistanceSq = getTouchDistanceSquare(e.touches);
+			const newTouchDistanceSq = TouchUtils.getTouchDistanceSquare(e.touches);
 
 			const touchDelta = newTouchDistanceSq - this.state.touchDistanceSq;
 			const scaleMultiplier = this.getViewportScaleMultiplier();
@@ -339,7 +339,7 @@ class SvgBox extends React.Component {
 			this.setState({ hovering: true });
 		}
 
-		setAttributes(e.currentTarget, attributes);
+    DOMUtils.setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -354,7 +354,7 @@ class SvgBox extends React.Component {
 			this.setState({ hovering: false });
 		}
 
-		setAttributes(e.currentTarget, attributes);
+    DOMUtils.setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -385,7 +385,7 @@ class SvgBox extends React.Component {
 		this.onElementHover(e);
 		this.onElementClickCancel(e);
 
-		setAttributes(e.currentTarget, attributes);
+    DOMUtils.setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -408,7 +408,7 @@ class SvgBox extends React.Component {
 			});
 		}
 
-		setAttributes(e.currentTarget, attributes);
+		DOMUtils.setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -430,7 +430,7 @@ class SvgBox extends React.Component {
 			});
 		}
 
-		setAttributes(e.currentTarget, attributes);
+    DOMUtils.setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -452,7 +452,7 @@ class SvgBox extends React.Component {
 			this.props.actions.goToLocation(e.currentTarget.id, false);
 		}
 
-		setAttributes(e.currentTarget, attributes);
+    DOMUtils.setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);
@@ -466,7 +466,7 @@ class SvgBox extends React.Component {
 	 */
 	onElementMouseOver = (e, attributes, callback) => {
 
-		setAttributes(e.currentTarget, attributes);
+    DOMUtils.setAttributes(e.currentTarget, attributes);
 
 		if (callback) {
 			callback(e);

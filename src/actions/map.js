@@ -1,6 +1,6 @@
-import { getShapeCenter } from '../utils/svgShapeUtils';
-import { findLocationByMapElementId } from '../utils/locationUtils';
-import { findElementByMapElementId } from '../utils/imageDataUtils';
+import SvgShapeUtils from '../utils/SvgShapeUtils';
+import LocationUtils from '../utils/LocationUtils';
+import ImageDataUtils  from '../utils/ImageDataUtils';
 import { deactivateSidebar } from "./sidebar";
 
 export const SET_VIEWPORT_MATRIX = 'SET_VIEWPORT_MATRIX';
@@ -132,7 +132,7 @@ export const showHoverData = (mapElementId, clientPos) => {
 		if (hoverData.get('locationObj').isEmpty() ||
 			hoverData.getIn(['locationObj', 'mapElementId']) !== mapElementId
 		) {
-			const locationObj = findLocationByMapElementId(locations, mapElementId);
+			const locationObj = LocationUtils.findLocationByMapElementId(locations, mapElementId);
 
 			dispatch(showHoverTip(locationObj));
 		}
@@ -171,7 +171,7 @@ export const resetMap = () => {
 /**
  * Show detail widget of a location, and center the map at it if needed
  * @param {string} mapElementId
- * @param {bool} centerAtLocation
+ * @param {boolean} centerAtLocation
  */
 export const goToLocation = (mapElementId, centerAtLocation = false) => {
 	return (dispatch, getState) => {
@@ -180,17 +180,17 @@ export const goToLocation = (mapElementId, centerAtLocation = false) => {
 		if (currState.widgetData.get('locationObj').isEmpty() ||
 			currState.widgetData.getIn(['locationObj', 'mapElementId']) !== mapElementId
 		) {
-			const locationObj = findLocationByMapElementId(currState.locations, mapElementId);
+			const locationObj = LocationUtils.findLocationByMapElementId(currState.locations, mapElementId);
 
 			dispatch(showDetailWidget(locationObj));
 		}
 
 		// get element center svg pos
-		let { imageId, element } = findElementByMapElementId(currState.imageDataCollection, mapElementId);
+		let { imageId, element } = ImageDataUtils.findElementByMapElementId(currState.imageDataCollection, mapElementId);
 		if (element === null) {
 			return;
 		}
-		const elementCenter = getShapeCenter(element);
+		const elementCenter = SvgShapeUtils.getShapeCenter(element);
 
 		dispatch(switchImage(imageId));
 
