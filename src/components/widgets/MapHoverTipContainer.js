@@ -5,28 +5,28 @@ import {} from '../../actions/map';
 import MapHoverTip from './MapHoverTip';
 
 const mapStateToProps = (state) => {
-	let show = false;
-	if (!state.hoverData.get('locationObj').isEmpty()) {
-		show = true;
-	}
+  let show = false;
+  if (!state.hoverData.get('locationObj').isEmpty()) {
+    show = true;
+  }
 
-	return {
-		show: show,
-		clientPosX: state.hoverData.get('clientPosX'),
-		clientPosY: state.hoverData.get('clientPosY'),
-		locationObj: state.hoverData.get('locationObj'),
-	};
+  return {
+    show: show,
+    clientPosX: state.hoverData.get('clientPosX'),
+    clientPosY: state.hoverData.get('clientPosY'),
+    locationObj: state.hoverData.get('locationObj'),
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		actions: bindActionCreators({}, dispatch),
-	}
+  return {
+    actions: bindActionCreators({}, dispatch),
+  }
 };
 
 const MapHoverTipReducer = withRouter(connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(MapHoverTip));
 
 export default MapHoverTipReducer;

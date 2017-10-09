@@ -4,21 +4,21 @@ import { withRouter } from 'react-router-dom';
 import MeetingRoomWidget from './MeetingRoomWidget';
 
 const mapStateToProps = (state) => {
-	return {
-	};
+  return {
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		actions: bindActionCreators({
+  return {
+    actions: bindActionCreators({
 
-		}, dispatch),
-	}
+    }, dispatch),
+  }
 };
 
 const MeetingRoomWidgetContainer = withRouter(connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(MeetingRoomWidget));
 
 export default MeetingRoomWidgetContainer;

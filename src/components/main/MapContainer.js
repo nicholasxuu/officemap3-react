@@ -4,19 +4,19 @@ import { } from '../../actions/map';
 import Map from './Map';
 
 const mapStateToProps = (state) => {
-	return {
-	};
+  return {
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		actions: bindActionCreators({  }, dispatch),
-	}
+  return {
+    actions: bindActionCreators({  }, dispatch),
+  }
 };
 
 const MapContainer = connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Map);
 
 export default MapContainer;

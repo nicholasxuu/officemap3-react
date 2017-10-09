@@ -8,31 +8,31 @@ import MapDetailWidget from '../widgets/MapDetailWidgetContainer';
 
 class MapBox extends React.Component {
 
-	render = () => {
+  render = () => {
 
-		return (
-			<div
-				className="map-box"
-			    style={{
-				    height: '100%',
-				    width: '100%',
-				    backgroundColor: '#ffffff',
-				    overflow: 'hidden',
-				    position: 'relative',
-			    }}
-			>
-				<SvgBox />
-				<MapHoverTip />
-				<MapDetailWidget />
-			</div>
-		);
-	}
+    return (
+      <div
+        className="map-box"
+          style={{
+            height: '100%',
+            width: '100%',
+            backgroundColor: '#ffffff',
+            overflow: 'hidden',
+            position: 'relative',
+          }}
+      >
+        <SvgBox />
+        <MapHoverTip />
+        <MapDetailWidget />
+      </div>
+    );
+  }
 }
 
 MapBox.propTypes = {
-	actions: PropTypes.shape({
+  actions: PropTypes.shape({
 
-	}),
+  }),
 };
 
 export default MapBox;

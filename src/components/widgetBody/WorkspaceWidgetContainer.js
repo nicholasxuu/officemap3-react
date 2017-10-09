@@ -4,21 +4,21 @@ import { withRouter } from 'react-router-dom';
 import WorkspaceWidget from './WorkspaceWidget';
 
 const mapStateToProps = (state) => {
-	return {
-	};
+  return {
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		actions: bindActionCreators({
+  return {
+    actions: bindActionCreators({
 
-		}, dispatch),
-	}
+    }, dispatch),
+  }
 };
 
 const WorkspaceWidgetContainer = withRouter(connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(WorkspaceWidget));
 
 export default WorkspaceWidgetContainer;

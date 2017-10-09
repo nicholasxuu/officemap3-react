@@ -4,10 +4,9 @@ const LocationUtils = {
    * @param {string} mapElementId
    * @returns {Immutable.Map}
    */
-  findLocationByMapElementId (locations, mapElementId) {
-    return locations.find(locationObj => {
-      return locationObj.get('mapElementId') === mapElementId;
-    });
+  findLocationByMapElementId(locations, mapElementId) {
+    return locations.find(locationObj =>
+      locationObj.get('mapElementId') === mapElementId);
   },
 };
 

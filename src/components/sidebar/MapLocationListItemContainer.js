@@ -5,20 +5,20 @@ import { goToLocation } from '../../actions/map';
 import MapLocationListItem from './MapLocationListItem';
 
 const mapStateToProps = (state) => {
-	return {};
+  return {};
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		actions: bindActionCreators({
-			goToLocation
-		}, dispatch),
-	}
+  return {
+    actions: bindActionCreators({
+      goToLocation
+    }, dispatch),
+  }
 };
 
 const MapLocationListItemContainer = withRouter(connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(MapLocationListItem));
 
 export default MapLocationListItemContainer;

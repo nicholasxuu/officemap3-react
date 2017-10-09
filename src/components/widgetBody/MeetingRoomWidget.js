@@ -1,19 +1,19 @@
 import React from 'react';
 
 class MeetingRoomWidget extends React.Component {
-	render = () => {
-		return (
-			<div>
+  render = () => {
+    return (
+      <div>
 
-			</div>
-		);
-	}
+      </div>
+    );
+  }
 }
 
 MeetingRoomWidget.defaultProps = {
-	status: '',
-	phone: {},
-	schedules: [],
+  status: '',
+  phone: {},
+  schedules: [],
 };
 
 MeetingRoomWidget.propTypes = {

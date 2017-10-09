@@ -1,19 +1,19 @@
 import React from 'react';
 
 class WorkspaceWidget extends React.Component {
-	render = () => {
-		return (
-			<div>
+  render = () => {
+    return (
+      <div>
 
-			</div>
-		);
-	}
+      </div>
+    );
+  }
 }
 
 WorkspaceWidget.defaultProps = {
-	status: '',
-	title: '',
-	phone: {},
+  status: '',
+  title: '',
+  phone: {},
 };
 
 WorkspaceWidget.propTypes = {

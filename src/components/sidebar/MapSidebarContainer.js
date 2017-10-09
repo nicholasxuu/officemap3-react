@@ -6,30 +6,30 @@ import { clearMap } from "../../actions/map";
 import MapSidebar from './MapSidebar';
 
 const mapStateToProps = (state) => {
-	const searchText = state.sidebar.get('searchText');
+  const searchText = state.sidebar.get('searchText');
 
-	const isLocationListHidden = !state.sidebar.get('show');
+  const isLocationListHidden = !state.sidebar.get('show');
 
-	return {
-		searchText,
-		isLocationListHidden,
-	};
+  return {
+    searchText,
+    isLocationListHidden,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		actions: bindActionCreators({
-			clearSearchText,
-			activateSidebar,
-			deactivateSidebar,
-			clearMap,
-		}, dispatch),
-	}
+  return {
+    actions: bindActionCreators({
+      clearSearchText,
+      activateSidebar,
+      deactivateSidebar,
+      clearMap,
+    }, dispatch),
+  }
 };
 
 const MapSidebarContainer = withRouter(connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(MapSidebar));
 
 export default MapSidebarContainer;

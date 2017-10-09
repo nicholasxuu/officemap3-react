@@ -1,3 +1,8 @@
+### TODO:
+1. Fix redux router (using custom hack right now)
+2. Fix localstorage usage (don't want to store everything)
+3. Complete airbnb code style change.
+
 ### SVG Matrixes
 1. viewport matrix
    Transformation matrix representing original image size v.s. viewport scale.
