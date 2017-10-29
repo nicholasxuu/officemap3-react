@@ -1,14 +1,13 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
-import '../../styles/widgets/mapDetailWidget.css';
 import { Popover } from 'react-bootstrap';
-import MeetingRoomWidget from "../widgetBody/MeetingRoomWidget";
-import WorkspaceWidget from "../widgetBody/WorkspaceWidget";
+import MeetingRoomWidget from '../widgetBody/MeetingRoomWidget';
+import WorkspaceWidget from '../widgetBody/WorkspaceWidget';
+import '../../styles/widgets/mapDetailWidget.css';
 
 class MapDetailWidget extends React.Component {
-
   renderImage = () => {
     if (!this.props.locationObj.get('image')) {
       return null;
@@ -54,7 +53,7 @@ class MapDetailWidget extends React.Component {
 
 
     return (
-      <div dangerouslySetInnerHTML={{__html: this.props.locationObj.get('description')}} />
+      <div dangerouslySetInnerHTML={{ __html: this.props.locationObj.get('description') }} />
     );
   };
 
@@ -87,7 +86,7 @@ class MapDetailWidget extends React.Component {
         positionLeft={this.props.pagePosX}
         positionTop={this.props.pagePosY}
         title={this.props.locationObj.get('name')}
-          style={{
+        style={{
             zIndex: 3,
             /* make widget top and center */
             transform: 'translateX(-50%) translateY(-100%)',
@@ -95,7 +94,7 @@ class MapDetailWidget extends React.Component {
       >
         <div
           className="widget-container"
-            style={{
+          style={{
               display: 'flex',
               flexFlow: 'row nowrap',
               overflow: 'hidden',
@@ -106,7 +105,7 @@ class MapDetailWidget extends React.Component {
           {imageDom}
           <div
             className="widget-detail"
-              style={{
+            style={{
                 display: 'block',
                 overflow: 'hidden',
                 width: '200px',
@@ -130,14 +129,14 @@ MapDetailWidget.defaultProps = {
 };
 
 MapDetailWidget.propTypes = {
-  show: PropTypes.bool.isRequired,
-  pagePosX: PropTypes.number.isRequired,
-  pagePosY: PropTypes.number.isRequired,
+  show: PropTypes.bool,
+  pagePosX: PropTypes.number,
+  pagePosY: PropTypes.number,
   locationObj: ImmutablePropTypes.contains({
     id: PropTypes.number,
     name: PropTypes.string,
     image: PropTypes.string,
-  }).isRequired,
+  }),
 };
 
 export default MapDetailWidget;

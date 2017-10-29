@@ -9,8 +9,7 @@ const defaultSettings = Immutable.fromJS({
 const settingsReducer = (state = defaultSettings, action) => {
   switch (action.type) {
     case RECEIVE_MAP_DATA:
-      state = defaultSettings.merge(action.settings);
-      break;
+      return defaultSettings.merge(action.settings);
     default:
   }
   return state;

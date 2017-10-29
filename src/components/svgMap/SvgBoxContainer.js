@@ -27,11 +27,17 @@ const mapStateToProps = (state) => {
     imageData = state.imageDataCollection.get(activeImageId);
   }
 
-  const transformMatrix = SvgUtils.getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
+  const transformMatrix = SvgUtils.getTransformMatrix(
+    svgOffsetX,
+    svgOffsetY,
+    svgZoomScale,
+    imageWidth,
+    imageHeight,
+  );
 
   let widgetLocationElementId = null;
   if (!state.widgetData.get('locationObj').isEmpty()) {
-     widgetLocationElementId = state.widgetData.get('locationObj').get('mapElementId');
+    widgetLocationElementId = state.widgetData.get('locationObj').get('mapElementId');
   }
 
   return {
@@ -42,20 +48,18 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators({
-      showHoverData,
-      hideHoverData,
-      svgPan,
-      svgZoom,
-      centerAtPoint,
-      goToLocation,
-      setViewportMatrix,
-      hideDetailWidget,
-    }, dispatch),
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    showHoverData,
+    hideHoverData,
+    svgPan,
+    svgZoom,
+    centerAtPoint,
+    goToLocation,
+    setViewportMatrix,
+    hideDetailWidget,
+  }, dispatch),
+});
 
 const SvgBoxContainer = withRouter(connect(
   mapStateToProps,

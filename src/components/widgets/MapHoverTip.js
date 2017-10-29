@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 import '../../styles/widgets/mapHoverTip.css';
@@ -55,13 +55,13 @@ MapHoverTip.defaultProps = {
 };
 
 MapHoverTip.propTypes = {
-  show: PropTypes.bool.isRequired,
-  clientPosX: PropTypes.number.isRequired,
-  clientPosY: PropTypes.number.isRequired,
+  show: PropTypes.bool,
+  clientPosX: PropTypes.number,
+  clientPosY: PropTypes.number,
   locationObj: ImmutablePropTypes.contains({
     id: PropTypes.number,
     name: PropTypes.string,
-  }).isRequired,
+  }),
 };
 
 export default MapHoverTip;

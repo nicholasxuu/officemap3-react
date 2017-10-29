@@ -1,10 +1,10 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
+import { Button, Glyphicon } from 'react-bootstrap';
 import '../../styles/mapSidebar.css';
 import MapSearchBox from '../sidebar/MapSearchBoxContainer';
 import MapLocationList from '../sidebar/MapLocationListContainer';
-import { Button, Glyphicon } from 'react-bootstrap';
 
 class MapSidebar extends React.Component {
 
@@ -16,12 +16,12 @@ class MapSidebar extends React.Component {
       // if no search text inside, work as list toggle button
       if (this.props.isLocationListHidden === true) {
         this.props.actions.activateSidebar();
-      } else {
-        this.props.actions.deactivateSidebar();
       }
+      this.props.actions.deactivateSidebar();
     }
   };
 
+  // eslint-disable-next-line arrow-body-style
   render = () => {
     return (
       <div
@@ -53,7 +53,7 @@ class MapSidebar extends React.Component {
         >
           <Button
             bsSize="large"
-                onClick={this.toggleLocationList}
+            onClick={this.toggleLocationList}
           >
             <Glyphicon glyph="menu-hamburger" />
           </Button>
@@ -72,8 +72,14 @@ MapSidebar.defaultProps = {
 };
 
 MapSidebar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  isLocationListHidden: PropTypes.bool.isRequired,
+  searchText: PropTypes.string,
+  isLocationListHidden: PropTypes.bool,
+  actions: PropTypes.shape({
+    clearSearchText: PropTypes.func.isRequired,
+    activateSidebar: PropTypes.func.isRequired,
+    deactivateSidebar: PropTypes.func.isRequired,
+    clearMap: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default MapSidebar;

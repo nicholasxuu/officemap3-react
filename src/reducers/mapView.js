@@ -34,42 +34,51 @@ const defaultMapView = Immutable.fromJS({
 
 const mapViewReducer = (state = defaultMapView, action) => {
   switch (action.type) {
-    case RECEIVE_MAP_DATA:
+    case RECEIVE_MAP_DATA: {
       if (!state.get('activeImageId')) {
-        state = state.set('activeImageId', action.settings.get('defaultImage'));
+        const defaultImage = action.settings.get('defaultImage');
+        return state.set('activeImageId', defaultImage);
       }
       break;
-    case SET_VIEWPORT_MATRIX:
-      state = setViewportMatrix(state, action.viewportMatrix);
-      break;
-    case MAP_SVG_PAN:
+    }
+    case SET_VIEWPORT_MATRIX: {
+      return setViewportMatrix(state, action.viewportMatrix);
+    }
+    case MAP_SVG_PAN: {
       const currSvgDistanceX = state.getIn(['svgOffset', 'x']) + action.svgDistanceX;
       const currSvgDistanceY = state.getIn(['svgOffset', 'y']) + action.svgDistanceY;
-      state = state.setIn(['svgOffset', 'x'], currSvgDistanceX);
-      state = state.setIn(['svgOffset', 'y'], currSvgDistanceY);
-      break;
-    case MAP_SVG_ZOOM:
+      return state
+        .setIn(['svgOffset', 'x'], currSvgDistanceX)
+        .setIn(['svgOffset', 'y'], currSvgDistanceY);
+    }
+    case MAP_SVG_ZOOM: {
       const currZoomScale = state.getIn(['zoomScale']) * (1 + action.zoomScaleDelta);
       if (currZoomScale > 0.1 && currZoomScale < 10) {
-        state = state.setIn(['zoomScale'], currZoomScale);
+        return state.setIn(['zoomScale'], currZoomScale);
       }
       break;
-    case MAP_CENTER_POSITION:
+    }
+    case MAP_CENTER_POSITION: {
       // make svgPosX, svgPosY to be center of svg
       // make svgPosX, svgPosY go to width/2, height/2
-      state = state.setIn(['svgOffset', 'x'], action.imageWidth / 2 - action.svgPosX);
-      state = state.setIn(['svgOffset', 'y'], action.imageHeight / 2 - action.svgPosY);
-      break;
-    case MAP_SWITCH_IMAGE:
-      if (state.get('activeImageId') !== action.imageId) {
-        state = state.setIn(['activeImageId'], action.imageId);
+      const mapCenterX = (action.imageWidth / 2) - action.svgPosX;
+      const mapCenterY = (action.imageHeight / 2) - action.svgPosY;
+      return state
+        .setIn(['svgOffset', 'x'], mapCenterX)
+        .setIn(['svgOffset', 'y'], mapCenterY);
+    }
+    case MAP_SWITCH_IMAGE: {
+      const imageId = action.imageId;
+      if (state.get('activeImageId') !== imageId) {
+        return state.setIn(['activeImageId'], imageId);
       }
       break;
+    }
     case RESET_PAN_ZOOM:
-      state = state.setIn(['zoomScale'], 1); // reset scale
-      state = state.setIn(['svgOffset', 'x'], 0); // reset pan x
-      state = state.setIn(['svgOffset', 'y'], 0); // reset pan y
-      break;
+      return state
+        .setIn(['zoomScale'], 1) // reset scale
+        .setIn(['svgOffset', 'x'], 0) // reset pan x
+        .setIn(['svgOffset', 'y'], 0); // reset pan y
     default:
   }
 

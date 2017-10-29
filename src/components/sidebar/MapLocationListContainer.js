@@ -4,21 +4,17 @@ import { withRouter } from 'react-router-dom';
 import {} from '../../actions/map';
 import MapLocationList from './MapLocationList';
 
-const mapStateToProps = (state) => {
-  return {
-    locations: state.locations,
-  };
-};
+const mapStateToProps = state => ({
+  locations: state.locations,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators({}, dispatch),
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({}, dispatch),
+});
 
 const MapLocationListContainer = withRouter(connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(MapLocationList));
 
 export default MapLocationListContainer;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { FormControl, Button } from 'react-bootstrap';
 import Immutable from 'immutable';
@@ -30,7 +30,7 @@ class ImageSelector extends React.Component {
       if (imageId === this.props.activeImageId) {
         activeImageIdIndex = i;
       }
-      i++;
+      i += 1;
 
       imageList.push({
         imageId,
@@ -79,11 +79,10 @@ class ImageSelector extends React.Component {
         <FormControl
           componentClass="select"
           value={this.props.activeImageId}
-          onChange={this.onChange.bind(this)}
+          onChange={this.onChange}
         >
           {imageList.map((image) => {
-            const imageName = image.imageName;
-            const imageId = image.imageId;
+            const { imageName, imageId } = image.imageName;
             return (
               <option
                 key={imageId}
@@ -122,9 +121,10 @@ ImageSelector.propTypes = {
     }),
     PropTypes.string.isRequired,
   ),
-  activeImageId: PropTypes.string.isRequired,
+  activeImageId: PropTypes.string,
   actions: PropTypes.shape({
     switchImage: PropTypes.func.isRequired,
+    resetMap: PropTypes.func.isRequired,
   }).isRequired,
 };
 

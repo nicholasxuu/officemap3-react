@@ -17,16 +17,14 @@ const defaultWidgetData = Immutable.fromJS({
 const mapWidgetDataReducer = (state = defaultWidgetData, action) => {
   switch (action.type) {
     case MAP_SHOW_WIDGET:
-      state = state.set('locationObj', action.locationObj);
-      break;
+      return state.set('locationObj', action.locationObj);
     case MAP_MOVE_WIDGET:
       // more like set widget position
-      state = state.setIn(['svgPos', 'x'], action.svgPosX);
-      state = state.setIn(['svgPos', 'y'], action.svgPosY);
-      break;
+      return state
+        .setIn(['svgPos', 'x'], action.svgPosX)
+        .setIn(['svgPos', 'y'], action.svgPosY);
     case MAP_HIDE_WIDGET:
-      state = state.set('locationObj', Immutable.Map());
-      break;
+      return state.set('locationObj', Immutable.Map());
     default:
   }
   return state;

@@ -13,13 +13,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({ filterLocation }, dispatch),
-  }
+    actions: bindActionCreators({
+      filterLocation,
+    }, dispatch),
+  };
 };
 
 const MapSearchBoxContainer = withRouter(connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(MapSearchBox));
 
 export default MapSearchBoxContainer;

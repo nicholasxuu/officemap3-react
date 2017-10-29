@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import { InputGroup, FormControl } from 'react-bootstrap';
 import '../../styles/sidebar/mapSearchBox.css';
@@ -9,13 +9,13 @@ class MapSearchBox extends React.Component {
   onChange = (e) => {
     const value = e.target.value.trim();
 
-    this.props.actions.filterLocation(value)
+    this.props.actions.filterLocation(value);
   };
 
   onClick = (e) => {
     if (this.props.isLocationListHidden) {
       const value = e.target.value.trim();
-      this.props.actions.filterLocation(value)
+      this.props.actions.filterLocation(value);
     }
   };
 
@@ -23,9 +23,9 @@ class MapSearchBox extends React.Component {
     return (
       <div
         className="map-search-box"
-          style={{
-            width: '100%',
-          }}
+        style={{
+          width: '100%',
+        }}
       >
         <InputGroup
           bsSize="large"
@@ -35,10 +35,10 @@ class MapSearchBox extends React.Component {
         >
           <FormControl
             placeholder="Search"
-            onChange={this.onChange.bind(this)}
-            onClick={this.onClick.bind(this)}
+            onChange={this.onChange}
+            onClick={this.onClick}
             type="text"
-              value={this.props.searchText}
+            value={this.props.searchText}
           />
         </InputGroup>
       </div>
@@ -52,11 +52,11 @@ MapSearchBox.defaultProps = {
 };
 
 MapSearchBox.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  isLocationListHidden: PropTypes.bool.isRequired,
+  searchText: PropTypes.string,
+  isLocationListHidden: PropTypes.bool,
   actions: PropTypes.shape({
     filterLocation: PropTypes.func.isRequired,
-    }).isRequired,
+  }).isRequired,
 };
 
 export default MapSearchBox;

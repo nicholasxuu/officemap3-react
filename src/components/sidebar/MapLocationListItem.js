@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { ListGroupItem } from 'react-bootstrap';
@@ -10,9 +10,6 @@ const innerHeight = 51;
 const outerHeight = innerHeight + 2; // add border
 
 class MapLocationListItem extends React.Component {
-
-
-
   renderImage = () => {
     if (!this.props.locationObj.get('image')) {
       return null;
@@ -62,35 +59,35 @@ class MapLocationListItem extends React.Component {
       >
         <span
           className="item-image"
-            style={{
-              width: imageWidth,
-              minWidth: imageWidth,
-              height: innerHeight,
-              minHeight: innerHeight,
-            }}
+          style={{
+            width: imageWidth,
+            minWidth: imageWidth,
+            height: innerHeight,
+            minHeight: innerHeight,
+          }}
         >
           {imageDom}
         </span>
         <span
           className="item-body"
-            style={{
-              display: 'flex',
-              flexFlow: 'column nowrap',
-              justifyContent: 'space-between',
-              padding: '7px 7px',
-              height: innerHeight,
-              width: '100%',
-            }}
+          style={{
+            display: 'flex',
+            flexFlow: 'column nowrap',
+            justifyContent: 'space-between',
+            padding: '7px 7px',
+            height: innerHeight,
+            width: '100%',
+          }}
         >
           <div
             className="item-name"
-              style={{
-                fontSize: '16px',
-                fontFamily: 'inherit',
-                fontWeight: 500,
-                lineHeight: 1.1,
-                color: 'inherit',
-              }}
+            style={{
+              fontSize: '16px',
+              fontFamily: 'inherit',
+              fontWeight: 500,
+              lineHeight: 1.1,
+              color: 'inherit',
+            }}
           >
             {this.props.locationObj.get('name')}
           </div>
@@ -107,7 +104,7 @@ class MapLocationListItem extends React.Component {
 }
 
 MapLocationListItem.defaultProps = {
-  locationObj: Immutable.Map({
+  locationObj: Immutable.fromJS({
     hide: false,
     id: null,
     image: '',
@@ -126,10 +123,10 @@ MapLocationListItem.propTypes = {
     name: PropTypes.string.isRequired,
     info: PropTypes.string,
     mapElementId: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
   actions: PropTypes.shape({
     goToLocation: PropTypes.func.isRequired,
-  }),
+  }).isRequired,
 };
 
 export default MapLocationListItem;

@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
   }
 
   return {
-    show: show,
+    show,
     clientPosX: state.hoverData.get('clientPosX'),
     clientPosY: state.hoverData.get('clientPosY'),
     locationObj: state.hoverData.get('locationObj'),

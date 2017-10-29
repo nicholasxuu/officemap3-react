@@ -1,17 +1,17 @@
+/* eslint-disable arrow-body-style */
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import ReactResizeDetector from 'react-resize-detector';
 import TouchUtils from '../../utils/TouchUtils';
-import DOMUtils  from '../../utils/DOMUtils';
+import DOMUtils from '../../utils/DOMUtils';
 import '../../styles/svgMap/svgBox.css';
 
 export const SVG_BODY = 'svg_body';
 export const SVG_TRANSFORM_LAYER = 'svg_transform_layer';
 
 class SvgBox extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -51,37 +51,9 @@ class SvgBox extends React.Component {
     }
   };
 
-  _onResize = () => {
+  onResize = () => {
     // when map is resized, update viewport Matrix in state
     this.updateViewportMatrix();
-  };
-
-  updateViewportMatrix = () => {
-    this.props.actions.setViewportMatrix(this.getViewportMatrix());
-  };
-
-  /**
-   * Get matrix for svg element vs viewport
-   * @returns {SVGMatrix}
-   */
-  getFinalMatrix = () => {
-    return this.refs[SVG_TRANSFORM_LAYER].getCTM();
-  };
-
-  getFinalScaleMultiplier = () => {
-    return this.getFinalMatrix().a; // svg box's scale comparing to current viewport size
-  };
-
-  /**
-   * Get matrix for svg vs viewport.
-   * @return {SVGMatrix}
-   */
-  getViewportMatrix = () => {
-    return this.refs[SVG_BODY].getCTM();
-  };
-
-  getViewportScaleMultiplier = () => {
-    return this.getViewportMatrix().a; // svg box's scale comparing to current viewport size
   };
 
   /**
@@ -97,7 +69,7 @@ class SvgBox extends React.Component {
    * Set dragging state when drag start
    * @param {Event} e
    */
-  onDragStart = (e) => {
+  onDragStart = () => {
     // Update state with above coordinates, and set dragging to true.
     const state = {
       dragging: true,
@@ -145,7 +117,7 @@ class SvgBox extends React.Component {
    * Unset state when drag end.
    * @param {Event} e
    */
-  onDragEnd = (e) => {
+  onDragEnd = () => {
     if (this.state.dragging === true) {
       this.setState({
         dragging: false,
@@ -168,7 +140,6 @@ class SvgBox extends React.Component {
    */
   onElementHover = (e) => {
     if (this.state.hovering === true) {
-
       if (e.clientX === 'undefined' || e.clientY === 'undefined') {
         return;
       }
@@ -209,7 +180,7 @@ class SvgBox extends React.Component {
       this.setState(state);
     }
 
-    this.setState({isTouch: true});
+    this.setState({ isTouch: true });
 
     this.onDragStart(e);
   };
@@ -226,7 +197,7 @@ class SvgBox extends React.Component {
       const touchDelta = newTouchDistanceSq - this.state.touchDistanceSq;
       const scaleMultiplier = this.getViewportScaleMultiplier();
 
-      this.props.actions.svgZoom(touchDelta / 30000 * scaleMultiplier);
+      this.props.actions.svgZoom((touchDelta / 30000) * scaleMultiplier);
 
       const state = {
         touchDistanceSq: newTouchDistanceSq,
@@ -464,13 +435,41 @@ class SvgBox extends React.Component {
    * @param {Object} attributes
    * @param {Function} callback
    */
-  onElementMouseOver = (e, attributes, callback) => {
-
+  onElementMouseOver = (e, attributes, callback = null) => {
     DOMUtils.setAttributes(e.currentTarget, attributes);
 
     if (callback) {
       callback(e);
     }
+  };
+
+  /**
+   * Get matrix for svg element vs viewport
+   * @returns {SVGMatrix}
+   */
+  // eslint-disable-next-line arrow-body-style
+  getFinalMatrix = () => {
+    return this.refs[SVG_TRANSFORM_LAYER].getCTM();
+  };
+
+  getFinalScaleMultiplier = () => {
+    return this.getFinalMatrix().a; // svg box's scale comparing to current viewport size
+  };
+
+  /**
+   * Get matrix for svg vs viewport.
+   * @return {SVGMatrix}
+   */
+  getViewportMatrix = () => {
+    return this.refs[SVG_BODY].getCTM();
+  };
+
+  getViewportScaleMultiplier = () => {
+    return this.getViewportMatrix().a; // svg box's scale comparing to current viewport size
+  };
+
+  updateViewportMatrix = () => {
+    this.props.actions.setViewportMatrix(this.getViewportMatrix());
   };
 
   /**
@@ -483,19 +482,20 @@ class SvgBox extends React.Component {
     const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
     const highPerformanceMode = this.props.settings.get('highPerformanceMode');
 
+    // todo: remove use of deprecated refs.
     return (
       <div
         className="svg-box svg-non-element"
         ref="svg_container"
-          style={{
-            touchAction: 'none',
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-            zIndex: '0',
-          }}
+        style={{
+          touchAction: 'none',
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          zIndex: '0',
+        }}
       >
-        <ReactResizeDetector handleWidth handleHeight onResize={this._onResize.bind(this)} />
+        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} />
         <svg
           viewBox={viewBox}
           preserveAspectRatio="xMidYMid meet"
@@ -533,7 +533,7 @@ class SvgBox extends React.Component {
               width={imageHeight}
             />
 
-            {this.props.imageData.get('elements').map(element => {
+            {this.props.imageData.get('elements').map((element) => {
               const opacity = element.get('opacity');
               if (highPerformanceMode === true &&
                 this.state.panning === true &&
@@ -542,34 +542,34 @@ class SvgBox extends React.Component {
                 // render a dummy so onTouchMove doesn't fail.
                 // Even dummy perform significantly better
                 return <rect key={element.get('id')} />;
-              } else {
-                const CurrentComponent = element.get('data-component-name');
-
-                const elementObj = element.toJS(); // for spreading svg element properties
-
-                return (<CurrentComponent
-                  key={elementObj.id}
-                  ref={elementObj.id}
-                  {...elementObj}
-
-                  onMouseEnter={(e) => this.onElementHoverStart(e, elementObj['data-onmouseenter'])}
-                  onMouseMove={(e) => this.onElementMouseMove(e, elementObj['data-onmousemove'])}
-                  onMouseLeave={(e) => this.onElementHoverEnd(e, elementObj['data-onmouseleave'])}
-                  onMouseOver={(e) => this.onElementMouseOver(e, elementObj['data-onmouseover'])}
-
-                  onMouseDown={(e) => this.onElementMouseDown(e, elementObj['data-onmousedown'])}
-                  onMouseUp={(e) => this.onElementMouseUp(e, elementObj['data-onmouseup'])}
-
-                  onTouchStart={(e) => this.onElementTouchStart(e, elementObj['data-ontouchstart'])}
-                  onTouchMove={(e) => this.onElementTouchMove(e, elementObj['data-ontouchmove'])}
-                  onTouchEnd={(e) => this.onElementTouchEnd(e, elementObj['data-ontouchend'])}
-                />);
               }
+
+              const CurrentComponent = element.get('data-component-name');
+
+              const elementObj = element.toJS(); // for spreading svg element properties
+
+              return (<CurrentComponent
+                key={elementObj.id}
+                ref={elementObj.id}
+                {...elementObj}
+
+                onMouseEnter={e => this.onElementHoverStart(e, elementObj['data-onmouseenter'])}
+                onMouseMove={e => this.onElementMouseMove(e, elementObj['data-onmousemove'])}
+                onMouseLeave={e => this.onElementHoverEnd(e, elementObj['data-onmouseleave'])}
+                onMouseOver={e => this.onElementMouseOver(e, elementObj['data-onmouseover'])}
+
+                onMouseDown={e => this.onElementMouseDown(e, elementObj['data-onmousedown'])}
+                onMouseUp={e => this.onElementMouseUp(e, elementObj['data-onmouseup'])}
+
+                onTouchStart={e => this.onElementTouchStart(e, elementObj['data-ontouchstart'])}
+                onTouchMove={e => this.onElementTouchMove(e, elementObj['data-ontouchmove'])}
+                onTouchEnd={e => this.onElementTouchEnd(e, elementObj['data-ontouchend'])}
+              />);
             })}
 
           </g>
 
-          {/*<!-- viewport transform -->*/}
+          { /* <!-- viewport transform --> */ }
 
           <g transform="translate(150, 90)">
             <g transform="matrix(0.707 0.409 -0.707 0.409 0 -0.816)">
@@ -596,6 +596,16 @@ SvgBox.defaultProps = {
 };
 
 SvgBox.propTypes = {
+  actions: PropTypes.shape({
+    showHoverData: PropTypes.func.isRequired,
+    hideHoverData: PropTypes.func.isRequired,
+    svgPan: PropTypes.func.isRequired,
+    svgZoom: PropTypes.func.isRequired,
+    centerAtPoint: PropTypes.func.isRequired,
+    goToLocation: PropTypes.func.isRequired,
+    setViewportMatrix: PropTypes.func.isRequired,
+    hideDetailWidget: PropTypes.func.isRequired,
+  }).isRequired,
   imageData: ImmutablePropTypes.contains({
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
@@ -603,10 +613,13 @@ SvgBox.propTypes = {
     elements: ImmutablePropTypes.listOf(ImmutablePropTypes.contains({
       id: PropTypes.string.isRequired,
       'data-component-name': PropTypes.string.isRequired,
-    }))
-  }).isRequired,
-  transformMatrix: PropTypes.arrayOf(PropTypes.number).isRequired,
+    })),
+  }),
+  transformMatrix: PropTypes.arrayOf(PropTypes.number),
   hoverTipEnabled: PropTypes.bool,
+  selectedMapElementId: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  settings: PropTypes.object.isRequired,
 };
 
 export default SvgBox;

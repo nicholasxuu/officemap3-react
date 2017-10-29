@@ -2,18 +2,24 @@ import Immutable from 'immutable';
 import { RECEIVE_MAP_DATA } from '../actions/api';
 import { FILTER_LOCATION } from '../actions/sidebar';
 
+/**
+ *
+ * @param {string} searchText
+ * @param {Immutable.Map} locationObj
+ * @returns {boolean}
+ */
 const searchLocationMatch = (searchText, locationObj) => {
-  let sourceText = locationObj.get('name') + " " + locationObj.get('description') + " " + locationObj.get('tags');
+  let sourceText = `${locationObj.get('name')} ${locationObj.get('description')} ${locationObj.get('tags')}`;
   sourceText = sourceText.toLowerCase();
 
-  const tokens = searchText.toLowerCase().split(" ");
+  const tokens = searchText.toLowerCase().split(' ');
 
-  let searchScore = 0;
-  for (let token of tokens) {
+  const searchScore = tokens.reduce((currScore, token) => {
     if (sourceText.search(token) !== -1) {
-      searchScore++;
+      return currScore + 1;
     }
-  }
+    return currScore;
+  }, 0);
   return searchScore > tokens.length / 2;
 
 };
@@ -21,20 +27,16 @@ const searchLocationMatch = (searchText, locationObj) => {
 const locationDataReducer = (state = Immutable.fromJS([]), action) => {
   switch (action.type) {
     case RECEIVE_MAP_DATA:
-      state = state.mergeDeep(action.locations);
-      break;
+      return state.mergeDeep(action.locations);
     case FILTER_LOCATION:
-      state = state.map(locationObj => {
+      return state.map((locationObj) => {
         if (action.searchText.length === 0) {
-          locationObj = locationObj.remove('filterHide');
+          return locationObj.remove('filterHide');
         } else if (searchLocationMatch(action.searchText, locationObj) === true) {
-          locationObj = locationObj.set('filterHide', false);
-        } else {
-          locationObj = locationObj.set('filterHide', true);
+          return locationObj.set('filterHide', false);
         }
-        return locationObj;
+        return locationObj.set('filterHide', true);
       });
-      break;
     default:
   }
   return state;

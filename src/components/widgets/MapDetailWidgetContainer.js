@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
   }
 
   // if show, check where in the page we should position the object
-  let pagePos = {x: 0, y: 0};
+  let pagePos = { x: 0, y: 0 };
   if (show === true) {
     const activeImageId = state.mapView.get('activeImageId');
     // get final matrix
@@ -23,7 +23,9 @@ const mapStateToProps = (state) => {
     const imageWidth = state.imageDataCollection.get(activeImageId).get('width');
     const imageHeight = state.imageDataCollection.get(activeImageId).get('height');
 
-    const transformMatrix = SvgUtils.getTransformMatrix(svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight);
+    const transformMatrix = SvgUtils.getTransformMatrix(
+      svgOffsetX, svgOffsetY, svgZoomScale, imageWidth, imageHeight,
+    );
 
     // i.e. user resized window, but never pan/zoom yet.
     const viewportMatrix = state.mapView.get('viewportMatrix');
@@ -38,7 +40,7 @@ const mapStateToProps = (state) => {
   }
 
   return {
-    show: show,
+    show,
     pagePosX: pagePos.x,
     pagePosY: pagePos.y,
     locationObj: state.widgetData.get('locationObj'),

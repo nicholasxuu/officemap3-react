@@ -10,15 +10,13 @@ const defaultHoverData = Immutable.fromJS({
 const mapHoverDataReducer = (state = defaultHoverData, action) => {
   switch (action.type) {
     case MAP_SHOW_HOVERTIP:
-      state = state.set('locationObj', action.locationObj);
-      break;
+      return state.set('locationObj', action.locationObj);
     case MAP_MOVE_HOVERTIP:
-      state = state.set('clientPosX', action.clientPosX);
-      state = state.set('clientPosY', action.clientPosY);
-      break;
+      return state
+        .set('clientPosX', action.clientPosX)
+        .set('clientPosY', action.clientPosY);
     case MAP_HIDE_HOVERTIP:
-      state = state.set('locationObj', Immutable.Map());
-      break;
+      return state.set('locationObj', Immutable.Map());
     default:
   }
   return state;
