@@ -486,7 +486,7 @@ class SvgBox extends React.Component {
     return (
       <div
         className="svg-box svg-non-element"
-        ref={this.svgContainer}
+        ref={(dom) => { this.svgContainer = dom; }}
         style={{
           touchAction: 'none',
           position: 'relative',
@@ -502,7 +502,7 @@ class SvgBox extends React.Component {
           className="svg-non-element"
 
           version="1.1"
-          ref={this.svgBody}
+          ref={(dom) => { this.svgBody = dom; }}
           style={{
             width: '100%',
             height: '100%',
@@ -521,7 +521,7 @@ class SvgBox extends React.Component {
 
           <g
             id="svg-transform-layer"
-            ref={this.svgTransformLayer}
+            ref={(dom) => { this.svgTransformLayer = dom; }}
             transform={`matrix(${this.props.transformMatrix.join(' ')})`}
           >
 
@@ -550,7 +550,6 @@ class SvgBox extends React.Component {
 
               return (<CurrentComponent
                 key={elementObj.id}
-                ref={elementObj.id}
                 {...elementObj}
 
                 onMouseEnter={e => this.onElementHoverStart(e, elementObj['data-onmouseenter'])}
