@@ -8,9 +8,6 @@ import TouchUtils from '../../utils/TouchUtils';
 import DOMUtils from '../../utils/DOMUtils';
 import '../../styles/svgMap/svgBox.css';
 
-export const SVG_BODY = 'svg_body';
-export const SVG_TRANSFORM_LAYER = 'svg_transform_layer';
-
 class SvgBox extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +23,9 @@ class SvgBox extends React.Component {
       imageWidth: 0,
       imageHeight: 0,
     };
+    this.svgContainer = null;
+    this.svgBody = null;
+    this.svgTransformLayer = null;
   }
 
   componentDidMount = () => {
@@ -449,7 +449,7 @@ class SvgBox extends React.Component {
    */
   // eslint-disable-next-line arrow-body-style
   getFinalMatrix = () => {
-    return this.refs[SVG_TRANSFORM_LAYER].getCTM();
+    return this.svgTransformLayer.getCTM();
   };
 
   getFinalScaleMultiplier = () => {
@@ -461,7 +461,7 @@ class SvgBox extends React.Component {
    * @return {SVGMatrix}
    */
   getViewportMatrix = () => {
-    return this.refs[SVG_BODY].getCTM();
+    return this.svgBody.getCTM();
   };
 
   getViewportScaleMultiplier = () => {
@@ -486,7 +486,7 @@ class SvgBox extends React.Component {
     return (
       <div
         className="svg-box svg-non-element"
-        ref="svg_container"
+        ref={this.svgContainer}
         style={{
           touchAction: 'none',
           position: 'relative',
@@ -502,7 +502,7 @@ class SvgBox extends React.Component {
           className="svg-non-element"
 
           version="1.1"
-          ref={SVG_BODY}
+          ref={this.svgBody}
           style={{
             width: '100%',
             height: '100%',
@@ -520,8 +520,8 @@ class SvgBox extends React.Component {
         >
 
           <g
-            id={SVG_TRANSFORM_LAYER}
-            ref={SVG_TRANSFORM_LAYER}
+            id="svg-transform-layer"
+            ref={this.svgTransformLayer}
             transform={`matrix(${this.props.transformMatrix.join(' ')})`}
           >
 
@@ -556,6 +556,7 @@ class SvgBox extends React.Component {
                 onMouseEnter={e => this.onElementHoverStart(e, elementObj['data-onmouseenter'])}
                 onMouseMove={e => this.onElementMouseMove(e, elementObj['data-onmousemove'])}
                 onMouseLeave={e => this.onElementHoverEnd(e, elementObj['data-onmouseleave'])}
+                onFocus={e => this.onElementMouseOver(e, elementObj['data-onmouseover'])}
                 onMouseOver={e => this.onElementMouseOver(e, elementObj['data-onmouseover'])}
 
                 onMouseDown={e => this.onElementMouseDown(e, elementObj['data-onmousedown'])}
@@ -571,12 +572,12 @@ class SvgBox extends React.Component {
 
           { /* <!-- viewport transform --> */ }
 
-          <g transform="translate(150, 90)">
-            <g transform="matrix(0.707 0.409 -0.707 0.409 0 -0.816)">
-              <g transform="translate(-150, -80)">
-              </g>
-            </g>
-          </g>
+          {/* <g transform="translate(150, 90)"> */}
+          {/* <g transform="matrix(0.707 0.409 -0.707 0.409 0 -0.816)"> */}
+          {/* <g transform="translate(-150, -80)"> */}
+          {/* </g> */}
+          {/* </g> */}
+          {/* </g> */}
         </svg>
 
       </div>

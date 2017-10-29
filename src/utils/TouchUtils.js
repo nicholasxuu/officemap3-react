@@ -26,15 +26,15 @@ const TouchUtils = {
     }
 
     const touchFingerCount = e.touches.length;
-    for (let i = 0; i < touchFingerCount; i++) {
+    for (let i = 0; i < touchFingerCount; i += 1) {
       if (typeof e.touches[i].screenX !== 'undefined') {
         x += e.touches[i].screenX;
-        xCount++;
+        xCount += 1;
       }
 
       if (typeof e.touches[i].screenY !== 'undefined') {
         y += e.touches[i].screenY;
-        yCount++;
+        yCount += 1;
       }
     }
 
