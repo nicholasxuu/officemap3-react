@@ -2,7 +2,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import Immutable from 'immutable';
 import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import MapReducer from '../reducers/index';
 import { loadFromApi } from '../actions/api';
 import { goToLocation } from '../actions/map';

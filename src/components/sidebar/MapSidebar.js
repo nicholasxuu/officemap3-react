@@ -58,7 +58,7 @@ class MapSidebar extends React.Component {
             <Glyphicon glyph="menu-hamburger" />
           </Button>
 
-          <MapSearchBox/>
+          <MapSearchBox />
         </div>
         {(this.props.isLocationListHidden) ? '' : <MapLocationList />}
       </div>

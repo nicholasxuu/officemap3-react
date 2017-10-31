@@ -66,7 +66,6 @@ class ImageSelector extends React.Component {
           }}
       >
         <Button
-          componentClass="Button"
           onClick={() => this.goToMap(nextImageId)}
           style={{
             width: '100%',
@@ -82,7 +81,7 @@ class ImageSelector extends React.Component {
           onChange={this.onChange}
         >
           {imageList.map((image) => {
-            const { imageName, imageId } = image.imageName;
+            const { imageName, imageId } = image;
             return (
               <option
                 key={imageId}
@@ -95,7 +94,6 @@ class ImageSelector extends React.Component {
         </FormControl>
 
         <Button
-          componentClass="Button"
           onClick={() => this.goToMap(prevImageId)}
           style={{
             width: '100%',

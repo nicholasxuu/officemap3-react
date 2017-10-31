@@ -449,7 +449,10 @@ class SvgBox extends React.Component {
    */
   // eslint-disable-next-line arrow-body-style
   getFinalMatrix = () => {
-    return this.svgTransformLayer.getCTM();
+    if (this.svgTransformLayer) {
+      return this.svgTransformLayer.getCTM();
+    }
+    return [0, 0, 0, 0, 0, 0];
   };
 
   getFinalScaleMultiplier = () => {
@@ -461,7 +464,10 @@ class SvgBox extends React.Component {
    * @return {SVGMatrix}
    */
   getViewportMatrix = () => {
-    return this.svgBody.getCTM();
+    if (this.svgBody) {
+      return this.svgBody.getCTM();
+    }
+    return [0, 0, 0, 0, 0, 0];
   };
 
   getViewportScaleMultiplier = () => {
@@ -593,6 +599,7 @@ SvgBox.defaultProps = {
   }),
   transformMatrix: [1, 0, 0, 1, 0, 0],
   hoverTipEnabled: true,
+  selectedMapElementId: null,
 };
 
 SvgBox.propTypes = {
@@ -617,7 +624,7 @@ SvgBox.propTypes = {
   }),
   transformMatrix: PropTypes.arrayOf(PropTypes.number),
   hoverTipEnabled: PropTypes.bool,
-  selectedMapElementId: PropTypes.string.isRequired,
+  selectedMapElementId: PropTypes.string,
   // eslint-disable-next-line react/forbid-prop-types
   settings: PropTypes.object.isRequired,
 };

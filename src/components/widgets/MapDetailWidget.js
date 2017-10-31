@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import { Popover } from 'react-bootstrap';
-import MeetingRoomWidget from '../widgetBody/MeetingRoomWidget';
-import WorkspaceWidget from '../widgetBody/WorkspaceWidget';
 import '../../styles/widgets/mapDetailWidget.css';
 
 class MapDetailWidget extends React.Component {
@@ -32,26 +30,6 @@ class MapDetailWidget extends React.Component {
   };
 
   renderWidgetBody = () => {
-    if (this.props.locationObj.get('detail') &&
-      this.props.locationObj.get('category')
-    ) {
-      const locationCategory = this.props.locationObj.get('category');
-      if (locationCategory === '/meeting_room') {
-        return (
-          <MeetingRoomWidget
-            locationObj={this.props.locationObj}
-          />
-        );
-      } else if (locationCategory === '/workspace') {
-        return (
-          <WorkspaceWidget
-            locationObj={this.props.locationObj}
-          />
-        );
-      }
-    }
-
-
     return (
       <div dangerouslySetInnerHTML={{ __html: this.props.locationObj.get('description') }} />
     );
