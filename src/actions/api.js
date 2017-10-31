@@ -1,8 +1,7 @@
 // import fetch from 'isomorphic-fetch';
 import Immutable from 'immutable';
 import fetch from 'isomorphic-fetch';
-
-export const RECEIVE_MAP_DATA = 'RECEIVE_MAP_DATA';
+import { RECEIVE_MAP_DATA } from '../constants/actions';
 
 export const receiveMapData = (mapId, json) => ({
   type: RECEIVE_MAP_DATA,

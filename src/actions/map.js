@@ -2,19 +2,13 @@ import SvgShapeUtils from '../utils/SvgShapeUtils';
 import LocationUtils from '../utils/LocationUtils';
 import ImageDataUtils from '../utils/ImageDataUtils';
 import { deactivateSidebar } from './sidebar';
-
-export const SET_VIEWPORT_MATRIX = 'SET_VIEWPORT_MATRIX';
-export const MAP_CENTER_POSITION = 'MAP_CENTER_POSITION';
-export const MAP_SVG_PAN = 'MAP_SVG_PAN';
-export const MAP_SVG_ZOOM = 'MAP_SVG_ZOOM';
-export const MAP_SHOW_HOVERTIP = 'MAP_SHOW_HOVERTIP';
-export const MAP_MOVE_HOVERTIP = 'MAP_MOVE_HOVERTIP';
-export const MAP_HIDE_HOVERTIP = 'MAP_HIDE_HOVERTIP';
-export const MAP_SHOW_WIDGET = 'MAP_SHOW_WIDGET';
-export const MAP_MOVE_WIDGET = 'MAP_MOVE_WIDGET';
-export const MAP_HIDE_WIDGET = 'MAP_HIDE_WIDGET';
-export const MAP_SWITCH_IMAGE = 'MAP_SWITCH_IMAGE';
-export const RESET_PAN_ZOOM = 'RESET_PAN_ZOOM';
+import {
+  MAP_CENTER_POSITION,
+  MAP_HIDE_HOVERTIP, MAP_HIDE_WIDGET,
+  MAP_MOVE_HOVERTIP, MAP_MOVE_WIDGET, MAP_SHOW_HOVERTIP, MAP_SHOW_WIDGET, MAP_SVG_PAN, MAP_SVG_ZOOM, MAP_SWITCH_IMAGE,
+  RESET_PAN_ZOOM,
+  SET_VIEWPORT_MATRIX
+} from '../constants/actions';
 
 export const setViewportMatrix = viewportMatrix => ({
   type: SET_VIEWPORT_MATRIX,

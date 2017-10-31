@@ -1,7 +1,4 @@
-export const FILTER_LOCATION = 'FILTER_LOCATION';
-export const CLEAR_SEARCH_TEXT = 'CLEAR_SEARCH_TEXT';
-export const DEACTIVATE_SIDEBAR = 'DEACTIVATE_SIDEBAR';
-export const ACTIVATE_SIDEBAR = 'ACTIVATE_SIDEBAR';
+import { ACTIVATE_SIDEBAR, DEACTIVATE_SIDEBAR, FILTER_LOCATION } from '../constants/actions';
 
 export const filterLocation = searchText => ({
   type: FILTER_LOCATION,

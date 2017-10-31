@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { MAP_SHOW_WIDGET, MAP_MOVE_WIDGET, MAP_HIDE_WIDGET } from '../actions/map';
+import { MAP_SHOW_WIDGET, MAP_MOVE_WIDGET, MAP_HIDE_WIDGET } from '../constants/actions';
 
 const defaultWidgetData = Immutable.fromJS({
   locationObj: {},

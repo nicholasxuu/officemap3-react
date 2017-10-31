@@ -1,6 +1,5 @@
 import Immutable from 'immutable';
-import { RECEIVE_MAP_DATA } from '../actions/api';
-import { FILTER_LOCATION } from '../actions/sidebar';
+import { RECEIVE_MAP_DATA, FILTER_LOCATION } from '../constants/actions';
 
 /**
  *

@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { RECEIVE_MAP_DATA } from '../actions/api';
+import { RECEIVE_MAP_DATA } from '../constants/actions';
 
 const defaultSettings = Immutable.fromJS({
   defaultImage: null,

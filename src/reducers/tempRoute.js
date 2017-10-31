@@ -1,8 +1,7 @@
 /* eslint-env browser */
 
 // import Immutable from 'immutable';
-import { FILTER_LOCATION } from '../actions/sidebar';
-import { MAP_SHOW_WIDGET, MAP_HIDE_WIDGET } from '../actions/map';
+import { FILTER_LOCATION, MAP_SHOW_WIDGET, MAP_HIDE_WIDGET } from '../constants/actions';
 
 const setQuery = (queryParameter, queryValue) => {
   const newLocation = `${window.location.origin + window.location.pathname}?${queryParameter}=${queryValue}`;
