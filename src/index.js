@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './index.css';
 import Map from './components/main/MapContainer';
-import configureStore from './stores/mapStore';
+import configureStore from './store';
 
 const store = configureStore();
 
