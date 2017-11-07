@@ -105,7 +105,7 @@ MapDetailWidget.propTypes = {
   pagePosX: PropTypes.number,
   pagePosY: PropTypes.number,
   locationObj: ImmutablePropTypes.contains({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     name: PropTypes.string,
     image: PropTypes.string,
     description: PropTypes.string,
