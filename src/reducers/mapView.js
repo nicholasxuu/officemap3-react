@@ -1,7 +1,7 @@
 import Immutable from 'immutable';
 import {
   MAP_SVG_PAN, MAP_SVG_ZOOM, MAP_CENTER_POSITION, SET_VIEWPORT_MATRIX,
-  MAP_SWITCH_IMAGE, RESET_PAN_ZOOM, RECEIVE_MAP_DATA,
+  MAP_SWITCH_IMAGE, RESET_PAN_ZOOM, FETCH_MAP_DATA_SUCCESS,
 } from '../constants/actions';
 
 /**
@@ -36,7 +36,7 @@ const defaultMapView = Immutable.fromJS({
 
 const mapViewReducer = (state = defaultMapView, action) => {
   switch (action.type) {
-    case RECEIVE_MAP_DATA: {
+    case FETCH_MAP_DATA_SUCCESS: {
       if (!state.get('activeImageId')) {
         const defaultImage = action.settings.get('defaultImage');
         return state.set('activeImageId', defaultImage);

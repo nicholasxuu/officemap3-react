@@ -18,7 +18,7 @@ const DOMUtils = {
     }
 
     // set attribute one by one
-    Object.keys(cleanAttributes).each((key) => {
+    Object.keys(cleanAttributes).forEach((key) => {
       target.setAttribute(key, cleanAttributes[key]);
     });
   },

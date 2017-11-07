@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { RECEIVE_MAP_DATA, FILTER_LOCATION } from '../constants/actions';
+import { FETCH_MAP_DATA_SUCCESS, FILTER_LOCATION } from '../constants/actions';
 
 /**
  *
@@ -25,7 +25,7 @@ const searchLocationMatch = (searchText, locationObj) => {
 
 const locationDataReducer = (state = Immutable.fromJS([]), action) => {
   switch (action.type) {
-    case RECEIVE_MAP_DATA:
+    case FETCH_MAP_DATA_SUCCESS:
       return state.mergeDeep(action.locations);
     case FILTER_LOCATION:
       return state.map((locationObj) => {

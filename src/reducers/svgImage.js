@@ -1,11 +1,11 @@
 import Immutable from 'immutable';
-import { RECEIVE_MAP_DATA } from '../constants/actions';
+import { FETCH_MAP_DATA_SUCCESS } from '../constants/actions';
 
 export const LOCATION_SVG_ATTRIBUTES_KEY = 'svgAttributes';
 
 const svgImageReducer = (state = Immutable.fromJS({}), action) => {
   switch (action.type) {
-    case RECEIVE_MAP_DATA: {
+    case FETCH_MAP_DATA_SUCCESS: {
       const nextState = action.imageDataCollection;
 
       // build mapElementId => location map.

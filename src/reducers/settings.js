@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { RECEIVE_MAP_DATA } from '../constants/actions';
+import { FETCH_MAP_DATA_SUCCESS } from '../constants/actions';
 
 const defaultSettings = Immutable.fromJS({
   defaultImage: null,
@@ -8,7 +8,7 @@ const defaultSettings = Immutable.fromJS({
 
 const settingsReducer = (state = defaultSettings, action) => {
   switch (action.type) {
-    case RECEIVE_MAP_DATA:
+    case FETCH_MAP_DATA_SUCCESS:
       return defaultSettings.merge(action.settings);
     default:
   }
