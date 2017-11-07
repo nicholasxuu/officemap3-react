@@ -50,12 +50,6 @@ class MapDetailWidget extends React.Component {
       return null;
     }
 
-    const imageDom = this.renderImage();
-
-    const detailDom = this.renderWidgetBody();
-
-    console.log(this.props.locationObj.toJS());
-
     return (
       <Popover
         id="map-detail-widget"
@@ -65,31 +59,31 @@ class MapDetailWidget extends React.Component {
         positionTop={this.props.pagePosY}
         title={this.props.locationObj.get('name')}
         style={{
-            zIndex: 3,
-            /* make widget top and center */
-            transform: 'translateX(-50%) translateY(-100%)',
-          }}
+          zIndex: 3,
+          /* make widget top and center */
+          transform: 'translateX(-50%) translateY(-100%)',
+        }}
       >
         <div
           className="widget-container"
           style={{
-              display: 'flex',
-              flexFlow: 'row nowrap',
-              overflow: 'hidden',
-              width: '100%',
-              height: '100%',
-            }}
+            display: 'flex',
+            flexFlow: 'row nowrap',
+            overflow: 'hidden',
+            width: '100%',
+            height: '100%',
+          }}
         >
-          {imageDom}
+          {this.renderImage()}
           <div
             className="widget-detail"
             style={{
-                display: 'block',
-                overflow: 'hidden',
-                width: '200px',
-              }}
+              display: 'block',
+              overflow: 'hidden',
+              width: '200px',
+            }}
           >
-            {detailDom}
+            {this.renderWidgetBody()}
           </div>
         </div>
       </Popover>
@@ -111,9 +105,10 @@ MapDetailWidget.propTypes = {
   pagePosX: PropTypes.number,
   pagePosY: PropTypes.number,
   locationObj: ImmutablePropTypes.contains({
-    id: PropTypes.number,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string,
     image: PropTypes.string,
+    description: PropTypes.string,
   }),
 };
 

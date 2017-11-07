@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailWidget shown 1`] = `
+<div
+  className="map-detail-widget popover top"
+  id="map-detail-widget"
+  role="tooltip"
+  style={
+    Object {
+      "display": "block",
+      "left": 10,
+      "top": 20,
+      "transform": "translateX(-50%) translateY(-100%)",
+      "zIndex": 3,
+    }
+  }
+>
+  <div
+    className="arrow"
+    style={
+      Object {
+        "left": undefined,
+        "top": undefined,
+      }
+    }
+  />
+  <h3
+    className="popover-title"
+  >
+    locationName
+  </h3>
+  <div
+    className="popover-content"
+  >
+    <div
+      className="widget-container"
+      style={
+        Object {
+          "display": "flex",
+          "flexFlow": "row nowrap",
+          "height": "100%",
+          "overflow": "hidden",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="widget-image-container"
+      >
+        <img
+          alt="locationName"
+          className="widget-image"
+          src="image/location/sfas.jpg"
+          style={
+            Object {
+              "display": "block",
+              "maxHeight": "100%",
+              "objectFit": "cover",
+              "overflow": "hidden",
+              "width": "100px",
+            }
+          }
+        />
+      </div>
+      <div
+        className="widget-detail"
+        style={
+          Object {
+            "display": "block",
+            "overflow": "hidden",
+            "width": "200px",
+          }
+        }
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<div>I <b>am</b> HTML</div>",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

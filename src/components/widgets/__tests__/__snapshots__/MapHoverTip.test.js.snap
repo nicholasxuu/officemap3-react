@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HoverTip shown 1`] = `
+<div
+  className="in map-hover-tip tooltip top"
+  id="map-hover-tooltip"
+  role="tooltip"
+  style={
+    Object {
+      "left": 10,
+      "pointerEvents": "none",
+      "position": "fixed",
+      "textAlign": "center",
+      "top": 20,
+      "transform": "translateX(-50%) translateY(-100%)",
+      "zIndex": 2,
+    }
+  }
+>
+  <div
+    className="tooltip-arrow"
+    style={
+      Object {
+        "left": undefined,
+        "top": undefined,
+      }
+    }
+  />
+  <div
+    className="tooltip-inner"
+  >
+    locationName
+  </div>
+</div>
+`;

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Tooltip } from 'react-bootstrap';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 import '../../styles/widgets/mapHoverTip.css';
-import { Tooltip } from 'react-bootstrap';
 
 class MapHoverTip extends React.Component {
-
   render = () => {
     if (this.props.show === false) {
       return null;
@@ -26,17 +25,17 @@ class MapHoverTip extends React.Component {
         id="map-hover-tooltip"
         className="in map-hover-tip"
         placement="top"
-          style={{
-            left: this.props.clientPosX,
-            top: this.props.clientPosY,
-            position: 'fixed',
-            zIndex: 2,
-            /* prevent causing mouseLeave when mouse touch it */
-            pointerEvents: 'none',
-            textAlign: 'center',
-            /* make widget top and center */
-            transform: 'translateX(-50%) translateY(-100%)',
-          }}
+        style={{
+          left: this.props.clientPosX,
+          top: this.props.clientPosY,
+          position: 'fixed',
+          zIndex: 2,
+          textAlign: 'center',
+          /* prevent causing mouseLeave when mouse touch it */
+          pointerEvents: 'none',
+          /* make widget top and center */
+          transform: 'translateX(-50%) translateY(-100%)',
+        }}
       >
           {this.props.locationObj.get('name')}
       </Tooltip>

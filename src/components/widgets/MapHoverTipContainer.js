@@ -21,12 +21,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators({}, dispatch),
-  }
+  };
 };
 
 const MapHoverTipReducer = withRouter(connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(MapHoverTip));
 
 export default MapHoverTipReducer;
