@@ -1,7 +1,7 @@
 /* eslint-disable function-paren-newline */
 import Immutable from 'immutable';
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import DOMUtils from '../DOMUtils';
 
 test('setAttributes with undefined', () => {
