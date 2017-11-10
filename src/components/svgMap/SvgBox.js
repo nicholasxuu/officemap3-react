@@ -479,6 +479,10 @@ class SvgBox extends React.Component {
     this.props.actions.setViewportMatrix(this.getViewportMatrix());
   };
 
+  markActiveElement = (id) => {
+    this.state.activeElementId = id;
+  };
+
   /**
    * Render! mf
    */
@@ -541,13 +545,19 @@ class SvgBox extends React.Component {
 
             {this.props.imageData.get('elements').map((element) => {
               const opacity = element.get('opacity');
+              /**
+               * High performance mode:
+               * only for pan action, click doesn't need performance optimization.
+               * only no-render transparent elements.
+               * the element triggered touch action must be rendered,
+               *  otherwise onMouseMove will stop tracking, and rest of the move will be forgotten.
+               */
               if (highPerformanceMode === true &&
                 this.state.panning === true &&
-                (opacity === '0' || opacity === 0)
+                (opacity === '0' || opacity === 0) &&
+                element.get('id') !== this.state.activeElementId
               ) {
-                // render a dummy so onTouchMove doesn't fail.
-                // Even dummy perform significantly better
-                return <rect key={element.get('id')} />;
+                return null;
               }
 
               return (
@@ -566,6 +576,8 @@ class SvgBox extends React.Component {
                   onElementTouchStart={this.onElementTouchStart}
                   onElementTouchMove={this.onElementTouchMove}
                   onElementTouchEnd={this.onElementTouchEnd}
+
+                  markActiveElement={this.markActiveElement}
                 />
               );
             })}

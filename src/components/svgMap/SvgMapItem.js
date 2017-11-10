@@ -45,6 +45,7 @@ class SvgMapItem extends React.Component {
   };
 
   onElementTouchStart = (e) => {
+    this.props.markActiveElement(e.currentTarget.id);
     this.props.onElementTouchStart(e, this.rawElement['data-ontouchstart']);
   };
 
@@ -94,6 +95,7 @@ SvgMapItem.propTypes = {
   onElementTouchStart: PropTypes.func.isRequired,
   onElementTouchMove: PropTypes.func.isRequired,
   onElementTouchEnd: PropTypes.func.isRequired,
+  markActiveElement: PropTypes.func.isRequired,
 };
 
 export default SvgMapItem;
