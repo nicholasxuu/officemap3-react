@@ -33,7 +33,7 @@ class Map extends React.Component {
 
 const MapContainer = styled.div`
   display: flex;
-  flexFlow: row nowrap;
+  flex-flow: row nowrap;
   height: 100%;
   width: 100%;
 `;

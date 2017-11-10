@@ -20,7 +20,6 @@ const searchLocationMatch = (searchText, locationObj) => {
     return currScore;
   }, 0);
   return searchScore > tokens.length / 2;
-
 };
 
 const locationDataReducer = (state = Immutable.fromJS([]), action) => {

@@ -23,7 +23,7 @@ class MapBox extends React.Component {
 const MapBoxContainer = styled.div`
   height: 100%;
   width: 100%;
-  backgroundColor: #ffffff;
+  background-color: #ffffff;
   overflow: hidden;
   position: relative;
 `;

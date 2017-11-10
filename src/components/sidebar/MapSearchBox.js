@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import { InputGroup, FormControl } from 'react-bootstrap';
+import styled from 'styled-components';
 import '../../styles/sidebar/mapSearchBox.css';
 
 class MapSearchBox extends React.Component {
@@ -21,18 +22,8 @@ class MapSearchBox extends React.Component {
 
   render = () => {
     return (
-      <div
-        className="map-search-box"
-        style={{
-          width: '100%',
-        }}
-      >
-        <InputGroup
-          bsSize="large"
-          style={{
-            width: '100%',
-          }}
-        >
+      <MapSearchBoxContainer className="map-search-box">
+        <StyledInputGroup bsSize="large">
           <FormControl
             placeholder="Search"
             onChange={this.onChange}
@@ -40,11 +31,19 @@ class MapSearchBox extends React.Component {
             type="text"
             value={this.props.searchText}
           />
-        </InputGroup>
-      </div>
+        </StyledInputGroup>
+      </MapSearchBoxContainer>
     );
   }
 }
+
+const MapSearchBoxContainer = styled.div`
+  width: 100%;
+`;
+
+const StyledInputGroup = styled(InputGroup)`
+  width: 100%;
+`;
 
 MapSearchBox.defaultProps = {
   searchText: '',

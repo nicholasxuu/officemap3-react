@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 import { ListGroup } from 'react-bootstrap';
+import styled from 'styled-components';
 import '../../styles/sidebar/mapLocationList.css';
 import MapLocationListItem from './MapLocationListItemContainer';
 
@@ -11,28 +12,28 @@ class MapLocationList extends React.Component {
   // eslint-disable-next-line arrow-body-style
   render = () => {
     return (
-      <ListGroup
-        className="map-location-list"
-        style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          maxWidth: '100%',
-          width: '100%',
-          maxHeight: '100%',
-          height: 'auto',
-          overflow: 'scroll',
-        }}
-      >
+      <StyledListGroup className="map-location-list">
         {this.props.locations.map(locationObj =>
           (<MapLocationListItem
             key={locationObj.get('id')}
             locationObj={locationObj}
           />))
         }
-      </ListGroup>
+      </StyledListGroup>
     );
   }
 }
+
+const StyledListGroup = styled(ListGroup)`
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 100%;
+  width: 100%;
+  max-height: 100%;
+  height: auto;
+  overflow-y: scroll;
+  overflow-x: auto;
+`;
 
 MapLocationList.defaultProps = {
   locations: Immutable.List(),

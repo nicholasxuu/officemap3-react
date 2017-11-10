@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { ListGroupItem } from 'react-bootstrap';
+import styled from 'styled-components';
 import '../../styles/sidebar/mapLocationListItem.css';
 
 const imageWidth = 51;
@@ -15,15 +16,11 @@ class MapLocationListItem extends React.Component {
       return null;
     }
 
-    return (<img
+    return (<ListItemImg
       src={this.props.locationObj.get('image')}
       alt={this.props.locationObj.get('name')}
-      style={{
-        height: innerHeight,
-        width: imageWidth,
-        objectFit: 'cover',
-        objectPosition: 'center',
-      }}
+      height={innerHeight}
+      width={imageWidth}
     />);
   };
 
@@ -42,66 +39,77 @@ class MapLocationListItem extends React.Component {
       return null;
     }
 
-    const imageDom = this.renderImage();
-
     return (
-      <ListGroupItem
+      <StyledListGroupItem
         className="map-location-list-item"
-        style={{
-          display: 'flex',
-          flexFlow: 'row nowrap',
-          width: '100%',
-          padding: 0,
-          height: outerHeight,
-          minHeight: outerHeight,
-        }}
         onClick={() => this.props.actions.goToLocation(this.props.locationObj.get('mapElementId'), true)}
+        height={outerHeight}
       >
-        <span
+        <ItemImage
           className="item-image"
-          style={{
-            width: imageWidth,
-            minWidth: imageWidth,
-            height: innerHeight,
-            minHeight: innerHeight,
-          }}
+          width={imageWidth}
+          height={innerHeight}
         >
-          {imageDom}
-        </span>
-        <span
+          {this.renderImage()}
+        </ItemImage>
+        <ItemBody
           className="item-body"
-          style={{
-            display: 'flex',
-            flexFlow: 'column nowrap',
-            justifyContent: 'space-between',
-            padding: '7px 7px',
-            height: innerHeight,
-            width: '100%',
-          }}
+          height={innerHeight}
         >
-          <div
-            className="item-name"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'inherit',
-              fontWeight: 500,
-              lineHeight: 1.1,
-              color: 'inherit',
-            }}
-          >
+          <ItemName className="item-name">
             {this.props.locationObj.get('name')}
-          </div>
-          <div
-            className="item-detail"
-          >
+          </ItemName>
+          <ItemDetail className="item-detail">
             {this.props.locationObj.get('brief')}
-          </div>
-        </span>
+          </ItemDetail>
+        </ItemBody>
 
-      </ListGroupItem>
+      </StyledListGroupItem>
     );
   }
 }
+
+const ListItemImg = styled.img`
+  height: ${props => props.height}px;
+  width: ${props => props.width}px;
+  object-fit: cover;
+  object-position: center;
+`;
+
+const StyledListGroupItem = styled(ListGroupItem)`
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  padding: 0;
+  height: ${props => props.height}px;
+  min-height: ${props => props.height}px;
+`;
+
+const ItemImage = styled.span`
+  width: ${props => props.width}px;
+  min-width: ${props => props.width}px;
+  height: ${props => props.height}px;
+  min-height: ${props => props.height}px;
+`;
+
+const ItemBody = styled.span`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding: 7px 7px;
+  height: ${props => props.height}px;
+  width: 100%;
+`;
+
+const ItemName = styled.div`
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+`;
+
+const ItemDetail = styled.div``;
 
 MapLocationListItem.defaultProps = {
   locationObj: Immutable.fromJS({

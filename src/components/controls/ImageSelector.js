@@ -100,8 +100,8 @@ const ImageSelectorContainer = styled.div`
   right: 5px;
   bottom: 5px;
   width: 30%;
-  maxWidth: 150px;
-  minWidth: 100px;
+  max-width: 150px;
+  min-width: 100px;
 `;
 
 ImageSelector.defaultProps = {
