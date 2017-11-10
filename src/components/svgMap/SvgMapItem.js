@@ -5,54 +5,65 @@ import Immutable from 'immutable';
 import '../../styles/widgets/mapHoverTip.css';
 
 class SvgMapItem extends React.Component {
-  
+  constructor(props) {
+    super(props);
+
+    this.rawElement = this.props.element.toJS();
+  }
+
+  // eslint-disable-next-line arrow-body-style
+  shouldComponentUpdate = (nextProps) => {
+    return nextProps.element !== this.props.element;
+  };
+
+  componentDidUpdate = (nextProps) => {
+    this.rawElement = nextProps.element.toJS();
+    console.log('updated');
+  };
 
   onElementHoverStart = (e) => {
-    this.onElementHoverStart(e, this.props.element.get('data-onmouseenter'));
+    this.props.onElementHoverStart(e, this.rawElement['data-onmouseenter']);
   };
 
   onElementMouseMove = (e) => {
-    this.onElementMouseMove(e, this.props.element.get('data-onmousemove'));
+    this.props.onElementMouseMove(e, this.rawElement['data-onmousemove']);
   };
 
   onElementHoverEnd = (e) => {
-    this.onElementHoverEnd(e, this.props.element.get('data-onmouseleave'));
+    this.props.onElementHoverEnd(e, this.rawElement['data-onmouseleave']);
   };
 
   onElementMouseOver = (e) => {
-    this.onElementMouseOver(e, this.props.element.get('data-onmouseover'));
+    this.props.onElementMouseOver(e, this.rawElement['data-onmouseover']);
   };
 
   onElementMouseDown = (e) => {
-    this.onElementMouseDown(e, this.props.element.get('data-onmousedown'));
+    this.props.onElementMouseDown(e, this.rawElement['data-onmousedown']);
   };
 
   onElementMouseUp = (e) => {
-    this.onElementMouseUp(e, this.props.element.get('data-onmouseup'));
+    this.props.onElementMouseUp(e, this.rawElement['data-onmouseup']);
   };
 
   onElementTouchStart = (e) => {
-    this.onElementTouchStart(e, this.props.element.get('data-ontouchstart'));
+    this.props.onElementTouchStart(e, this.rawElement['data-ontouchstart']);
   };
 
   onElementTouchMove = (e) => {
-    this.onElementTouchMove(e, this.props.element.get('data-ontouchmove'));
+    this.props.onElementTouchMove(e, this.rawElement['data-ontouchmove']);
   };
 
   onElementTouchEnd = (e) => {
-    this.onElementTouchEnd(e, this.props.element.get('data-ontouchend'));
+    this.props.onElementTouchEnd(e, this.rawElement['data-ontouchend']);
   };
 
-
   render = () => {
-    const CurrentComponent = this.props.element.get('data-component-name');
-
-    const elementObj = this.props.element.toJS(); // for spreading svg element properties
+    const CurrentComponent = this.rawElement['data-component-name'];
 
     return (<CurrentComponent
-      key={elementObj.id}
+      key={this.rawElement.id}
 
-      {...elementObj}
+      {...this.rawElement}
 
       onMouseEnter={this.onElementHoverStart}
       onMouseMove={this.onElementMouseMove}
