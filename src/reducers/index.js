@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 import locationDataReducer from './locationData';
 import mapHoverDataReducer from './mapHoverData';
 import mapWidgetDataReducer from './mapWidgetData';
@@ -6,7 +7,6 @@ import svgImageReducer from './svgImage';
 import mapViewReducer from './mapView';
 import settingsReducer from './settings';
 import sidebarStatusReducer from './sidebar';
-import tempRoute from './tempRoute';
 
 const MapReducer = combineReducers({
   locations: locationDataReducer, // location data
@@ -16,7 +16,7 @@ const MapReducer = combineReducers({
   hoverData: mapHoverDataReducer, // hover tip
   settings: settingsReducer, // basic settings
   sidebar: sidebarStatusReducer, // sidebar status
-  tempRoute, // temporary router before react-router-redux v5 is available.
+  router: routerReducer, // react router redux
 });
 
 export default MapReducer;

@@ -44,7 +44,10 @@ const mapViewReducer = (state = defaultMapView, action) => {
       break;
     }
     case SET_VIEWPORT_MATRIX: {
-      return setViewportMatrix(state, action.viewportMatrix);
+      if (action.viewportMatrix) {
+        return setViewportMatrix(state, action.viewportMatrix);
+      }
+      break;
     }
     case MAP_SVG_PAN: {
       const currSvgDistanceX = state.getIn(['svgOffset', 'x']) + action.svgDistanceX;

@@ -3,17 +3,18 @@ import { createStore, applyMiddleware } from 'redux';
 import Immutable from 'immutable';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import { routerMiddleware } from 'react-router-redux';
 import MapReducer from './reducers/index';
 import { loadFromApi } from './actions/api';
-import { goToLocation } from './actions/map';
-import { filterLocation } from './actions/sidebar';
 
 const loggerMiddleware = createLogger();
 
 // local storage key constant
 const localStorageKey = 'officemapState';
 
-export default function configureStore() {
+export default function configureStore(history) {
+  const reactRouterMiddleware = routerMiddleware(history);
+
   /**
    * Try read from local storage for preloaded state
    */
@@ -21,18 +22,19 @@ export default function configureStore() {
     JSON.parse(localStorage.getItem(localStorageKey)) : {};
 
   // Convert to legal format, each item in list should be an immutable object
-  const preloadState = {};
   const noPersistedStateKeys = [
     'widgetData',
     'hoverData',
     'searchText',
     'sidebar',
   ];
-  for (const stateKey in persistedState) {
+  const preloadState = Object.keys(persistedState).reduce((currState, stateKey) => {
+    const nextState = currState;
     if (!noPersistedStateKeys.includes(stateKey)) {
-      preloadState[stateKey] = Immutable.fromJS(persistedState[stateKey]);
+      nextState[stateKey] = Immutable.fromJS(persistedState[stateKey]);
     }
-  }
+    return currState;
+  }, {});
 
   /**
    * Create store
@@ -40,8 +42,10 @@ export default function configureStore() {
   const store = createStore(
     MapReducer,
     preloadState,
-    applyMiddleware(thunkMiddleware,
+    applyMiddleware(
+      thunkMiddleware,
       // loggerMiddleware,
+      reactRouterMiddleware,
     ),
   );
 
@@ -62,26 +66,6 @@ export default function configureStore() {
    * Fetch API for latest data.
    */
   store.dispatch(loadFromApi());
-
-  /**
-   * Doing this before react-router-redux v5 is available.
-   * We need react-router-redux for action based routing.
-   * But current version of react-router-redux doesn't work with react-router v4 yet.
-   * Using react-router v3 will require a big refactor to "upgrade" to react-router v4.
-   */
-  const queryStr = window.location.search;
-  const query = {};
-  const a = (queryStr[0] === '?' ? queryStr.substr(1) : queryStr).split('&');
-  for (let i = 0; i < a.length; i += 1) {
-    const b = a[i].split('=');
-    query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
-  }
-
-  if (query.location) {
-    store.dispatch(goToLocation(query.location, true));
-  } else if (query.search) {
-    store.dispatch(filterLocation(query.search));
-  }
 
   return store;
 }
