@@ -7,7 +7,6 @@ import MapSearchBox from '../sidebar/MapSearchBoxContainer';
 import MapLocationList from '../sidebar/MapLocationListContainer';
 
 class MapSidebar extends React.Component {
-
   toggleLocationList = () => {
     if (this.props.searchText.length > 0) {
       // if has search text, work as clear search button.
@@ -16,8 +15,9 @@ class MapSidebar extends React.Component {
       // if no search text inside, work as list toggle button
       if (this.props.isLocationListHidden === true) {
         this.props.actions.activateSidebar();
+      } else {
+        this.props.actions.deactivateSidebar();
       }
-      this.props.actions.deactivateSidebar();
     }
   };
 

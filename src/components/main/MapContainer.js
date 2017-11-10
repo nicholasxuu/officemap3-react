@@ -1,14 +1,18 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { } from '../../actions/map';
 import Map from './Map';
+import { goToLocation } from '../../actions/map';
+import { filterLocation } from '../../actions/sidebar';
 
 // eslint-disable-next-line no-unused-vars
 const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ }, dispatch),
+  actions: bindActionCreators({
+    goToLocation,
+    filterLocation,
+  }, dispatch),
 });
 
 const MapContainer = connect(

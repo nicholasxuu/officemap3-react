@@ -1,9 +1,12 @@
 import { ACTIVATE_SIDEBAR, DEACTIVATE_SIDEBAR, FILTER_LOCATION } from '../constants/actions';
 
-export const filterLocation = searchText => ({
-  type: FILTER_LOCATION,
-  searchText,
-});
+export const filterLocation = (searchText) => {
+  // console.log('action: ' + searchText);
+  return {
+    type: FILTER_LOCATION,
+    searchText,
+  };
+};
 
 export const clearSearchText = () => ({
   type: FILTER_LOCATION,

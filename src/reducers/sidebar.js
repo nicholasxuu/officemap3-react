@@ -10,6 +10,7 @@ const defaultSidebarStatus = Immutable.fromJS({
 const sidebarStatusReducer = (state = defaultSidebarStatus, action) => {
   switch (action.type) {
     case FILTER_LOCATION: {
+      // console.log(`reducer: ${action.searchText}`);
       let nextState = state;
       if (action.searchText === '') {
         nextState = nextState.set('show', false);
