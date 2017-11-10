@@ -18,7 +18,6 @@ class SvgMapItem extends React.Component {
 
   componentDidUpdate = (nextProps) => {
     this.rawElement = nextProps.element.toJS();
-    console.log('updated');
   };
 
   onElementHoverStart = (e) => {
