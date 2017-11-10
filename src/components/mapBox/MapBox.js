@@ -1,6 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/mapBox.css';
 import SvgBox from '../svgMap/SvgBoxContainer';
@@ -11,25 +11,27 @@ class MapBox extends React.Component {
   // eslint-disable-next-line arrow-body-style
   render = () => {
     return (
-      <div
-        className="map-box"
-        style={{
-          height: '100%',
-          width: '100%',
-          backgroundColor: '#ffffff',
-          overflow: 'hidden',
-          position: 'relative',
-        }}
-      >
+      <MapBoxContainer className="map-box-container">
         <SvgBox />
         <MapHoverTip />
         <MapDetailWidget />
-      </div>
+      </MapBoxContainer>
     );
   }
 }
 
-MapBox.propTypes = {
+const MapBoxContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  backgroundColor: #ffffff;
+  overflow: hidden;
+  position: relative;
+`;
+
+Map.defaultProps = {
+};
+
+Map.propTypes = {
 };
 
 export default MapBox;
