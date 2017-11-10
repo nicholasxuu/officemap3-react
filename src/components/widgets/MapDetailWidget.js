@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import { Popover } from 'react-bootstrap';
+import styled from 'styled-components';
 import '../../styles/widgets/mapDetailWidget.css';
 
 class MapDetailWidget extends React.Component {
@@ -13,27 +14,18 @@ class MapDetailWidget extends React.Component {
 
     return (
       <div className="widget-image-container">
-        <img
+        <WidgetImage
           className="widget-image"
           src={this.props.locationObj.get('image')}
           alt={this.props.locationObj.get('name')}
-          style={{
-            display: 'block',
-            overflow: 'hidden',
-            width: '100px',
-            maxHeight: '100%',
-            objectFit: 'cover',
-          }}
         />
       </div>
     );
   };
 
-  renderWidgetBody = () => {
-    return (
-      <div dangerouslySetInnerHTML={{ __html: this.props.locationObj.get('description') }} />
-    );
-  };
+  renderWidgetBody = () => (
+    <div dangerouslySetInnerHTML={{ __html: this.props.locationObj.get('description') }} />
+  );
 
   render = () => {
     // if don't show, don't display
@@ -50,46 +42,55 @@ class MapDetailWidget extends React.Component {
       return null;
     }
 
+    // console.log(this.props.pagePosX, this.props.pagePosY);
+
     return (
-      <Popover
+      <StyledPopover
         id="map-detail-widget"
         className="map-detail-widget"
         placement="top"
         positionLeft={this.props.pagePosX}
         positionTop={this.props.pagePosY}
         title={this.props.locationObj.get('name')}
-        style={{
-          zIndex: 3,
-          /* make widget top and center */
-          transform: 'translateX(-50%) translateY(-100%)',
-        }}
       >
-        <div
-          className="widget-container"
-          style={{
-            display: 'flex',
-            flexFlow: 'row nowrap',
-            overflow: 'hidden',
-            width: '100%',
-            height: '100%',
-          }}
-        >
+        <WidgetContainer className="widget-container">
           {this.renderImage()}
-          <div
-            className="widget-detail"
-            style={{
-              display: 'block',
-              overflow: 'hidden',
-              width: '200px',
-            }}
-          >
+          <WidgetDetail className="widget-detail">
             {this.renderWidgetBody()}
-          </div>
-        </div>
-      </Popover>
+          </WidgetDetail>
+        </WidgetContainer>
+      </StyledPopover>
     );
   }
 }
+
+const StyledPopover = styled(Popover)`
+  zIndex: 3;
+  /* make widget top and center */
+  transform: translateX(-50%) translateY(-100%);
+`;
+
+const WidgetContainer = styled.div`
+  display: flex;
+  flexFlow: row nowrap;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+`;
+
+const WidgetDetail = styled.div`
+  display: block;
+  overflow: hidden;
+  width: 200px;
+`;
+
+const WidgetImage = styled.img`
+  display: block;
+  overflow: hidden;
+  width: 100px;
+  maxHeight: 100%;
+  objectFit: cover;
+`;
 
 MapDetailWidget.defaultProps = {
   show: false,
