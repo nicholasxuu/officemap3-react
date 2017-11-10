@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import queryParam from 'query-string';
+import styled from 'styled-components';
 // import * as ImmutablePropTypes from 'react-immutable-proptypes';
 import '../../styles/map.css';
 import MapBox from '../mapBox/MapBoxContainer';
@@ -22,21 +23,20 @@ class Map extends React.Component {
   };
 
   render = () => (
-    <div
-      className="map"
-      style={{
-          display: 'flex',
-          flexFlow: 'row nowrap',
-          height: '100%',
-          width: '100%',
-        }}
-    >
+    <MapContainer className="map-container">
       <MapSidebar />
       <MapBox />
       <ImageSelector />
-    </div>
+    </MapContainer>
   )
 }
+
+const MapContainer = styled.div`
+  display: flex;
+  flexFlow: row nowrap;
+  height: 100%;
+  width: 100%;
+`;
 
 Map.defaultProps = {
   location: {
