@@ -2,6 +2,7 @@ import SvgShapeUtils from '../utils/SvgShapeUtils';
 import LocationUtils from '../utils/LocationUtils';
 import ImageDataUtils from '../utils/ImageDataUtils';
 import { deactivateSidebar } from './sidebar';
+import { history } from '../components/main/BrowserRouter';
 import {
   MAP_CENTER_POSITION,
   MAP_HIDE_HOVERTIP, MAP_HIDE_WIDGET,
@@ -141,6 +142,13 @@ export const resetMap = () => (dispatch) => {
 export const goToLocation = (mapElementId, centerAtLocation = false) => (dispatch, getState) => {
   const currState = getState();
 
+  // validate mapElementId
+  const { imageId, element } =
+    ImageDataUtils.findElementByMapElementId(currState.imageDataCollection, mapElementId);
+  if (element === null) {
+    return;
+  }
+
   if (currState.widgetData.get('locationObj').isEmpty() ||
       currState.widgetData.getIn(['locationObj', 'mapElementId']) !== mapElementId
   ) {
@@ -150,11 +158,6 @@ export const goToLocation = (mapElementId, centerAtLocation = false) => (dispatc
   }
 
   // get element center svg pos
-  const { imageId, element } =
-      ImageDataUtils.findElementByMapElementId(currState.imageDataCollection, mapElementId);
-  if (element === null) {
-    return;
-  }
   const elementCenter = SvgShapeUtils.getShapeCenter(element);
 
   dispatch(switchImage(imageId));
@@ -168,4 +171,6 @@ export const goToLocation = (mapElementId, centerAtLocation = false) => (dispatc
   if (centerAtLocation === true) {
     dispatch(centerAtPoint(elementCenter));
   }
+
+  history.push({ search: `?location=${mapElementId}` });
 };
