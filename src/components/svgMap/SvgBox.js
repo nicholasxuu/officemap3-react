@@ -7,6 +7,7 @@ import ReactResizeDetector from 'react-resize-detector';
 import TouchUtils from '../../utils/TouchUtils';
 import DOMUtils from '../../utils/DOMUtils';
 import '../../styles/svgMap/svgBox.css';
+import SvgMapItem from './SvgMapItem';
 
 class SvgBox extends React.Component {
   constructor(props) {
@@ -488,7 +489,6 @@ class SvgBox extends React.Component {
     const viewBox = [0, 0, imageWidth, imageHeight].join(' ');
     const highPerformanceMode = this.props.settings.get('highPerformanceMode');
 
-    // todo: remove use of deprecated refs.
     return (
       <div
         className="svg-box svg-non-element"
@@ -540,37 +540,34 @@ class SvgBox extends React.Component {
             />
 
             {this.props.imageData.get('elements').map((element) => {
-              const opacity = element.get('opacity');
-              if (highPerformanceMode === true &&
-                this.state.panning === true &&
-                (opacity === '0' || opacity === 0)
-              ) {
-                // render a dummy so onTouchMove doesn't fail.
-                // Even dummy perform significantly better
-                return <rect key={element.get('id')} />;
-              }
+              // const opacity = element.get('opacity');
+              // if (highPerformanceMode === true &&
+              //   this.state.panning === true &&
+              //   (opacity === '0' || opacity === 0)
+              // ) {
+              //   // render a dummy so onTouchMove doesn't fail.
+              //   // Even dummy perform significantly better
+              //   return <rect key={element.get('id')} />;
+              // }
 
-              const CurrentComponent = element.get('data-component-name');
+              return (
+                <SvgMapItem
+                  element={element}
+                  key={element.get('id')}
 
-              const elementObj = element.toJS(); // for spreading svg element properties
+                  onElementHoverStart={this.onElementHoverStart}
+                  onElementMouseMove={this.onElementMouseMove}
+                  onElementHoverEnd={this.onElementHoverEnd}
+                  onElementMouseOver={this.onElementMouseOver}
 
-              return (<CurrentComponent
-                key={elementObj.id}
-                {...elementObj}
+                  onElementMouseDown={this.onElementMouseDown}
+                  onElementMouseUp={this.onElementMouseUp}
 
-                onMouseEnter={e => this.onElementHoverStart(e, elementObj['data-onmouseenter'])}
-                onMouseMove={e => this.onElementMouseMove(e, elementObj['data-onmousemove'])}
-                onMouseLeave={e => this.onElementHoverEnd(e, elementObj['data-onmouseleave'])}
-                onFocus={e => this.onElementMouseOver(e, elementObj['data-onmouseover'])}
-                onMouseOver={e => this.onElementMouseOver(e, elementObj['data-onmouseover'])}
-
-                onMouseDown={e => this.onElementMouseDown(e, elementObj['data-onmousedown'])}
-                onMouseUp={e => this.onElementMouseUp(e, elementObj['data-onmouseup'])}
-
-                onTouchStart={e => this.onElementTouchStart(e, elementObj['data-ontouchstart'])}
-                onTouchMove={e => this.onElementTouchMove(e, elementObj['data-ontouchmove'])}
-                onTouchEnd={e => this.onElementTouchEnd(e, elementObj['data-ontouchend'])}
-              />);
+                  onElementTouchStart={this.onElementTouchStart}
+                  onElementTouchMove={this.onElementTouchMove}
+                  onElementTouchEnd={this.onElementTouchEnd}
+                />
+              );
             })}
 
           </g>
