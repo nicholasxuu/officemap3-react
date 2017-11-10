@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { FormControl, Button } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
 import Immutable from 'immutable';
+import styled from 'styled-components';
+import GoToMapButton from './GoToMapButton';
 
 class ImageSelector extends React.Component {
   onChange = (e) => {
@@ -54,26 +56,14 @@ class ImageSelector extends React.Component {
     }
 
     return (
-      <div
-        className="image-selector"
-        style={{
-            position: 'fixed',
-            right: '5px',
-            bottom: '5px',
-            width: '30%',
-            maxWidth: '150px',
-            minWidth: '100px,',
-          }}
-      >
-        <Button
-          onClick={() => this.goToMap(nextImageId)}
-          style={{
-            width: '100%',
-          }}
+      <ImageSelectorContainer className="image-selector-container">
+        <GoToMapButton
+          targetImageId={nextImageId}
+          goToMap={this.goToMap}
           disabled={!nextImageId}
         >
           Up
-        </Button>
+        </GoToMapButton>
 
         <FormControl
           componentClass="select"
@@ -93,19 +83,26 @@ class ImageSelector extends React.Component {
           })}
         </FormControl>
 
-        <Button
-          onClick={() => this.goToMap(prevImageId)}
-          style={{
-            width: '100%',
-          }}
+        <GoToMapButton
+          targetImageId={prevImageId}
+          goToMap={this.goToMap}
           disabled={!prevImageId}
         >
           Down
-        </Button>
-      </div>
+        </GoToMapButton>
+      </ImageSelectorContainer>
     );
   }
 }
+
+const ImageSelectorContainer = styled.div`
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+  width: 30%;
+  maxWidth: 150px;
+  minWidth: 100px;
+`;
 
 ImageSelector.defaultProps = {
   imageList: Immutable.fromJS({}),
