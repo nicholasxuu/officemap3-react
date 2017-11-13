@@ -1,6 +1,6 @@
 // import Immutable from 'immutable';
 import Immutable from 'immutable';
-import { FILTER_LOCATION, DEACTIVATE_SIDEBAR, ACTIVATE_SIDEBAR } from '../constants/actions';
+import { FILTER_LOCATION, DEACTIVATE_SIDEBAR, ACTIVATE_SIDEBAR } from '../constants/ActionTypes';
 
 const defaultSidebarStatus = Immutable.fromJS({
   show: false,

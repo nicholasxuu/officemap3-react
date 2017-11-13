@@ -1,4 +1,4 @@
-import { ACTIVATE_SIDEBAR, DEACTIVATE_SIDEBAR, FILTER_LOCATION } from '../constants/actions';
+import { ACTIVATE_SIDEBAR, DEACTIVATE_SIDEBAR, FILTER_LOCATION } from '../constants/ActionTypes';
 
 export const filterLocation = (searchText) => {
   // console.log('action: ' + searchText);

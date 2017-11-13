@@ -1,5 +1,5 @@
 import * as actions from '../map';
-import * as types from '../../constants/actions';
+import * as types from '../../constants/ActionTypes';
 
 describe('test setViewportMatrix', () => {
   it('should create an action to set viewport matrix', () => {

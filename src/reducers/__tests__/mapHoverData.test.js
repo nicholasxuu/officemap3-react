@@ -1,7 +1,7 @@
 /* eslint-disable function-paren-newline */
 import Immutable from 'immutable';
 import reducer from '../mapHoverData';
-import * as types from '../../constants/actions';
+import * as types from '../../constants/ActionTypes';
 
 describe('mapHoverData reducer', () => {
   it('should return the initial state', () => {

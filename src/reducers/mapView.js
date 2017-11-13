@@ -2,7 +2,7 @@ import Immutable from 'immutable';
 import {
   MAP_SVG_PAN, MAP_SVG_ZOOM, MAP_CENTER_POSITION, SET_VIEWPORT_MATRIX,
   MAP_SWITCH_IMAGE, RESET_PAN_ZOOM, FETCH_MAP_DATA_SUCCESS,
-} from '../constants/actions';
+} from '../constants/ActionTypes';
 
 /**
  *

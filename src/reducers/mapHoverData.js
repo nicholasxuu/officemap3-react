@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { MAP_SHOW_HOVERTIP, MAP_HIDE_HOVERTIP, MAP_MOVE_HOVERTIP } from '../constants/actions';
+import { MAP_SHOW_HOVERTIP, MAP_HIDE_HOVERTIP, MAP_MOVE_HOVERTIP } from '../constants/ActionTypes';
 
 const defaultHoverData = Immutable.fromJS({
   locationObj: {},

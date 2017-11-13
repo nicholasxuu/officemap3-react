@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { FETCH_MAP_DATA_SUCCESS, FILTER_LOCATION } from '../constants/actions';
+import { FETCH_MAP_DATA_SUCCESS, FILTER_LOCATION } from '../constants/ActionTypes';
 
 /**
  *

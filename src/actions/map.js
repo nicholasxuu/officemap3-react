@@ -10,7 +10,7 @@ import {
   MAP_SHOW_HOVERTIP, MAP_SHOW_WIDGET,
   MAP_SVG_PAN, MAP_SVG_ZOOM, MAP_SWITCH_IMAGE,
   RESET_PAN_ZOOM, SET_VIEWPORT_MATRIX,
-} from '../constants/actions';
+} from '../constants/ActionTypes';
 
 export const setViewportMatrix = viewportMatrix => ({
   type: SET_VIEWPORT_MATRIX,

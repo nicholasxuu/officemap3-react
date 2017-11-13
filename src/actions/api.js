@@ -2,7 +2,7 @@ import Immutable from 'immutable';
 // import fetch from 'isomorphic-fetch';
 import 'isomorphic-fetch'; // use this so fetchMock works.
 
-import { FETCH_MAP_DATA_FAILURE, FETCH_MAP_DATA_REQUEST, FETCH_MAP_DATA_SUCCESS } from '../constants/actions';
+import { FETCH_MAP_DATA_FAILURE, FETCH_MAP_DATA_REQUEST, FETCH_MAP_DATA_SUCCESS } from '../constants/ActionTypes';
 
 export const fetchMapDataRequest = () => ({
   type: FETCH_MAP_DATA_REQUEST,

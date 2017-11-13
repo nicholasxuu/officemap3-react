@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import Immutable from 'immutable';
 import fetchMock from 'fetch-mock';
 import * as actions from '../api';
-import * as types from '../../constants/actions';
+import * as types from '../../constants/ActionTypes';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

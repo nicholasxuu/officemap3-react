@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { FETCH_MAP_DATA_SUCCESS } from '../constants/actions';
+import { FETCH_MAP_DATA_SUCCESS } from '../constants/ActionTypes';
 
 const defaultSettings = Immutable.fromJS({
   defaultImage: null,
