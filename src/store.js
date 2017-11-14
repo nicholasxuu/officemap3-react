@@ -1,10 +1,10 @@
 /* eslint-env browser */
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import Immutable from 'immutable';
 import thunkMiddleware from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogger } from 'redux-logger';
 import { routerMiddleware } from 'react-router-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import MapReducer from './reducers/index';
 import { loadFromApi } from './actions/api';
 import { NO_PERSISTED_STATE_KEYS } from './constants/Keys';
