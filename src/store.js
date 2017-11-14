@@ -1,11 +1,13 @@
 /* eslint-env browser */
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import Immutable from 'immutable';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { routerMiddleware } from 'react-router-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import MapReducer from './reducers/index';
 import { loadFromApi } from './actions/api';
+import { NO_PERSISTED_STATE_KEYS } from './constants/Keys';
 
 const loggerMiddleware = createLogger();
 
@@ -22,19 +24,29 @@ export default function configureStore(history) {
     JSON.parse(localStorage.getItem(localStorageKey)) : {};
 
   // Convert to legal format, each item in list should be an immutable object
-  const noPersistedStateKeys = [
-    'widgetData',
-    'hoverData',
-    'searchText',
-    'sidebar',
-  ];
+
   const preloadState = Object.keys(persistedState).reduce((currState, stateKey) => {
     const nextState = currState;
-    if (!noPersistedStateKeys.includes(stateKey)) {
+    if (!NO_PERSISTED_STATE_KEYS.includes(stateKey)) {
       nextState[stateKey] = Immutable.fromJS(persistedState[stateKey]);
     }
     return currState;
   }, {});
+
+  // redux-devtools
+  const composeEnhancers = composeWithDevTools({
+    // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+  });
+
+  /* eslint-disable function-paren-newline */
+  const enhancer = composeEnhancers(
+    applyMiddleware(
+      thunkMiddleware,
+      reactRouterMiddleware,
+      // loggerMiddleware,
+    ),
+  );
+  /* eslint-enable */
 
   /**
    * Create store
@@ -42,11 +54,7 @@ export default function configureStore(history) {
   const store = createStore(
     MapReducer,
     preloadState,
-    applyMiddleware(
-      thunkMiddleware,
-      // loggerMiddleware,
-      reactRouterMiddleware,
-    ),
+    enhancer,
   );
 
   /**
