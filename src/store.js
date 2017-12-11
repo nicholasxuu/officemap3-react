@@ -63,7 +63,6 @@ export default function configureStore(history) {
    */
   store.subscribe(throttle(() => {
     // throttle local storage save action to at least 10 seconds
-    console.log('saved');
     localStorage.setItem(localStorageKey, JSON.stringify(store.getState()));
   }, 5000));
 
