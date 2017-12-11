@@ -4,6 +4,7 @@ import Immutable from 'immutable';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogger } from 'redux-logger';
+import throttle from 'lodash/throttle';
 import { routerMiddleware } from 'react-router-redux';
 import MapReducer from './reducers/index';
 import { loadFromApi } from './actions/api';
@@ -60,15 +61,11 @@ export default function configureStore(history) {
   /**
    * Save to localstorage once every 5 seconds
    */
-  let lastLocalStorageSaveTime = 0;
-  store.subscribe(() => {
+  store.subscribe(throttle(() => {
     // throttle local storage save action to at least 10 seconds
-    const now = Date.now();
-    if (now - lastLocalStorageSaveTime > 5000) {
-      localStorage.setItem(localStorageKey, JSON.stringify(store.getState()));
-      lastLocalStorageSaveTime = now;
-    }
-  });
+    console.log('saved');
+    localStorage.setItem(localStorageKey, JSON.stringify(store.getState()));
+  }, 5000));
 
   /**
    * Fetch API for latest data.
