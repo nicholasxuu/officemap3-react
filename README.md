@@ -6,7 +6,7 @@ current version: 3.0.1
 
 ## Demo
 
-[officemap.xusf.xyz](http://officemap.xusf.xyz)
+[officemap.xusf.xyz](https://officemap.xusf.xyz)
 
 ## Getting Started
 
